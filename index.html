@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MK Freelance Studio — Digital Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0C0C0C;
+      --white: #D7E2EA;
+      --accent1: #B600A8;
+      --accent2: #7621B0;
+      --grad: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+      --btn-grad: linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%);
+    }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body { background: var(--bg); font-family: 'Kanit', sans-serif; color: var(--white); overflow-x: hidden; cursor: none; }
+
+    /* Custom Cursor */
+    #cursor { position: fixed; width: 12px; height: 12px; background: var(--white); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s; }
+    #cursor-ring { position: fixed; width: 36px; height: 36px; border: 1.5px solid rgba(215,226,234,0.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: left 0.12s ease, top 0.12s ease, width 0.3s, height 0.3s; }
+    body:hover #cursor { opacity: 1; }
+
+    /* Gradient Text */
+    .grad-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Contact Button */
+    .btn-contact {
+      background: var(--btn-grad);
+      border-radius: 999px;
+      border: none;
+      outline: 2px solid white;
+      outline-offset: -3px;
+      box-shadow: 0 4px 4px rgba(181,1,167,0.25), inset 4px 4px 12px #7721B1;
+      color: white;
+      font-family: 'Kanit', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 14px 36px;
+      font-size: clamp(0.7rem, 1.2vw, 0.95rem);
+      cursor: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-contact:hover { transform: scale(1.05); box-shadow: 0 6px 24px rgba(181,1,167,0.5), inset 4px 4px 12px #7721B1; }
+
+    /* ===== NAVBAR ===== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 24px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: linear-gradient(180deg, rgba(12,12,12,0.95) 0%, transparent 100%);
+      backdrop-filter: blur(2px);
+      animation: fadeDown 0.8s ease both;
+    }
+    @keyframes fadeDown { from { opacity:0; transform: translateY(-20px); } to { opacity:1; transform: translateY(0); } }
+    .nav-logo { font-size: clamp(0.85rem, 1.5vw, 1.1rem); font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--white); text-decoration: none; }
+    .nav-links { display: flex; gap: clamp(16px, 3vw, 48px); }
+    .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; font-size: clamp(0.7rem, 1.1vw, 1rem); opacity: 0.85; transition: opacity 0.2s; cursor: none; }
+    .nav-links a:hover { opacity: 0.5; }
+    @media(max-width:600px) { #navbar { padding: 16px 20px; } .nav-links { gap: 12px; } }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+    .hero-spacer { flex: 1; }
+    .hero-heading-wrap { overflow: hidden; margin-top: clamp(60px, 8vw, 100px); }
+    .hero-h1 {
+      font-size: clamp(10vw, 17.5vw, 22vw);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -0.02em; line-height: 0.9;
+      white-space: nowrap; width: 100%;
+      animation: fadeUp 1s 0.15s ease both;
+    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    .hero-bottom {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      padding-bottom: clamp(24px, 4vw, 44px);
+      position: relative; z-index: 5;
+    }
+    .hero-desc {
+      color: var(--white); font-weight: 300; text-transform: uppercase;
+      letter-spacing: 0.08em; line-height: 1.4;
+      font-size: clamp(0.65rem, 1.2vw, 1rem);
+      max-width: clamp(140px, 20vw, 240px);
+      animation: fadeIn 0.8s 0.35s ease both;
+    }
+    .hero-btn-wrap { animation: fadeIn 0.8s 0.5s ease both; }
+
+    .hero-portrait {
+      position: absolute; left: 50%; bottom: 0;
+      transform: translateX(-50%);
+      width: clamp(220px, 35vw, 520px);
+      z-index: 4;
+      animation: fadeUp 1s 0.6s ease both;
+      transition: transform 0.3s ease-out;
+    }
+    .hero-portrait img { width: 100%; display: block; }
+
+    /* Stars bg */
+    #stars-canvas { position: absolute; inset: 0; z-index: 1; opacity: 0.5; }
+
+    /* ===== MARQUEE ===== */
+    #marquee { background: var(--bg); padding: clamp(80px, 12vw, 160px) 0 40px; overflow: hidden; }
+    .marquee-row { display: flex; gap: 12px; will-change: transform; margin-bottom: 12px; }
+    .marquee-img {
+      width: 420px; height: 270px; flex-shrink: 0;
+      border-radius: 16px; object-fit: cover;
+      background: #1a1a1a;
+    }
+
+    /* ===== ABOUT ===== */
+    #about {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: clamp(60px, 8vw, 120px) clamp(20px, 5vw, 60px);
+      position: relative; text-align: center;
+    }
+    .about-deco { position: absolute; pointer-events: none; }
+    .about-deco img { width: 100%; display: block; }
+    .about-tl { width: clamp(80px, 14vw, 210px); top: 4%; left: clamp(10px, 3vw, 60px); }
+    .about-bl { width: clamp(70px, 12vw, 180px); bottom: 8%; left: clamp(20px, 8vw, 140px); }
+    .about-tr { width: clamp(80px, 14vw, 210px); top: 4%; right: clamp(10px, 3vw, 60px); }
+    .about-br { width: clamp(90px, 15vw, 220px); bottom: 8%; right: clamp(20px, 8vw, 140px); }
+
+    .about-heading {
+      font-size: clamp(3rem, 12vw, 160px);
+      font-weight: 900; text-transform: uppercase;
+      line-height: 1; letter-spacing: -0.02em;
+      margin-bottom: clamp(32px, 5vw, 60px);
+    }
+    .about-text {
+      color: var(--white); font-weight: 500; text-align: center;
+      line-height: 1.7; max-width: 560px;
+      font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+      margin-bottom: clamp(48px, 7vw, 80px);
+    }
+    .about-contact-info {
+      display: flex; gap: clamp(20px, 4vw, 48px);
+      flex-wrap: wrap; justify-content: center;
+      margin-bottom: clamp(36px, 5vw, 60px);
+    }
+    .contact-chip {
+      display: flex; align-items: center; gap: 8px;
+      font-size: clamp(0.7rem, 1.2vw, 0.95rem);
+      font-weight: 400; color: rgba(215,226,234,0.7);
+      letter-spacing: 0.05em;
+    }
+    .contact-chip svg { opacity: 0.6; flex-shrink: 0; }
+
+    /* ===== SERVICES ===== */
+    #services {
+      background: #fff; color: #0C0C0C;
+      border-radius: clamp(40px, 5vw, 60px) clamp(40px, 5vw, 60px) 0 0;
+      padding: clamp(60px, 8vw, 120px) clamp(20px, 5vw, 60px);
+    }
+    .services-heading {
+      font-size: clamp(3rem, 12vw, 160px);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -0.02em; text-align: center;
+      color: #0C0C0C; margin-bottom: clamp(48px, 7vw, 100px);
+    }
+    .services-list { max-width: 900px; margin: 0 auto; }
+    .service-item {
+      display: flex; align-items: flex-start; gap: clamp(16px, 3vw, 40px);
+      padding: clamp(24px, 3vw, 44px) 0;
+      border-top: 1px solid rgba(12,12,12,0.15);
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .service-item.visible { opacity: 1; transform: translateY(0); }
+    .service-item:last-child { border-bottom: 1px solid rgba(12,12,12,0.15); }
+    .service-num {
+      font-size: clamp(3rem, 9vw, 130px);
+      font-weight: 900; color: #0C0C0C;
+      line-height: 0.85; flex-shrink: 0;
+      width: clamp(70px, 12vw, 160px);
+    }
+    .service-content { padding-top: 8px; }
+    .service-name {
+      font-size: clamp(1rem, 2.2vw, 2rem);
+      font-weight: 500; text-transform: uppercase;
+      color: #0C0C0C; margin-bottom: 8px;
+    }
+    .service-desc {
+      font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+      font-weight: 300; color: rgba(12,12,12,0.6);
+      line-height: 1.6; max-width: 600px;
+    }
+
+    /* ===== PROJECTS ===== */
+    #projects {
+      background: var(--bg);
+      border-radius: clamp(40px,5vw,60px) clamp(40px,5vw,60px) 0 0;
+      margin-top: clamp(-40px,-4vw,-50px);
+      padding: clamp(60px,8vw,120px) clamp(20px,5vw,60px);
+      position: relative; z-index: 2;
+    }
+    .projects-heading {
+      font-size: clamp(3rem,12vw,160px);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -0.02em; text-align: center;
+      margin-bottom: clamp(48px,7vw,100px);
+    }
+    .project-card {
+      border: 2px solid var(--white);
+      border-radius: clamp(30px,4vw,50px);
+      background: var(--bg);
+      padding: clamp(20px,3vw,36px);
+      margin-bottom: 32px;
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .project-card.visible { opacity: 1; transform: translateY(0); }
+    .project-top {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 16px;
+      margin-bottom: clamp(16px,3vw,32px);
+    }
+    .project-left { display: flex; align-items: center; gap: clamp(12px,2vw,24px); flex-wrap: wrap; }
+    .project-num {
+      font-size: clamp(2.5rem,8vw,110px);
+      font-weight: 900; line-height: 0.85;
+    }
+    .project-meta { display: flex; flex-direction: column; gap: 4px; }
+    .project-category {
+      font-size: clamp(0.65rem,1vw,0.85rem);
+      font-weight: 500; color: rgba(215,226,234,0.5);
+      text-transform: uppercase; letter-spacing: 0.15em;
+    }
+    .project-name {
+      font-size: clamp(1.1rem,2.5vw,2.2rem);
+      font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em;
+      color: var(--white);
+    }
+    .btn-live {
+      border: 2px solid var(--white); border-radius: 999px;
+      background: transparent; color: var(--white);
+      font-family: 'Kanit', sans-serif; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.15em;
+      padding: 10px 28px; font-size: clamp(0.65rem,1vw,0.85rem);
+      cursor: none; transition: background 0.2s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-live:hover { background: rgba(215,226,234,0.1); }
+    .project-images {
+      display: grid; grid-template-columns: 2fr 3fr; gap: clamp(8px,1.5vw,16px);
+    }
+    .project-col1 { display: flex; flex-direction: column; gap: clamp(8px,1.5vw,16px); }
+    .proj-img {
+      width: 100%; object-fit: cover;
+      border-radius: clamp(20px,3vw,40px); background: #1a1a1a; display: block;
+    }
+    .proj-img-top { height: clamp(120px,16vw,230px); }
+    .proj-img-bot { height: clamp(150px,22vw,340px); }
+    .proj-img-tall { height: 100%; min-height: clamp(290px,40vw,590px); }
+    @media(max-width:600px) {
+      .project-images { grid-template-columns: 1fr; }
+      .proj-img-tall { min-height: 200px; height: 200px; }
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    #contact {
+      background: #fff; color: #0C0C0C;
+      border-radius: clamp(40px,5vw,60px) clamp(40px,5vw,60px) 0 0;
+      padding: clamp(60px,8vw,120px) clamp(20px,5vw,60px);
+      margin-top: clamp(-40px,-4vw,-50px);
+      position: relative; z-index: 3;
+    }
+    .contact-heading {
+      font-size: clamp(3rem,12vw,140px);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -0.02em; text-align: center;
+      color: #0C0C0C; margin-bottom: 16px;
+    }
+    .contact-sub {
+      text-align: center; font-size: clamp(0.85rem,1.5vw,1.1rem);
+      font-weight: 300; color: rgba(12,12,12,0.55);
+      margin-bottom: clamp(40px,6vw,80px); letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .contact-grid {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(32px,5vw,80px);
+      align-items: start;
+    }
+    @media(max-width:768px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-info-block { display: flex; flex-direction: column; gap: 28px; }
+    .info-item { display: flex; gap: 14px; align-items: flex-start; }
+    .info-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: #0C0C0C; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .info-icon svg { color: var(--white); }
+    .info-label {
+      font-size: 0.7rem; font-weight: 500; text-transform: uppercase;
+      letter-spacing: 0.15em; color: rgba(12,12,12,0.45); margin-bottom: 3px;
+    }
+    .info-val { font-size: clamp(0.85rem,1.3vw,1rem); font-weight: 500; color: #0C0C0C; line-height: 1.5; }
+    .info-val a { color: inherit; text-decoration: none; }
+    .info-val a:hover { text-decoration: underline; }
+
+    /* Form */
+    .contact-form { display: flex; flex-direction: column; gap: 18px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media(max-width:500px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label {
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.12em; color: rgba(12,12,12,0.55);
+    }
+    .form-input, .form-select, .form-textarea {
+      border: 1.5px solid rgba(12,12,12,0.15);
+      border-radius: 12px; padding: 12px 16px;
+      font-family: 'Kanit', sans-serif;
+      font-size: clamp(0.85rem,1.3vw,0.95rem);
+      color: #0C0C0C; background: #f8f8f8;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--accent2);
+      box-shadow: 0 0 0 3px rgba(118,33,176,0.1);
+    }
+    .form-textarea { resize: none; height: 100px; }
+    .form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230C0C0C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+    .services-checkboxes {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; margin-top: 4px;
+    }
+    @media(max-width:500px) { .services-checkboxes { grid-template-columns: 1fr; } }
+    .checkbox-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: clamp(0.75rem,1.2vw,0.88rem);
+      font-weight: 400; color: rgba(12,12,12,0.75);
+      cursor: none;
+    }
+    .checkbox-item input[type="checkbox"] {
+      width: 16px; height: 16px; border-radius: 4px;
+      accent-color: var(--accent2); cursor: none; flex-shrink: 0;
+    }
+
+    .btn-submit {
+      background: var(--btn-grad);
+      border-radius: 999px; border: none;
+      outline: 2px solid #0C0C0C; outline-offset: -3px;
+      box-shadow: 0 4px 4px rgba(181,1,167,0.25), inset 4px 4px 12px #7721B1;
+      color: white; font-family: 'Kanit', sans-serif;
+      font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.2em; padding: 16px 48px;
+      font-size: clamp(0.8rem,1.2vw,1rem);
+      cursor: none; transition: transform 0.2s, box-shadow 0.2s;
+      width: 100%; margin-top: 8px;
+    }
+    .btn-submit:hover { transform: scale(1.03); box-shadow: 0 8px 32px rgba(181,1,167,0.4), inset 4px 4px 12px #7721B1; }
+
+    /* Success message */
+    .form-success {
+      display: none; text-align: center; padding: 32px;
+      background: linear-gradient(135deg, #f0e8ff, #ffe8fb);
+      border-radius: 20px; border: 1.5px solid rgba(118,33,176,0.2);
+    }
+    .form-success h3 { font-size: 1.5rem; font-weight: 700; color: #0C0C0C; margin-bottom: 8px; }
+    .form-success p { font-size: 0.9rem; color: rgba(12,12,12,0.6); }
+    .form-success .checkmark {
+      width: 56px; height: 56px; background: var(--btn-grad);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; font-size: 1.5rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0C0C0C; padding: clamp(40px,6vw,80px) clamp(20px,5vw,60px) clamp(24px,4vw,48px);
+      text-align: center; position: relative; z-index: 4;
+    }
+    .footer-logo {
+      font-size: clamp(1.2rem,3vw,2.2rem);
+      font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 20px; display: block;
+    }
+    .footer-links { display: flex; gap: clamp(16px,3vw,40px); justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .footer-links a { color: rgba(215,226,234,0.6); text-decoration: none; font-size: clamp(0.7rem,1.1vw,0.9rem); text-transform: uppercase; letter-spacing: 0.12em; transition: color 0.2s; cursor: none; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: clamp(0.65rem,1vw,0.8rem); color: rgba(215,226,234,0.3); letter-spacing: 0.08em; text-transform: uppercase; }
+    .footer-divider { width: 60px; height: 1px; background: rgba(215,226,234,0.15); margin: 0 auto 24px; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(215,226,234,0.2); border-radius: 2px; }
+
+    /* Loading screen */
+    #loader {
+      position: fixed; inset: 0; background: var(--bg); z-index: 10000;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.8s ease;
+    }
+    .loader-text {
+      font-size: clamp(1.5rem,5vw,3rem); font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      overflow: hidden;
+    }
+    .loader-fill {
+      width: 0%; height: 2px;
+      background: var(--btn-grad);
+      margin-top: 16px; border-radius: 1px;
+      transition: width 1.2s ease;
+      max-width: 280px;
+    }
+    #loader.hide { opacity: 0; pointer-events: none; }
+  </style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-text grad-text">MK Studio</div>
+  <div class="loader-fill" id="loader-bar"></div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">MK Freelance Studio</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <canvas id="stars-canvas"></canvas>
+  <div class="hero-spacer"></div>
+  <div class="hero-heading-wrap">
+    <h1 class="hero-h1 grad-text">MK Freelance Studio</h1>
+  </div>
+  <div style="flex:1;"></div>
+  <div class="hero-bottom">
+    <p class="hero-desc">A Digital Agency Driven By Crafting Striking And Unforgettable Projects</p>
+    <div class="hero-btn-wrap">
+      <a href="#contact" class="btn-contact">Book a Call</a>
+    </div>
+  </div>
+  <div class="hero-portrait" id="hero-portrait">
+    <img src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png" alt="MK Studio" loading="lazy">
+  </div>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<section id="marquee">
+  <div class="marquee-row" id="row1" style="will-change:transform;">
+    <!-- Row 1 images x3 for seamless loop -->
+  </div>
+  <div class="marquee-row" id="row2" style="will-change:transform;">
+    <!-- Row 2 images x3 for seamless loop -->
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <!-- Decorative corners -->
+  <div class="about-deco about-tl">
+    <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png" alt="">
+  </div>
+  <div class="about-deco about-bl">
+    <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png" alt="">
+  </div>
+  <div class="about-deco about-tr">
+    <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png" alt="">
+  </div>
+  <div class="about-deco about-br">
+    <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png" alt="">
+  </div>
+
+  <h2 class="about-heading grad-text reveal">About Us</h2>
+  <p class="about-text reveal">
+    MK Freelance Studio is a full-service digital agency based in Saharanpur, India. With expertise spanning web design, SEO, social media marketing, paid advertising, and cutting-edge 3D web experiences — we help businesses stand out and dominate their digital presence. Let&apos;s build something extraordinary together!
+  </p>
+  <div class="about-contact-info reveal">
+    <div class="contact-chip">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.61 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6.01 6.01l1.32-1.32a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
+      +91 9634950165
+    </div>
+    <div class="contact-chip">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Kaifsiddiqui28637@gmail.com
+    </div>
+    <div class="contact-chip">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Saharanpur, U.P., India
+    </div>
+  </div>
+  <a href="#contact" class="btn-contact reveal">Get In Touch</a>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <h2 class="services-heading">Services</h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-num">01</div>
+      <div class="service-content">
+        <div class="service-name">Website Designing</div>
+        <div class="service-desc">Clean, modern, conversion-focused websites crafted with precision — from landing pages to full business portals with stunning UI/UX.</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">02</div>
+      <div class="service-content">
+        <div class="service-name">SEO — Search Engine Optimization</div>
+        <div class="service-desc">Rank higher on Google with technical SEO, on-page optimization, keyword research, and link-building strategies that drive organic traffic.</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">03</div>
+      <div class="service-content">
+        <div class="service-name">Social Media Marketing (SMM)</div>
+        <div class="service-desc">Build a powerful brand presence across all platforms with strategic content planning, community management, and viral-worthy creatives.</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">04</div>
+      <div class="service-content">
+        <div class="service-name">Meta Ads (Facebook & Instagram)</div>
+        <div class="service-desc">High-ROI Meta advertising campaigns with precise audience targeting, compelling ad creatives, and data-driven optimization for maximum conversions.</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">05</div>
+      <div class="service-content">
+        <div class="service-name">Google Ads</div>
+        <div class="service-desc">Dominate Google Search and Display networks with expertly managed PPC campaigns, smart bidding strategies, and performance-driven ad copy.</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">06</div>
+      <div class="service-content">
+        <div class="service-name">LinkedIn Ads</div>
+        <div class="service-desc">Reach decision-makers and B2B audiences with targeted LinkedIn campaigns — Sponsored Content, Lead Gen Forms, and InMail that convert.</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">07</div>
+      <div class="service-content">
+        <div class="service-name">3D Websites</div>
+        <div class="service-desc">Immersive, next-generation 3D web experiences with Three.js and WebGL — interactive product showcases, virtual tours, and jaw-dropping animations.</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">08</div>
+      <div class="service-content">
+        <div class="service-name">Full Digital Marketing</div>
+        <div class="service-desc">End-to-end digital marketing strategies combining SEO, paid ads, email, social, and content to create a unified growth engine for your brand.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <h2 class="projects-heading grad-text reveal">Projects</h2>
+
+  <!-- Project 01 -->
+  <div class="project-card reveal">
+    <div class="project-top">
+      <div class="project-left">
+        <div class="project-num grad-text">01</div>
+        <div class="project-meta">
+          <span class="project-category">Client Project</span>
+          <span class="project-name">Nextlevel Studio</span>
+        </div>
+      </div>
+      <a href="#" class="btn-live">Live Project →</a>
+    </div>
+    <div class="project-images">
+      <div class="project-col1">
+        <img class="proj-img proj-img-top" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85" alt="Nextlevel Studio 1" loading="lazy">
+        <img class="proj-img proj-img-bot" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85" alt="Nextlevel Studio 2" loading="lazy">
+      </div>
+      <div>
+        <img class="proj-img proj-img-tall" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85" alt="Nextlevel Studio 3" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 02 -->
+  <div class="project-card reveal" style="transition-delay:0.15s;">
+    <div class="project-top">
+      <div class="project-left">
+        <div class="project-num grad-text">02</div>
+        <div class="project-meta">
+          <span class="project-category">Personal Project</span>
+          <span class="project-name">Aura Brand Identity</span>
+        </div>
+      </div>
+      <a href="#" class="btn-live">Live Project →</a>
+    </div>
+    <div class="project-images">
+      <div class="project-col1">
+        <img class="proj-img proj-img-top" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85" alt="Aura 1" loading="lazy">
+        <img class="proj-img proj-img-bot" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85" alt="Aura 2" loading="lazy">
+      </div>
+      <div>
+        <img class="proj-img proj-img-tall" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85" alt="Aura 3" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 03 -->
+  <div class="project-card reveal" style="transition-delay:0.3s;">
+    <div class="project-top">
+      <div class="project-left">
+        <div class="project-num grad-text">03</div>
+        <div class="project-meta">
+          <span class="project-category">Client Project</span>
+          <span class="project-name">Solaris Digital</span>
+        </div>
+      </div>
+      <a href="#" class="btn-live">Live Project →</a>
+    </div>
+    <div class="project-images">
+      <div class="project-col1">
+        <img class="proj-img proj-img-top" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85" alt="Solaris 1" loading="lazy">
+        <img class="proj-img proj-img-bot" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85" alt="Solaris 2" loading="lazy">
+      </div>
+      <div>
+        <img class="proj-img proj-img-tall" src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85" alt="Solaris 3" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT FORM ===== -->
+<section id="contact">
+  <h2 class="contact-heading">Let&apos;s Talk</h2>
+  <p class="contact-sub">Book a free consultation — we&apos;ll respond within 24 hours</p>
+
+  <div class="contact-grid">
+    <!-- Info -->
+    <div class="contact-info-block reveal">
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.61 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6.01 6.01l1.32-1.32a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
+        </div>
+        <div>
+          <div class="info-label">Phone / WhatsApp</div>
+          <div class="info-val"><a href="tel:+919634950165">+91 9634950165</a></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="info-label">Email</div>
+          <div class="info-val"><a href="mailto:Kaifsiddiqui28637@gmail.com">Kaifsiddiqui28637@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="info-label">Address</div>
+          <div class="info-val">SHEIKH ZAD GAN, Nananuta<br>Saharanpur, Uttar Pradesh<br>India — 247452</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="info-label">Working Hours</div>
+          <div class="info-val">Mon – Sat: 9:00 AM – 7:00 PM IST</div>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div style="display:flex; gap:12px; margin-top:8px;">
+        <a href="#" style="width:40px;height:40px;border-radius:10px;background:#0C0C0C;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#B600A8'" onmouseout="this.style.background='#0C0C0C'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D7E2EA" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" style="width:40px;height:40px;border-radius:10px;background:#0C0C0C;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#B600A8'" onmouseout="this.style.background='#0C0C0C'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D7E2EA" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" style="width:40px;height:40px;border-radius:10px;background:#0C0C0C;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#B600A8'" onmouseout="this.style.background='#0C0C0C'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D7E2EA" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="reveal" style="transition-delay:0.2s;">
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="fname">Full Name *</label>
+            <input class="form-input" type="text" id="fname" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fmobile">Mobile Number *</label>
+            <input class="form-input" type="tel" id="fmobile" name="mobile" placeholder="+91 XXXXX XXXXX" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="femail">Email Address *</label>
+          <input class="form-input" type="email" id="femail" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="faddress">Address / City</label>
+          <input class="form-input" type="text" id="faddress" name="address" placeholder="Your city or full address">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fbudget">Estimated Budget</label>
+          <select class="form-select" id="fbudget" name="budget">
+            <option value="" disabled selected>Select budget range</option>
+            <option>Under ₹10,000</option>
+            <option>₹10,000 – ₹25,000</option>
+            <option>₹25,000 – ₹50,000</option>
+            <option>₹50,000 – ₹1,00,000</option>
+            <option>Above ₹1,00,000</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Services Required *</label>
+          <div class="services-checkboxes">
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Website Designing"> Website Designing</label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="SEO"> SEO</label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Social Media Marketing"> SMM</label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Meta Ads"> Meta Ads</label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Google Ads"> Google Ads</label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="LinkedIn Ads"> LinkedIn Ads</label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="3D Websites"> 3D Websites</label>
+            <label class="checkbox-item"><input type="checkbox" name="services" value="Full Digital Marketing"> Full Digital Marketing</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fmessage">Project Details</label>
+          <textarea class="form-textarea" id="fmessage" name="message" placeholder="Tell us about your project, goals, timeline..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">🚀 Book Your Seat Now</button>
+      </form>
+
+      <!-- Success Message -->
+      <div class="form-success" id="formSuccess">
+        <div class="checkmark">✅</div>
+        <h3>Booking Confirmed!</h3>
+        <p>Thanks! We've received your request and will contact you within <strong>24 hours</strong>.</p>
+        <p style="margin-top:8px;font-size:0.8rem;">For urgent queries: <strong>+91 9634950165</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <span class="footer-logo grad-text">MK Freelance Studio</span>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+919634950165">+91 9634950165</a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-copy">© 2025 MK Freelance Studio · Sheikh Zad Gan, Nananuta, Saharanpur, U.P. 247452 · All rights reserved</p>
+</footer>
+
+<script>
+/* ===== LOADER ===== */
+window.addEventListener('load', () => {
+  const bar = document.getElementById('loader-bar');
+  bar.style.width = '100%';
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+    setTimeout(() => document.getElementById('loader').remove(), 900);
+  }, 1400);
+});
+
+/* ===== CUSTOM CURSOR ===== */
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
+function animateRing() {
+  rx += (mx - rx) * 0.14;
+  ry += (my - ry) * 0.14;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a, button, .checkbox-item, input, select, textarea').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.style.width='6px'; cursor.style.height='6px'; ring.style.width='52px'; ring.style.height='52px'; ring.style.borderColor='rgba(182,0,168,0.6)'; });
+  el.addEventListener('mouseleave', () => { cursor.style.width='12px'; cursor.style.height='12px'; ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='rgba(215,226,234,0.5)'; });
+});
+
+/* ===== STARS CANVAS ===== */
+const canvas = document.getElementById('stars-canvas');
+const ctx = canvas.getContext('2d');
+let stars = [];
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  stars = Array.from({length: 180}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.2 + 0.2,
+    a: Math.random(),
+    s: Math.random() * 0.005 + 0.001
+  }));
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+function drawStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach(s => {
+    s.a += s.s;
+    if (s.a > 1 || s.a < 0) s.s *= -1;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(215,226,234,${s.a * 0.6})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+drawStars();
+
+/* ===== HERO PORTRAIT PARALLAX ===== */
+const portrait = document.getElementById('hero-portrait');
+document.addEventListener('mousemove', e => {
+  const dx = (e.clientX - window.innerWidth/2) / window.innerWidth;
+  const dy = (e.clientY - window.innerHeight/2) / window.innerHeight;
+  portrait.style.transform = `translateX(calc(-50% + ${dx*18}px)) translateY(${dy*10}px)`;
+});
+
+/* ===== MARQUEE ===== */
+const row1Images = [
+  'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
+  'https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif',
+  'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif',
+  'https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif',
+  'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',
+  'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',
+  'https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif',
+  'https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif',
+  'https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif',
+  'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
+  'https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif',
+];
+const row2Images = [
+  'https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif',
+  'https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif',
+  'https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif',
+  'https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif',
+  'https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif',
+  'https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif',
+  'https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif',
+  'https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif',
+  'https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif',
+  'https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif',
+];
+function buildRow(el, imgs) {
+  const tripled = [...imgs, ...imgs, ...imgs];
+  tripled.forEach(src => {
+    const img = document.createElement('img');
+    img.className = 'marquee-img';
+    img.src = src; img.loading = 'lazy'; img.alt = '';
+    el.appendChild(img);
+  });
+}
+buildRow(document.getElementById('row1'), row1Images);
+buildRow(document.getElementById('row2'), row2Images);
+
+const marqueeSection = document.getElementById('marquee');
+const r1 = document.getElementById('row1');
+const r2 = document.getElementById('row2');
+function updateMarquee() {
+  const rect = marqueeSection.getBoundingClientRect();
+  const offset = (window.scrollY - (window.scrollY + rect.top) + window.innerHeight) * 0.3;
+  r1.style.transform = `translateX(${offset - 200}px)`;
+  r2.style.transform = `translateX(${-(offset - 200)}px)`;
+}
+window.addEventListener('scroll', updateMarquee, { passive: true });
+updateMarquee();
+
+/* ===== SCROLL REVEAL ===== */
+const reveals = document.querySelectorAll('.reveal');
+const serviceItems = document.querySelectorAll('.service-item');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+const srvObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); srvObserver.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+serviceItems.forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.08}s`;
+  srvObserver.observe(el);
+});
+
+/* ===== CONTACT FORM (Formspree Backend) ===== */
+const form = document.getElementById('contactForm');
+const successMsg = document.getElementById('formSuccess');
+const submitBtn = document.getElementById('submitBtn');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const services = [...document.querySelectorAll('input[name="services"]:checked')].map(c => c.value).join(', ');
+  if (!services) { alert('Please select at least one service.'); return; }
+
+  submitBtn.textContent = '⏳ Sending...';
+  submitBtn.disabled = true;
+  submitBtn.style.opacity = '0.7';
+
+  const formData = new FormData(form);
+  formData.set('services', services);
+  formData.append('_subject', '🚀 New Booking — MK Freelance Studio');
+  formData.append('_replyto', formData.get('email'));
+
+  try {
+    const res = await fetch('https://formspree.io/f/mzdweolj', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    const data = await res.json();
+
+    if (res.ok && !data.errors) {
+      // ✅ SUCCESS — Formspree accepted the form
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+    } else {
+      // ❌ Formspree returned an error
+      const errorMsg = data.errors ? data.errors.map(e => e.message).join(', ') : 'Something went wrong.';
+      submitBtn.textContent = '❌ Failed — Try Again';
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
+      alert('Error: ' + errorMsg + '\n\nPlease call us directly: +91 9634950165');
+    }
+  } catch(err) {
+    // 🌐 Network error — fallback to WhatsApp
+    submitBtn.textContent = '🚀 Book Your Seat Now';
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = '1';
+    const name = formData.get('name') || '';
+    const mobile = formData.get('mobile') || '';
+    const email = formData.get('email') || '';
+    const address = formData.get('address') || '';
+    const budget = formData.get('budget') || 'Not specified';
+    const msg = formData.get('message') || '';
+    const waText = `🚀 *New Booking — MK Freelance Studio*\n\n👤 *Name:* ${name}\n📱 *Mobile:* ${mobile}\n📧 *Email:* ${email}\n📍 *Address:* ${address}\n💰 *Budget:* ${budget}\n🛠️ *Services:* ${services}\n\n💬 *Message:* ${msg}`;
+    window.open(`https://wa.me/919634950165?text=${encodeURIComponent(waText)}`, '_blank');
+    form.style.display = 'none';
+    successMsg.style.display = 'block';
+  }
+});
+</script>
+</body>
+</html>
