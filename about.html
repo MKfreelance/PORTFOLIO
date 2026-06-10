@@ -1,1 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>About Us | MK Freelance Studio — Mohammad Kaif, Nanauta Saharanpur</title>
+<meta name="description" content="MK Freelance Studio ke baare mein jaaniye — Mohammad Kaif, Nanauta Saharanpur ke digital agency founder. Website Design, SEO, Meta Ads & more. 5+ years experience, 50+ clients."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://kaifservices.in/about.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://kaifservices.in/about.html"/>
+<meta property="og:title" content="About MK Freelance Studio | Mohammad Kaif — Digital Agency Nanauta"/>
+<meta property="og:description" content="Nanauta ka trusted digital agency. Website Design se Google Ads tak — sab kuch ek hi jagah. 5+ years, 50+ clients, 100% results."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080808;
+  --surface:#111111;
+  --surface2:#161616;
+  --text:#f0ede8;
+  --muted:#6b6b6b;
+  --stroke:#1e1e1e;
+  --a1:#C9A96E;
+  --a2:#8B6F47;
+  --a3:#E8D5B0;
+  --font-body:'DM Sans',sans-serif;
+  --font-display:'DM Serif Display',serif;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:none;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
 
+/* CURSOR */
+#cur,#cur-trail{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
+#cur{width:8px;height:8px;background:var(--a1);transition:width .2s,height .2s,background .2s}
+#cur-trail{width:28px;height:28px;border:1px solid rgba(201,169,110,.4);transition:width .3s,height .3s}
+
+/* NAVBAR — identical to index */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:center;padding:20px 24px}
+.nav-pill{display:inline-flex;align-items:center;gap:0;background:rgba(17,17,17,.85);backdrop-filter:blur(20px);border:1px solid var(--stroke);border-radius:999px;padding:6px 8px;transition:box-shadow .3s}
+.nav-pill.scrolled{box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.nav-logo-ring{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--a1),var(--a2));display:flex;align-items:center;justify-content:center;margin-right:2px;transition:transform .2s}
+.nav-logo-ring:hover{transform:scale(1.1)}
+.nav-logo-inner{width:30px;height:30px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-style:italic;font-size:12px;color:var(--a1)}
+.nav-sep{width:1px;height:20px;background:var(--stroke);margin:0 4px}
+.nav-link{font-size:.72rem;font-weight:500;letter-spacing:.06em;color:var(--muted);text-decoration:none;padding:7px 14px;border-radius:999px;cursor:none;transition:color .2s,background .2s}
+.nav-link:hover,.nav-link.active{color:var(--text);background:rgba(255,255,255,.06)}
+.nav-cta{font-size:.72rem;font-weight:500;letter-spacing:.06em;color:var(--text);background:transparent;border:none;padding:7px 16px;border-radius:999px;cursor:none;position:relative;transition:color .2s}
+.nav-cta::before{content:'';position:absolute;inset:-1px;border-radius:999px;background:linear-gradient(135deg,var(--a1),var(--a2));opacity:0;transition:opacity .2s}
+.nav-cta:hover::before{opacity:1}
+.nav-cta span{position:relative;z-index:1}
+@media(max-width:520px){.nav-sep{display:none}.nav-link{padding:7px 10px;font-size:.65rem}.nav-cta{padding:7px 12px}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* SECTION COMMON */
+.section-eyebrow{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--a1);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--a1)}
+.section-title{font-family:var(--font-display);font-size:clamp(2.4rem,7vw,6.5rem);line-height:.92;letter-spacing:-.02em;margin-bottom:20px}
+.section-title em{font-style:italic;color:var(--a1)}
+
+/* =============================================
+   HERO — ABOUT PAGE
+   ============================================= */
+#about-hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:var(--bg);
+  padding:0 clamp(28px,8vw,100px);
+}
+.hero-bg-img{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  opacity:.18;
+  filter:grayscale(30%);
+}
+.hero-bg-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg,rgba(8,8,8,.97) 0%,rgba(8,8,8,.6) 60%,rgba(8,8,8,.85) 100%),
+    linear-gradient(to top,rgba(8,8,8,.95) 0%,transparent 50%);
+}
+.hero-grain{
+  position:absolute;inset:0;
+  opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:300px;
+  pointer-events:none;
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:1300px;
+  width:100%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(40px,8vw,100px);
+  align-items:center;
+  padding-top:120px;
+  padding-bottom:80px;
+}
+@media(max-width:860px){.hero-content{grid-template-columns:1fr;padding-top:140px}}
+.hero-left{}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:999px;
+  border:1px solid rgba(201,169,110,.3);
+  background:rgba(201,169,110,.08);
+  backdrop-filter:blur(12px);
+  margin-bottom:22px;
+  opacity:0;animation:fadeUpIn .7s .3s ease forwards;
+}
+.hero-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--a1);animation:pulseDot 2s ease-in-out infinite}
+.hero-badge-text{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--a1);font-weight:600}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.6);opacity:.5}}
+.hero-heading{
+  font-family:var(--font-display);
+  font-size:clamp(3.5rem,9vw,9rem);
+  line-height:.88;
+  letter-spacing:-.03em;
+  color:var(--text);
+  margin-bottom:26px;
+  opacity:0;animation:fadeUpIn .9s .15s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-heading em{font-style:italic;color:var(--a1)}
+.hero-sub{
+  font-size:clamp(.9rem,1.5vw,1.08rem);
+  color:rgba(240,237,232,.5);
+  line-height:1.8;
+  max-width:480px;
+  margin-bottom:40px;
+  opacity:0;animation:fadeUpIn .8s .4s ease forwards;
+}
+.hero-btns{
+  display:flex;gap:12px;flex-wrap:wrap;
+  opacity:0;animation:fadeUpIn .7s .55s ease forwards;
+}
+.btn-primary{padding:13px 28px;border-radius:999px;background:var(--a1);color:var(--bg);font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:none;transition:transform .2s,box-shadow .2s,background .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--a3);transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,169,110,.25)}
+.btn-outline{padding:12px 28px;border-radius:999px;border:1px solid rgba(255,255,255,.15);color:var(--text);font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:none;transition:transform .2s,border-color .2s,background .2s;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(8px)}
+.btn-outline:hover{border-color:rgba(201,169,110,.4);background:rgba(201,169,110,.08);transform:translateY(-2px)}
+.hero-right{
+  display:flex;flex-direction:column;gap:16px;
+  opacity:0;animation:fadeUpIn .8s .5s ease forwards;
+}
+.stat-card{
+  background:var(--surface);
+  border:1px solid var(--stroke);
+  border-radius:20px;
+  padding:24px 28px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  transition:border-color .25s,background .25s;
+}
+.stat-card:hover{border-color:rgba(201,169,110,.2);background:var(--surface2)}
+.stat-card-num{
+  font-family:var(--font-display);
+  font-size:clamp(2.2rem,4vw,3.4rem);
+  letter-spacing:-.03em;
+  line-height:1;
+  color:var(--text);
+  flex-shrink:0;
+}
+.stat-card-num em{font-style:italic;color:var(--a1)}
+.stat-card-lbl{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.stat-card-desc{font-size:.82rem;color:rgba(240,237,232,.45);line-height:1.6;margin-top:4px}
+@keyframes fadeUpIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* MARQUEE */
+#marquee{background:var(--surface);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:0;overflow:hidden;position:relative;z-index:5}
+.mq-track{display:flex;width:max-content;animation:mq 28s linear infinite}
+.mq-track:hover{animation-play-state:paused}
+.mq-item{padding:16px 32px;border-right:1px solid var(--stroke);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:12px;font-weight:500}
+.mq-dot{width:4px;height:4px;border-radius:50%;background:var(--a1);flex-shrink:0}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* =============================================
+   STORY / MISSION SECTION
+   ============================================= */
+#story{
+  padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(60px,8vw,120px);
+  align-items:center;
+  position:relative;
+  max-width:1400px;
+  margin:auto;
+}
+@media(max-width:860px){#story{grid-template-columns:1fr}}
+.story-left{}
+.story-body{font-size:clamp(.88rem,1.4vw,1.02rem);color:var(--muted);line-height:1.9;margin-bottom:24px;max-width:520px}
+.story-quote-block{
+  border-left:2px solid rgba(201,169,110,.4);
+  padding:18px 24px;
+  margin:32px 0;
+  background:rgba(201,169,110,.04);
+  border-radius:0 12px 12px 0;
+}
+.story-quote-text{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:clamp(1.1rem,2.5vw,1.5rem);
+  color:var(--a3);
+  line-height:1.4;
+  margin-bottom:12px;
+}
+.story-quote-attr{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.story-right{display:flex;flex-direction:column;gap:16px}
+.mission-card{
+  background:var(--surface);
+  border:1px solid var(--stroke);
+  border-radius:20px;
+  padding:28px;
+  transition:border-color .3s,transform .3s,background .3s;
+  cursor:none;
+}
+.mission-card:hover{border-color:rgba(201,169,110,.2);transform:translateY(-4px);background:var(--surface2)}
+.mission-card-icon{
+  width:44px;height:44px;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;
+}
+.mission-card-icon svg{width:20px;height:20px;stroke-width:1.8;fill:none}
+.mission-card-title{font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text);margin-bottom:8px}
+.mission-card-desc{font-size:.82rem;color:var(--muted);line-height:1.75}
+
+/* =============================================
+   FOUNDER SECTION
+   ============================================= */
+#founder{
+  background:var(--surface);
+  padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);
+  position:relative;
+  overflow:hidden;
+}
+#founder::before{
+  content:'MK';
+  position:absolute;
+  right:-2%;top:-10%;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:32vw;
+  color:rgba(201,169,110,.025);
+  line-height:1;
+  pointer-events:none;
+  user-select:none;
+}
+.founder-inner{
+  max-width:1300px;margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(60px,8vw,120px);
+  align-items:center;
+}
+@media(max-width:860px){.founder-inner{grid-template-columns:1fr}}
+.founder-photo-wrap{
+  position:relative;
+  display:flex;
+  justify-content:center;
+}
+.founder-photo-ring{
+  width:clamp(260px,38vw,420px);
+  height:clamp(260px,38vw,420px);
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid rgba(201,169,110,.3);
+  box-shadow:
+    0 0 60px rgba(201,169,110,.18),
+    0 0 120px rgba(201,169,110,.08);
+  animation:floatY 7s ease-in-out infinite;
+  position:relative;
+  z-index:1;
+}
+.founder-photo-ring img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(15%)}
+.founder-photo-badge{
+  position:absolute;
+  bottom:20px;right:10px;
+  background:var(--surface2);
+  border:1px solid rgba(201,169,110,.2);
+  border-radius:14px;
+  padding:12px 18px;
+  z-index:2;
+  backdrop-filter:blur(12px);
+}
+.founder-photo-badge-num{font-family:var(--font-display);font-size:1.8rem;line-height:1;color:var(--a1);font-style:italic}
+.founder-photo-badge-lbl{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.founder-orb{
+  position:absolute;
+  top:-40px;left:-40px;
+  width:200px;height:200px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(201,169,110,.12),transparent 70%);
+  pointer-events:none;
+}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.founder-right{}
+.founder-name{
+  font-family:var(--font-display);
+  font-size:clamp(2.8rem,6vw,5.5rem);
+  letter-spacing:-.02em;
+  line-height:.9;
+  margin-bottom:8px;
+}
+.founder-name em{font-style:italic;color:var(--a1)}
+.founder-role{
+  font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:28px;
+  display:flex;align-items:center;gap:10px;
+}
+.founder-role::before{content:'';width:24px;height:1px;background:var(--a1)}
+.founder-bio{font-size:clamp(.88rem,1.4vw,1rem);color:var(--muted);line-height:1.9;margin-bottom:36px;max-width:500px}
+.founder-skills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.skill-tag{
+  padding:7px 16px;
+  border-radius:999px;
+  border:1px solid var(--stroke);
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);
+  transition:border-color .25s,color .25s,background .25s;
+  cursor:none;
+}
+.skill-tag:hover{border-color:rgba(201,169,110,.3);color:var(--a1);background:rgba(201,169,110,.06)}
+.founder-contact{display:flex;flex-direction:column;gap:12px}
+.fc-pill{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;
+  border:1px solid var(--stroke);
+  border-radius:14px;
+  background:var(--bg);
+  transition:border-color .25s,background .25s;
+  cursor:none;
+}
+.fc-pill:hover{border-color:rgba(201,169,110,.2);background:rgba(201,169,110,.04)}
+.fc-pill-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fc-pill-icon svg{width:14px;height:14px;stroke-width:1.8;fill:none}
+.fc-pill-lbl{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.fc-pill-val{font-size:.85rem;font-weight:500;color:var(--text)}
+.fc-pill-val a{color:inherit;text-decoration:none}
+
+/* =============================================
+   SERVICES — WHAT WE DO
+   ============================================= */
+#services{
+  background:var(--bg);
+  padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);
+}
+.services-hdr{
+  max-width:1300px;margin:0 auto clamp(48px,6vw,80px);
+  display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;
+}
+.services-sub{font-size:.88rem;color:var(--muted);max-width:260px;line-height:1.7}
+.srv-grid{
+  max-width:1300px;margin:auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(200px,25%,300px),1fr));
+  gap:clamp(10px,1.5vw,16px);
+}
+.srv-card{
+  border:1px solid var(--stroke);border-radius:20px;
+  padding:clamp(20px,2.5vw,28px);
+  display:flex;flex-direction:column;gap:10px;
+  background:var(--surface);
+  cursor:none;
+  transition:border-color .3s,transform .3s,background .3s;
+  position:relative;overflow:hidden;
+}
+.srv-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,var(--srv-color,#C9A96E) 0%,transparent 60%);opacity:0;transition:opacity .4s}
+.srv-card:hover{border-color:rgba(201,169,110,.2);transform:translateY(-5px);background:var(--surface2)}
+.srv-card:hover::after{opacity:.04}
+.srv-card-top{display:flex;justify-content:space-between;align-items:flex-start}
+.srv-num{font-family:var(--font-display);font-size:2.2rem;line-height:1;color:rgba(255,255,255,.05);font-style:italic}
+.srv-ico{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.srv-ico svg{width:18px;height:18px;stroke:#fff;stroke-width:1.8;fill:none}
+.srv-name{font-size:.82rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text)}
+.srv-desc{font-size:.78rem;color:var(--muted);line-height:1.75}
+
+/* =============================================
+   WHY SECTION
+   ============================================= */
+#why{
+  background:var(--surface);
+  border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;
+  padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);
+}
+.why-hdr{max-width:1300px;margin:0 auto clamp(48px,6vw,80px)}
+.why-grid{
+  max-width:1300px;margin:auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:16px;
+}
+.why-card{
+  background:var(--bg);
+  border:1px solid var(--stroke);
+  border-radius:20px;padding:28px;
+  cursor:none;
+  transition:border-color .3s,transform .3s,background .3s;
+}
+.why-card:hover{border-color:rgba(201,169,110,.18);transform:translateY(-5px);background:#0d0d0d}
+.why-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.why-icon svg{width:20px;height:20px}
+.why-card-title{font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text);margin-bottom:8px}
+.why-card-desc{font-size:.8rem;color:var(--muted);line-height:1.8}
+
+/* =============================================
+   TIMELINE — JOURNEY
+   ============================================= */
+#journey{
+  background:var(--bg);
+  padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);
+  position:relative;
+}
+.journey-inner{max-width:800px;margin:auto}
+.journey-hdr{margin-bottom:clamp(48px,6vw,80px)}
+.timeline{position:relative;padding-left:32px}
+.timeline::before{
+  content:'';position:absolute;left:6px;top:8px;bottom:0;
+  width:1px;background:linear-gradient(to bottom,rgba(201,169,110,.5),transparent);
+}
+.tl-item{position:relative;margin-bottom:52px}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{
+  position:absolute;left:-32px;top:6px;
+  width:14px;height:14px;
+  border-radius:50%;
+  border:2px solid var(--a1);
+  background:var(--bg);
+  transition:background .3s;
+}
+.tl-item:hover .tl-dot{background:var(--a1)}
+.tl-year{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--a1);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.tl-title{font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.8rem);margin-bottom:8px;line-height:1.2}
+.tl-title em{font-style:italic;color:var(--a1)}
+.tl-desc{font-size:.83rem;color:var(--muted);line-height:1.8;max-width:520px}
+
+/* =============================================
+   CTA STRIP
+   ============================================= */
+#cta-strip{
+  background:var(--surface);
+  border-top:1px solid var(--stroke);
+  padding:clamp(60px,8vw,100px) clamp(28px,8vw,100px);
+  text-align:center;
+}
+.cta-inner{max-width:700px;margin:auto}
+.cta-eyebrow{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--a1);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px}
+.cta-eyebrow::before,.cta-eyebrow::after{content:'';width:24px;height:1px;background:var(--a1)}
+.cta-title{font-family:var(--font-display);font-size:clamp(2.5rem,7vw,5.5rem);line-height:.9;letter-spacing:-.02em;margin-bottom:20px}
+.cta-title em{font-style:italic;color:var(--a1)}
+.cta-sub{font-size:clamp(.88rem,1.5vw,1rem);color:var(--muted);line-height:1.8;margin-bottom:36px}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer{
+  background:var(--bg);
+  border-top:1px solid var(--stroke);
+  padding:clamp(40px,6vw,72px) clamp(28px,8vw,100px) 32px;
+}
+.footer-top{
+  max-width:1300px;margin:0 auto 48px;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;
+  gap:clamp(30px,5vw,64px);
+}
+@media(max-width:860px){.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.footer-top{grid-template-columns:1fr}}
+.footer-logo{font-family:var(--font-display);font-size:1.6rem;font-style:italic;color:var(--a1);margin-bottom:14px}
+.footer-tagline{font-size:.8rem;color:var(--muted);line-height:1.8;max-width:280px;margin-bottom:20px}
+.footer-socials{display:flex;gap:10px;margin-bottom:18px}
+.f-soc{width:36px;height:36px;border-radius:50%;border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;cursor:none;transition:border-color .2s,background .2s}
+.f-soc:hover{border-color:rgba(201,169,110,.3);background:rgba(201,169,110,.08)}
+.f-soc svg{width:14px;height:14px;stroke:var(--muted);stroke-width:1.8;fill:none;transition:stroke .2s}
+.f-soc:hover svg{stroke:var(--a1)}
+.footer-badge{display:inline-flex;align-items:center;gap:8px;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.dot-live{width:6px;height:6px;border-radius:50%;background:#6BBF7A;box-shadow:0 0 6px #6BBF7A;animation:pulseDot 2s ease-in-out infinite}
+.footer-col-title{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--a1);margin-bottom:18px}
+.footer-links{display:flex;flex-direction:column;gap:11px}
+.footer-links a{font-size:.82rem;color:var(--muted);transition:color .2s;cursor:none}
+.footer-links a:hover{color:var(--text)}
+.fc-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+.fc-ico{width:30px;height:30px;border-radius:8px;background:rgba(201,169,110,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.fc-ico svg{width:12px;height:12px;stroke-width:1.8;fill:none}
+.fc-text{font-size:.78rem;color:var(--muted);line-height:1.6}
+.fc-text a{color:inherit;text-decoration:none;transition:color .2s}
+.fc-text a:hover{color:var(--text)}
+.footer-bottom{max-width:1300px;margin:0 auto;padding-top:24px;border-top:1px solid var(--stroke);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.72rem;color:var(--muted)}
+.footer-bottom-links{display:flex;gap:20px}
+.footer-bottom-links a{font-size:.72rem;color:var(--muted);cursor:none;transition:color .2s}
+.footer-bottom-links a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-trail"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-pill" id="navPill">
+    <a href="index.html" class="nav-logo-ring" style="cursor:none">
+      <div class="nav-logo-inner">MK</div>
+    </a>
+    <div class="nav-sep"></div>
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link active">About</a>
+    <a href="index.html#services" class="nav-link">Services</a>
+    <a href="index.html#projects" class="nav-link">Work</a>
+    <a href="index.html#contact" class="nav-link">Contact</a>
+    <div class="nav-sep"></div>
+    <a href="index.html#contact" class="nav-cta"><span>Say hi ↗</span></a>
+  </div>
+</nav>
+
+<!-- =============================================
+     HERO
+     ============================================= -->
+<section id="about-hero">
+  <img class="hero-bg-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80&fit=crop" alt="Digital workspace"/>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-grain"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span class="hero-badge-text">MK Freelance Studio · Est. 2020</span>
+      </div>
+      <h1 class="hero-heading">
+        The<br><em>Story</em><br>Behind MK
+      </h1>
+      <p class="hero-sub">Nanauta ke ek chhote sheher se shuru huyi ek journey — jo aaj India bhar ke businesses ko digital success dila rahi hai. Yeh sirf ek agency nahi, yeh ek mission hai.</p>
+      <div class="hero-btns">
+        <a href="#founder" class="btn-primary">Meet the Founder ↓</a>
+        <a href="index.html#contact" class="btn-outline">Work With Us</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="stat-card">
+        <div class="stat-card-num">5<em>+</em></div>
+        <div>
+          <div class="stat-card-lbl">Years of Experience</div>
+          <div class="stat-card-desc">Digital marketing aur web design mein 5+ saal ka proven track record</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-num">50<em>+</em></div>
+        <div>
+          <div class="stat-card-lbl">Happy Clients</div>
+          <div class="stat-card-desc">Saharanpur se lekar Delhi NCR, Meerut aur poore India mein satisfied clients</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-num">100<em>%</em></div>
+        <div>
+          <div class="stat-card-lbl">Results Guaranteed</div>
+          <div class="stat-card-desc">3 mahine mein results nahi to paisa wapas — zero risk promise</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div id="marquee">
+  <div class="mq-track" id="mqTrack"></div>
+</div>
+
+<!-- =============================================
+     STORY / MISSION
+     ============================================= -->
+<section id="story">
+  <div class="story-left reveal">
+    <div class="section-eyebrow">Our Story</div>
+    <h2 class="section-title">Small<br>City,<br><em>Big</em> Vision</h2>
+    <p class="story-body">MK Freelance Studio ki shuruat 2020 mein Nanauta, Saharanpur se hui — ek laptop, ek internet connection, aur ek sapna: local businesses ko global digital presence dena.</p>
+    <p class="story-body">Humne dekha tha ki hamare aas-paas ke businessmen — chahe kirana store ho ya manufacturing unit — sab online hona chahte the, lekin koi affordable aur trustworthy option nahi tha. Waheen se MK Studio ka idea aaya.</p>
+
+    <div class="story-quote-block">
+      <div class="story-quote-text">"Mera goal sirf websites banana nahi — businesses ko grow karna hai."</div>
+      <div class="story-quote-attr">— Mohammad Kaif, Founder</div>
+    </div>
+
+    <p class="story-body">Aaj hum website design se lekar 3D web experiences, SEO, Meta Ads, Google Ads aur social media management tak — sab kuch under one roof provide karte hain.</p>
+  </div>
+
+  <div class="story-right">
+    <div class="mission-card reveal" style="transition-delay:.1s">
+      <div class="mission-card-icon" style="background:rgba(201,169,110,.1)">
+        <svg viewBox="0 0 24 24" stroke="#C9A96E" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="mission-card-title">Our Mission</div>
+      <div class="mission-card-desc">India ke har chhote-bade business ko premium digital services provide karna — affordable rates par, with guaranteed results. No jargon, no hidden costs.</div>
+    </div>
+    <div class="mission-card reveal" style="transition-delay:.18s">
+      <div class="mission-card-icon" style="background:rgba(107,191,122,.1)">
+        <svg viewBox="0 0 24 24" stroke="#6BBF7A" fill="none"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <div class="mission-card-title">Our Vision</div>
+      <div class="mission-card-desc">Uttar Pradesh ke har district mein ek strong digital presence banana — aur India ko world-class digital talent se connect karna, starting from Nanauta.</div>
+    </div>
+    <div class="mission-card reveal" style="transition-delay:.26s">
+      <div class="mission-card-icon" style="background:rgba(110,181,255,.1)">
+        <svg viewBox="0 0 24 24" stroke="#6EB5FF" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="mission-card-title">Our Values</div>
+      <div class="mission-card-desc">Transparency, punctuality, aur real results. Hum woh nahi kehte jo aap sunna chahte hain — hum woh karte hain jo aapke business ke liye sahi hai.</div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FOUNDER
+     ============================================= -->
+<section id="founder">
+  <div class="founder-inner">
+    <div class="founder-photo-wrap reveal">
+      <div class="founder-orb"></div>
+      <div class="founder-photo-ring">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=85&fit=crop&crop=face" alt="Mohammad Kaif — Founder MK Freelance Studio"/>
+      </div>
+      <div class="founder-photo-badge">
+        <div class="founder-photo-badge-num">MK</div>
+        <div class="founder-photo-badge-lbl">Founder & CEO</div>
+      </div>
+    </div>
+
+    <div class="founder-right reveal" style="transition-delay:.12s">
+      <div class="founder-role">Founder & Lead Strategist</div>
+      <h2 class="founder-name">Mohammad<br><em>Kaif</em></h2>
+      <p class="founder-bio">Main Mohammad Kaif hoon — Nanauta, Saharanpur ka digital enthusiast. 2020 mein ek freelancer ke roop mein shuru kiya, aur ab MK Freelance Studio ek full-service digital agency ban chuki hai.</p>
+      <p class="founder-bio" style="margin-top:-16px">Website design, SEO, paid advertising, aur 3D web experiences mein 5+ saal ka hands-on experience hai. Mera approach simple hai — data-driven decisions, creative execution, aur client satisfaction above everything.</p>
+
+      <div class="founder-skills">
+        <span class="skill-tag">Website Design</span>
+        <span class="skill-tag">SEO</span>
+        <span class="skill-tag">Meta Ads</span>
+        <span class="skill-tag">Google Ads</span>
+        <span class="skill-tag">LinkedIn Ads</span>
+        <span class="skill-tag">3D / WebGL</span>
+        <span class="skill-tag">UI / UX</span>
+        <span class="skill-tag">Branding</span>
+      </div>
+
+      <div class="founder-contact">
+        <div class="fc-pill">
+          <div class="fc-pill-icon" style="background:rgba(201,169,110,.1)">
+            <svg viewBox="0 0 24 24" stroke="#C9A96E" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.61 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6.01 6.01l1.32-1.32a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+          </div>
+          <div>
+            <div class="fc-pill-lbl">Phone / WhatsApp</div>
+            <div class="fc-pill-val"><a href="tel:+919634950165">+91 9634950165</a></div>
+          </div>
+        </div>
+        <div class="fc-pill">
+          <div class="fc-pill-icon" style="background:rgba(107,191,122,.1)">
+            <svg viewBox="0 0 24 24" stroke="#6BBF7A" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="fc-pill-lbl">Email</div>
+            <div class="fc-pill-val"><a href="mailto:Kaifsiddiqui28637@gmail.com">Kaifsiddiqui28637@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="fc-pill">
+          <div class="fc-pill-icon" style="background:rgba(110,181,255,.1)">
+            <svg viewBox="0 0 24 24" stroke="#6EB5FF" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="fc-pill-lbl">Location</div>
+            <div class="fc-pill-val">Sheikh Zad Gan, Nanauta, Saharanpur, UP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SERVICES
+     ============================================= -->
+<section id="services">
+  <div class="services-hdr">
+    <div class="reveal">
+      <div class="section-eyebrow">What We Do</div>
+      <h2 class="section-title">Our<br><em>Services</em></h2>
+    </div>
+    <div class="services-sub reveal" style="transition-delay:.1s">Website design se lekar paid advertising tak — sab kuch ek hi jagah, ek hi team.</div>
+  </div>
+  <div class="srv-grid" id="srvGrid"></div>
+</section>
+
+<!-- =============================================
+     WHY CHOOSE US
+     ============================================= -->
+<section id="why">
+  <div class="why-hdr">
+    <div class="reveal">
+      <div class="section-eyebrow">Why MK Studio</div>
+      <h2 class="section-title">What Makes<br>Us <em>Different</em></h2>
+    </div>
+  </div>
+  <div class="why-grid" id="whyGrid"></div>
+</section>
+
+<!-- =============================================
+     JOURNEY / TIMELINE
+     ============================================= -->
+<section id="journey">
+  <div class="journey-inner">
+    <div class="journey-hdr reveal">
+      <div class="section-eyebrow">Our Journey</div>
+      <h2 class="section-title">From<br><em>Nanauta</em><br>to India</h2>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- =============================================
+     CTA STRIP
+     ============================================= -->
+<section id="cta-strip">
+  <div class="cta-inner">
+    <div class="cta-eyebrow reveal">Ready to Grow?</div>
+    <h2 class="cta-title reveal" style="transition-delay:.08s">Let's Build<br><em>Something</em><br>Great</h2>
+    <p class="cta-sub reveal" style="transition-delay:.14s">Free consultation ke liye abhi call karein ya WhatsApp karein. Hum 24 ghante mein respond karte hain aur aapke business ke liye perfect digital strategy banate hain.</p>
+    <div class="cta-btns reveal" style="transition-delay:.2s">
+      <a href="index.html#contact" class="btn-primary">Book Free Consultation ↗</a>
+      <a href="https://wa.me/919634950165" target="_blank" rel="noopener" class="btn-outline">WhatsApp Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">MK Freelance Studio</div>
+      <p class="footer-tagline">Nanauta, Saharanpur ka trusted digital agency. Website design se Google Ads tak — sab kuch ek hi jagah.</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/kaifservices" target="_blank" class="f-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.facebook.com/kaifservices" target="_blank" class="f-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.linkedin.com/company/kaifservices" target="_blank" class="f-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://wa.me/919634950165" target="_blank" class="f-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+      </div>
+      <div class="footer-badge"><span class="dot-live"></span>Available for new projects</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <div class="footer-links">
+        <a href="index.html#services">Website Designing</a>
+        <a href="index.html#services">SEO Services</a>
+        <a href="index.html#services">Meta Ads</a>
+        <a href="index.html#services">Google Ads</a>
+        <a href="index.html#services">LinkedIn Ads</a>
+        <a href="index.html#services">SMM</a>
+        <a href="index.html#services">3D / Vibe Coding</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="index.html#projects">Our Work</a>
+        <a href="index.html#testimonials">Reviews</a>
+        <a href="index.html#contact">Book Consultation</a>
+        <a href="https://wa.me/919634950165" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact Us</div>
+      <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.61 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6.01 6.01l1.32-1.32a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg></div><div class="fc-text"><a href="tel:+919634950165">+91 9634950165</a></div></div>
+      <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="fc-text"><a href="mailto:Kaifsiddiqui28637@gmail.com">Kaifsiddiqui28637@gmail.com</a></div></div>
+      <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="fc-text">Sheikh Zad Gan, Near Kabaadi Bazaar<br>Nanauta, Saharanpur, UP — 247452</div></div>
+      <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="fc-text">Mon – Sat: 9:00 AM – 7:00 PM<br>Sunday: Closed</div></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 MK Freelance Studio · Nanauta, Saharanpur, UP · <a href="https://kaifservices.in" style="color:inherit">kaifservices.in</a></p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="index.html#contact">Get a Quote</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const SERVICES = [
+  {num:'01',name:'Website Designing',desc:'Clean, modern, conversion-focused websites — from landing pages to full business portals with stunning UI/UX.',color:'#C9A96E',svg:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>'},
+  {num:'02',name:'SEO',desc:'Rank higher on Google with technical SEO, keyword research, and link-building that drives real organic traffic.',color:'#8B9E6E',svg:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>'},
+  {num:'03',name:'Social Media Marketing',desc:'Build powerful brand presence with strategic content planning, community management, and viral creatives.',color:'#E882B4',svg:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>'},
+  {num:'04',name:'Meta Ads',desc:'High-ROI Facebook & Instagram campaigns with precise audience targeting and data-driven optimization.',color:'#6EB5FF',svg:'<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>'},
+  {num:'05',name:'Google Ads',desc:'Dominate Search & Display with expertly managed PPC campaigns, smart bidding, and high-converting ad copy.',color:'#C9A96E',svg:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'},
+  {num:'06',name:'LinkedIn Ads',desc:'Reach decision-makers and B2B audiences with Sponsored Content, Lead Gen Forms, and InMail campaigns.',color:'#6BBF7A',svg:'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>'},
+  {num:'07',name:'Graphic Designing',desc:'Logos, brand identities, social media creatives, and print materials that make your brand unforgettable.',color:'#E882B4',svg:'<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>'},
+  {num:'08',name:'3D / Vibe Coding',desc:'Immersive Three.js and WebGL web experiences — interactive product showcases and jaw-dropping animations.',color:'#8B6F47',svg:'<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>'},
+];
+
+const WHY = [
+  {title:'Guaranteed Results',desc:'Hum results ki guarantee dete hain — agar 3 mahine mein traffic na badhe toh paisa wapas. Zero risk aapke liye.',color:'#C9A96E',svg:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'},
+  {title:'Local Expertise',desc:'Nanauta aur Saharanpur ke markets ko hum personally jante hain — local customers ko kaise target karein, yeh humein pata hai.',color:'#6BBF7A',svg:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'},
+  {title:'24-Hour Delivery',desc:'Emergency website chahiye? Chhoti projects 24 ghante mein deliver. Bade projects ke liye dedicated timelines.',color:'#E882B4',svg:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'},
+  {title:'Affordable Pricing',desc:'Agency-level quality, freelancer-level rates. Small businesses ke liye tailored packages — starting from just ₹5,000.',color:'#6EB5FF',svg:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>'},
+  {title:'Data-Driven Approach',desc:'Har decision data se — gut feeling se nahi. Google Analytics, Search Console aur Meta Pixel se backed strategies.',color:'#C9A96E',svg:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>'},
+  {title:'Dedicated Support',desc:'Project delivery ke baad bhi hum available hain. WhatsApp par directly sampark karein — koi middleman nahi.',color:'#8B9E6E',svg:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'},
+];
+
+const TIMELINE = [
+  {year:'2020',title:'The <em>Beginning</em>',desc:'Freelancer ke roop mein shuruat — pehla client, pehli website, aur digital marketing mein pehla kadam. Saharanpur ke local businesses ke liye kaam shuru kiya.'},
+  {year:'2021',title:'<em>Growing</em> Fast',desc:'SEO aur Meta Ads services add ki gayi. 10+ clients served, aur first major success — ek local business ka Google ranking top 3 mein aaya.'},
+  {year:'2022',title:'Going <em>Digital</em>',desc:'MK Freelance Studio officially registered. Team expand ki, Google Ads aur LinkedIn Ads services launch hui. 25+ clients milestone.'},
+  {year:'2023',title:'<em>Level Up</em>',desc:'3D web experiences aur Vibe Coding add ki. Delhi NCR, Meerut, Muzaffarnagar tak clients pahunche. 40+ projects completed.'},
+  {year:'2024–25',title:'Full <em>Agency</em> Mode',desc:'50+ happy clients, full-service digital agency. Nanauta se India tak — kaifservices.in launch. 4.9★ average rating across all projects.'},
+];
+
+const MQ_ITEMS = ['Website Designing','SEO','Meta Ads','Google Ads','LinkedIn Ads','Social Media Marketing','Vibe Coding','Graphic Designing','UI/UX Design','Digital Strategy'];
+
+// ============================================================
+// BUILD MARQUEE
+// ============================================================
+const mqTrack = document.getElementById('mqTrack');
+const mqItems = [...MQ_ITEMS,...MQ_ITEMS];
+mqItems.forEach(item => {
+  const el = document.createElement('div');
+  el.className = 'mq-item';
+  el.innerHTML = `<span class="mq-dot"></span>${item}`;
+  mqTrack.appendChild(el);
+});
+
+// ============================================================
+// BUILD SERVICES
+// ============================================================
+const srvGrid = document.getElementById('srvGrid');
+SERVICES.forEach((s,i) => {
+  const card = document.createElement('div');
+  card.className = 'srv-card reveal';
+  card.style.setProperty('--srv-color', s.color);
+  card.style.transitionDelay = `${i * .06}s`;
+  card.innerHTML = `
+    <div class="srv-card-top">
+      <span class="srv-num">${s.num}</span>
+      <div class="srv-ico" style="background:${s.color}18;border:1px solid ${s.color}25">
+        <svg viewBox="0 0 24 24" fill="none" stroke="${s.color}" stroke-width="1.8">${s.svg}</svg>
+      </div>
+    </div>
+    <div class="srv-name">${s.name}</div>
+    <div class="srv-desc">${s.desc}</div>`;
+  srvGrid.appendChild(card);
+});
+
+// ============================================================
+// BUILD WHY CARDS
+// ============================================================
+const whyGrid = document.getElementById('whyGrid');
+WHY.forEach((w,i) => {
+  const card = document.createElement('div');
+  card.className = 'why-card reveal';
+  card.style.transitionDelay = `${i * .08}s`;
+  card.innerHTML = `
+    <div class="why-icon" style="background:${w.color}18;border:1px solid ${w.color}25">
+      <svg viewBox="0 0 24 24" fill="none" stroke="${w.color}" stroke-width="1.8">${w.svg}</svg>
+    </div>
+    <div class="why-card-title">${w.title}</div>
+    <div class="why-card-desc">${w.desc}</div>`;
+  whyGrid.appendChild(card);
+});
+
+// ============================================================
+// BUILD TIMELINE
+// ============================================================
+const tl = document.getElementById('timeline');
+TIMELINE.forEach((t,i) => {
+  const item = document.createElement('div');
+  item.className = 'tl-item reveal';
+  item.style.transitionDelay = `${i * .1}s`;
+  item.innerHTML = `
+    <div class="tl-dot"></div>
+    <div class="tl-year">${t.year}</div>
+    <div class="tl-title">${t.title}</div>
+    <div class="tl-desc">${t.desc}</div>`;
+  tl.appendChild(item);
+});
+
+// ============================================================
+// CURSOR
+// ============================================================
+const cur = document.getElementById('cur');
+const curTrail = document.getElementById('cur-trail');
+let mx=0,my=0,tx=0,ty=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+(function animTrail(){ tx+=(mx-tx)*.1; ty+=(my-ty)*.1; curTrail.style.left=tx+'px'; curTrail.style.top=ty+'px'; requestAnimationFrame(animTrail); })();
+document.querySelectorAll('a,button,.srv-card,.why-card,.mission-card,.stat-card,.fc-pill,.skill-tag,.tl-item').forEach(el => {
+  el.addEventListener('mouseenter', () => { cur.style.width='4px'; cur.style.height='4px'; curTrail.style.width='44px'; curTrail.style.height='44px'; curTrail.style.borderColor='rgba(201,169,110,.5)'; });
+  el.addEventListener('mouseleave', () => { cur.style.width='8px'; cur.style.height='8px'; curTrail.style.width='28px'; curTrail.style.height='28px'; curTrail.style.borderColor='rgba(201,169,110,.4)'; });
+});
+
+// NAV scroll effect
+window.addEventListener('scroll', () => { document.getElementById('navPill').classList.toggle('scrolled', window.scrollY > 80); });
+
+// ============================================================
+// SCROLL REVEAL
+// ============================================================
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); }});
+}, {threshold:0.06, rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
