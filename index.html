@@ -40,7 +40,7 @@ html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:none;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* ============================================================
-   PREMIUM INTRO ANIMATION — CINEMATIC OPENER
+   PREMIUM INTRO ANIMATION
    ============================================================ */
 #intro{
   position:fixed;inset:0;z-index:10000;
@@ -50,8 +50,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:
   pointer-events:all;
 }
 #intro.done{pointer-events:none}
-
-/* Horizontal split panels — top and bottom */
 .intro-panel{
   position:absolute;left:0;right:0;height:50%;
   background:#030303;
@@ -62,8 +60,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:
 .intro-panel.bot{bottom:0;transform-origin:bottom center}
 #intro.reveal .intro-panel.top{transform:translateY(-100%)}
 #intro.reveal .intro-panel.bot{transform:translateY(100%)}
-
-/* Gold horizontal line that sweeps in */
 .intro-line{
   position:absolute;left:0;right:0;top:50%;height:1px;
   background:linear-gradient(90deg,transparent 0%,var(--a1) 20%,var(--a3) 50%,var(--a1) 80%,transparent 100%);
@@ -72,8 +68,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:
   z-index:3;
 }
 #intro.lineshow .intro-line{transform:scaleX(1)}
-
-/* Studio name — letter by letter */
 .intro-wordwrap{
   position:relative;z-index:4;
   text-align:center;
@@ -105,8 +99,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:
 }
 #intro.textshow .intro-letter{opacity:1;transform:translateY(0) rotate(0deg)}
 #intro.textshow .intro-sub-line{opacity:1;transform:translateY(0)}
-
-/* Counter bottom */
 .intro-counter{
   position:absolute;bottom:32px;right:40px;z-index:4;
   font-family:var(--font-display);
@@ -117,8 +109,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:
 }
 .intro-bar-wrap{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(255,255,255,.04);z-index:4}
 .intro-bar{height:100%;width:0;background:linear-gradient(90deg,var(--a2),var(--a1))}
-
-/* Corner labels */
 .intro-corner{
   position:absolute;z-index:4;
   font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.2);
@@ -148,82 +138,46 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 @media(max-width:520px){.nav-sep{display:none}.nav-link{padding:7px 10px;font-size:.65rem}.nav-cta{padding:7px 12px}}
 
 /* ============================================================
-   HERO — VIDEO FIRST, THEN IMAGE SLIDER
+   HERO — UNIFIED SLIDER (images + video mixed in)
    ============================================================ */
 #hero{position:relative;width:100%;height:100vh;overflow:hidden;background:var(--bg)}
 
-/* ---- VIDEO HERO ---- */
-#videoHero{
-  position:absolute;inset:0;z-index:0;
-  opacity:1;
-  transition:opacity 1.2s ease;
-}
-#videoHero.hidden{opacity:0;pointer-events:none}
-.video-bg{
-  position:absolute;inset:-5%;
-  width:110%;height:110%;
-  object-fit:cover;
-  object-position:center;
-}
-.video-overlay{position:absolute;inset:0}
-.video-overlay::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,8,8,.88) 0%,rgba(8,8,8,.4) 50%,rgba(8,8,8,.7) 100%)}
-.video-overlay::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.9) 0%,transparent 45%)}
+/* Slides container */
+.slider-track{position:absolute;inset:0;z-index:0}
 
-/* Video badge */
-.video-badge{
-  position:absolute;top:28px;left:clamp(28px,8vw,100px);z-index:10;
-  display:inline-flex;align-items:center;gap:8px;
-  padding:6px 14px;border-radius:999px;
-  border:1px solid rgba(201,169,110,.3);background:rgba(201,169,110,.08);
-  backdrop-filter:blur(12px);
-  opacity:0;transform:translateY(-14px);
-  transition:opacity .7s .3s ease,transform .7s .3s ease;
-}
-.video-badge.vis{opacity:1;transform:translateY(0)}
-.vbadge-dot{width:5px;height:5px;border-radius:50%;background:#6BBF7A;animation:pulseDot 2s ease-in-out infinite}
-.vbadge-text{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--a1);font-weight:600}
-
-/* Skip video button */
-.skip-btn{
-  position:absolute;bottom:clamp(50px,7vw,80px);right:clamp(20px,4vw,56px);z-index:20;
-  display:flex;align-items:center;gap:8px;
-  padding:9px 18px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.15);
-  background:rgba(8,8,8,.6);backdrop-filter:blur(10px);
-  color:rgba(255,255,255,.55);
-  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
-  cursor:none;
-  transition:border-color .25s,color .25s,background .25s;
-}
-.skip-btn:hover{border-color:rgba(201,169,110,.4);color:var(--a1);background:rgba(201,169,110,.08)}
-.skip-arrow{width:16px;height:16px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.skip-arrow svg{width:8px;height:8px;stroke:currentColor;stroke-width:2;fill:none}
-
-/* Video timer ring */
-.video-timer{
-  position:absolute;bottom:clamp(50px,7vw,80px);left:clamp(28px,8vw,100px);z-index:20;
-  display:flex;align-items:center;gap:12px;
-}
-.vtimer-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3)}
-.vtimer-svg{width:36px;height:36px;transform:rotate(-90deg);flex-shrink:0}
-.vtimer-track{fill:none;stroke:rgba(255,255,255,.08);stroke-width:2}
-.vtimer-fill{fill:none;stroke:var(--a1);stroke-width:2;stroke-linecap:round;stroke-dasharray:100.5;stroke-dashoffset:100.5;transition:stroke-dashoffset linear}
-
-/* ---- IMAGE SLIDER ---- */
-.slider-track{position:absolute;inset:0;z-index:0;opacity:0;transition:opacity 1.2s ease}
-.slider-track.active{opacity:1}
+/* Each slide — can be image or video */
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s cubic-bezier(.4,0,.2,1);will-change:opacity}
 .slide.active{opacity:1;z-index:2}
 .slide.prev{opacity:0;z-index:1}
+
+/* Image slides */
 .slide-img{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;object-position:center;transform:scale(1.08);transition:transform 6s cubic-bezier(.16,1,.3,1);will-change:transform}
 .slide.active .slide-img{transform:scale(1)}
+
+/* Video slides */
+.slide-video{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;object-position:center}
+
 .slide-overlay{position:absolute;inset:0;z-index:1}
 .slide-overlay::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,8,8,.88) 0%,rgba(8,8,8,.4) 50%,rgba(8,8,8,.7) 100%)}
 .slide-overlay::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.9) 0%,transparent 45%)}
 .slide-tint{position:absolute;inset:0;z-index:1;mix-blend-mode:color;opacity:.18;transition:opacity 1.4s}
 .slide-grain{position:absolute;inset:0;z-index:2;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px;pointer-events:none}
 
-/* Hero content above everything */
+/* Video badge (shown on video slide) */
+.video-live-badge{
+  position:absolute;top:28px;left:clamp(28px,8vw,100px);z-index:10;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:999px;
+  border:1px solid rgba(201,169,110,.3);background:rgba(201,169,110,.08);
+  backdrop-filter:blur(12px);
+  opacity:0;pointer-events:none;
+  transition:opacity .5s ease;
+}
+.video-live-badge.vis{opacity:1}
+.vbadge-dot{width:5px;height:5px;border-radius:50%;background:#6BBF7A;animation:pulseDot 2s ease-in-out infinite}
+.vbadge-text{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--a1);font-weight:600}
+
+/* Hero content */
 .hero-ui{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 clamp(28px,8vw,100px);pointer-events:none}
 .hero-ui > *{pointer-events:auto}
 .slide-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid rgba(201,169,110,.3);background:rgba(201,169,110,.08);backdrop-filter:blur(12px);margin-bottom:22px;opacity:0;transform:translateY(20px);transition:opacity .7s .2s ease,transform .7s .2s ease}
@@ -258,6 +212,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .sdot::after{content:'';position:absolute;inset:0;background:var(--a1);transform:scaleX(0);transform-origin:left;transition:transform linear}
 .sdot.active{width:48px;background:rgba(201,169,110,.3)}
 .sdot.active::after{transform:scaleX(1)}
+
+/* Video dot — slightly different */
+.sdot.video-dot{background:rgba(107,191,122,.2)}
+.sdot.video-dot.active{background:rgba(107,191,122,.3)}
+.sdot.video-dot.active::after{background:#6BBF7A}
+
 .slider-arrows{position:absolute;right:clamp(16px,3vw,48px);bottom:clamp(90px,12vw,140px);z-index:10;display:flex;flex-direction:column;gap:8px}
 .sarrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(8,8,8,.5);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;cursor:none;transition:border-color .25s,background .25s,transform .2s}
 .sarrow:hover{border-color:rgba(201,169,110,.4);background:rgba(201,169,110,.12);transform:scale(1.08)}
@@ -266,31 +226,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .slide-caption{position:absolute;right:clamp(16px,5vw,64px);bottom:clamp(60px,8vw,90px);z-index:10;text-align:right}
 .sc-label{font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:4px}
 .sc-title{font-family:var(--font-display);font-size:clamp(.9rem,1.8vw,1.4rem);font-style:italic;color:rgba(255,255,255,.45);transition:opacity .6s}
-.hero-scroll{position:absolute;bottom:32px;left:clamp(28px,8vw,100px);z-index:10;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp .8s 1.2s ease forwards}
+.hero-scroll{position:absolute;bottom:32px;left:clamp(28px,8vw,100px);z-index:10;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp .8s 1.4s ease forwards}
 .hero-scroll-label{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
 .hero-scroll-line{width:36px;height:1px;background:var(--stroke);position:relative;overflow:hidden}
 .hero-scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(to right,transparent,var(--a1));animation:scrollRight 1.8s ease-in-out infinite}
 @keyframes scrollRight{0%{left:-100%}100%{left:200%}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
-
-/* Mode indicator — VIDEO / SLIDES */
-.mode-tag{
-  position:absolute;top:clamp(80px,10vw,110px);right:clamp(16px,3vw,48px);z-index:15;
-  display:flex;gap:6px;
-}
-.mode-btn{
-  padding:5px 12px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.1);
-  font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.3);
-  background:rgba(8,8,8,.4);backdrop-filter:blur(8px);
-  cursor:none;transition:all .25s;
-}
-.mode-btn.on{
-  border-color:rgba(201,169,110,.4);
-  color:var(--a1);
-  background:rgba(201,169,110,.1);
-}
 
 /* MARQUEE */
 #marquee{background:var(--surface);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:0;overflow:hidden;position:relative;z-index:5}
@@ -536,9 +477,7 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
 <div id="cur"></div>
 <div id="cur-trail"></div>
 
-<!-- ============================================================
-     PREMIUM INTRO / STARTER ANIMATION
-     ============================================================ -->
+<!-- INTRO -->
 <div id="intro">
   <div class="intro-corner tl">Kaifservices.in</div>
   <div class="intro-corner tr">Est. 2020</div>
@@ -570,62 +509,21 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
 </nav>
 
 <!-- ============================================================
-     HERO — VIDEO FIRST, THEN IMAGE SLIDER
+     HERO — UNIFIED SLIDER (images + video mixed in sequence)
      ============================================================ -->
 <section id="hero">
 
-  <!-- VIDEO HERO -->
-  <div id="videoHero">
-    <!-- 
-      FREE PEXELS VIDEO — Digital Marketing / Business
-      Video by Mikael Blomkvist from Pexels (free commercial use, no attribution required)
-      Source: https://www.pexels.com/video/a-person-looking-at-a-chart-7681475/
-      Alternate videos also embedded as fallbacks
-    -->
-    <video class="video-bg" id="heroBgVideo"
-      autoplay muted playsinline loop
-      poster="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80&fit=crop">
-      <!-- Primary: Digital marketing analytics video from Pexels -->
-      <source src="https://videos.pexels.com/video-files/7681475/7681475-uhd_2560_1440_25fps.mp4" type="video/mp4"/>
-      <!-- Fallback 1: Social media marketing -->
-      <source src="https://videos.pexels.com/video-files/6614405/6614405-uhd_2560_1440_25fps.mp4" type="video/mp4"/>
-      <!-- Fallback 2: Business team -->
-      <source src="https://videos.pexels.com/video-files/6558419/6558419-uhd_2560_1440_25fps.mp4" type="video/mp4"/>
-    </video>
-    <div class="video-overlay"></div>
-    <!-- Video label badge -->
-    <div class="video-badge" id="videoBadge">
-      <span class="vbadge-dot"></span>
-      <span class="vbadge-text">MK Freelance Studio · Digital Marketing Agency</span>
-    </div>
-    <!-- Video timer ring -->
-    <div class="video-timer">
-      <svg class="vtimer-svg" viewBox="0 0 36 36" id="timerSvg">
-        <circle class="vtimer-track" cx="18" cy="18" r="16"/>
-        <circle class="vtimer-fill" cx="18" cy="18" r="16" id="timerFill"/>
-      </svg>
-      <span class="vtimer-label">Auto Skip</span>
-    </div>
-    <!-- Skip button -->
-    <button class="skip-btn" id="skipBtn" onclick="skipToSlider()">
-      Skip to Gallery
-      <span class="skip-arrow">
-        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </span>
-    </button>
+  <!-- Video live badge (only visible when video slide is active) -->
+  <div class="video-live-badge" id="videoLiveBadge">
+    <span class="vbadge-dot"></span>
+    <span class="vbadge-text">MK Freelance Studio · Digital Marketing Agency</span>
   </div>
 
-  <!-- IMAGE SLIDER -->
+  <!-- Unified slider track — all slides go here -->
   <div class="slider-track" id="sliderTrack"></div>
 
-  <!-- Mode switcher buttons -->
-  <div class="mode-tag" id="modeTags" style="display:none">
-    <button class="mode-btn" id="modeVideoBtn" onclick="switchToVideo()">▶ Video</button>
-    <button class="mode-btn on" id="modeSlidesBtn">⊞ Slides</button>
-  </div>
-
-  <!-- HERO CONTENT — shared between video + slider -->
-  <div class="hero-ui" id="heroUI" style="display:none">
+  <!-- HERO CONTENT -->
+  <div class="hero-ui" id="heroUI">
     <div class="slide-badge" id="slideBadge">
       <span class="slide-badge-dot"></span>
       <span class="slide-badge-text" id="slideBadgeText">MK Freelance Studio · Est. 2020</span>
@@ -641,13 +539,13 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
     </div>
   </div>
 
-  <!-- SLIDER CONTROLS (visible only in slider mode) -->
-  <div class="slider-counter" id="sliderCounter" style="display:none">
+  <!-- SLIDER CONTROLS -->
+  <div class="slider-counter" id="sliderCounter">
     <div class="sc-current" id="scCurrent">01</div>
     <div class="sc-sep"></div>
-    <div class="sc-total" id="scTotal">05</div>
+    <div class="sc-total" id="scTotal">06</div>
   </div>
-  <div class="slider-arrows" id="sliderArrows" style="display:none">
+  <div class="slider-arrows" id="sliderArrows">
     <button class="sarrow" id="sarrowPrev" aria-label="Previous slide">
       <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
     </button>
@@ -655,17 +553,17 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
       <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
   </div>
-  <div class="slide-caption" id="slideCapWrap" style="display:none">
+  <div class="slide-caption" id="slideCapWrap">
     <div class="sc-label">Currently Showing</div>
     <div class="sc-title" id="slideCaption">Website Design</div>
   </div>
-  <div class="slider-dots" id="sliderDots" style="display:none"></div>
-  <div class="slider-progress-bar" id="sliderProgBar" style="display:none">
+  <div class="slider-dots" id="sliderDots"></div>
+  <div class="slider-progress-bar">
     <div class="slider-progress-fill" id="progressFill"></div>
   </div>
 
   <!-- SCROLL HINT -->
-  <div class="hero-scroll" id="heroScroll" style="display:none">
+  <div class="hero-scroll">
     <span class="hero-scroll-label">Scroll</span>
     <div class="hero-scroll-line"></div>
   </div>
@@ -919,12 +817,85 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
 // ============================================================
 // DATA
 // ============================================================
-const SLIDES=[
-  {img:'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',tint:'#C9A96E',badge:'Website Design · UI/UX',line1:'We Build',line2Em:'Stunning',line2Rest:' Websites',sub:'Conversion-focused, mobile-first websites that make your brand unforgettable across India.',caption:'Premium Web Design'},
-  {img:'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=1800&q=85&fit=crop&auto=format',tint:'#6BBF7A',badge:'SEO · Digital Growth',line1:'Rank Higher',line2Em:'Google',line2Rest:' Pe',sub:'Data-driven SEO strategies that drive real organic traffic and dominate search results.',caption:'Search Engine Mastery'},
-  {img:'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1800&q=85&fit=crop&auto=format',tint:'#6EB5FF',badge:'Meta Ads · Google Ads',line1:'Ads That',line2Em:'Convert,',line2Rest:' Always',sub:'High-ROI paid campaigns on Meta & Google with precise targeting and performance analytics.',caption:'Paid Advertising'},
-  {img:'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1800&q=85&fit=crop&auto=format',tint:'#E882B4',badge:'Branding · Graphic Design',line1:'Design That',line2Em:'Speaks',line2Rest:' Loud',sub:'Logos, brand identities, and social media creatives that make your business stand out.',caption:'Creative Branding'},
-  {img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format',tint:'#C9A96E',badge:'3D Websites · Vibe Coding',line1:'Next-Gen',line2Em:'Digital',line2Rest:' India',sub:'Immersive 3D web experiences & full digital strategy — serving businesses across India.',caption:'Full Digital Agency'},
+
+// Unified slide sequence — type:'video' slide is injected at position 3 (index 2)
+// Sequence: image → image → VIDEO → image → image → image
+const SLIDES = [
+  {
+    type: 'image',
+    img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
+    tint: '#C9A96E',
+    badge: 'Website Design · UI/UX',
+    line1: 'We Build',
+    line2Em: 'Stunning',
+    line2Rest: ' Websites',
+    sub: 'Conversion-focused, mobile-first websites that make your brand unforgettable across India.',
+    caption: 'Premium Web Design',
+    duration: 5000
+  },
+  {
+    type: 'image',
+    img: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=1800&q=85&fit=crop&auto=format',
+    tint: '#6BBF7A',
+    badge: 'SEO · Digital Growth',
+    line1: 'Rank Higher',
+    line2Em: 'Google',
+    line2Rest: ' Pe',
+    sub: 'Data-driven SEO strategies that drive real organic traffic and dominate search results.',
+    caption: 'Search Engine Mastery',
+    duration: 5000
+  },
+  {
+    // ★ VIDEO SLIDE — appears 3rd in sequence ★
+    type: 'video',
+    videoSrc: 'https://videos.pexels.com/video-files/7681475/7681475-uhd_2560_1440_25fps.mp4',
+    videoFallback: 'https://videos.pexels.com/video-files/6614405/6614405-uhd_2560_1440_25fps.mp4',
+    poster: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80&fit=crop',
+    tint: '#C9A96E',
+    badge: 'MK Freelance Studio · Digital Agency',
+    line1: 'We Drive',
+    line2Em: 'Real',
+    line2Rest: ' Growth',
+    sub: 'See how we transform businesses — real campaigns, real results, real ROI across India.',
+    caption: 'Agency Showreel',
+    duration: 8000  // video plays for 8 seconds
+  },
+  {
+    type: 'image',
+    img: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1800&q=85&fit=crop&auto=format',
+    tint: '#6EB5FF',
+    badge: 'Meta Ads · Google Ads',
+    line1: 'Ads That',
+    line2Em: 'Convert,',
+    line2Rest: ' Always',
+    sub: 'High-ROI paid campaigns on Meta & Google with precise targeting and performance analytics.',
+    caption: 'Paid Advertising',
+    duration: 5000
+  },
+  {
+    type: 'image',
+    img: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1800&q=85&fit=crop&auto=format',
+    tint: '#E882B4',
+    badge: 'Branding · Graphic Design',
+    line1: 'Design That',
+    line2Em: 'Speaks',
+    line2Rest: ' Loud',
+    sub: 'Logos, brand identities, and social media creatives that make your business stand out.',
+    caption: 'Creative Branding',
+    duration: 5000
+  },
+  {
+    type: 'image',
+    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format',
+    tint: '#C9A96E',
+    badge: '3D Websites · Vibe Coding',
+    line1: 'Next-Gen',
+    line2Em: 'Digital',
+    line2Rest: ' India',
+    sub: 'Immersive 3D web experiences & full digital strategy — serving businesses across India.',
+    caption: 'Full Digital Agency',
+    duration: 5000
+  },
 ];
 
 const SERVICES=[
@@ -978,11 +949,10 @@ const MQ_ITEMS=['Website Designing','SEO','Meta Ads','Google Ads','LinkedIn Ads'
   let startTs=null;
   const DURATION=2800;
 
-  // Build letters
   text.split('').forEach((ch,i)=>{
     const span=document.createElement('span');
     span.className='intro-letter';
-    span.textContent=ch===''?' ':ch;
+    span.textContent=ch===' '?'\u00a0':ch;
     span.style.transitionDelay=(0.06*i)+'s';
     lettersEl.appendChild(span);
   });
@@ -993,27 +963,20 @@ const MQ_ITEMS=['Website Designing','SEO','Meta Ads','Google Ads','LinkedIn Ads'
     const pct=Math.floor((elapsed/DURATION)*100);
     counterEl.textContent=String(pct).padStart(3,'0');
     barEl.style.width=pct+'%';
-
-    // Line shows at 20%
     if(pct>=20) intro.classList.add('lineshow');
-    // Letters show at 35%
     if(pct>=35) intro.classList.add('textshow');
-
     if(pct<100){
       requestAnimationFrame(frame);
     } else {
       counterEl.textContent='100';
-      // Start panel split
       setTimeout(()=>{
         intro.classList.add('reveal');
-        // After panels fly out, fade intro itself
         setTimeout(()=>{
           intro.classList.add('done');
           intro.style.opacity='0';
           intro.style.transition='opacity .5s ease';
           setTimeout(()=>intro.remove(),600);
-          // Show hero content
-          onIntroComplete();
+          initSlider();
         },900);
       },220);
     }
@@ -1037,217 +1000,206 @@ document.querySelectorAll('a,button,input,select,textarea,label,.srv-card,.why-c
 window.addEventListener('scroll',()=>{document.getElementById('navPill').classList.toggle('scrolled',window.scrollY>80);});
 
 // ============================================================
-// VIDEO TIMER — 8 second countdown ring
+// UNIFIED SLIDER ENGINE (images + video mixed)
 // ============================================================
-const VIDEO_DURATION = 8000; // 8 seconds then auto skip
-let videoTimer = null;
-let videoStartTime = null;
-const timerFill = document.getElementById('timerFill');
-const circumference = 100.5; // 2 * pi * 16
-
-function startVideoTimer(){
-  videoStartTime = performance.now();
-  timerFill.style.transition = 'none';
-  timerFill.style.strokeDashoffset = circumference;
-  requestAnimationFrame(()=>{
-    requestAnimationFrame(()=>{
-      timerFill.style.transition = 'stroke-dashoffset '+VIDEO_DURATION+'ms linear';
-      timerFill.style.strokeDashoffset = '0';
-    });
-  });
-  videoTimer = setTimeout(skipToSlider, VIDEO_DURATION);
-}
-
-// ============================================================
-// VIDEO → SLIDER TRANSITION
-// ============================================================
-let sliderInitialized = false;
-
-function skipToSlider(){
-  clearTimeout(videoTimer);
-  const videoHero = document.getElementById('videoHero');
-  const sliderTrack = document.getElementById('sliderTrack');
-  videoHero.classList.add('hidden');
-  sliderTrack.classList.add('active');
-  // Show slider UI elements
-  ['sliderCounter','sliderArrows','slideCapWrap','sliderDots','sliderProgBar','heroScroll','modeTags'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el) el.style.display='';
-  });
-  // Show hero UI
-  document.getElementById('heroUI').style.display='';
-  // Show mode btns
-  document.getElementById('modeVideoBtn').classList.remove('on');
-  document.getElementById('modeSlidesBtn').classList.add('on');
-  // Init slider if not yet
-  if(!sliderInitialized) initSlider();
-  // Video auto-pause
-  const vid = document.getElementById('heroBgVideo');
-  if(vid) vid.pause();
-}
-
-function switchToVideo(){
-  const videoHero = document.getElementById('videoHero');
-  const sliderTrack = document.getElementById('sliderTrack');
-  videoHero.classList.remove('hidden');
-  sliderTrack.classList.remove('active');
-  document.getElementById('modeVideoBtn').classList.add('on');
-  document.getElementById('modeSlidesBtn').classList.remove('on');
-  const vid = document.getElementById('heroBgVideo');
-  if(vid){ vid.currentTime=0; vid.play(); }
-  // Clear slider autoplay
-  clearInterval(sliderAutoTimer);
-  startVideoTimer();
-}
-
-// After intro completes — start video
-function onIntroComplete(){
-  // Show video badge
-  setTimeout(()=>document.getElementById('videoBadge').classList.add('vis'), 300);
-  // Start video timer
-  startVideoTimer();
-  // Auto-play video
-  const vid = document.getElementById('heroBgVideo');
-  if(vid){ vid.play().catch(()=>{}); }
-}
-
-// ============================================================
-// HERO IMAGE SLIDER ENGINE
-// ============================================================
-const SLIDE_DURATION = 5000;
 let currentSlide = 0;
 let sliderAutoTimer = null;
 let isTransitioning = false;
 let slideEls = [];
 let dotEls = [];
+let activeVideoEl = null;
 
-function initSlider(){
-  sliderInitialized = true;
+function initSlider() {
   const track = document.getElementById('sliderTrack');
-  const dots = document.getElementById('sliderDots');
-  const progressFill = document.getElementById('progressFill');
+  const dotsContainer = document.getElementById('sliderDots');
   document.getElementById('scTotal').textContent = String(SLIDES.length).padStart(2,'0');
 
-  // Build slides
-  SLIDES.forEach((s,i)=>{
-    const div=document.createElement('div');
-    div.className='slide'+(i===0?' active':'');
-    div.innerHTML=`<img class="slide-img" src="${s.img}" alt="${s.caption}" loading="${i===0?'eager':'lazy'}"/>
-      <div class="slide-tint" style="background:${s.tint}"></div>
-      <div class="slide-overlay"></div>
-      <div class="slide-grain"></div>`;
+  // Build all slides
+  SLIDES.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'slide' + (i === 0 ? ' active' : '');
+
+    if (s.type === 'video') {
+      // Video slide
+      div.innerHTML = `
+        <video class="slide-video" muted playsinline preload="none"
+          poster="${s.poster || ''}">
+          <source src="${s.videoSrc}" type="video/mp4"/>
+          <source src="${s.videoFallback}" type="video/mp4"/>
+        </video>
+        <div class="slide-tint" style="background:${s.tint}"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-grain"></div>`;
+    } else {
+      // Image slide
+      div.innerHTML = `
+        <img class="slide-img" src="${s.img}" alt="${s.caption}" loading="${i === 0 ? 'eager' : 'lazy'}"/>
+        <div class="slide-tint" style="background:${s.tint}"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-grain"></div>`;
+    }
+
     track.appendChild(div);
     slideEls.push(div);
   });
 
   // Build dots
-  SLIDES.forEach((_,i)=>{
-    const dot=document.createElement('div');
-    dot.className='sdot'+(i===0?' active':'');
-    dot.addEventListener('click',()=>goToSlide(i));
-    dots.appendChild(dot);
+  SLIDES.forEach((s, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'sdot' + (i === 0 ? ' active' : '') + (s.type === 'video' ? ' video-dot' : '');
+    dot.addEventListener('click', () => { goToSlide(i); });
+    dotsContainer.appendChild(dot);
     dotEls.push(dot);
   });
 
-  // Init hero content
+  // Init first slide content
   updateHeroContent(SLIDES[0], false);
-  startProgress();
   startAutoPlay();
+  startProgress(SLIDES[0].duration);
 }
 
-function updateHeroContent(s, animate){
-  const slideBadge=document.getElementById('slideBadge');
-  const slideBadgeText=document.getElementById('slideBadgeText');
-  const heroLine1=document.getElementById('heroLine1');
-  const heroLine2=document.getElementById('heroLine2');
-  const heroSub=document.getElementById('heroSub');
-  const heroBtns=document.getElementById('heroBtns');
-  const slideCaption=document.getElementById('slideCaption');
+function updateHeroContent(s, animate) {
+  const slideBadge = document.getElementById('slideBadge');
+  const slideBadgeText = document.getElementById('slideBadgeText');
+  const heroLine1 = document.getElementById('heroLine1');
+  const heroLine2 = document.getElementById('heroLine2');
+  const heroSub = document.getElementById('heroSub');
+  const heroBtns = document.getElementById('heroBtns');
+  const slideCaption = document.getElementById('slideCaption');
+  const videoLiveBadge = document.getElementById('videoLiveBadge');
 
-  if(animate){
-    [slideBadge,heroLine1,heroLine2,heroSub,heroBtns].forEach(el=>el.classList.remove('visible'));
-    setTimeout(()=>{
-      applyContent(s,slideBadgeText,heroLine2,heroLine1,heroSub,slideCaption);
-      requestAnimationFrame(()=>{
-        slideBadge.classList.add('visible');
-        setTimeout(()=>heroLine1.classList.add('visible'),80);
-        setTimeout(()=>heroLine2.classList.add('visible'),180);
-        setTimeout(()=>heroSub.classList.add('visible'),300);
-        setTimeout(()=>heroBtns.classList.add('visible'),420);
-      });
-    },500);
+  // Show/hide video live badge
+  if (s.type === 'video') {
+    videoLiveBadge.classList.add('vis');
   } else {
-    applyContent(s,slideBadgeText,heroLine2,heroLine1,heroSub,slideCaption);
-    setTimeout(()=>{
+    videoLiveBadge.classList.remove('vis');
+  }
+
+  function applyContent() {
+    slideBadgeText.textContent = s.badge;
+    heroLine1.textContent = s.line1;
+    heroLine2.innerHTML = `<em>${s.line2Em}</em>${s.line2Rest}`;
+    heroSub.innerHTML = s.sub;
+    slideCaption.textContent = s.caption;
+  }
+
+  if (animate) {
+    [slideBadge, heroLine1, heroLine2, heroSub, heroBtns].forEach(el => el.classList.remove('visible'));
+    setTimeout(() => {
+      applyContent();
+      requestAnimationFrame(() => {
+        slideBadge.classList.add('visible');
+        setTimeout(() => heroLine1.classList.add('visible'), 80);
+        setTimeout(() => heroLine2.classList.add('visible'), 180);
+        setTimeout(() => heroSub.classList.add('visible'), 300);
+        setTimeout(() => heroBtns.classList.add('visible'), 420);
+      });
+    }, 500);
+  } else {
+    applyContent();
+    setTimeout(() => {
       slideBadge.classList.add('visible');
-      setTimeout(()=>heroLine1.classList.add('visible'),100);
-      setTimeout(()=>heroLine2.classList.add('visible'),220);
-      setTimeout(()=>heroSub.classList.add('visible'),380);
-      setTimeout(()=>heroBtns.classList.add('visible'),520);
-    },200);
+      setTimeout(() => heroLine1.classList.add('visible'), 100);
+      setTimeout(() => heroLine2.classList.add('visible'), 220);
+      setTimeout(() => heroSub.classList.add('visible'), 380);
+      setTimeout(() => heroBtns.classList.add('visible'), 520);
+    }, 200);
   }
 }
 
-function applyContent(s,badgeTextEl,line2El,line1El,subEl,captionEl){
-  badgeTextEl.textContent=s.badge;
-  line1El.textContent=s.line1;
-  line2El.innerHTML=`<em>${s.line2Em}</em>${s.line2Rest}`;
-  subEl.innerHTML=s.sub;
-  captionEl.textContent=s.caption;
-}
+function startProgress(duration) {
+  const fill = document.getElementById('progressFill');
+  fill.classList.remove('animating');
+  fill.style.transition = 'none';
+  fill.style.width = '0%';
 
-function startProgress(){
-  const progressFill=document.getElementById('progressFill');
-  progressFill.classList.remove('animating');
-  progressFill.style.width='0%';
-  dotEls.forEach(d=>d.classList.remove('active'));
-  if(dotEls[currentSlide]) dotEls[currentSlide].classList.add('active');
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    progressFill.classList.add('animating');
-    progressFill.style.transition='width '+SLIDE_DURATION+'ms linear';
-    progressFill.style.width='100%';
+  // Update dots
+  dotEls.forEach(d => d.classList.remove('active'));
+  if (dotEls[currentSlide]) dotEls[currentSlide].classList.add('active');
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    fill.classList.add('animating');
+    fill.style.transition = 'width ' + duration + 'ms linear';
+    fill.style.width = '100%';
   }));
 }
 
-function goToSlide(idx){
-  if(isTransitioning||idx===currentSlide) return;
-  isTransitioning=true;
-  const prev=currentSlide;
-  currentSlide=(idx+SLIDES.length)%SLIDES.length;
+function handleVideoSlide(slideEl, s) {
+  const video = slideEl.querySelector('video');
+  if (!video) return;
+  activeVideoEl = video;
+  video.currentTime = 0;
+  // Use actual video duration if available and shorter than our limit
+  video.play().catch(() => {});
+}
+
+function stopActiveVideo() {
+  if (activeVideoEl) {
+    activeVideoEl.pause();
+    activeVideoEl.currentTime = 0;
+    activeVideoEl = null;
+  }
+}
+
+function goToSlide(idx) {
+  if (isTransitioning || idx === currentSlide) return;
+  isTransitioning = true;
+
+  const prev = currentSlide;
+  currentSlide = (idx + SLIDES.length) % SLIDES.length;
+
+  // Stop video if leaving a video slide
+  stopActiveVideo();
+
   slideEls[prev].classList.remove('active');
   slideEls[prev].classList.add('prev');
   slideEls[currentSlide].classList.add('active');
-  document.getElementById('scCurrent').textContent=String(currentSlide+1).padStart(2,'0');
-  dotEls.forEach(d=>d.classList.remove('active'));
-  if(dotEls[currentSlide]) dotEls[currentSlide].classList.add('active');
-  updateHeroContent(SLIDES[currentSlide],true);
-  startProgress();
-  setTimeout(()=>{slideEls[prev].classList.remove('prev');isTransitioning=false;},1500);
+
+  document.getElementById('scCurrent').textContent = String(currentSlide + 1).padStart(2,'0');
+
+  const s = SLIDES[currentSlide];
+  updateHeroContent(s, true);
+  startProgress(s.duration);
+
+  // If new slide is video, start playing it
+  if (s.type === 'video') {
+    setTimeout(() => handleVideoSlide(slideEls[currentSlide], s), 400);
+  }
+
+  setTimeout(() => {
+    slideEls[prev].classList.remove('prev');
+    isTransitioning = false;
+  }, 1500);
 }
 
-function nextSlide(){goToSlide((currentSlide+1)%SLIDES.length)}
-function prevSlide(){goToSlide((currentSlide-1+SLIDES.length)%SLIDES.length)}
+function nextSlide() { goToSlide((currentSlide + 1) % SLIDES.length); }
+function prevSlide() { goToSlide((currentSlide - 1 + SLIDES.length) % SLIDES.length); }
 
-function startAutoPlay(){
+function startAutoPlay() {
   clearInterval(sliderAutoTimer);
-  sliderAutoTimer=setInterval(nextSlide,SLIDE_DURATION);
+  const duration = SLIDES[currentSlide].duration;
+  sliderAutoTimer = setTimeout(function tick() {
+    nextSlide();
+    // Schedule next based on the new slide's duration
+    sliderAutoTimer = setTimeout(tick, SLIDES[currentSlide].duration);
+  }, duration);
 }
 
 // Arrow buttons
-document.getElementById('sarrowNext').addEventListener('click',()=>{nextSlide();startAutoPlay();});
-document.getElementById('sarrowPrev').addEventListener('click',()=>{prevSlide();startAutoPlay();});
+document.getElementById('sarrowNext').addEventListener('click', () => { clearTimeout(sliderAutoTimer); nextSlide(); startAutoPlay(); });
+document.getElementById('sarrowPrev').addEventListener('click', () => { clearTimeout(sliderAutoTimer); prevSlide(); startAutoPlay(); });
 
 // Pause on hover
-document.getElementById('hero').addEventListener('mouseenter',()=>clearInterval(sliderAutoTimer));
-document.getElementById('hero').addEventListener('mouseleave',()=>{if(sliderInitialized&&document.getElementById('sliderTrack').classList.contains('active'))startAutoPlay();});
+document.getElementById('hero').addEventListener('mouseenter', () => clearTimeout(sliderAutoTimer));
+document.getElementById('hero').addEventListener('mouseleave', () => startAutoPlay());
 
 // Touch/swipe
-let touchStartX=0;
-document.getElementById('hero').addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX;},{passive:true});
-document.getElementById('hero').addEventListener('touchend',e=>{
-  const diff=touchStartX-e.changedTouches[0].clientX;
-  if(Math.abs(diff)>50&&sliderInitialized){diff>0?nextSlide():prevSlide();startAutoPlay();}
-},{passive:true});
+let touchStartX = 0;
+document.getElementById('hero').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+document.getElementById('hero').addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); startAutoPlay(); }
+}, { passive: true });
 
 // ============================================================
 // MARQUEE
