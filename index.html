@@ -39,80 +39,26 @@
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:none;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* ============================================================
-   PREMIUM INTRO ANIMATION
-   ============================================================ */
-#intro{
-  position:fixed;inset:0;z-index:10000;
-  background:#030303;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  overflow:hidden;
-  pointer-events:all;
-}
+/* INTRO */
+#intro{position:fixed;inset:0;z-index:10000;background:#030303;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;pointer-events:all;}
 #intro.done{pointer-events:none}
-.intro-panel{
-  position:absolute;left:0;right:0;height:50%;
-  background:#030303;
-  transition:transform 1s cubic-bezier(.76,0,.24,1);
-  z-index:2;
-}
+.intro-panel{position:absolute;left:0;right:0;height:50%;background:#030303;transition:transform 1s cubic-bezier(.76,0,.24,1);z-index:2;}
 .intro-panel.top{top:0;transform-origin:top center}
 .intro-panel.bot{bottom:0;transform-origin:bottom center}
 #intro.reveal .intro-panel.top{transform:translateY(-100%)}
 #intro.reveal .intro-panel.bot{transform:translateY(100%)}
-.intro-line{
-  position:absolute;left:0;right:0;top:50%;height:1px;
-  background:linear-gradient(90deg,transparent 0%,var(--a1) 20%,var(--a3) 50%,var(--a1) 80%,transparent 100%);
-  transform:scaleX(0);transform-origin:center;
-  transition:transform .7s cubic-bezier(.16,1,.3,1);
-  z-index:3;
-}
+.intro-line{position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent 0%,var(--a1) 20%,var(--a3) 50%,var(--a1) 80%,transparent 100%);transform:scaleX(0);transform-origin:center;transition:transform .7s cubic-bezier(.16,1,.3,1);z-index:3;}
 #intro.lineshow .intro-line{transform:scaleX(1)}
-.intro-wordwrap{
-  position:relative;z-index:4;
-  text-align:center;
-  overflow:hidden;
-}
-.intro-studio{
-  font-family:var(--font-display);
-  font-size:clamp(2.8rem,8vw,7rem);
-  font-style:italic;
-  letter-spacing:-.02em;
-  color:var(--text);
-  display:flex;gap:.06em;justify-content:center;flex-wrap:wrap;
-}
-.intro-letter{
-  display:inline-block;
-  opacity:0;
-  transform:translateY(80px) rotate(8deg);
-  transition:opacity .5s ease,transform .5s cubic-bezier(.16,1,.3,1);
-}
-.intro-sub-line{
-  font-size:clamp(.55rem,.9vw,.7rem);
-  letter-spacing:.4em;
-  text-transform:uppercase;
-  color:var(--a1);
-  margin-top:14px;
-  opacity:0;
-  transform:translateY(14px);
-  transition:opacity .5s .6s ease,transform .5s .6s ease;
-}
+.intro-wordwrap{position:relative;z-index:4;text-align:center;overflow:hidden;}
+.intro-studio{font-family:var(--font-display);font-size:clamp(2.8rem,8vw,7rem);font-style:italic;letter-spacing:-.02em;color:var(--text);display:flex;gap:.06em;justify-content:center;flex-wrap:wrap;}
+.intro-letter{display:inline-block;opacity:0;transform:translateY(80px) rotate(8deg);transition:opacity .5s ease,transform .5s cubic-bezier(.16,1,.3,1);}
+.intro-sub-line{font-size:clamp(.55rem,.9vw,.7rem);letter-spacing:.4em;text-transform:uppercase;color:var(--a1);margin-top:14px;opacity:0;transform:translateY(14px);transition:opacity .5s .6s ease,transform .5s .6s ease;}
 #intro.textshow .intro-letter{opacity:1;transform:translateY(0) rotate(0deg)}
 #intro.textshow .intro-sub-line{opacity:1;transform:translateY(0)}
-.intro-counter{
-  position:absolute;bottom:32px;right:40px;z-index:4;
-  font-family:var(--font-display);
-  font-size:clamp(2rem,6vw,4rem);
-  font-style:italic;
-  color:rgba(255,255,255,.08);
-  transition:opacity .4s;
-}
+.intro-counter{position:absolute;bottom:32px;right:40px;z-index:4;font-family:var(--font-display);font-size:clamp(2rem,6vw,4rem);font-style:italic;color:rgba(255,255,255,.08);transition:opacity .4s;}
 .intro-bar-wrap{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(255,255,255,.04);z-index:4}
 .intro-bar{height:100%;width:0;background:linear-gradient(90deg,var(--a2),var(--a1))}
-.intro-corner{
-  position:absolute;z-index:4;
-  font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.2);
-}
+.intro-corner{position:absolute;z-index:4;font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.2);}
 .intro-corner.tl{top:28px;left:32px}
 .intro-corner.tr{top:28px;right:32px;text-align:right}
 
@@ -137,25 +83,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .nav-cta span{position:relative;z-index:1}
 @media(max-width:520px){.nav-sep{display:none}.nav-link{padding:7px 10px;font-size:.65rem}.nav-cta{padding:7px 12px}}
 
-/* ============================================================
-   HERO — UNIFIED SLIDER (images + video mixed in)
-   ============================================================ */
+/* HERO */
 #hero{position:relative;width:100%;height:100vh;overflow:hidden;background:var(--bg)}
-
-/* Slides container */
 .slider-track{position:absolute;inset:0;z-index:0}
-
-/* Each slide — can be image or video */
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s cubic-bezier(.4,0,.2,1);will-change:opacity}
 .slide.active{opacity:1;z-index:2}
 .slide.prev{opacity:0;z-index:1}
-
-/* Image slides */
 .slide-img{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;object-position:center;transform:scale(1.08);transition:transform 6s cubic-bezier(.16,1,.3,1);will-change:transform}
 .slide.active .slide-img{transform:scale(1)}
 
-/* Video slides */
-.slide-video{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;object-position:center}
+/* VIDEO SLIDE — fixed autoplay */
+.slide-video{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  min-width:100%;min-height:100%;
+  width:auto;height:auto;
+  object-fit:cover;
+  object-position:center;
+}
 
 .slide-overlay{position:absolute;inset:0;z-index:1}
 .slide-overlay::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,8,8,.88) 0%,rgba(8,8,8,.4) 50%,rgba(8,8,8,.7) 100%)}
@@ -163,21 +109,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .slide-tint{position:absolute;inset:0;z-index:1;mix-blend-mode:color;opacity:.18;transition:opacity 1.4s}
 .slide-grain{position:absolute;inset:0;z-index:2;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px;pointer-events:none}
 
-/* Video badge (shown on video slide) */
-.video-live-badge{
-  position:absolute;top:28px;left:clamp(28px,8vw,100px);z-index:10;
-  display:inline-flex;align-items:center;gap:8px;
-  padding:6px 14px;border-radius:999px;
-  border:1px solid rgba(201,169,110,.3);background:rgba(201,169,110,.08);
-  backdrop-filter:blur(12px);
-  opacity:0;pointer-events:none;
-  transition:opacity .5s ease;
-}
+.video-live-badge{position:absolute;top:28px;left:clamp(28px,8vw,100px);z-index:10;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid rgba(201,169,110,.3);background:rgba(201,169,110,.08);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .5s ease;}
 .video-live-badge.vis{opacity:1}
 .vbadge-dot{width:5px;height:5px;border-radius:50%;background:#6BBF7A;animation:pulseDot 2s ease-in-out infinite}
 .vbadge-text{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--a1);font-weight:600}
 
-/* Hero content */
 .hero-ui{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 clamp(28px,8vw,100px);pointer-events:none}
 .hero-ui > *{pointer-events:auto}
 .slide-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid rgba(201,169,110,.3);background:rgba(201,169,110,.08);backdrop-filter:blur(12px);margin-bottom:22px;opacity:0;transform:translateY(20px);transition:opacity .7s .2s ease,transform .7s .2s ease}
@@ -199,7 +135,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .btn-outline{padding:12px 28px;border-radius:999px;border:1px solid rgba(255,255,255,.15);color:var(--text);font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:none;transition:transform .2s,border-color .2s,background .2s;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(8px)}
 .btn-outline:hover{border-color:rgba(201,169,110,.4);background:rgba(201,169,110,.08);transform:translateY(-2px)}
 
-/* Slider controls */
 .slider-counter{position:absolute;left:clamp(16px,3vw,40px);bottom:clamp(90px,12vw,140px);z-index:10;display:flex;flex-direction:column;align-items:center;gap:10px}
 .sc-current{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,3rem);font-style:italic;color:var(--a1);line-height:1;transition:opacity .4s}
 .sc-sep{width:1px;height:40px;background:linear-gradient(to bottom,var(--a1),transparent)}
@@ -212,8 +147,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .sdot::after{content:'';position:absolute;inset:0;background:var(--a1);transform:scaleX(0);transform-origin:left;transition:transform linear}
 .sdot.active{width:48px;background:rgba(201,169,110,.3)}
 .sdot.active::after{transform:scaleX(1)}
-
-/* Video dot — slightly different */
 .sdot.video-dot{background:rgba(107,191,122,.2)}
 .sdot.video-dot.active{background:rgba(107,191,122,.3)}
 .sdot.video-dot.active::after{background:#6BBF7A}
@@ -388,6 +321,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 @media(max-width:440px){.srv-checks{grid-template-columns:1fr}}
 .chk-item{display:flex;align-items:center;gap:7px;font-size:.76rem;color:var(--muted);cursor:none}
 .chk-item input{accent-color:var(--a1);cursor:none;width:14px;height:14px;flex-shrink:0}
+
+/* PROMO CODE FIELD */
+.promo-wrap{position:relative}
+.promo-wrap .f-inp{padding-right:90px;letter-spacing:.08em;text-transform:uppercase}
+.promo-verify-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);padding:5px 12px;border-radius:7px;border:none;background:rgba(201,169,110,.15);color:var(--a1);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:none;transition:background .2s,color .2s}
+.promo-verify-btn:hover{background:rgba(201,169,110,.28)}
+.promo-msg{font-size:.62rem;margin-top:4px;display:none;padding:5px 10px;border-radius:7px}
+.promo-msg.valid{display:block;color:#6BBF7A;background:rgba(107,191,122,.08);border:1px solid rgba(107,191,122,.2)}
+.promo-msg.invalid{display:block;color:#ff7878;background:rgba(255,80,80,.06);border:1px solid rgba(255,80,80,.15)}
+
 .btn-submit{width:100%;padding:14px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--a1),var(--a2));color:var(--bg);font-family:var(--font-body);font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;cursor:none;transition:transform .2s,opacity .2s,box-shadow .2s;margin-top:4px}
 .btn-submit:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,169,110,.3)}
 .btn-submit:disabled{opacity:.5;cursor:not-allowed}
@@ -508,21 +451,13 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
   </div>
 </nav>
 
-<!-- ============================================================
-     HERO — UNIFIED SLIDER (images + video mixed in sequence)
-     ============================================================ -->
+<!-- HERO -->
 <section id="hero">
-
-  <!-- Video live badge (only visible when video slide is active) -->
   <div class="video-live-badge" id="videoLiveBadge">
     <span class="vbadge-dot"></span>
     <span class="vbadge-text">MK Freelance Studio · Digital Marketing Agency</span>
   </div>
-
-  <!-- Unified slider track — all slides go here -->
   <div class="slider-track" id="sliderTrack"></div>
-
-  <!-- HERO CONTENT -->
   <div class="hero-ui" id="heroUI">
     <div class="slide-badge" id="slideBadge">
       <span class="slide-badge-dot"></span>
@@ -538,8 +473,6 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
       <a href="#projects" class="btn-outline">View Our Work</a>
     </div>
   </div>
-
-  <!-- SLIDER CONTROLS -->
   <div class="slider-counter" id="sliderCounter">
     <div class="sc-current" id="scCurrent">01</div>
     <div class="sc-sep"></div>
@@ -561,13 +494,10 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
   <div class="slider-progress-bar">
     <div class="slider-progress-fill" id="progressFill"></div>
   </div>
-
-  <!-- SCROLL HINT -->
   <div class="hero-scroll">
     <span class="hero-scroll-label">Scroll</span>
     <div class="hero-scroll-line"></div>
   </div>
-
 </section>
 
 <!-- MARQUEE -->
@@ -723,6 +653,17 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
             <label class="chk-item"><input type="checkbox" name="services" value="Full Package"> Full Package</label>
           </div>
         </div>
+
+        <!-- ✅ PROMO CODE FIELD -->
+        <div class="f-grp">
+          <label class="f-lbl" for="fpromo">Promo Code <span style="color:var(--a1);font-style:italic">(Optional)</span></label>
+          <div class="promo-wrap">
+            <input class="f-inp" type="text" id="fpromo" name="promo" placeholder="Enter code e.g. MK25NEW" autocomplete="off" style="text-transform:uppercase">
+            <button type="button" class="promo-verify-btn" id="promoVerifyBtn">Apply</button>
+          </div>
+          <div class="promo-msg" id="promoMsg"></div>
+        </div>
+
         <div class="f-grp"><label class="f-lbl" for="fmsg">Project Details</label><textarea class="f-ta" id="fmsg" name="message" placeholder="Tell us about your project, goals, timeline..."></textarea></div>
         <button type="submit" class="btn-submit" id="submitBtn">🚀 Book Your Free Consultation</button>
       </form>
@@ -815,11 +756,65 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
 
 <script>
 // ============================================================
+// PROMO CODES
+// ============================================================
+const PROMO_CODES = {
+  'MK25NEW':   { discount: '25%', msg: '🎉 MK25NEW applied! 25% off on your first project.' },
+  'MKDIGITAL': { discount: '15%', msg: '✅ MKDIGITAL applied! 15% off on any digital marketing service.' },
+  'MKSEO':     { discount: '20%', msg: '✅ MKSEO applied! 20% off on SEO package.' },
+  'MKWEB':     { discount: '20%', msg: '✅ MKWEB applied! 20% off on website design.' },
+  'MKVIP':     { discount: '30%', msg: '🌟 VIP code applied! 30% off — you got the special rate!' },
+};
+
+let appliedPromo = '';
+
+document.getElementById('promoVerifyBtn').addEventListener('click', function() {
+  const inp = document.getElementById('fpromo');
+  const msg = document.getElementById('promoMsg');
+  const code = inp.value.trim().toUpperCase();
+  inp.value = code;
+  if (!code) {
+    msg.className = 'promo-msg invalid';
+    msg.textContent = '⚠️ Please enter a promo code.';
+    return;
+  }
+  if (PROMO_CODES[code]) {
+    appliedPromo = code;
+    msg.className = 'promo-msg valid';
+    msg.textContent = PROMO_CODES[code].msg;
+    this.textContent = '✓ Applied';
+    this.style.color = '#6BBF7A';
+    this.style.background = 'rgba(107,191,122,.12)';
+    this.disabled = true;
+  } else {
+    appliedPromo = '';
+    msg.className = 'promo-msg invalid';
+    msg.textContent = '❌ Invalid code. Try MK25NEW for 25% off!';
+    this.textContent = 'Apply';
+    this.style.color = '';
+    this.style.background = '';
+    this.disabled = false;
+  }
+});
+
+// Auto-fill if user navigates from discount card
+document.querySelectorAll('.dc-btn, a[href="#contact"]').forEach(el => {
+  el.addEventListener('click', () => {
+    setTimeout(() => {
+      const promoInp = document.getElementById('fpromo');
+      if (promoInp && !promoInp.value) {
+        promoInp.value = 'MK25NEW';
+      }
+    }, 600);
+  });
+});
+
+// ============================================================
 // DATA
 // ============================================================
 
-// Unified slide sequence — type:'video' slide is injected at position 3 (index 2)
-// Sequence: image → image → VIDEO → image → image → image
+// ★ VIDEO SLIDES — using reliable Pexels embed-friendly CDN URLs
+// These are direct .mp4 links that support autoplay + muted + playsinline
 const SLIDES = [
   {
     type: 'image',
@@ -846,11 +841,12 @@ const SLIDES = [
     duration: 5000
   },
   {
-    // ★ VIDEO SLIDE — appears 3rd in sequence ★
+    // ★ VIDEO SLIDE — Digital Marketing / Business Growth video
     type: 'video',
-    videoSrc: 'https://videos.pexels.com/video-files/7681475/7681475-uhd_2560_1440_25fps.mp4',
-    videoFallback: 'https://videos.pexels.com/video-files/6614405/6614405-uhd_2560_1440_25fps.mp4',
-    poster: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80&fit=crop',
+    // Primary: Pexels free stock — business/digital marketing themed
+    videoSrc: 'https://videos.pexels.com/video-files/3194277/3194277-uhd_2560_1440_25fps.mp4',
+    videoFallback: 'https://videos.pexels.com/video-files/4792723/4792723-hd_1920_1080_25fps.mp4',
+    poster: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1800&q=80&fit=crop',
     tint: '#C9A96E',
     badge: 'MK Freelance Studio · Digital Agency',
     line1: 'We Drive',
@@ -858,7 +854,7 @@ const SLIDES = [
     line2Rest: ' Growth',
     sub: 'See how we transform businesses — real campaigns, real results, real ROI across India.',
     caption: 'Agency Showreel',
-    duration: 8000  // video plays for 8 seconds
+    duration: 9000
   },
   {
     type: 'image',
@@ -1000,7 +996,7 @@ document.querySelectorAll('a,button,input,select,textarea,label,.srv-card,.why-c
 window.addEventListener('scroll',()=>{document.getElementById('navPill').classList.toggle('scrolled',window.scrollY>80);});
 
 // ============================================================
-// UNIFIED SLIDER ENGINE (images + video mixed)
+// UNIFIED SLIDER ENGINE
 // ============================================================
 let currentSlide = 0;
 let sliderAutoTimer = null;
@@ -1008,21 +1004,20 @@ let isTransitioning = false;
 let slideEls = [];
 let dotEls = [];
 let activeVideoEl = null;
+let videoSlideTimer = null;
 
 function initSlider() {
   const track = document.getElementById('sliderTrack');
   const dotsContainer = document.getElementById('sliderDots');
   document.getElementById('scTotal').textContent = String(SLIDES.length).padStart(2,'0');
 
-  // Build all slides
   SLIDES.forEach((s, i) => {
     const div = document.createElement('div');
     div.className = 'slide' + (i === 0 ? ' active' : '');
 
     if (s.type === 'video') {
-      // Video slide
       div.innerHTML = `
-        <video class="slide-video" muted playsinline preload="none"
+        <video class="slide-video" muted playsinline preload="auto" loop
           poster="${s.poster || ''}">
           <source src="${s.videoSrc}" type="video/mp4"/>
           <source src="${s.videoFallback}" type="video/mp4"/>
@@ -1031,7 +1026,6 @@ function initSlider() {
         <div class="slide-overlay"></div>
         <div class="slide-grain"></div>`;
     } else {
-      // Image slide
       div.innerHTML = `
         <img class="slide-img" src="${s.img}" alt="${s.caption}" loading="${i === 0 ? 'eager' : 'lazy'}"/>
         <div class="slide-tint" style="background:${s.tint}"></div>
@@ -1043,7 +1037,18 @@ function initSlider() {
     slideEls.push(div);
   });
 
-  // Build dots
+  // Pre-load the video element so it's ready when its slide comes up
+  slideEls.forEach((el, i) => {
+    if (SLIDES[i].type === 'video') {
+      const v = el.querySelector('video');
+      if (v) {
+        v.load();
+        // Attempt silent preplay to satisfy autoplay policies
+        v.play().then(() => v.pause()).catch(() => {});
+      }
+    }
+  });
+
   SLIDES.forEach((s, i) => {
     const dot = document.createElement('div');
     dot.className = 'sdot' + (i === 0 ? ' active' : '') + (s.type === 'video' ? ' video-dot' : '');
@@ -1052,10 +1057,16 @@ function initSlider() {
     dotEls.push(dot);
   });
 
-  // Init first slide content
   updateHeroContent(SLIDES[0], false);
-  startAutoPlay();
   startProgress(SLIDES[0].duration);
+  scheduleNext(SLIDES[0].duration);
+}
+
+function scheduleNext(delay) {
+  clearTimeout(sliderAutoTimer);
+  sliderAutoTimer = setTimeout(() => {
+    nextSlide();
+  }, delay);
 }
 
 function updateHeroContent(s, animate) {
@@ -1068,7 +1079,6 @@ function updateHeroContent(s, animate) {
   const slideCaption = document.getElementById('slideCaption');
   const videoLiveBadge = document.getElementById('videoLiveBadge');
 
-  // Show/hide video live badge
   if (s.type === 'video') {
     videoLiveBadge.classList.add('vis');
   } else {
@@ -1113,7 +1123,6 @@ function startProgress(duration) {
   fill.style.transition = 'none';
   fill.style.width = '0%';
 
-  // Update dots
   dotEls.forEach(d => d.classList.remove('active'));
   if (dotEls[currentSlide]) dotEls[currentSlide].classList.add('active');
 
@@ -1124,21 +1133,28 @@ function startProgress(duration) {
   }));
 }
 
-function handleVideoSlide(slideEl, s) {
+function playVideoSlide(slideEl) {
   const video = slideEl.querySelector('video');
   if (!video) return;
+  stopActiveVideo();
   activeVideoEl = video;
   video.currentTime = 0;
-  // Use actual video duration if available and shorter than our limit
-  video.play().catch(() => {});
+  // Use a promise chain + fallback for browsers that block autoplay
+  const playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // Fallback: user interaction needed — video will show poster
+      console.log('Video autoplay blocked by browser policy');
+    });
+  }
 }
 
 function stopActiveVideo() {
   if (activeVideoEl) {
     activeVideoEl.pause();
-    activeVideoEl.currentTime = 0;
     activeVideoEl = null;
   }
+  clearTimeout(videoSlideTimer);
 }
 
 function goToSlide(idx) {
@@ -1146,9 +1162,9 @@ function goToSlide(idx) {
   isTransitioning = true;
 
   const prev = currentSlide;
-  currentSlide = (idx + SLIDES.length) % SLIDES.length;
+  currentSlide = ((idx % SLIDES.length) + SLIDES.length) % SLIDES.length;
 
-  // Stop video if leaving a video slide
+  // Stop any playing video
   stopActiveVideo();
 
   slideEls[prev].classList.remove('active');
@@ -1161,10 +1177,13 @@ function goToSlide(idx) {
   updateHeroContent(s, true);
   startProgress(s.duration);
 
-  // If new slide is video, start playing it
+  // If new slide is video, play it after transition settles
   if (s.type === 'video') {
-    setTimeout(() => handleVideoSlide(slideEls[currentSlide], s), 400);
+    setTimeout(() => playVideoSlide(slideEls[currentSlide]), 300);
   }
+
+  // Schedule auto-advance
+  scheduleNext(s.duration);
 
   setTimeout(() => {
     slideEls[prev].classList.remove('prev');
@@ -1175,30 +1194,30 @@ function goToSlide(idx) {
 function nextSlide() { goToSlide((currentSlide + 1) % SLIDES.length); }
 function prevSlide() { goToSlide((currentSlide - 1 + SLIDES.length) % SLIDES.length); }
 
-function startAutoPlay() {
-  clearInterval(sliderAutoTimer);
-  const duration = SLIDES[currentSlide].duration;
-  sliderAutoTimer = setTimeout(function tick() {
-    nextSlide();
-    // Schedule next based on the new slide's duration
-    sliderAutoTimer = setTimeout(tick, SLIDES[currentSlide].duration);
-  }, duration);
-}
-
 // Arrow buttons
-document.getElementById('sarrowNext').addEventListener('click', () => { clearTimeout(sliderAutoTimer); nextSlide(); startAutoPlay(); });
-document.getElementById('sarrowPrev').addEventListener('click', () => { clearTimeout(sliderAutoTimer); prevSlide(); startAutoPlay(); });
+document.getElementById('sarrowNext').addEventListener('click', () => { nextSlide(); });
+document.getElementById('sarrowPrev').addEventListener('click', () => { prevSlide(); });
 
 // Pause on hover
-document.getElementById('hero').addEventListener('mouseenter', () => clearTimeout(sliderAutoTimer));
-document.getElementById('hero').addEventListener('mouseleave', () => startAutoPlay());
+let isPaused = false;
+let pausedAt = 0;
+document.getElementById('hero').addEventListener('mouseenter', () => {
+  clearTimeout(sliderAutoTimer);
+  isPaused = true;
+});
+document.getElementById('hero').addEventListener('mouseleave', () => {
+  if (isPaused) {
+    isPaused = false;
+    scheduleNext(SLIDES[currentSlide].duration);
+  }
+});
 
 // Touch/swipe
 let touchStartX = 0;
 document.getElementById('hero').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
 document.getElementById('hero').addEventListener('touchend', e => {
   const diff = touchStartX - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); startAutoPlay(); }
+  if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); }
 }, { passive: true });
 
 // ============================================================
@@ -1336,6 +1355,7 @@ form.addEventListener('submit',async e=>{
   submitBtn.disabled=true;
   const fd=new FormData(form);
   fd.set('services',services);
+  if(appliedPromo) fd.set('promo', appliedPromo + ' (' + PROMO_CODES[appliedPromo].discount + ' off)');
   fd.append('_subject','🚀 New Booking — MK Freelance Studio');
   fd.append('_replyto',fd.get('email'));
   try{
@@ -1351,7 +1371,8 @@ form.addEventListener('submit',async e=>{
   } catch(err){
     const name=fd.get('name'),mobile=fd.get('mobile'),email=fd.get('email');
     const address=fd.get('address')||'N/A',budget=fd.get('budget')||'N/A',msg=fd.get('message')||'';
-    const wa=`🚀 *New Booking — MK Freelance Studio*\n\n👤 *Name:* ${name}\n📱 *Mobile:* ${mobile}\n📧 *Email:* ${email}\n📍 *Address:* ${address}\n💰 *Budget:* ${budget}\n🛠️ *Services:* ${services}\n\n💬 *Message:* ${msg}`;
+    const promoInfo = appliedPromo ? `\n🎟️ *Promo Code:* ${appliedPromo} (${PROMO_CODES[appliedPromo].discount} off)` : '';
+    const wa=`🚀 *New Booking — MK Freelance Studio*\n\n👤 *Name:* ${name}\n📱 *Mobile:* ${mobile}\n📧 *Email:* ${email}\n📍 *Address:* ${address}\n💰 *Budget:* ${budget}\n🛠️ *Services:* ${services}${promoInfo}\n\n💬 *Message:* ${msg}`;
     window.open(`https://wa.me/919634950165?text=${encodeURIComponent(wa)}`,'_blank');
     form.style.display='none';successEl.style.display='block';
   }
