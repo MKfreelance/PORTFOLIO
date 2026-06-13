@@ -658,16 +658,22 @@ document.querySelectorAll('.dc-btn, a[href="#contact"]').forEach(el => {
 // ============================================================
 const SLIDES = [
   {
-    type: 'image',
-    img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
+    // ★ VIDEO SLIDE 1 — Pehli slide (starting)
+    // FILE: 1781374923609_6561343-uhd_3840_2160_25fps.mp4
+    // Isko rename karke "video1.mp4" rakh apne server par,
+    // ya neeche wala poora naam bhi use kar sakta hai.
+    type: 'video',
+    videoSrc: '1781374923609_6561343-uhd_3840_2160_25fps.mp4',
+    videoFallback: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
+    poster: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
     tint: '#C9A96E',
-    badge: 'Website Design · UI/UX',
+    badge: 'MK Freelance Studio · Est. 2020',
     line1: 'We Build',
-    line2Em: 'Stunning',
-    line2Rest: ' Websites',
-    sub: 'Conversion-focused, mobile-first websites that make your brand unforgettable across India.',
-    caption: 'Premium Web Design',
-    duration: 5000
+    line2Em: 'Digital',
+    line2Rest: ' India',
+    sub: 'Website Design · SEO · Meta Ads · Google Ads — Nanauta, Saharanpur UP se poore India tak.',
+    caption: 'MK Freelance Studio',
+    duration: 10000
   },
   {
     type: 'image',
@@ -682,12 +688,25 @@ const SLIDES = [
     duration: 5000
   },
   {
-    // ★ VIDEO SLIDE — Pexels CDN (free, CORS-safe, no API key needed)
-    // Primary: Person typing on laptop (digital work / marketing feel)
-    // Fallback: Analytics dashboard on screen
+    type: 'image',
+    img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
+    tint: '#C9A96E',
+    badge: 'Website Design · UI/UX',
+    line1: 'We Build',
+    line2Em: 'Stunning',
+    line2Rest: ' Websites',
+    sub: 'Conversion-focused, mobile-first websites that make your brand unforgettable across India.',
+    caption: 'Premium Web Design',
+    duration: 5000
+  },
+  {
+    // ★ VIDEO SLIDE 2 — 2 images ke baad (4th position)
+    // FILE: 1781374966716_6561434-uhd_3840_2160_25fps.mp4
+    // Isko rename karke "video2.mp4" rakh apne server par.
     type: 'video',
-    videoSrc: 'https://videos.pexels.com/video-files/3195440/3195440-sd_640_360_25fps.mp4',
-    videoFallback: 'https://videos.pexels.com/video-files/3129957/3129957-sd_640_360_24fps.mp4',
+    videoSrc: '1781374966716_6561434-uhd_3840_2160_25fps.mp4',
+    videoFallback: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format',
+    poster: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format',
     tint: '#C9A96E',
     badge: 'MK Freelance Studio · Digital Agency',
     line1: 'We Drive',
@@ -695,7 +714,7 @@ const SLIDES = [
     line2Rest: ' Growth',
     sub: 'See how we transform businesses — real campaigns, real results, real ROI across India.',
     caption: 'Agency Showreel',
-    duration: 9000
+    duration: 10000
   },
   {
     type: 'image',
@@ -843,13 +862,10 @@ function initSlider(){
     div.className='slide'+(i===0?' active':'');
 
     if(s.type==='video'){
-      // FIX 1: Removed autoplay from HTML attr (JS controls it)
-      // FIX 2: Added crossorigin for CORS
-      // FIX 3: Better CSS sizing (translate-50 centering)
       div.innerHTML=`
-        <video class="slide-video" muted playsinline loop preload="auto" crossorigin="anonymous">
+        <video class="slide-video" muted playsinline loop preload="auto"${s.poster?' poster="'+s.poster+'"':''}>
           <source src="${s.videoSrc}" type="video/mp4"/>
-          <source src="${s.videoFallback}" type="video/mp4"/>
+          ${s.videoFallback && !s.videoFallback.includes('unsplash') ? '<source src="'+s.videoFallback+'" type="video/mp4"/>' : ''}
         </video>
         <div class="slide-tint" style="background:${s.tint}"></div>
         <div class="slide-overlay"></div>
