@@ -38,7 +38,116 @@
 }
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:none;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-#intro{position:fixed;inset:0;z-index:10000;background:#030303;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;pointer-events:all;}
+
+/* ============================================================
+   ENTRANCE VIDEO SCREEN — NEW
+   ============================================================ */
+#entrance{
+  position:fixed;inset:0;z-index:99999;
+  background:#000;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  overflow:hidden;
+}
+#entrance.fade-out{
+  opacity:0;
+  transition:opacity .9s cubic-bezier(.4,0,.2,1);
+  pointer-events:none;
+}
+.entrance-video{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  min-width:100%;min-height:100%;
+  width:auto;height:auto;
+  object-fit:cover;
+  object-position:center;
+}
+.entrance-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.35) 0%,
+    rgba(0,0,0,.1) 40%,
+    rgba(0,0,0,.55) 100%
+  );
+  z-index:1;
+}
+.entrance-content{
+  position:relative;z-index:2;
+  text-align:center;
+  display:flex;flex-direction:column;
+  align-items:center;gap:28px;
+  padding:0 24px;
+}
+.entrance-logo{
+  font-family:var(--font-display);
+  font-size:clamp(2.2rem,7vw,5rem);
+  font-style:italic;
+  color:#fff;
+  letter-spacing:-.02em;
+  text-shadow:0 4px 40px rgba(0,0,0,.6);
+  opacity:0;
+  transform:translateY(20px);
+  animation:entranceFadeUp .9s .4s cubic-bezier(.16,1,.3,1) forwards;
+}
+.entrance-tagline{
+  font-size:clamp(.65rem,1.4vw,.78rem);
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--a1);
+  opacity:0;
+  transform:translateY(16px);
+  animation:entranceFadeUp .8s .8s ease forwards;
+}
+.entrance-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 34px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  color:#000;
+  font-family:var(--font-body);
+  font-weight:700;
+  font-size:.82rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  border:none;
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(16px);
+  animation:entranceFadeUp .8s 1.1s ease forwards;
+  box-shadow:0 8px 40px rgba(201,169,110,.4);
+  transition:transform .2s,box-shadow .2s,opacity .2s;
+}
+.entrance-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 50px rgba(201,169,110,.5);
+}
+.entrance-btn svg{width:16px;height:16px;stroke:#000;stroke-width:2.2;fill:none}
+/* Countdown ring around button */
+.entrance-skip{
+  font-size:.58rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+  opacity:0;
+  animation:entranceFadeUp .6s 1.4s ease forwards;
+}
+#entranceCountdown{
+  display:inline-block;
+  font-variant-numeric:tabular-nums;
+  color:var(--a1);
+  font-weight:600;
+}
+@keyframes entranceFadeUp{
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ============================================================
+   ORIGINAL INTRO (number counter) — kept but runs AFTER entrance
+   ============================================================ */
+#intro{position:fixed;inset:0;z-index:10000;background:#030303;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;pointer-events:all;display:none;}
+#intro.active{display:flex}
 #intro.done{pointer-events:none}
 .intro-panel{position:absolute;left:0;right:0;height:50%;background:#030303;transition:transform 1s cubic-bezier(.76,0,.24,1);z-index:2;}
 .intro-panel.top{top:0;transform-origin:top center}
@@ -83,8 +192,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .slide.prev{opacity:0;z-index:1}
 .slide-img{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;object-position:center;transform:scale(1.08);transition:transform 6s cubic-bezier(.16,1,.3,1);will-change:transform}
 .slide.active .slide-img{transform:scale(1)}
-
-/* ===== VIDEO SLIDE — FIXED ===== */
 .slide-video{
   position:absolute;
   top:50%;left:50%;
@@ -97,7 +204,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
   object-position:center;
   background:#000;
 }
-
 .slide-overlay{position:absolute;inset:0;z-index:1}
 .slide-overlay::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,8,8,.88) 0%,rgba(8,8,8,.4) 50%,rgba(8,8,8,.7) 100%)}
 .slide-overlay::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.9) 0%,transparent 45%)}
@@ -144,7 +250,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .sdot.video-dot.active::after{background:#6BBF7A}
 .slider-arrows{position:absolute;right:clamp(16px,3vw,48px);bottom:clamp(90px,12vw,140px);z-index:10;display:flex;flex-direction:column;gap:8px}
 .sarrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(8,8,8,.5);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;cursor:none;transition:border-color .25s,background .25s,transform .2s}
-.sarrow:hover{border-color:rgba(201,169,110,.4);background:rgba(201,169,110,.12);transform:scale(1.08)}
+.sarrow:hover{border-color:rgba(201,169,110,.4);background:rgba(201,169,122,.12);transform:scale(1.08)}
 .sarrow svg{width:15px;height:15px;stroke:var(--text);stroke-width:1.8;fill:none;transition:stroke .2s}
 .sarrow:hover svg{stroke:var(--a1)}
 .slide-caption{position:absolute;right:clamp(16px,5vw,64px);bottom:clamp(60px,8vw,90px);z-index:10;text-align:right}
@@ -382,8 +488,31 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
 </style>
 </head>
 <body>
+
+<!-- ============================================================
+     ENTRANCE VIDEO SCREEN
+     ============================================================ -->
+<div id="entrance">
+  <video class="entrance-video" id="entranceVideo" muted playsinline autoplay loop
+    poster="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format">
+    <source src="https://res.cloudinary.com/djijinaxd/video/upload/v1781576142/WELCOME_TO_MK_STUDIO_lajyec.mp4" type="video/mp4"/>
+  </video>
+  <div class="entrance-overlay"></div>
+  <div class="entrance-content">
+    <div class="entrance-logo">MK Freelance Studio</div>
+    <div class="entrance-tagline">Digital Agency · Nanauta, Saharanpur UP</div>
+    <button class="entrance-btn" id="entranceBtn" onclick="dismissEntrance()">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      Open Website
+    </button>
+    <div class="entrance-skip">Auto opens in <span id="entranceCountdown">6</span>s</div>
+  </div>
+</div>
+
 <div id="cur"></div>
 <div id="cur-trail"></div>
+
+<!-- ORIGINAL INTRO (number counter) -->
 <div id="intro">
   <div class="intro-corner tl">Kaifservices.in</div>
   <div class="intro-corner tr">Est. 2020</div>
@@ -397,6 +526,7 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
   <div class="intro-counter" id="introCounter">000</div>
   <div class="intro-bar-wrap"><div class="intro-bar" id="introBar"></div></div>
 </div>
+
 <nav>
   <div class="nav-pill" id="navPill">
     <div class="nav-logo-ring"><div class="nav-logo-inner">MK</div></div>
@@ -409,6 +539,7 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
     <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"><span>Say hi ↗</span></button>
   </div>
 </nav>
+
 <section id="hero">
   <div class="video-live-badge" id="videoLiveBadge">
     <span class="vbadge-dot"></span>
@@ -447,6 +578,7 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
   <div class="slider-progress-bar"><div class="slider-progress-fill" id="progressFill"></div></div>
   <div class="hero-scroll"><span class="hero-scroll-label">Scroll</span><div class="hero-scroll-line"></div></div>
 </section>
+
 <div id="marquee"><div class="mq-track" id="mqTrack"></div></div>
 <section id="about">
   <div>
@@ -603,6 +735,7 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
     <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#contact">Get a Quote</a></div>
   </div>
 </footer>
+
 <div id="discount-card">
   <div class="dc-strip"></div>
   <div class="dc-body">
@@ -622,6 +755,93 @@ footer{background:#050505;position:relative;z-index:7;overflow:hidden}
 
 <script>
 // ============================================================
+// ENTRANCE VIDEO — with button & 6s auto-dismiss
+// ============================================================
+(function(){
+  const entrance = document.getElementById('entrance');
+  const video    = document.getElementById('entranceVideo');
+  const cdEl     = document.getElementById('entranceCountdown');
+  let dismissed  = false;
+  let seconds    = 6;
+
+  // Start countdown ticker
+  const tick = setInterval(function(){
+    seconds--;
+    if(cdEl) cdEl.textContent = seconds;
+    if(seconds <= 0){
+      clearInterval(tick);
+      if(!dismissed) dismissEntrance();
+    }
+  }, 1000);
+
+  // Try to play video (muted autoplay should work everywhere)
+  video.muted = true;
+  video.play().catch(function(){
+    // Autoplay blocked — still countdown works, poster shows
+  });
+})();
+
+function dismissEntrance(){
+  const entrance = document.getElementById('entrance');
+  if(!entrance || entrance.dataset.dismissed) return;
+  entrance.dataset.dismissed = 'true';
+  entrance.classList.add('fade-out');
+  // After fade, remove and run the intro counter
+  setTimeout(function(){
+    entrance.remove();
+    startIntroCounter();
+  }, 900);
+}
+
+// ============================================================
+// INTRO COUNTER (runs AFTER entrance dismissed)
+// ============================================================
+function startIntroCounter(){
+  const intro = document.getElementById('intro');
+  intro.classList.add('active');
+
+  const text = 'MK Studio';
+  const lettersEl  = document.getElementById('introLetters');
+  const counterEl  = document.getElementById('introCounter');
+  const barEl      = document.getElementById('introBar');
+  let startTs = null;
+  const DURATION = 2800;
+
+  text.split('').forEach(function(ch, i){
+    const span = document.createElement('span');
+    span.className = 'intro-letter';
+    span.textContent = ch === ' ' ? '\u00a0' : ch;
+    span.style.transitionDelay = (0.06 * i) + 's';
+    lettersEl.appendChild(span);
+  });
+
+  function frame(ts){
+    if(!startTs) startTs = ts;
+    const elapsed = Math.min(ts - startTs, DURATION);
+    const pct = Math.floor((elapsed / DURATION) * 100);
+    counterEl.textContent = String(pct).padStart(3, '0');
+    barEl.style.width = pct + '%';
+    if(pct >= 20) intro.classList.add('lineshow');
+    if(pct >= 35) intro.classList.add('textshow');
+    if(pct < 100){
+      requestAnimationFrame(frame);
+    } else {
+      counterEl.textContent = '100';
+      setTimeout(function(){
+        intro.classList.add('reveal');
+        setTimeout(function(){
+          intro.classList.add('done');
+          intro.style.opacity = '0';
+          intro.style.transition = 'opacity .5s ease';
+          setTimeout(function(){ intro.remove(); initSlider(); }, 600);
+        }, 900);
+      }, 220);
+    }
+  }
+  requestAnimationFrame(frame);
+}
+
+// ============================================================
 // PROMO CODES
 // ============================================================
 const PROMO_CODES = {
@@ -637,34 +857,28 @@ document.getElementById('promoVerifyBtn').addEventListener('click', function() {
   const msg = document.getElementById('promoMsg');
   const code = inp.value.trim().toUpperCase();
   inp.value = code;
-  if (!code) { msg.className = 'promo-msg invalid'; msg.textContent = '⚠️ Please enter a promo code.'; return; }
-  if (PROMO_CODES[code]) {
-    appliedPromo = code; msg.className = 'promo-msg valid'; msg.textContent = PROMO_CODES[code].msg;
-    this.textContent = '✓ Applied'; this.style.color = '#6BBF7A'; this.style.background = 'rgba(107,191,122,.12)'; this.disabled = true;
+  if(!code){ msg.className='promo-msg invalid'; msg.textContent='⚠️ Please enter a promo code.'; return; }
+  if(PROMO_CODES[code]){
+    appliedPromo = code; msg.className='promo-msg valid'; msg.textContent=PROMO_CODES[code].msg;
+    this.textContent='✓ Applied'; this.style.color='#6BBF7A'; this.style.background='rgba(107,191,122,.12)'; this.disabled=true;
   } else {
-    appliedPromo = ''; msg.className = 'promo-msg invalid'; msg.textContent = '❌ Invalid code. Try MK25NEW for 25% off!';
-    this.textContent = 'Apply'; this.style.color = ''; this.style.background = ''; this.disabled = false;
+    appliedPromo=''; msg.className='promo-msg invalid'; msg.textContent='❌ Invalid code. Try MK25NEW for 25% off!';
+    this.textContent='Apply'; this.style.color=''; this.style.background=''; this.disabled=false;
   }
 });
-document.querySelectorAll('.dc-btn, a[href="#contact"]').forEach(el => {
-  el.addEventListener('click', () => {
-    setTimeout(() => { const p = document.getElementById('fpromo'); if (p && !p.value) p.value = 'MK25NEW'; }, 600);
+document.querySelectorAll('.dc-btn, a[href="#contact"]').forEach(function(el){
+  el.addEventListener('click', function(){
+    setTimeout(function(){ const p=document.getElementById('fpromo'); if(p&&!p.value) p.value='MK25NEW'; }, 600);
   });
 });
 
 // ============================================================
-// SLIDES DATA — VIDEO FIXED: using Pexels free CDN (no auth, CORS-safe)
-// 3 working digital-marketing themed Pexels video alternatives included
+// SLIDES DATA
 // ============================================================
 const SLIDES = [
   {
-    // ★ VIDEO SLIDE 1 — Pehli slide (starting)
-    // FILE: 1781374923609_6561343-uhd_3840_2160_25fps.mp4
-    // Isko rename karke "video1.mp4" rakh apne server par,
-    // ya neeche wala poora naam bhi use kar sakta hai.
     type: 'video',
     videoSrc: 'https://res.cloudinary.com/djijinaxd/video/upload/v1781375592/6561343-uhd_3840_2160_25fps_tl7s1a.mp4',
-    videoFallback: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
     poster: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
     tint: '#C9A96E',
     badge: 'MK Freelance Studio · Est. 2020',
@@ -700,12 +914,8 @@ const SLIDES = [
     duration: 5000
   },
   {
-    // ★ VIDEO SLIDE 2 — 2 images ke baad (4th position)
-    // FILE: 1781374966716_6561434-uhd_3840_2160_25fps.mp4
-    // Isko rename karke "video2.mp4" rakh apne server par.
     type: 'video',
     videoSrc: 'https://res.cloudinary.com/djijinaxd/video/upload/v1781375728/6561434-uhd_3840_2160_25fps_gokfsr.mp4',
-    videoFallback: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format',
     poster: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format',
     tint: '#C9A96E',
     badge: 'MK Freelance Studio · Digital Agency',
@@ -790,132 +1000,94 @@ const TESTIMONIALS=[
 const MQ_ITEMS=['Website Designing','SEO','Meta Ads','Google Ads','LinkedIn Ads','Social Media Marketing','Vibe Coding','Graphic Designing','UI/UX Design','Digital Strategy'];
 
 // ============================================================
-// INTRO
-// ============================================================
-(function(){
-  const text='MK Studio';
-  const lettersEl=document.getElementById('introLetters');
-  const counterEl=document.getElementById('introCounter');
-  const barEl=document.getElementById('introBar');
-  const intro=document.getElementById('intro');
-  let startTs=null;
-  const DURATION=2800;
-  text.split('').forEach((ch,i)=>{
-    const span=document.createElement('span');
-    span.className='intro-letter';
-    span.textContent=ch===' '?'\u00a0':ch;
-    span.style.transitionDelay=(0.06*i)+'s';
-    lettersEl.appendChild(span);
-  });
-  function frame(ts){
-    if(!startTs)startTs=ts;
-    const elapsed=Math.min(ts-startTs,DURATION);
-    const pct=Math.floor((elapsed/DURATION)*100);
-    counterEl.textContent=String(pct).padStart(3,'0');
-    barEl.style.width=pct+'%';
-    if(pct>=20)intro.classList.add('lineshow');
-    if(pct>=35)intro.classList.add('textshow');
-    if(pct<100){requestAnimationFrame(frame);}
-    else{
-      counterEl.textContent='100';
-      setTimeout(()=>{
-        intro.classList.add('reveal');
-        setTimeout(()=>{
-          intro.classList.add('done');
-          intro.style.opacity='0';
-          intro.style.transition='opacity .5s ease';
-          setTimeout(()=>intro.remove(),600);
-          initSlider();
-        },900);
-      },220);
-    }
-  }
-  requestAnimationFrame(frame);
-})();
-
-// ============================================================
 // CURSOR
 // ============================================================
 const cur=document.getElementById('cur');
 const curTrail=document.getElementById('cur-trail');
 let mx=0,my=0,tx=0,ty=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
 (function animTrail(){tx+=(mx-tx)*.1;ty+=(my-ty)*.1;curTrail.style.left=tx+'px';curTrail.style.top=ty+'px';requestAnimationFrame(animTrail);})();
-document.querySelectorAll('a,button,input,select,textarea,label,.srv-card,.why-card,.testi-card,.proj-card-new,.cpill,.sdot,.sarrow').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='4px';cur.style.height='4px';curTrail.style.width='44px';curTrail.style.height='44px';curTrail.style.borderColor='rgba(201,169,110,.5)';});
-  el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';curTrail.style.width='28px';curTrail.style.height='28px';curTrail.style.borderColor='rgba(201,169,110,.4)';});
+document.querySelectorAll('a,button,input,select,textarea,label,.srv-card,.why-card,.testi-card,.proj-card-new,.cpill,.sdot,.sarrow').forEach(function(el){
+  el.addEventListener('mouseenter',function(){cur.style.width='4px';cur.style.height='4px';curTrail.style.width='44px';curTrail.style.height='44px';curTrail.style.borderColor='rgba(201,169,110,.5)';});
+  el.addEventListener('mouseleave',function(){cur.style.width='8px';cur.style.height='8px';curTrail.style.width='28px';curTrail.style.height='28px';curTrail.style.borderColor='rgba(201,169,110,.4)';});
 });
-window.addEventListener('scroll',()=>{document.getElementById('navPill').classList.toggle('scrolled',window.scrollY>80);});
+window.addEventListener('scroll',function(){document.getElementById('navPill').classList.toggle('scrolled',window.scrollY>80);});
 
 // ============================================================
-// SLIDER ENGINE — VIDEO FIXED
+// SLIDER ENGINE — VIDEO FIX: play immediately on first slide
 // ============================================================
-let currentSlide=0,sliderAutoTimer=null,isTransitioning=false,slideEls=[],dotEls=[];
+var currentSlide=0, sliderAutoTimer=null, isTransitioning=false, slideEls=[], dotEls=[];
 
 function initSlider(){
-  const track=document.getElementById('sliderTrack');
-  const dotsContainer=document.getElementById('sliderDots');
+  var track=document.getElementById('sliderTrack');
+  var dotsContainer=document.getElementById('sliderDots');
   document.getElementById('scTotal').textContent=String(SLIDES.length).padStart(2,'0');
 
-  SLIDES.forEach((s,i)=>{
-    const div=document.createElement('div');
+  SLIDES.forEach(function(s,i){
+    var div=document.createElement('div');
     div.className='slide'+(i===0?' active':'');
 
     if(s.type==='video'){
-      div.innerHTML=`
-        <video class="slide-video" muted playsinline loop preload="auto"${s.poster?' poster="'+s.poster+'"':''}>
-          <source src="${s.videoSrc}" type="video/mp4"/>
-          ${s.videoFallback && !s.videoFallback.includes('unsplash') ? '<source src="'+s.videoFallback+'" type="video/mp4"/>' : ''}
-        </video>
-        <div class="slide-tint" style="background:${s.tint}"></div>
-        <div class="slide-overlay"></div>
-        <div class="slide-grain"></div>`;
+      div.innerHTML=
+        '<video class="slide-video" muted playsinline loop preload="auto"'+(s.poster?' poster="'+s.poster+'"':'')+'>'+
+          '<source src="'+s.videoSrc+'" type="video/mp4"/>'+
+        '</video>'+
+        '<div class="slide-tint" style="background:'+s.tint+'"></div>'+
+        '<div class="slide-overlay"></div>'+
+        '<div class="slide-grain"></div>';
     } else {
-      div.innerHTML=`
-        <img class="slide-img" src="${s.img}" alt="${s.caption}" loading="${i===0?'eager':'lazy'}"/>
-        <div class="slide-tint" style="background:${s.tint}"></div>
-        <div class="slide-overlay"></div>
-        <div class="slide-grain"></div>`;
+      div.innerHTML=
+        '<img class="slide-img" src="'+s.img+'" alt="'+s.caption+'" loading="'+(i===0?'eager':'lazy')+'"/>'+
+        '<div class="slide-tint" style="background:'+s.tint+'"></div>'+
+        '<div class="slide-overlay"></div>'+
+        '<div class="slide-grain"></div>';
     }
     track.appendChild(div);
     slideEls.push(div);
   });
 
-  SLIDES.forEach((s,i)=>{
-    const dot=document.createElement('div');
+  SLIDES.forEach(function(s,i){
+    var dot=document.createElement('div');
     dot.className='sdot'+(i===0?' active':'')+(s.type==='video'?' video-dot':'');
-    dot.addEventListener('click',()=>goToSlide(i));
+    dot.addEventListener('click',function(){goToSlide(i);});
     dotsContainer.appendChild(dot);
     dotEls.push(dot);
   });
 
-  updateHeroContent(SLIDES[0],false);
+  updateHeroContent(SLIDES[0], false);
   startProgress(SLIDES[0].duration);
   scheduleNext(SLIDES[0].duration);
 
-  // FIX 4: Pre-load all videos immediately so they buffer early
-  slideEls.forEach((el,i)=>{
+  // ★ KEY FIX: Pre-load all videos; immediately play the first slide's video
+  slideEls.forEach(function(el, i){
     if(SLIDES[i].type==='video'){
-      const v=el.querySelector('video');
-      if(v){ v.muted=true; v.load(); }
+      var v=el.querySelector('video');
+      if(v){
+        v.muted=true;
+        v.load();
+        // First slide = play right away
+        if(i===0){
+          playVideoSlide(el);
+        }
+      }
     }
   });
 }
 
 function scheduleNext(delay){
   clearTimeout(sliderAutoTimer);
-  sliderAutoTimer=setTimeout(()=>nextSlide(),delay);
+  sliderAutoTimer=setTimeout(function(){nextSlide();}, delay);
 }
 
-function updateHeroContent(s,animate){
-  const slideBadge=document.getElementById('slideBadge');
-  const slideBadgeText=document.getElementById('slideBadgeText');
-  const heroLine1=document.getElementById('heroLine1');
-  const heroLine2=document.getElementById('heroLine2');
-  const heroSub=document.getElementById('heroSub');
-  const heroBtns=document.getElementById('heroBtns');
-  const slideCaption=document.getElementById('slideCaption');
-  const videoLiveBadge=document.getElementById('videoLiveBadge');
+function updateHeroContent(s, animate){
+  var slideBadge=document.getElementById('slideBadge');
+  var slideBadgeText=document.getElementById('slideBadgeText');
+  var heroLine1=document.getElementById('heroLine1');
+  var heroLine2=document.getElementById('heroLine2');
+  var heroSub=document.getElementById('heroSub');
+  var heroBtns=document.getElementById('heroBtns');
+  var slideCaption=document.getElementById('slideCaption');
+  var videoLiveBadge=document.getElementById('videoLiveBadge');
 
   if(s.type==='video'){videoLiveBadge.classList.add('vis');}
   else{videoLiveBadge.classList.remove('vis');}
@@ -923,141 +1095,136 @@ function updateHeroContent(s,animate){
   function applyContent(){
     slideBadgeText.textContent=s.badge;
     heroLine1.textContent=s.line1;
-    heroLine2.innerHTML=`<em>${s.line2Em}</em>${s.line2Rest}`;
+    heroLine2.innerHTML='<em>'+s.line2Em+'</em>'+s.line2Rest;
     heroSub.innerHTML=s.sub;
     slideCaption.textContent=s.caption;
   }
 
   if(animate){
-    [slideBadge,heroLine1,heroLine2,heroSub,heroBtns].forEach(el=>el.classList.remove('visible'));
-    setTimeout(()=>{
+    [slideBadge,heroLine1,heroLine2,heroSub,heroBtns].forEach(function(el){el.classList.remove('visible');});
+    setTimeout(function(){
       applyContent();
-      requestAnimationFrame(()=>{
+      requestAnimationFrame(function(){
         slideBadge.classList.add('visible');
-        setTimeout(()=>heroLine1.classList.add('visible'),80);
-        setTimeout(()=>heroLine2.classList.add('visible'),180);
-        setTimeout(()=>heroSub.classList.add('visible'),300);
-        setTimeout(()=>heroBtns.classList.add('visible'),420);
+        setTimeout(function(){heroLine1.classList.add('visible');},80);
+        setTimeout(function(){heroLine2.classList.add('visible');},180);
+        setTimeout(function(){heroSub.classList.add('visible');},300);
+        setTimeout(function(){heroBtns.classList.add('visible');},420);
       });
     },500);
   } else {
     applyContent();
-    setTimeout(()=>{
+    setTimeout(function(){
       slideBadge.classList.add('visible');
-      setTimeout(()=>heroLine1.classList.add('visible'),100);
-      setTimeout(()=>heroLine2.classList.add('visible'),220);
-      setTimeout(()=>heroSub.classList.add('visible'),380);
-      setTimeout(()=>heroBtns.classList.add('visible'),520);
+      setTimeout(function(){heroLine1.classList.add('visible');},100);
+      setTimeout(function(){heroLine2.classList.add('visible');},220);
+      setTimeout(function(){heroSub.classList.add('visible');},380);
+      setTimeout(function(){heroBtns.classList.add('visible');},520);
     },200);
   }
 }
 
 function startProgress(duration){
-  const fill=document.getElementById('progressFill');
+  var fill=document.getElementById('progressFill');
   fill.classList.remove('animating');
   fill.style.transition='none';
   fill.style.width='0%';
-  dotEls.forEach(d=>d.classList.remove('active'));
-  if(dotEls[currentSlide])dotEls[currentSlide].classList.add('active');
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  dotEls.forEach(function(d){d.classList.remove('active');});
+  if(dotEls[currentSlide]) dotEls[currentSlide].classList.add('active');
+  requestAnimationFrame(function(){requestAnimationFrame(function(){
     fill.classList.add('animating');
     fill.style.transition='width '+duration+'ms linear';
     fill.style.width='100%';
-  }));
+  });});
 }
 
-// ── VIDEO HELPERS — FIXED ──────────────────────────────────
 function getSlideVideo(slideEl){return slideEl?slideEl.querySelector('video'):null;}
 
-// FIX 5: Smarter play logic — waits for canplay if not buffered
 function playVideoSlide(slideEl){
-  const v=getSlideVideo(slideEl);
-  if(!v)return;
+  var v=getSlideVideo(slideEl);
+  if(!v) return;
   v.muted=true;
   v.volume=0;
 
-  const doPlay=()=>{
-    const p=v.play();
+  function doPlay(){
+    var p=v.play();
     if(p&&p.catch){
-      p.catch(err=>{
-        // Autoplay blocked — retry once after 600ms
-        console.warn('Video play blocked, retrying...',err.name);
-        setTimeout(()=>v.play().catch(()=>{}),600);
+      p.catch(function(err){
+        console.warn('Video play blocked:',err.name);
+        setTimeout(function(){v.play().catch(function(){});}, 600);
       });
     }
-  };
+  }
 
-  // If video has enough data, play immediately; else wait for canplay
   if(v.readyState>=3){
     v.currentTime=0;
     doPlay();
   } else {
-    v.load();
-    v.addEventListener('canplay',function onCanPlay(){
-      v.removeEventListener('canplay',onCanPlay);
+    v.addEventListener('canplay',function onCP(){
+      v.removeEventListener('canplay',onCP);
       v.currentTime=0;
       doPlay();
     });
+    v.load();
   }
 }
 
 function stopAllVideos(){
-  document.querySelectorAll('.slide video').forEach(v=>{
+  document.querySelectorAll('.slide video').forEach(function(v){
     try{v.pause();v.currentTime=0;}catch(e){}
   });
 }
 
 function goToSlide(idx){
-  if(isTransitioning||idx===currentSlide)return;
+  if(isTransitioning||idx===currentSlide) return;
   isTransitioning=true;
-  const prev=currentSlide;
+  var prev=currentSlide;
   currentSlide=((idx%SLIDES.length)+SLIDES.length)%SLIDES.length;
   stopAllVideos();
   slideEls[prev].classList.remove('active');
   slideEls[prev].classList.add('prev');
   slideEls[currentSlide].classList.add('active');
   document.getElementById('scCurrent').textContent=String(currentSlide+1).padStart(2,'0');
-  const s=SLIDES[currentSlide];
+  var s=SLIDES[currentSlide];
   updateHeroContent(s,true);
   startProgress(s.duration);
   scheduleNext(s.duration);
-  // FIX 6: Play video after slide becomes visible (200ms delay for transition)
   if(s.type==='video'){
-    setTimeout(()=>playVideoSlide(slideEls[currentSlide]),200);
+    setTimeout(function(){playVideoSlide(slideEls[currentSlide]);},200);
   }
-  setTimeout(()=>{slideEls[prev].classList.remove('prev');isTransitioning=false;},1500);
+  setTimeout(function(){slideEls[prev].classList.remove('prev');isTransitioning=false;},1500);
 }
 
 function nextSlide(){goToSlide((currentSlide+1)%SLIDES.length);}
 function prevSlide(){goToSlide((currentSlide-1+SLIDES.length)%SLIDES.length);}
 
-document.getElementById('sarrowNext').addEventListener('click',()=>nextSlide());
-document.getElementById('sarrowPrev').addEventListener('click',()=>prevSlide());
+document.getElementById('sarrowNext').addEventListener('click',function(){nextSlide();});
+document.getElementById('sarrowPrev').addEventListener('click',function(){prevSlide();});
 
-let isPaused=false;
-document.getElementById('hero').addEventListener('mouseenter',()=>{clearTimeout(sliderAutoTimer);isPaused=true;});
-document.getElementById('hero').addEventListener('mouseleave',()=>{if(isPaused){isPaused=false;scheduleNext(SLIDES[currentSlide].duration);}});
+var isPaused=false;
+document.getElementById('hero').addEventListener('mouseenter',function(){clearTimeout(sliderAutoTimer);isPaused=true;});
+document.getElementById('hero').addEventListener('mouseleave',function(){if(isPaused){isPaused=false;scheduleNext(SLIDES[currentSlide].duration);}});
 
-let touchStartX=0;
-document.getElementById('hero').addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX;},{passive:true});
-document.getElementById('hero').addEventListener('touchend',e=>{
-  const diff=touchStartX-e.changedTouches[0].clientX;
+var touchStartX=0;
+document.getElementById('hero').addEventListener('touchstart',function(e){touchStartX=e.touches[0].clientX;},{passive:true});
+document.getElementById('hero').addEventListener('touchend',function(e){
+  var diff=touchStartX-e.changedTouches[0].clientX;
   if(Math.abs(diff)>50){diff>0?nextSlide():prevSlide();}
 },{passive:true});
 
 // ============================================================
 // MARQUEE
 // ============================================================
-const mqTrack=document.getElementById('mqTrack');
-[...MQ_ITEMS,...MQ_ITEMS].forEach(txt=>{
-  const el=document.createElement('div');el.className='mq-item';
-  const dot=document.createElement('span');dot.className='mq-dot';
+var mqTrack=document.getElementById('mqTrack');
+[].concat(MQ_ITEMS,MQ_ITEMS).forEach(function(txt){
+  var el=document.createElement('div');el.className='mq-item';
+  var dot=document.createElement('span');dot.className='mq-dot';
   el.appendChild(dot);el.appendChild(document.createTextNode(txt));
   mqTrack.appendChild(el);
 });
-const fmqTrack=document.getElementById('fmqTrack');
-Array(20).fill('MK FREELANCE STUDIO').forEach(txt=>{
-  const el=document.createElement('div');el.className='fmq-item';
+var fmqTrack=document.getElementById('fmqTrack');
+Array(20).fill('MK FREELANCE STUDIO').forEach(function(txt){
+  var el=document.createElement('div');el.className='fmq-item';
   el.innerHTML=txt+'<span class="fmq-sep">·</span>';
   fmqTrack.appendChild(el);
 });
@@ -1065,109 +1232,122 @@ Array(20).fill('MK FREELANCE STUDIO').forEach(txt=>{
 // ============================================================
 // SERVICES
 // ============================================================
-const srvGrid=document.getElementById('srvGrid');
-SERVICES.forEach((s,i)=>{
-  const card=document.createElement('div');
+var srvGrid=document.getElementById('srvGrid');
+SERVICES.forEach(function(s,i){
+  var card=document.createElement('div');
   card.className='srv-card reveal';
   card.style.setProperty('--srv-color',s.color);
-  card.style.transitionDelay=`${i*.06}s`;
-  card.innerHTML=`<div class="srv-card-top"><div class="srv-num">${s.num}</div><div class="srv-ico" style="background:${s.color}18;border:1px solid ${s.color}22"><svg viewBox="0 0 24 24" fill="none" stroke="${s.color}" stroke-width="1.8">${s.svg}</svg></div></div><div class="srv-name">${s.name}</div><div class="srv-desc">${s.desc}</div>`;
+  card.style.transitionDelay=(i*.06)+'s';
+  card.innerHTML='<div class="srv-card-top"><div class="srv-num">'+s.num+'</div><div class="srv-ico" style="background:'+s.color+'18;border:1px solid '+s.color+'22"><svg viewBox="0 0 24 24" fill="none" stroke="'+s.color+'" stroke-width="1.8">'+s.svg+'</svg></div></div><div class="srv-name">'+s.name+'</div><div class="srv-desc">'+s.desc+'</div>';
   srvGrid.appendChild(card);
 });
 
 // ============================================================
 // WHY
 // ============================================================
-const whyGrid=document.getElementById('whyGrid');
-WHY.forEach((w,i)=>{
-  const card=document.createElement('div');
+var whyGrid=document.getElementById('whyGrid');
+WHY.forEach(function(w,i){
+  var card=document.createElement('div');
   card.className='why-card reveal';
   card.style.setProperty('--wc',w.color);
-  card.style.transitionDelay=`${i*.08}s`;
-  card.innerHTML=`<div class="why-icon" style="background:${w.color}18;border:1px solid ${w.color}25"><svg viewBox="0 0 24 24" fill="none" stroke="${w.color}" stroke-width="1.8">${w.svg}</svg></div><div class="why-card-title">${w.title}</div><div class="why-card-desc">${w.desc}</div>`;
+  card.style.transitionDelay=(i*.08)+'s';
+  card.innerHTML='<div class="why-icon" style="background:'+w.color+'18;border:1px solid '+w.color+'25"><svg viewBox="0 0 24 24" fill="none" stroke="'+w.color+'" stroke-width="1.8">'+w.svg+'</svg></div><div class="why-card-title">'+w.title+'</div><div class="why-card-desc">'+w.desc+'</div>';
   whyGrid.appendChild(card);
 });
 
 // ============================================================
 // PROJECTS
 // ============================================================
-const projGrid=document.getElementById('projGrid');
-PROJECTS.forEach((p,i)=>{
-  const card=document.createElement('div');
+var projGrid=document.getElementById('projGrid');
+PROJECTS.forEach(function(p,i){
+  var card=document.createElement('div');
   card.className='proj-card-new reveal'+(p.featured?' featured':'');
-  card.style.transitionDelay=`${i*.1}s`;
-  const resultsHTML=p.results.map(r=>`<div class="proj-result-item"><div class="proj-result-num">${r.num}</div><div class="proj-result-lbl">${r.lbl}</div></div>`).join('');
-  const tagsHTML=p.tags.map(t=>`<span class="proj-tag-new">${t}</span>`).join('');
-  const badgeClass=p.badge==='Live'?'proj-badge live':'proj-badge';
-  card.innerHTML=`<div class="proj-img-wrap"><img src="${p.img}" alt="${p.name}" loading="lazy"/><div class="proj-img-overlay"></div><div class="proj-img-badge"><span class="${badgeClass}">${p.badge}</span>${p.featured?'<span class="proj-badge">Featured</span>':''}</div><div class="proj-img-year">${p.year}</div></div><div class="proj-body"><div class="proj-body-top"><div><div class="proj-cat-new">${p.cat}</div><div class="proj-name-new">${p.name}</div></div><div class="proj-arr-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></div><div class="proj-desc-new">${p.desc}</div><div class="proj-tags-new">${tagsHTML}</div><div class="proj-results">${resultsHTML}</div></div>`;
+  card.style.transitionDelay=(i*.1)+'s';
+  var resultsHTML=p.results.map(function(r){return '<div class="proj-result-item"><div class="proj-result-num">'+r.num+'</div><div class="proj-result-lbl">'+r.lbl+'</div></div>';}).join('');
+  var tagsHTML=p.tags.map(function(t){return '<span class="proj-tag-new">'+t+'</span>';}).join('');
+  var badgeClass=p.badge==='Live'?'proj-badge live':'proj-badge';
+  card.innerHTML='<div class="proj-img-wrap"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy"/><div class="proj-img-overlay"></div><div class="proj-img-badge"><span class="'+badgeClass+'">'+p.badge+'</span>'+(p.featured?'<span class="proj-badge">Featured</span>':'')+'</div><div class="proj-img-year">'+p.year+'</div></div><div class="proj-body"><div class="proj-body-top"><div><div class="proj-cat-new">'+p.cat+'</div><div class="proj-name-new">'+p.name+'</div></div><div class="proj-arr-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></div><div class="proj-desc-new">'+p.desc+'</div><div class="proj-tags-new">'+tagsHTML+'</div><div class="proj-results">'+resultsHTML+'</div></div>';
   projGrid.appendChild(card);
 });
 
 // ============================================================
 // TESTIMONIALS
 // ============================================================
-const starSVG=()=>`<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
-const ratingStars=document.getElementById('ratingStars');
-for(let i=0;i<5;i++)ratingStars.innerHTML+=starSVG();
-const testiGrid=document.getElementById('testiGrid');
-TESTIMONIALS.forEach((t,i)=>{
-  const card=document.createElement('div');
+var starSVG=function(){return '<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';};
+var ratingStars=document.getElementById('ratingStars');
+for(var i=0;i<5;i++) ratingStars.innerHTML+=starSVG();
+var testiGrid=document.getElementById('testiGrid');
+TESTIMONIALS.forEach(function(t,i){
+  var card=document.createElement('div');
   card.className='testi-card reveal';
-  card.style.transitionDelay=`${i*.09}s`;
-  const starsH=Array(5).fill(starSVG()).join('');
-  card.innerHTML=`<div class="testi-img-strip"><img src="${t.img}" alt="${t.imgLabel}" loading="lazy"/><div class="testi-img-label">${t.imgLabel}</div></div><div><span class="testi-quote-mark">"</span><div class="testi-quote">${t.quote}</div></div><div class="testi-footer"><div class="testi-av" style="background:${t.color}18;border:1px solid ${t.color}30;color:${t.color}">${t.initials}</div><div><div class="testi-name">${t.name}</div><div class="testi-biz">${t.biz}</div></div><div class="testi-card-stars">${starsH}</div></div>`;
+  card.style.transitionDelay=(i*.09)+'s';
+  var starsH=Array(5).fill(starSVG()).join('');
+  card.innerHTML='<div class="testi-img-strip"><img src="'+t.img+'" alt="'+t.imgLabel+'" loading="lazy"/><div class="testi-img-label">'+t.imgLabel+'</div></div><div><span class="testi-quote-mark">"</span><div class="testi-quote">'+t.quote+'</div></div><div class="testi-footer"><div class="testi-av" style="background:'+t.color+'18;border:1px solid '+t.color+'30;color:'+t.color+'">'+t.initials+'</div><div><div class="testi-name">'+t.name+'</div><div class="testi-biz">'+t.biz+'</div></div><div class="testi-card-stars">'+starsH+'</div></div>';
   testiGrid.appendChild(card);
 });
 
 // ============================================================
 // SCROLL REVEAL
 // ============================================================
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
 },{threshold:0.06,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
 
 // ============================================================
 // CONTACT FORM
 // ============================================================
-const form=document.getElementById('contactForm');
-const successEl=document.getElementById('formSuccess');
-const submitBtn=document.getElementById('submitBtn');
-form.addEventListener('submit',async e=>{
+var form=document.getElementById('contactForm');
+var successEl=document.getElementById('formSuccess');
+var submitBtn=document.getElementById('submitBtn');
+form.addEventListener('submit',async function(e){
   e.preventDefault();
-  const services=[...document.querySelectorAll('input[name="services"]:checked')].map(c=>c.value).join(', ');
+  var services=[...document.querySelectorAll('input[name="services"]:checked')].map(function(c){return c.value;}).join(', ');
   if(!services){alert('Please select at least one service!');return;}
   submitBtn.textContent='⏳ Sending...';submitBtn.disabled=true;
-  const fd=new FormData(form);
+  var fd=new FormData(form);
   fd.set('services',services);
-  if(appliedPromo)fd.set('promo',appliedPromo+' ('+PROMO_CODES[appliedPromo].discount+' off)');
+  if(appliedPromo) fd.set('promo',appliedPromo+' ('+PROMO_CODES[appliedPromo].discount+' off)');
   fd.append('_subject','🚀 New Booking — MK Freelance Studio');
   fd.append('_replyto',fd.get('email'));
   try{
-    const res=await fetch('https://formspree.io/f/mzdweolj',{method:'POST',body:fd,headers:{'Accept':'application/json'}});
-    const data=await res.json();
+    var res=await fetch('https://formspree.io/f/mzdweolj',{method:'POST',body:fd,headers:{'Accept':'application/json'}});
+    var data=await res.json();
     if(res.ok&&!data.errors){form.style.display='none';successEl.style.display='block';}
-    else{const msg=data.errors?data.errors.map(e=>e.message).join(', '):'Submission failed.';submitBtn.textContent='❌ Error — Try Again';submitBtn.disabled=false;alert('Error: '+msg+'\n\nCall us: +91 9634950165');}
+    else{var msg=data.errors?data.errors.map(function(e){return e.message;}).join(', '):'Submission failed.';submitBtn.textContent='❌ Error — Try Again';submitBtn.disabled=false;alert('Error: '+msg+'\n\nCall us: +91 9634950165');}
   }catch(err){
-    const name=fd.get('name'),mobile=fd.get('mobile'),email=fd.get('email');
-    const address=fd.get('address')||'N/A',budget=fd.get('budget')||'N/A',msg=fd.get('message')||'';
-    const promoInfo=appliedPromo?`\n🎟️ *Promo Code:* ${appliedPromo} (${PROMO_CODES[appliedPromo].discount} off)`:'';
-    const wa=`🚀 *New Booking — MK Freelance Studio*\n\n👤 *Name:* ${name}\n📱 *Mobile:* ${mobile}\n📧 *Email:* ${email}\n📍 *Address:* ${address}\n💰 *Budget:* ${budget}\n🛠️ *Services:* ${services}${promoInfo}\n\n💬 *Message:* ${msg}`;
-    window.open(`https://wa.me/919634950165?text=${encodeURIComponent(wa)}`,'_blank');
+    var name=fd.get('name'),mobile=fd.get('mobile'),email=fd.get('email');
+    var address=fd.get('address')||'N/A',budget=fd.get('budget')||'N/A',msg=fd.get('message')||'';
+    var promoInfo=appliedPromo?'\n🎟️ *Promo Code:* '+appliedPromo+' ('+PROMO_CODES[appliedPromo].discount+' off)':'';
+    var wa='🚀 *New Booking — MK Freelance Studio*\n\n👤 *Name:* '+name+'\n📱 *Mobile:* '+mobile+'\n📧 *Email:* '+email+'\n📍 *Address:* '+address+'\n💰 *Budget:* '+budget+'\n🛠️ *Services:* '+services+promoInfo+'\n\n💬 *Message:* '+msg;
+    window.open('https://wa.me/919634950165?text='+encodeURIComponent(wa),'_blank');
     form.style.display='none';successEl.style.display='block';
   }
 });
 
 // ============================================================
-// DISCOUNT CARD
+// DISCOUNT CARD (show after entrance finishes)
 // ============================================================
-setTimeout(()=>{const dc=document.getElementById('discount-card');if(dc)dc.classList.add('show');},5000);
-document.getElementById('dcClose').addEventListener('click',()=>{document.getElementById('discount-card').classList.replace('show','hide');});
-document.getElementById('dcCodeWrap').addEventListener('click',()=>{
-  navigator.clipboard.writeText('MK25NEW').catch(()=>{});
-  const btn=document.getElementById('dcCopyBtn');
+// Will show 5s after entrance is dismissed
+var dcShownOnce=false;
+var dcObserver=new MutationObserver(function(){
+  if(!document.getElementById('entrance')&&!dcShownOnce){
+    dcShownOnce=true;
+    setTimeout(function(){
+      var dc=document.getElementById('discount-card');
+      if(dc) dc.classList.add('show');
+    },5000);
+    dcObserver.disconnect();
+  }
+});
+dcObserver.observe(document.body,{childList:true,subtree:false});
+
+document.getElementById('dcClose').addEventListener('click',function(){document.getElementById('discount-card').classList.replace('show','hide');});
+document.getElementById('dcCodeWrap').addEventListener('click',function(){
+  navigator.clipboard.writeText('MK25NEW').catch(function(){});
+  var btn=document.getElementById('dcCopyBtn');
   btn.textContent='Copied!';
-  setTimeout(()=>btn.textContent='Copy',2000);
+  setTimeout(function(){btn.textContent='Copy';},2000);
 });
 </script>
 </body>
