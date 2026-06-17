@@ -38,7 +38,7 @@ a{text-decoration:none;color:inherit}
 #cur{width:8px;height:8px;background:var(--a1);transition:width .2s,height .2s,background .2s}
 #cur-trail{width:28px;height:28px;border:1px solid rgba(201,169,110,.4);transition:width .3s,height .3s}
 
-/* NAVBAR — identical to index */
+/* NAVBAR */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:center;padding:20px 24px}
 .nav-pill{display:inline-flex;align-items:center;gap:0;background:rgba(17,17,17,.85);backdrop-filter:blur(20px);border:1px solid var(--stroke);border-radius:999px;padding:6px 8px;transition:box-shadow .3s}
 .nav-pill.scrolled{box-shadow:0 8px 32px rgba(0,0,0,.4)}
@@ -65,7 +65,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .section-title em{font-style:italic;color:var(--a1)}
 
 /* =============================================
-   HERO — ABOUT PAGE
+   HERO — VIDEO BACKGROUND
    ============================================= */
 #about-hero{
   min-height:100vh;
@@ -73,35 +73,64 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
   align-items:center;
   position:relative;
   overflow:hidden;
-  background:var(--bg);
+  background:#000;
   padding:0 clamp(28px,8vw,100px);
 }
-.hero-bg-img{
+
+/* ── Background Video ── */
+.hero-bg-video{
   position:absolute;
   inset:0;
   width:100%;height:100%;
   object-fit:cover;
-  object-position:center top;
-  opacity:.18;
-  filter:grayscale(30%);
+  object-position:center;
+  z-index:0;
+  opacity:0;
+  transition:opacity 1.2s ease;
 }
+.hero-bg-video.loaded{opacity:1}
+
+/* ── Overlay: darkens video so text is readable ── */
 .hero-bg-overlay{
-  position:absolute;
-  inset:0;
+  position:absolute;inset:0;z-index:1;
   background:
-    linear-gradient(135deg,rgba(8,8,8,.97) 0%,rgba(8,8,8,.6) 60%,rgba(8,8,8,.85) 100%),
-    linear-gradient(to top,rgba(8,8,8,.95) 0%,transparent 50%);
+    linear-gradient(135deg,rgba(8,8,8,.92) 0%,rgba(8,8,8,.55) 55%,rgba(8,8,8,.80) 100%),
+    linear-gradient(to top,rgba(8,8,8,.98) 0%,transparent 45%);
 }
+
+/* ── Gold tint layer ── */
+.hero-bg-tint{
+  position:absolute;inset:0;z-index:1;
+  background:rgba(201,169,110,.04);
+  mix-blend-mode:color;
+}
+
 .hero-grain{
-  position:absolute;inset:0;
+  position:absolute;inset:0;z-index:2;
   opacity:.035;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:300px;
-  pointer-events:none;
+  background-size:300px;pointer-events:none;
 }
+
+/* ── Video live badge ── */
+.hero-video-badge{
+  position:absolute;
+  top:clamp(80px,10vw,110px);
+  left:clamp(28px,8vw,100px);
+  z-index:10;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:999px;
+  border:1px solid rgba(201,169,110,.3);
+  background:rgba(201,169,110,.08);
+  backdrop-filter:blur(12px);
+  opacity:0;animation:fadeUpIn .7s .9s ease forwards;
+}
+.hvbadge-dot{width:5px;height:5px;border-radius:50%;background:#6BBF7A;animation:pulseDot 2s ease-in-out infinite}
+.hvbadge-text{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--a1);font-weight:600}
+
 .hero-content{
   position:relative;
-  z-index:2;
+  z-index:5;
   max-width:1300px;
   width:100%;
   margin:auto;
@@ -113,7 +142,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
   padding-bottom:80px;
 }
 @media(max-width:860px){.hero-content{grid-template-columns:1fr;padding-top:140px}}
-.hero-left{}
+
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;
   padding:6px 14px;border-radius:999px;
@@ -129,19 +158,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .hero-heading{
   font-family:var(--font-display);
   font-size:clamp(3.5rem,9vw,9rem);
-  line-height:.88;
-  letter-spacing:-.03em;
-  color:var(--text);
-  margin-bottom:26px;
+  line-height:.88;letter-spacing:-.03em;
+  color:var(--text);margin-bottom:26px;
+  text-shadow:0 4px 32px rgba(0,0,0,.5);
   opacity:0;animation:fadeUpIn .9s .15s cubic-bezier(.16,1,.3,1) forwards;
 }
 .hero-heading em{font-style:italic;color:var(--a1)}
 .hero-sub{
   font-size:clamp(.9rem,1.5vw,1.08rem);
-  color:rgba(240,237,232,.5);
-  line-height:1.8;
-  max-width:480px;
-  margin-bottom:40px;
+  color:rgba(240,237,232,.55);line-height:1.8;
+  max-width:480px;margin-bottom:40px;
   opacity:0;animation:fadeUpIn .8s .4s ease forwards;
 }
 .hero-btns{
@@ -157,28 +183,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
   opacity:0;animation:fadeUpIn .8s .5s ease forwards;
 }
 .stat-card{
-  background:var(--surface);
-  border:1px solid var(--stroke);
-  border-radius:20px;
-  padding:24px 28px;
-  display:flex;
-  align-items:center;
-  gap:20px;
+  background:rgba(17,17,17,.7);
+  border:1px solid rgba(30,30,30,.8);
+  border-radius:20px;padding:24px 28px;
+  display:flex;align-items:center;gap:20px;
+  backdrop-filter:blur(16px);
   transition:border-color .25s,background .25s;
 }
-.stat-card:hover{border-color:rgba(201,169,110,.2);background:var(--surface2)}
-.stat-card-num{
-  font-family:var(--font-display);
-  font-size:clamp(2.2rem,4vw,3.4rem);
-  letter-spacing:-.03em;
-  line-height:1;
-  color:var(--text);
-  flex-shrink:0;
-}
+.stat-card:hover{border-color:rgba(201,169,110,.2);background:rgba(22,22,22,.85)}
+.stat-card-num{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.4rem);letter-spacing:-.03em;line-height:1;color:var(--text);flex-shrink:0}
 .stat-card-num em{font-style:italic;color:var(--a1)}
 .stat-card-lbl{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
 .stat-card-desc{font-size:.82rem;color:rgba(240,237,232,.45);line-height:1.6;margin-top:4px}
 @keyframes fadeUpIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Scroll hint ── */
+.hero-scroll-hint{
+  position:absolute;
+  bottom:32px;left:clamp(28px,8vw,100px);
+  z-index:10;
+  display:flex;align-items:center;gap:12px;
+  opacity:0;animation:fadeUpIn .7s 1s ease forwards;
+}
+.hero-scroll-label{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.hero-scroll-line{width:36px;height:1px;background:var(--stroke);position:relative;overflow:hidden}
+.hero-scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(to right,transparent,var(--a1));animation:scrollR 1.8s ease-in-out infinite}
+@keyframes scrollR{0%{left:-100%}100%{left:200%}}
 
 /* MARQUEE */
 #marquee{background:var(--surface);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:0;overflow:hidden;position:relative;z-index:5}
@@ -188,165 +218,44 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .mq-dot{width:4px;height:4px;border-radius:50%;background:var(--a1);flex-shrink:0}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* =============================================
-   STORY / MISSION SECTION
-   ============================================= */
-#story{
-  padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:clamp(60px,8vw,120px);
-  align-items:center;
-  position:relative;
-  max-width:1400px;
-  margin:auto;
-}
+/* STORY */
+#story{padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(60px,8vw,120px);align-items:center;position:relative;max-width:1400px;margin:auto}
 @media(max-width:860px){#story{grid-template-columns:1fr}}
-.story-left{}
 .story-body{font-size:clamp(.88rem,1.4vw,1.02rem);color:var(--muted);line-height:1.9;margin-bottom:24px;max-width:520px}
-.story-quote-block{
-  border-left:2px solid rgba(201,169,110,.4);
-  padding:18px 24px;
-  margin:32px 0;
-  background:rgba(201,169,110,.04);
-  border-radius:0 12px 12px 0;
-}
-.story-quote-text{
-  font-family:var(--font-display);
-  font-style:italic;
-  font-size:clamp(1.1rem,2.5vw,1.5rem);
-  color:var(--a3);
-  line-height:1.4;
-  margin-bottom:12px;
-}
+.story-quote-block{border-left:2px solid rgba(201,169,110,.4);padding:18px 24px;margin:32px 0;background:rgba(201,169,110,.04);border-radius:0 12px 12px 0}
+.story-quote-text{font-family:var(--font-display);font-style:italic;font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--a3);line-height:1.4;margin-bottom:12px}
 .story-quote-attr{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .story-right{display:flex;flex-direction:column;gap:16px}
-.mission-card{
-  background:var(--surface);
-  border:1px solid var(--stroke);
-  border-radius:20px;
-  padding:28px;
-  transition:border-color .3s,transform .3s,background .3s;
-  cursor:none;
-}
+.mission-card{background:var(--surface);border:1px solid var(--stroke);border-radius:20px;padding:28px;transition:border-color .3s,transform .3s,background .3s;cursor:none}
 .mission-card:hover{border-color:rgba(201,169,110,.2);transform:translateY(-4px);background:var(--surface2)}
-.mission-card-icon{
-  width:44px;height:44px;
-  border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:16px;
-}
+.mission-card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .mission-card-icon svg{width:20px;height:20px;stroke-width:1.8;fill:none}
 .mission-card-title{font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text);margin-bottom:8px}
 .mission-card-desc{font-size:.82rem;color:var(--muted);line-height:1.75}
 
-/* =============================================
-   FOUNDER SECTION
-   ============================================= */
-#founder{
-  background:var(--surface);
-  padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);
-  position:relative;
-  overflow:hidden;
-}
-#founder::before{
-  content:'MK';
-  position:absolute;
-  right:-2%;top:-10%;
-  font-family:var(--font-display);
-  font-style:italic;
-  font-size:32vw;
-  color:rgba(201,169,110,.025);
-  line-height:1;
-  pointer-events:none;
-  user-select:none;
-}
-.founder-inner{
-  max-width:1300px;margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:clamp(60px,8vw,120px);
-  align-items:center;
-}
+/* FOUNDER */
+#founder{background:var(--surface);padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);position:relative;overflow:hidden}
+#founder::before{content:'MK';position:absolute;right:-2%;top:-10%;font-family:var(--font-display);font-style:italic;font-size:32vw;color:rgba(201,169,110,.025);line-height:1;pointer-events:none;user-select:none}
+.founder-inner{max-width:1300px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(60px,8vw,120px);align-items:center}
 @media(max-width:860px){.founder-inner{grid-template-columns:1fr}}
-.founder-photo-wrap{
-  position:relative;
-  display:flex;
-  justify-content:center;
-}
-.founder-photo-ring{
-  width:clamp(260px,38vw,420px);
-  height:clamp(260px,38vw,420px);
-  border-radius:50%;
-  overflow:hidden;
-  border:2px solid rgba(201,169,110,.3);
-  box-shadow:
-    0 0 60px rgba(201,169,110,.18),
-    0 0 120px rgba(201,169,110,.08);
-  animation:floatY 7s ease-in-out infinite;
-  position:relative;
-  z-index:1;
-}
+.founder-photo-wrap{position:relative;display:flex;justify-content:center}
+.founder-photo-ring{width:clamp(260px,38vw,420px);height:clamp(260px,38vw,420px);border-radius:50%;overflow:hidden;border:2px solid rgba(201,169,110,.3);box-shadow:0 0 60px rgba(201,169,110,.18),0 0 120px rgba(201,169,110,.08);animation:floatY 7s ease-in-out infinite;position:relative;z-index:1}
 .founder-photo-ring img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(15%)}
-.founder-photo-badge{
-  position:absolute;
-  bottom:20px;right:10px;
-  background:var(--surface2);
-  border:1px solid rgba(201,169,110,.2);
-  border-radius:14px;
-  padding:12px 18px;
-  z-index:2;
-  backdrop-filter:blur(12px);
-}
+.founder-photo-badge{position:absolute;bottom:20px;right:10px;background:var(--surface2);border:1px solid rgba(201,169,110,.2);border-radius:14px;padding:12px 18px;z-index:2;backdrop-filter:blur(12px)}
 .founder-photo-badge-num{font-family:var(--font-display);font-size:1.8rem;line-height:1;color:var(--a1);font-style:italic}
 .founder-photo-badge-lbl{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:3px}
-.founder-orb{
-  position:absolute;
-  top:-40px;left:-40px;
-  width:200px;height:200px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(201,169,110,.12),transparent 70%);
-  pointer-events:none;
-}
+.founder-orb{position:absolute;top:-40px;left:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,.12),transparent 70%);pointer-events:none}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
-.founder-right{}
-.founder-name{
-  font-family:var(--font-display);
-  font-size:clamp(2.8rem,6vw,5.5rem);
-  letter-spacing:-.02em;
-  line-height:.9;
-  margin-bottom:8px;
-}
-.founder-name em{font-style:italic;color:var(--a1)}
-.founder-role{
-  font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:28px;
-  display:flex;align-items:center;gap:10px;
-}
+.founder-role{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;display:flex;align-items:center;gap:10px}
 .founder-role::before{content:'';width:24px;height:1px;background:var(--a1)}
+.founder-name{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,5.5rem);letter-spacing:-.02em;line-height:.9;margin-bottom:8px}
+.founder-name em{font-style:italic;color:var(--a1)}
 .founder-bio{font-size:clamp(.88rem,1.4vw,1rem);color:var(--muted);line-height:1.9;margin-bottom:36px;max-width:500px}
 .founder-skills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
-.skill-tag{
-  padding:7px 16px;
-  border-radius:999px;
-  border:1px solid var(--stroke);
-  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--muted);
-  transition:border-color .25s,color .25s,background .25s;
-  cursor:none;
-}
+.skill-tag{padding:7px 16px;border-radius:999px;border:1px solid var(--stroke);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:border-color .25s,color .25s,background .25s;cursor:none}
 .skill-tag:hover{border-color:rgba(201,169,110,.3);color:var(--a1);background:rgba(201,169,110,.06)}
 .founder-contact{display:flex;flex-direction:column;gap:12px}
-.fc-pill{
-  display:flex;align-items:center;gap:14px;
-  padding:14px 18px;
-  border:1px solid var(--stroke);
-  border-radius:14px;
-  background:var(--bg);
-  transition:border-color .25s,background .25s;
-  cursor:none;
-}
+.fc-pill{display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--stroke);border-radius:14px;background:var(--bg);transition:border-color .25s,background .25s;cursor:none}
 .fc-pill:hover{border-color:rgba(201,169,110,.2);background:rgba(201,169,110,.04)}
 .fc-pill-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .fc-pill-icon svg{width:14px;height:14px;stroke-width:1.8;fill:none}
@@ -354,32 +263,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .fc-pill-val{font-size:.85rem;font-weight:500;color:var(--text)}
 .fc-pill-val a{color:inherit;text-decoration:none}
 
-/* =============================================
-   SERVICES — WHAT WE DO
-   ============================================= */
-#services{
-  background:var(--bg);
-  padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);
-}
-.services-hdr{
-  max-width:1300px;margin:0 auto clamp(48px,6vw,80px);
-  display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;
-}
+/* SERVICES */
+#services{background:var(--bg);padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px)}
+.services-hdr{max-width:1300px;margin:0 auto clamp(48px,6vw,80px);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px}
 .services-sub{font-size:.88rem;color:var(--muted);max-width:260px;line-height:1.7}
-.srv-grid{
-  max-width:1300px;margin:auto;
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(200px,25%,300px),1fr));
-  gap:clamp(10px,1.5vw,16px);
-}
-.srv-card{
-  border:1px solid var(--stroke);border-radius:20px;
-  padding:clamp(20px,2.5vw,28px);
-  display:flex;flex-direction:column;gap:10px;
-  background:var(--surface);
-  cursor:none;
-  transition:border-color .3s,transform .3s,background .3s;
-  position:relative;overflow:hidden;
-}
+.srv-grid{max-width:1300px;margin:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(200px,25%,300px),1fr));gap:clamp(10px,1.5vw,16px)}
+.srv-card{border:1px solid var(--stroke);border-radius:20px;padding:clamp(20px,2.5vw,28px);display:flex;flex-direction:column;gap:10px;background:var(--surface);cursor:none;transition:border-color .3s,transform .3s,background .3s;position:relative;overflow:hidden}
 .srv-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,var(--srv-color,#C9A96E) 0%,transparent 60%);opacity:0;transition:opacity .4s}
 .srv-card:hover{border-color:rgba(201,169,110,.2);transform:translateY(-5px);background:var(--surface2)}
 .srv-card:hover::after{opacity:.04}
@@ -390,73 +279,34 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .srv-name{font-size:.82rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text)}
 .srv-desc{font-size:.78rem;color:var(--muted);line-height:1.75}
 
-/* =============================================
-   WHY SECTION
-   ============================================= */
-#why{
-  background:var(--surface);
-  border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;
-  padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);
-}
+/* WHY */
+#why{background:var(--surface);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px)}
 .why-hdr{max-width:1300px;margin:0 auto clamp(48px,6vw,80px)}
-.why-grid{
-  max-width:1300px;margin:auto;
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:16px;
-}
-.why-card{
-  background:var(--bg);
-  border:1px solid var(--stroke);
-  border-radius:20px;padding:28px;
-  cursor:none;
-  transition:border-color .3s,transform .3s,background .3s;
-}
+.why-grid{max-width:1300px;margin:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.why-card{background:var(--bg);border:1px solid var(--stroke);border-radius:20px;padding:28px;cursor:none;transition:border-color .3s,transform .3s,background .3s}
 .why-card:hover{border-color:rgba(201,169,110,.18);transform:translateY(-5px);background:#0d0d0d}
 .why-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .why-icon svg{width:20px;height:20px}
 .why-card-title{font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text);margin-bottom:8px}
 .why-card-desc{font-size:.8rem;color:var(--muted);line-height:1.8}
 
-/* =============================================
-   TIMELINE — JOURNEY
-   ============================================= */
-#journey{
-  background:var(--bg);
-  padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);
-  position:relative;
-}
+/* TIMELINE */
+#journey{background:var(--bg);padding:clamp(80px,12vw,150px) clamp(28px,8vw,100px);position:relative}
 .journey-inner{max-width:800px;margin:auto}
 .journey-hdr{margin-bottom:clamp(48px,6vw,80px)}
 .timeline{position:relative;padding-left:32px}
-.timeline::before{
-  content:'';position:absolute;left:6px;top:8px;bottom:0;
-  width:1px;background:linear-gradient(to bottom,rgba(201,169,110,.5),transparent);
-}
+.timeline::before{content:'';position:absolute;left:6px;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(201,169,110,.5),transparent)}
 .tl-item{position:relative;margin-bottom:52px}
 .tl-item:last-child{margin-bottom:0}
-.tl-dot{
-  position:absolute;left:-32px;top:6px;
-  width:14px;height:14px;
-  border-radius:50%;
-  border:2px solid var(--a1);
-  background:var(--bg);
-  transition:background .3s;
-}
+.tl-dot{position:absolute;left:-32px;top:6px;width:14px;height:14px;border-radius:50%;border:2px solid var(--a1);background:var(--bg);transition:background .3s}
 .tl-item:hover .tl-dot{background:var(--a1)}
 .tl-year{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--a1);margin-bottom:6px;display:flex;align-items:center;gap:8px}
 .tl-title{font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.8rem);margin-bottom:8px;line-height:1.2}
 .tl-title em{font-style:italic;color:var(--a1)}
 .tl-desc{font-size:.83rem;color:var(--muted);line-height:1.8;max-width:520px}
 
-/* =============================================
-   CTA STRIP
-   ============================================= */
-#cta-strip{
-  background:var(--surface);
-  border-top:1px solid var(--stroke);
-  padding:clamp(60px,8vw,100px) clamp(28px,8vw,100px);
-  text-align:center;
-}
+/* CTA */
+#cta-strip{background:var(--surface);border-top:1px solid var(--stroke);padding:clamp(60px,8vw,100px) clamp(28px,8vw,100px);text-align:center}
 .cta-inner{max-width:700px;margin:auto}
 .cta-eyebrow{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--a1);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px}
 .cta-eyebrow::before,.cta-eyebrow::after{content:'';width:24px;height:1px;background:var(--a1)}
@@ -465,19 +315,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .cta-sub{font-size:clamp(.88rem,1.5vw,1rem);color:var(--muted);line-height:1.8;margin-bottom:36px}
 .cta-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 
-/* =============================================
-   FOOTER
-   ============================================= */
-footer{
-  background:var(--bg);
-  border-top:1px solid var(--stroke);
-  padding:clamp(40px,6vw,72px) clamp(28px,8vw,100px) 32px;
-}
-.footer-top{
-  max-width:1300px;margin:0 auto 48px;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;
-  gap:clamp(30px,5vw,64px);
-}
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--stroke);padding:clamp(40px,6vw,72px) clamp(28px,8vw,100px) 32px}
+.footer-top{max-width:1300px;margin:0 auto 48px;display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:clamp(30px,5vw,64px)}
 @media(max-width:860px){.footer-top{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.footer-top{grid-template-columns:1fr}}
 .footer-logo{font-family:var(--font-display);font-size:1.6rem;font-style:italic;color:var(--a1);margin-bottom:14px}
@@ -529,12 +369,33 @@ footer{
 </nav>
 
 <!-- =============================================
-     HERO
+     HERO — VIDEO BACKGROUND
      ============================================= -->
 <section id="about-hero">
-  <img class="hero-bg-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80&fit=crop" alt="Digital workspace"/>
+
+  <!-- Autoplay background video -->
+  <video
+    class="hero-bg-video"
+    id="heroBgVideo"
+    muted
+    playsinline
+    autoplay
+    loop
+    preload="auto"
+    poster="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80&fit=crop"
+  >
+    <source src="https://res.cloudinary.com/djijinaxd/video/upload/v1781615122/6558615-uhd_3840_2160_25fps_q3m1pz.mp4" type="video/mp4"/>
+  </video>
+
   <div class="hero-bg-overlay"></div>
+  <div class="hero-bg-tint"></div>
   <div class="hero-grain"></div>
+
+  <!-- Live video badge -->
+  <div class="hero-video-badge">
+    <span class="hvbadge-dot"></span>
+    <span class="hvbadge-text">MK Freelance Studio · Our Story</span>
+  </div>
 
   <div class="hero-content">
     <div class="hero-left">
@@ -576,6 +437,12 @@ footer{
       </div>
     </div>
   </div>
+
+  <!-- Scroll hint -->
+  <div class="hero-scroll-hint">
+    <span class="hero-scroll-label">Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
 </section>
 
 <!-- MARQUEE -->
@@ -583,21 +450,17 @@ footer{
   <div class="mq-track" id="mqTrack"></div>
 </div>
 
-<!-- =============================================
-     STORY / MISSION
-     ============================================= -->
+<!-- STORY -->
 <section id="story">
   <div class="story-left reveal">
     <div class="section-eyebrow">Our Story</div>
     <h2 class="section-title">Small<br>City,<br><em>Big</em> Vision</h2>
     <p class="story-body">MK Freelance Studio ki shuruat 2020 mein Nanauta, Saharanpur se hui — ek laptop, ek internet connection, aur ek sapna: local businesses ko global digital presence dena.</p>
     <p class="story-body">Humne dekha tha ki hamare aas-paas ke businessmen — chahe kirana store ho ya manufacturing unit — sab online hona chahte the, lekin koi affordable aur trustworthy option nahi tha. Waheen se MK Studio ka idea aaya.</p>
-
     <div class="story-quote-block">
       <div class="story-quote-text">"Mera goal sirf websites banana nahi — businesses ko grow karna hai."</div>
       <div class="story-quote-attr">— Mohammad Kaif, Founder</div>
     </div>
-
     <p class="story-body">Aaj hum website design se lekar 3D web experiences, SEO, Meta Ads, Google Ads aur social media management tak — sab kuch under one roof provide karte hain.</p>
   </div>
 
@@ -626,15 +489,13 @@ footer{
   </div>
 </section>
 
-<!-- =============================================
-     FOUNDER
-     ============================================= -->
+<!-- FOUNDER -->
 <section id="founder">
   <div class="founder-inner">
     <div class="founder-photo-wrap reveal">
       <div class="founder-orb"></div>
       <div class="founder-photo-ring">
-       <img src="https://i.ibb.co/Cp097Zym/Whats-App-Image-2026-06-08-at-8-15-53-PM-1.jpg" alt="Mohammad Kaif — Founder MK Freelance Studio"/>
+        <img src="https://i.ibb.co/Cp097Zym/Whats-App-Image-2026-06-08-at-8-15-53-PM-1.jpg" alt="Mohammad Kaif — Founder MK Freelance Studio"/>
       </div>
       <div class="founder-photo-badge">
         <div class="founder-photo-badge-num">MK</div>
@@ -647,7 +508,6 @@ footer{
       <h2 class="founder-name">Mohammad<br><em>Kaif</em></h2>
       <p class="founder-bio">Main Mohammad Kaif hoon — Nanauta, Saharanpur ka digital enthusiast. 2020 mein ek freelancer ke roop mein shuru kiya, aur ab MK Freelance Studio ek full-service digital agency ban chuki hai.</p>
       <p class="founder-bio" style="margin-top:-16px">Website design, SEO, paid advertising, aur 3D web experiences mein 5+ saal ka hands-on experience hai. Mera approach simple hai — data-driven decisions, creative execution, aur client satisfaction above everything.</p>
-
       <div class="founder-skills">
         <span class="skill-tag">Website Design</span>
         <span class="skill-tag">SEO</span>
@@ -658,7 +518,6 @@ footer{
         <span class="skill-tag">UI / UX</span>
         <span class="skill-tag">Branding</span>
       </div>
-
       <div class="founder-contact">
         <div class="fc-pill">
           <div class="fc-pill-icon" style="background:rgba(201,169,110,.1)">
@@ -692,9 +551,7 @@ footer{
   </div>
 </section>
 
-<!-- =============================================
-     SERVICES
-     ============================================= -->
+<!-- SERVICES -->
 <section id="services">
   <div class="services-hdr">
     <div class="reveal">
@@ -706,9 +563,7 @@ footer{
   <div class="srv-grid" id="srvGrid"></div>
 </section>
 
-<!-- =============================================
-     WHY CHOOSE US
-     ============================================= -->
+<!-- WHY -->
 <section id="why">
   <div class="why-hdr">
     <div class="reveal">
@@ -719,9 +574,7 @@ footer{
   <div class="why-grid" id="whyGrid"></div>
 </section>
 
-<!-- =============================================
-     JOURNEY / TIMELINE
-     ============================================= -->
+<!-- TIMELINE -->
 <section id="journey">
   <div class="journey-inner">
     <div class="journey-hdr reveal">
@@ -732,9 +585,7 @@ footer{
   </div>
 </section>
 
-<!-- =============================================
-     CTA STRIP
-     ============================================= -->
+<!-- CTA -->
 <section id="cta-strip">
   <div class="cta-inner">
     <div class="cta-eyebrow reveal">Ready to Grow?</div>
@@ -747,9 +598,7 @@ footer{
   </div>
 </section>
 
-<!-- =============================================
-     FOOTER
-     ============================================= -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div>
@@ -806,6 +655,29 @@ footer{
 
 <script>
 // ============================================================
+// HERO VIDEO — Autoplay with fallback
+// ============================================================
+(function(){
+  const vid = document.getElementById('heroBgVideo');
+  if(!vid) return;
+  vid.muted = true;
+
+  // Show video as soon as it can play
+  vid.addEventListener('canplay', () => vid.classList.add('loaded'));
+  // Fallback — show even if event already fired
+  setTimeout(() => vid.classList.add('loaded'), 800);
+
+  // Try autoplay
+  const p = vid.play();
+  if(p && p.catch) p.catch(() => {
+    // Autoplay blocked — retry on first user interaction
+    const retry = () => { vid.play().catch(()=>{}); document.removeEventListener('click', retry); document.removeEventListener('touchstart', retry); };
+    document.addEventListener('click', retry, {once:true});
+    document.addEventListener('touchstart', retry, {once:true});
+  });
+})();
+
+// ============================================================
 // DATA
 // ============================================================
 const SERVICES = [
@@ -818,7 +690,6 @@ const SERVICES = [
   {num:'07',name:'Graphic Designing',desc:'Logos, brand identities, social media creatives, and print materials that make your brand unforgettable.',color:'#E882B4',svg:'<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>'},
   {num:'08',name:'3D / Vibe Coding',desc:'Immersive Three.js and WebGL web experiences — interactive product showcases and jaw-dropping animations.',color:'#8B6F47',svg:'<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>'},
 ];
-
 const WHY = [
   {title:'Guaranteed Results',desc:'Hum results ki guarantee dete hain — agar 3 mahine mein traffic na badhe toh paisa wapas. Zero risk aapke liye.',color:'#C9A96E',svg:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'},
   {title:'Local Expertise',desc:'Nanauta aur Saharanpur ke markets ko hum personally jante hain — local customers ko kaise target karein, yeh humein pata hai.',color:'#6BBF7A',svg:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'},
@@ -827,7 +698,6 @@ const WHY = [
   {title:'Data-Driven Approach',desc:'Har decision data se — gut feeling se nahi. Google Analytics, Search Console aur Meta Pixel se backed strategies.',color:'#C9A96E',svg:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>'},
   {title:'Dedicated Support',desc:'Project delivery ke baad bhi hum available hain. WhatsApp par directly sampark karein — koi middleman nahi.',color:'#8B9E6E',svg:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'},
 ];
-
 const TIMELINE = [
   {year:'2020',title:'The <em>Beginning</em>',desc:'Freelancer ke roop mein shuruat — pehla client, pehli website, aur digital marketing mein pehla kadam. Saharanpur ke local businesses ke liye kaam shuru kiya.'},
   {year:'2021',title:'<em>Growing</em> Fast',desc:'SEO aur Meta Ads services add ki gayi. 10+ clients served, aur first major success — ek local business ka Google ranking top 3 mein aaya.'},
@@ -835,78 +705,48 @@ const TIMELINE = [
   {year:'2023',title:'<em>Level Up</em>',desc:'3D web experiences aur Vibe Coding add ki. Delhi NCR, Meerut, Muzaffarnagar tak clients pahunche. 40+ projects completed.'},
   {year:'2024–25',title:'Full <em>Agency</em> Mode',desc:'50+ happy clients, full-service digital agency. Nanauta se India tak — kaifservices.in launch. 4.9★ average rating across all projects.'},
 ];
-
 const MQ_ITEMS = ['Website Designing','SEO','Meta Ads','Google Ads','LinkedIn Ads','Social Media Marketing','Vibe Coding','Graphic Designing','UI/UX Design','Digital Strategy'];
 
-// ============================================================
-// BUILD MARQUEE
-// ============================================================
+// MARQUEE
 const mqTrack = document.getElementById('mqTrack');
-const mqItems = [...MQ_ITEMS,...MQ_ITEMS];
-mqItems.forEach(item => {
-  const el = document.createElement('div');
-  el.className = 'mq-item';
+[...MQ_ITEMS,...MQ_ITEMS].forEach(item => {
+  const el = document.createElement('div'); el.className = 'mq-item';
   el.innerHTML = `<span class="mq-dot"></span>${item}`;
   mqTrack.appendChild(el);
 });
 
-// ============================================================
-// BUILD SERVICES
-// ============================================================
+// SERVICES
 const srvGrid = document.getElementById('srvGrid');
 SERVICES.forEach((s,i) => {
   const card = document.createElement('div');
   card.className = 'srv-card reveal';
   card.style.setProperty('--srv-color', s.color);
-  card.style.transitionDelay = `${i * .06}s`;
-  card.innerHTML = `
-    <div class="srv-card-top">
-      <span class="srv-num">${s.num}</span>
-      <div class="srv-ico" style="background:${s.color}18;border:1px solid ${s.color}25">
-        <svg viewBox="0 0 24 24" fill="none" stroke="${s.color}" stroke-width="1.8">${s.svg}</svg>
-      </div>
-    </div>
-    <div class="srv-name">${s.name}</div>
-    <div class="srv-desc">${s.desc}</div>`;
+  card.style.transitionDelay = `${i*.06}s`;
+  card.innerHTML = `<div class="srv-card-top"><span class="srv-num">${s.num}</span><div class="srv-ico" style="background:${s.color}18;border:1px solid ${s.color}25"><svg viewBox="0 0 24 24" fill="none" stroke="${s.color}" stroke-width="1.8">${s.svg}</svg></div></div><div class="srv-name">${s.name}</div><div class="srv-desc">${s.desc}</div>`;
   srvGrid.appendChild(card);
 });
 
-// ============================================================
-// BUILD WHY CARDS
-// ============================================================
+// WHY
 const whyGrid = document.getElementById('whyGrid');
 WHY.forEach((w,i) => {
   const card = document.createElement('div');
   card.className = 'why-card reveal';
-  card.style.transitionDelay = `${i * .08}s`;
-  card.innerHTML = `
-    <div class="why-icon" style="background:${w.color}18;border:1px solid ${w.color}25">
-      <svg viewBox="0 0 24 24" fill="none" stroke="${w.color}" stroke-width="1.8">${w.svg}</svg>
-    </div>
-    <div class="why-card-title">${w.title}</div>
-    <div class="why-card-desc">${w.desc}</div>`;
+  card.style.transitionDelay = `${i*.08}s`;
+  card.innerHTML = `<div class="why-icon" style="background:${w.color}18;border:1px solid ${w.color}25"><svg viewBox="0 0 24 24" fill="none" stroke="${w.color}" stroke-width="1.8">${w.svg}</svg></div><div class="why-card-title">${w.title}</div><div class="why-card-desc">${w.desc}</div>`;
   whyGrid.appendChild(card);
 });
 
-// ============================================================
-// BUILD TIMELINE
-// ============================================================
+// TIMELINE
 const tl = document.getElementById('timeline');
 TIMELINE.forEach((t,i) => {
   const item = document.createElement('div');
   item.className = 'tl-item reveal';
-  item.style.transitionDelay = `${i * .1}s`;
-  item.innerHTML = `
-    <div class="tl-dot"></div>
-    <div class="tl-year">${t.year}</div>
-    <div class="tl-title">${t.title}</div>
-    <div class="tl-desc">${t.desc}</div>`;
+  item.style.transitionDelay = `${i*.1}s`;
+  item.innerHTML = `<div class="tl-dot"></div><div class="tl-year">${t.year}</div><div class="tl-title">${t.title}</div><div class="tl-desc">${t.desc}</div>`;
   tl.appendChild(item);
 });
 
-// ============================================================
 // CURSOR
-// ============================================================
 const cur = document.getElementById('cur');
 const curTrail = document.getElementById('cur-trail');
 let mx=0,my=0,tx=0,ty=0;
@@ -917,12 +757,10 @@ document.querySelectorAll('a,button,.srv-card,.why-card,.mission-card,.stat-card
   el.addEventListener('mouseleave', () => { cur.style.width='8px'; cur.style.height='8px'; curTrail.style.width='28px'; curTrail.style.height='28px'; curTrail.style.borderColor='rgba(201,169,110,.4)'; });
 });
 
-// NAV scroll effect
+// NAV scroll
 window.addEventListener('scroll', () => { document.getElementById('navPill').classList.toggle('scrolled', window.scrollY > 80); });
 
-// ============================================================
 // SCROLL REVEAL
-// ============================================================
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); }});
 }, {threshold:0.06, rootMargin:'0px 0px -30px 0px'});
