@@ -14,7 +14,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
+/* PAGE VEIL FIX */
+#page-veil{position:fixed;inset:0;z-index:99998;background:#080808;pointer-events:none;opacity:1;transition:opacity .28s ease;}
+#page-veil.gone{opacity:0;}
+  <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#080808;
