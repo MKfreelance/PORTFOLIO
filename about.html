@@ -350,6 +350,18 @@ footer{background:var(--bg);border-top:1px solid var(--stroke);padding:clamp(40p
 </style>
 </head>
 <body>
+   <div id="page-veil"></div>
+<script>
+window.addEventListener('DOMContentLoaded',function(){
+  requestAnimationFrame(function(){
+    document.getElementById('page-veil').classList.add('gone');
+    setTimeout(function(){
+      var v=document.getElementById('page-veil');
+      if(v)v.remove();
+    },400);
+  });
+});
+</script>
 
 <div id="cur"></div>
 <div id="cur-trail"></div>
