@@ -79,1357 +79,1379 @@
   
   <!-- FAVICON (Recommended) -->
   <link rel="icon" href="https://kaifservices.in/favicon.ico" type="image/x-icon"/>
-</head>
-<meta name="description" content="MK Freelance Studio — Nanauta, Saharanpur ka No.1 Digital Agency. Professional Website Designing, SEO, Meta Ads, Google Ads, LinkedIn Ads, Graphic Design & Social Media Marketing. Affordable prices, guaranteed results. Call: +91 9634950165"/>
-<meta name="keywords" content="website designing Nanauta, digital marketing Saharanpur, SEO services Uttar Pradesh, Meta Ads agency UP, Google Ads Nanauta, graphic designing UP, social media marketing Saharanpur, LinkedIn ads India, affordable website design UP, MK Freelance Studio, WordPress developer Saharanpur, 3D website India"/>
-<meta name="author" content="MK Freelance Studio — Mohammad Kaif"/>
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
-<link rel="canonical" href="https://kaifservices.in/"/>
-<meta name="geo.region" content="IN-UP"/>
-<meta name="geo.placename" content="Nanauta, Saharanpur, Uttar Pradesh, India"/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://kaifservices.in/"/>
-<meta property="og:title" content="MK Freelance Studio | Website Design & Digital Marketing — Nanauta, UP"/>
-<meta property="og:description" content="Nanauta ka No.1 Digital Agency. Website Design, SEO, Meta Ads, Google Ads & Social Media Marketing. Affordable & Guaranteed Results. Call: +91 9634950165"/>
-<meta property="og:image" content="https://kaifservices.in/assets/og-image.jpg"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"MK Freelance Studio","description":"Website Designing, SEO, Meta Ads, Google Ads, LinkedIn Ads, Social Media Marketing in Nanauta, Saharanpur, UP.","url":"https://kaifservices.in","telephone":"+91-9634950165","email":"Kaifsiddiqui28637@gmail.com","priceRange":"₹₹","address":{"@type":"PostalAddress","streetAddress":"Sheikh Zad Gan, Near Kabaadi Bazaar","addressLocality":"Nanauta","addressRegion":"Uttar Pradesh","postalCode":"247452","addressCountry":"IN"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"28"}}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#f5f5f5;
-  --surface:#ffffff;
-  --surface2:#f0f0f0;
-  --text:#111111;
-  --muted:#555555;
-  --stroke:#e0e0e0;
-  --a1:#C9A96E;
-  --a2:#8B6F47;
-  --a3:#E8D5B0;
-  --font-body:'DM Sans',sans-serif;
-  --font-display:'DM Serif Display',serif;
-}
-html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:none;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f5f5f5;
+      --surface:#ffffff;
+      --surface2:#f0f0f0;
+      --text:#111111;
+      --muted:#555555;
+      --stroke:#e0e0e0;
+      --a1:#C9A96E;
+      --a2:#8B6F47;
+      --a3:#E8D5B0;
+      --font-body:'DM Sans',sans-serif;
+      --font-display:'DM Serif Display',serif;
+    }
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:none;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* ============================================================
-   ENTRANCE VIDEO SCREEN — NEW
-   ============================================================ */
-#entrance{
-  position:fixed;inset:0;z-index:99999;
-  background:#000;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  overflow:hidden;
-}
-#entrance.fade-out{
-  opacity:0;
-  transition:opacity .9s cubic-bezier(.4,0,.2,1);
-  pointer-events:none;
-}
-.entrance-video{
-  position:absolute;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  min-width:100%;min-height:100%;
-  width:auto;height:auto;
-  object-fit:cover;
-  object-position:center;
-}
-.entrance-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(0,0,0,.35) 0%,
-    rgba(0,0,0,.1) 40%,
-    rgba(0,0,0,.55) 100%
-  );
-  z-index:1;
-}
-.entrance-content{
-  position:relative;z-index:2;
-  text-align:center;
-  display:flex;flex-direction:column;
-  align-items:center;gap:28px;
-  padding:0 24px;
-}
-.entrance-logo{
-  font-family:var(--font-display);
-  font-size:clamp(2.2rem,7vw,5rem);
-  font-style:italic;
-  color:#fff;
-  letter-spacing:-.02em;
-  text-shadow:0 4px 40px rgba(0,0,0,.6);
-  opacity:0;
-  transform:translateY(20px);
-  animation:entranceFadeUp .9s .4s cubic-bezier(.16,1,.3,1) forwards;
-}
-.entrance-tagline{
-  font-size:clamp(.65rem,1.4vw,.78rem);
-  letter-spacing:.3em;
-  text-transform:uppercase;
-  color:var(--a1);
-  opacity:0;
-  transform:translateY(16px);
-  animation:entranceFadeUp .8s .8s ease forwards;
-}
-.entrance-btn{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:14px 34px;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--a1),var(--a2));
-  color:#000;
-  font-family:var(--font-body);
-  font-weight:700;
-  font-size:.82rem;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  border:none;
-  cursor:pointer;
-  opacity:0;
-  transform:translateY(16px);
-  animation:entranceFadeUp .8s 1.1s ease forwards;
-  box-shadow:0 8px 40px rgba(201,169,110,.4);
-  transition:transform .2s,box-shadow .2s,opacity .2s;
-}
-.entrance-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 16px 50px rgba(201,169,110,.5);
-}
-.entrance-btn svg{width:16px;height:16px;stroke:#000;stroke-width:2.2;fill:none}
-/* Countdown ring around button */
-.entrance-skip{
-  font-size:.58rem;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.3);
-  opacity:0;
-  animation:entranceFadeUp .6s 1.4s ease forwards;
-}
-#entranceCountdown{
-  display:inline-block;
-  font-variant-numeric:tabular-nums;
-  color:var(--a1);
-  font-weight:600;
-}
-@keyframes entranceFadeUp{
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* ============================================================
-   ORIGINAL INTRO (number counter) — kept but runs AFTER entrance
-   ============================================================ */
-#intro{position:fixed;inset:0;z-index:10000;background:#030303;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;pointer-events:all;display:none;}
-#intro.active{display:flex}
-#intro.done{pointer-events:none}
-.intro-panel{position:absolute;left:0;right:0;height:50%;background:#030303;transition:transform 1s cubic-bezier(.76,0,.24,1);z-index:2;}
-.intro-panel.top{top:0;transform-origin:top center}
-.intro-panel.bot{bottom:0;transform-origin:bottom center}
-#intro.reveal .intro-panel.top{transform:translateY(-100%)}
-#intro.reveal .intro-panel.bot{transform:translateY(100%)}
-.intro-line{position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent 0%,var(--a1) 20%,var(--a3) 50%,var(--a1) 80%,transparent 100%);transform:scaleX(0);transform-origin:center;transition:transform .7s cubic-bezier(.16,1,.3,1);z-index:3;}
-#intro.lineshow .intro-line{transform:scaleX(1)}
-.intro-wordwrap{position:relative;z-index:4;text-align:center;overflow:hidden;}
-.intro-studio{font-family:var(--font-display);font-size:clamp(2.8rem,8vw,7rem);font-style:italic;letter-spacing:-.02em;color:var(--text);display:flex;gap:.06em;justify-content:center;flex-wrap:wrap;}
-.intro-letter{display:inline-block;opacity:0;transform:translateY(80px) rotate(8deg);transition:opacity .5s ease,transform .5s cubic-bezier(.16,1,.3,1);}
-.intro-sub-line{font-size:clamp(.55rem,.9vw,.7rem);letter-spacing:.4em;text-transform:uppercase;color:var(--a1);margin-top:14px;opacity:0;transform:translateY(14px);transition:opacity .5s .6s ease,transform .5s .6s ease;}
-#intro.textshow .intro-letter{opacity:1;transform:translateY(0) rotate(0deg)}
-#intro.textshow .intro-sub-line{opacity:1;transform:translateY(0)}
-.intro-counter{position:absolute;bottom:32px;right:40px;z-index:4;font-family:var(--font-display);font-size:clamp(2rem,6vw,4rem);font-style:italic;color:rgba(255,255,255,.08);transition:opacity .4s;}
-.intro-bar-wrap{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(255,255,255,.04);z-index:4}
-.intro-bar{height:100%;width:0;background:linear-gradient(90deg,var(--a2),var(--a1))}
-.intro-corner{position:absolute;z-index:4;font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.2);}
-.intro-corner.tl{top:28px;left:32px}
-.intro-corner.tr{top:28px;right:32px;text-align:right}
-#cur,#cur-trail{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
-#cur{width:8px;height:8px;background:var(--a1);transition:width .2s,height .2s,background .2s}
-#cur-trail{width:28px;height:28px;border:1px solid rgba(201,169,110,.4);transition:width .3s,height .3s}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:center;padding:20px 24px}
-.nav-pill{display:inline-flex;align-items:center;gap:0;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border:1px solid var(--stroke);border-radius:999px;padding:6px 8px;transition:box-shadow .3s}
-.nav-pill.scrolled{box-shadow:0 8px 32px rgba(0,0,0,.4)}
-.nav-logo-ring{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--a1),var(--a2));display:flex;align-items:center;justify-content:center;margin-right:2px;transition:transform .2s}
-.nav-logo-ring:hover{transform:scale(1.1)}
-.nav-logo-inner{width:30px;height:30px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-style:italic;font-size:12px;color:var(--a1)}
-.nav-sep{width:1px;height:20px;background:var(--stroke);margin:0 4px}
-.nav-link{font-size:.72rem;font-weight:500;letter-spacing:.06em;color:var(--muted);text-decoration:none;padding:7px 14px;border-radius:999px;cursor:none;transition:color .2s,background .2s}
-.nav-link:hover,.nav-link.active{color:var(--text);background:rgba(255,255,255,.06)}
-.nav-cta{font-size:.72rem;font-weight:500;letter-spacing:.06em;color:var(--text);background:transparent;border:none;padding:7px 16px;border-radius:999px;cursor:none;position:relative;transition:color .2s}
-.nav-cta::before{content:'';position:absolute;inset:-1px;border-radius:999px;background:linear-gradient(135deg,var(--a1),var(--a2));opacity:0;transition:opacity .2s}
-.nav-cta:hover::before{opacity:1}
-.nav-cta span{position:relative;z-index:1}
-@media(max-width:520px){.nav-sep{display:none}.nav-link{padding:7px 10px;font-size:.65rem}.nav-cta{padding:7px 12px}}
-#hero{position:relative;width:100%;height:100vh;overflow:hidden;background:var(--bg)}
-.slider-track{position:absolute;inset:0;z-index:0}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s cubic-bezier(.4,0,.2,1);will-change:opacity}
-.slide.active{opacity:1;z-index:2}
-.slide.prev{opacity:0;z-index:1}
-.slide-img{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;object-position:center;transform:scale(1.08);transition:transform 6s cubic-bezier(.16,1,.3,1);will-change:transform}
-.slide.active .slide-img{transform:scale(1)}
-.slide-video{
-  position:absolute;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  min-width:100%;
-  min-height:100%;
-  width:auto;
-  height:auto;
-  object-fit:cover;
-  object-position:center;
-  background:#000;
-}
-.slide-overlay{position:absolute;inset:0;z-index:1}
-.slide-overlay::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.7) 100%);
-}
-.slide-overlay::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.9) 0%,transparent 45%)}
-.slide-tint{position:absolute;inset:0;z-index:1;mix-blend-mode:color;opacity:.18;transition:opacity 1.4s}
-.slide-grain{position:absolute;inset:0;z-index:2;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px;pointer-events:none}
-.video-live-badge{position:absolute;top:28px;left:clamp(28px,8vw,100px);z-index:10;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid rgba(201,169,110,.3);background:rgba(201,169,110,.08);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .5s ease;}
-.video-live-badge.vis{opacity:1}
-.vbadge-dot{width:5px;height:5px;border-radius:50%;background:#6BBF7A;animation:pulseDot 2s ease-in-out infinite}
-.vbadge-text{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--a1);font-weight:600}
-.hero-ui{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 clamp(28px,8vw,100px);pointer-events:none}
-.hero-ui > *{pointer-events:auto}
-.slide-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid rgba(201,169,110,.3);background:rgba(201,169,110,.08);backdrop-filter:blur(12px);margin-bottom:22px;opacity:0;transform:translateY(20px);transition:opacity .7s .2s ease,transform .7s .2s ease}
-.slide-badge.visible{opacity:1;transform:translateY(0)}
-.slide-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--a1);animation:pulseDot 2s ease-in-out infinite}
-@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.6);opacity:.5}}
-.slide-badge-text{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--a1);font-weight:600}
-.hero-headline{font-family:var(--font-display);font-size:clamp(3.2rem,9vw,9.5rem);line-height:.9;letter-spacing:-.03em;color:var(--text);margin-bottom:20px;overflow:hidden}
-.hero-headline-inner{display:block;opacity:0;transform:translateY(60px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
-.hero-headline-inner.visible{opacity:1;transform:translateY(0)}
-.hero-headline-inner:nth-child(2){transition-delay:.12s}
-.hero-headline em{font-style:italic;color:var(--a1)}
-.hero-sub{font-size:clamp(.85rem,1.5vw,1rem);color:rgba(0,0,0,.55);line-height:1.7;max-width:480px;margin-bottom:36px;opacity:0;transform:translateY(20px);transition:opacity .8s .4s ease,transform .8s .4s ease}
-.hero-sub.visible{opacity:1;transform:translateY(0)}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;transform:translateY(20px);transition:opacity .7s .55s ease,transform .7s .55s ease}
-.hero-btns.visible{opacity:1;transform:translateY(0)}
-.btn-primary{padding:13px 28px;border-radius:999px;background:var(--a1);color:var(--bg);font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:none;transition:transform .2s,box-shadow .2s,background .2s;display:inline-flex;align-items:center;gap:8px}
-.btn-primary:hover{background:var(--a3);transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,169,110,.25)}
-.btn-outline{padding:12px 28px;border-radius:999px;border:1px solid rgba(255,255,255,.15);color:var(--text);font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:none;transition:transform .2s,border-color .2s,background .2s;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(8px)}
-.btn-outline:hover{border-color:rgba(201,169,110,.4);background:rgba(201,169,110,.08);transform:translateY(-2px)}
-.slider-counter{position:absolute;left:clamp(16px,3vw,40px);bottom:clamp(90px,12vw,140px);z-index:10;display:flex;flex-direction:column;align-items:center;gap:10px}
-.sc-current{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,3rem);font-style:italic;color:var(--a1);line-height:1;transition:opacity .4s}
-.sc-sep{width:1px;height:40px;background:linear-gradient(to bottom,var(--a1),transparent)}
-.sc-total{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.slider-progress-bar{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(255,255,255,.06);z-index:10;overflow:hidden}
-.slider-progress-fill{height:100%;background:linear-gradient(90deg,var(--a2),var(--a1));width:0%;transition:none}
-.slider-progress-fill.animating{transition:width linear}
-.slider-dots{position:absolute;bottom:clamp(24px,4vw,42px);left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:10px;align-items:center}
-.sdot{width:24px;height:2px;border-radius:2px;background:rgba(255,255,255,.2);cursor:none;transition:width .35s cubic-bezier(.16,1,.3,1),background .35s;position:relative;overflow:hidden}
-.sdot::after{content:'';position:absolute;inset:0;background:var(--a1);transform:scaleX(0);transform-origin:left;transition:transform linear}
-.sdot.active{width:48px;background:rgba(201,169,110,.3)}
-.sdot.active::after{transform:scaleX(1)}
-.sdot.video-dot{background:rgba(107,191,122,.2)}
-.sdot.video-dot.active{background:rgba(107,191,122,.3)}
-.sdot.video-dot.active::after{background:#6BBF7A}
-.slider-arrows{position:absolute;right:clamp(16px,3vw,48px);bottom:clamp(90px,12vw,140px);z-index:10;display:flex;flex-direction:column;gap:8px}
-.sarrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(8,8,8,.5);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;cursor:none;transition:border-color .25s,background .25s,transform .2s}
-.sarrow:hover{border-color:rgba(201,169,110,.4);background:rgba(201,169,122,.12);transform:scale(1.08)}
-.sarrow svg{width:15px;height:15px;stroke:var(--text);stroke-width:1.8;fill:none;transition:stroke .2s}
-.sarrow:hover svg{stroke:var(--a1)}
-.slide-caption{position:absolute;right:clamp(16px,5vw,64px);bottom:clamp(60px,8vw,90px);z-index:10;text-align:right}
-.sc-label{font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:4px}
-.sc-title{font-family:var(--font-display);font-size:clamp(.9rem,1.8vw,1.4rem);font-style:italic;color:rgba(255,255,255,.45);transition:opacity .6s}
-.hero-scroll{position:absolute;bottom:32px;left:clamp(28px,8vw,100px);z-index:10;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp .8s 1.4s ease forwards}
-.hero-scroll-label{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
-.hero-scroll-line{width:36px;height:1px;background:var(--stroke);position:relative;overflow:hidden}
-.hero-scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(to right,transparent,var(--a1));animation:scrollRight 1.8s ease-in-out infinite}
-@keyframes scrollRight{0%{left:-100%}100%{left:200%}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
-#marquee{background:var(--surface);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:0;overflow:hidden;position:relative;z-index:5}
-.mq-track{display:flex;width:max-content;animation:mq 28s linear infinite}
-.mq-track:hover{animation-play-state:paused}
-.mq-item{padding:16px 32px;border-right:1px solid var(--stroke);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:12px;font-weight:500}
-.mq-dot{width:4px;height:4px;border-radius:50%;background:var(--a1);flex-shrink:0}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.section-eyebrow{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--a1);margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--a1)}
-.section-title{font-family:var(--font-display);font-size:clamp(2.4rem,7vw,6.5rem);line-height:.92;letter-spacing:-.02em;margin-bottom:20px}
-.section-title em{font-style:italic;color:var(--a1)}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease}
-.reveal.vis{opacity:1;transform:translateY(0)}
-#about{background:var(--bg);padding:clamp(80px,12vw,160px) clamp(20px,6vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,100px);align-items:center;position:relative}
-#about::before{content:'';position:absolute;right:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--stroke),transparent);opacity:.5}
-@media(max-width:768px){#about{grid-template-columns:1fr}}
-.about-body{font-size:clamp(.88rem,1.4vw,1rem);color:var(--muted);line-height:1.85;margin-bottom:36px;max-width:460px}
-.about-stats{display:flex;gap:clamp(20px,4vw,48px)}
-.stat-num{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:-.03em;line-height:1;color:var(--text)}
-.stat-num em{font-style:italic;color:var(--a1)}
-.stat-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-.contact-pills{display:flex;flex-direction:column;gap:12px}
-.cpill{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--stroke);border-radius:16px;background:var(--surface);transition:border-color .25s,background .25s}
-.cpill:hover{border-color:rgba(201,169,110,.25);background:var(--surface2)}
-.cpill-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.cpill-icon svg{width:15px;height:15px;stroke-width:1.8;fill:none}
-.cpill-lbl{font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
-.cpill-val{font-size:.88rem;font-weight:500;color:var(--text)}
-.cpill-val a{color:inherit;text-decoration:none}
-#services{background:var(--surface);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;padding:clamp(60px,10vw,130px) clamp(20px,6vw,80px);position:relative;z-index:2}
-.services-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(40px,6vw,72px);flex-wrap:wrap;gap:20px}
-.services-sub{font-size:clamp(.8rem,1.2vw,.88rem);color:var(--muted);max-width:240px;line-height:1.7}
-.srv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(200px,25%,300px),1fr));gap:clamp(10px,1.5vw,16px)}
-.srv-card{border:1px solid var(--stroke);border-radius:20px;padding:clamp(20px,2.5vw,28px);display:flex;flex-direction:column;gap:10px;background:var(--bg);cursor:none;transition:border-color .3s,transform .3s,background .3s;position:relative;overflow:hidden}
-.srv-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,var(--srv-color,#C9A96E) 0%,transparent 60%);opacity:0;transition:opacity .4s}
-.srv-card:hover{border-color:rgba(201,169,110,.2);transform:translateY(-5px);background:var(--surface2)}
-.srv-card:hover::after{opacity:.04}
-.srv-card-top{display:flex;justify-content:space-between;align-items:flex-start}
-.srv-num{font-family:var(--font-display);font-size:2.2rem;line-height:1;color:rgba(255,255,255,.05);font-style:italic}
-.srv-ico{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.srv-ico svg{width:18px;height:18px;stroke:#fff;stroke-width:1.8;fill:none}
-.srv-name{font-size:.82rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text)}
-.srv-desc{font-size:.78rem;color:var(--muted);line-height:1.7}
-#why{background:var(--bg);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;margin-top:clamp(-28px,-3vw,-36px);padding:clamp(60px,10vw,130px) clamp(20px,6vw,80px);position:relative;z-index:3}
-.why-hdr{text-align:center;margin-bottom:clamp(48px,8vw,90px)}
-.why-hdr .section-eyebrow{justify-content:center}
-.why-hdr .section-eyebrow::before{display:none}
-.why-sub{font-size:clamp(.82rem,1.3vw,.92rem);color:var(--muted);max-width:460px;margin:0 auto;line-height:1.75}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(220px,28%,320px),1fr));gap:clamp(12px,2vw,20px)}
-.why-card{border:1px solid var(--stroke);border-radius:22px;padding:clamp(22px,3vw,36px);background:var(--surface);transition:border-color .3s,transform .3s;cursor:none;position:relative;overflow:hidden}
-.why-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,var(--wc,#C9A96E) 0%,transparent 65%);opacity:0;transition:opacity .4s}
-.why-card:hover{border-color:rgba(201,169,110,.2);transform:translateY(-5px)}
-.why-card:hover::before{opacity:.05}
-.why-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;position:relative;z-index:1}
-.why-icon svg{width:20px;height:20px;stroke-width:1.8;fill:none}
-.why-card-title{font-size:.88rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text);margin-bottom:10px;position:relative;z-index:1}
-.why-card-desc{font-size:.78rem;color:var(--muted);line-height:1.75;position:relative;z-index:1}
-#projects{background:var(--surface);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;margin-top:clamp(-28px,-3vw,-36px);padding:clamp(60px,10vw,130px) clamp(20px,6vw,80px);position:relative;z-index:4}
-.proj-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(40px,6vw,72px);flex-wrap:wrap;gap:16px}
-.proj-count{font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-style:italic;color:rgba(255,255,255,.06)}
-.proj-grid-new{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:820px){.proj-grid-new{grid-template-columns:1fr}}
-.proj-card-new{border-radius:24px;overflow:hidden;border:1px solid var(--stroke);cursor:none;position:relative;background:var(--bg);transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .3s,box-shadow .35s}
-.proj-card-new:hover{transform:translateY(-8px);border-color:rgba(201,169,110,.28);box-shadow:0 24px 60px rgba(0,0,0,.5)}
-.proj-card-new.featured{grid-column:1/-1}
-@media(max-width:820px){.proj-card-new.featured{grid-column:auto}}
-.proj-img-wrap{position:relative;overflow:hidden}
-.proj-card-new.featured .proj-img-wrap{height:clamp(220px,32vw,420px)}
-.proj-card-new:not(.featured) .proj-img-wrap{height:clamp(180px,22vw,300px)}
-.proj-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1),filter .4s}
-.proj-card-new:hover .proj-img-wrap img{transform:scale(1.06);filter:brightness(1.05)}
-.proj-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(8,8,8,.88) 100%);z-index:1}
-.proj-img-badge{position:absolute;top:16px;left:16px;z-index:2;display:flex;gap:6px;flex-wrap:wrap}
-.proj-badge{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:999px;border:1px solid rgba(201,169,110,.35);background:rgba(8,8,8,.7);backdrop-filter:blur(8px);color:var(--a1);font-weight:600}
-.proj-badge.live{background:rgba(107,191,122,.12);border-color:rgba(107,191,122,.35);color:#6BBF7A}
-.proj-img-year{position:absolute;top:16px;right:16px;z-index:2;font-family:var(--font-display);font-size:1.1rem;font-style:italic;color:rgba(255,255,255,.18)}
-.proj-body{padding:clamp(18px,2.5vw,28px);position:relative;z-index:2}
-.proj-body-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
-.proj-cat-new{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--a1);margin-bottom:6px}
-.proj-name-new{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,2.1rem);color:var(--text);line-height:1.1}
-.proj-arr-new{width:38px;height:38px;border-radius:50%;border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .2s,background .2s,transform .2s;margin-top:4px}
-.proj-card-new:hover .proj-arr-new{border-color:rgba(201,169,110,.4);background:rgba(201,169,110,.1);transform:rotate(45deg)}
-.proj-arr-new svg{width:14px;height:14px;stroke:var(--muted);stroke-width:1.8;fill:none}
-.proj-desc-new{font-size:.78rem;color:var(--muted);line-height:1.7;margin-bottom:14px;max-width:560px}
-.proj-tags-new{display:flex;gap:6px;flex-wrap:wrap}
-.proj-tag-new{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid var(--stroke);color:var(--muted);font-weight:500}
-.proj-results{display:flex;gap:clamp(12px,2.5vw,28px);margin-top:16px;padding-top:16px;border-top:1px solid var(--stroke);flex-wrap:wrap}
-.proj-result-item{display:flex;flex-direction:column;gap:2px}
-.proj-result-num{font-family:var(--font-display);font-size:clamp(1.3rem,2.5vw,1.8rem);color:var(--a1);font-style:italic;line-height:1}
-.proj-result-lbl{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-#testimonials{background:var(--bg);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;margin-top:clamp(-28px,-3vw,-36px);padding:clamp(60px,10vw,130px) clamp(20px,6vw,80px);position:relative;z-index:5}
-.testi-hdr{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:clamp(40px,6vw,72px)}
-.rating-box{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
-.rating-num{font-family:var(--font-display);font-size:3rem;line-height:1;color:var(--a1);font-style:italic}
-.rating-stars{display:flex;gap:3px}
-.rating-stars svg{width:14px;height:14px;fill:var(--a1)}
-.rating-lbl{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(240px,28%,360px),1fr));gap:clamp(12px,2vw,20px)}
-.testi-card{border:1px solid var(--stroke);border-radius:22px;padding:clamp(20px,3vw,36px);background:var(--surface);display:flex;flex-direction:column;gap:14px;transition:border-color .3s,transform .3s;cursor:none;position:relative;overflow:hidden}
-.testi-card:hover{border-color:rgba(201,169,110,.18);transform:translateY(-4px)}
-.testi-img-strip{width:100%;height:140px;border-radius:12px;overflow:hidden;margin-bottom:4px;position:relative;flex-shrink:0}
-.testi-img-strip img{width:100%;height:100%;object-fit:cover;filter:brightness(.75) saturate(.7);transition:filter .4s}
-.testi-card:hover .testi-img-strip img{filter:brightness(.85) saturate(.85)}
-.testi-img-label{position:absolute;bottom:8px;left:10px;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600}
-.testi-quote-mark{font-family:var(--font-display);font-size:3rem;line-height:.8;color:rgba(201,169,110,.2);display:block;margin-bottom:4px;font-style:italic}
-.testi-quote{font-size:clamp(.8rem,1.2vw,.88rem);color:rgba(240,237,232,.6);line-height:1.8;font-style:italic}
-.testi-footer{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--stroke)}
-.testi-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:.9rem;font-style:italic;flex-shrink:0}
-.testi-name{font-size:.8rem;font-weight:600;color:var(--text)}
-.testi-biz{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px}
-.testi-card-stars{display:flex;gap:2px;margin-left:auto}
-.testi-card-stars svg{width:11px;height:11px;fill:var(--a1)}
-#contact{background:var(--surface);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;margin-top:clamp(-28px,-3vw,-36px);padding:clamp(60px,10vw,130px) clamp(20px,6vw,80px);position:relative;z-index:6}
-.contact-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(40px,7vw,90px);align-items:start}
-@media(max-width:768px){.contact-wrap{grid-template-columns:1fr}}
-.contact-tagline{font-size:clamp(.85rem,1.3vw,.95rem);color:var(--muted);line-height:1.75;margin-bottom:32px;max-width:360px}
-.c-info-list{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
-.c-info-row{display:flex;align-items:flex-start;gap:12px}
-.c-info-ico{width:34px;height:34px;border-radius:9px;background:var(--bg);border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.c-info-ico svg{width:14px;height:14px;stroke:var(--a1);stroke-width:1.8;fill:none}
-.c-info-lbl{font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
-.c-info-val{font-size:.82rem;font-weight:500;color:var(--text);line-height:1.55}
-.c-info-val a{color:inherit;text-decoration:none}
-.c-socials{display:flex;gap:8px}
-.c-soc{width:36px;height:36px;border-radius:10px;background:var(--bg);border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;cursor:none;transition:border-color .2s,background .2s}
-.c-soc:hover{border-color:rgba(201,169,110,.3);background:rgba(201,169,110,.08)}
-.c-soc svg{width:14px;height:14px;stroke:var(--muted);stroke-width:1.8;fill:none}
-.cform{display:flex;flex-direction:column;gap:12px}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:500px){.f-row{grid-template-columns:1fr}}
-.f-grp{display:flex;flex-direction:column;gap:5px}
-.f-lbl{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
-.f-inp,.f-sel,.f-ta{border:1px solid var(--stroke);border-radius:10px;padding:11px 14px;font-family:var(--font-body);font-size:.84rem;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s,box-shadow .2s;cursor:none;width:100%}
-.f-inp::placeholder,.f-ta::placeholder{color:var(--muted)}
-.f-inp:focus,.f-sel:focus,.f-ta:focus{border-color:var(--a1);box-shadow:0 0 0 3px rgba(201,169,110,.1)}
-.f-sel{color:var(--muted);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b6b' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:30px}
-.f-ta{resize:none;height:88px}
-.srv-checks{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:3px}
-@media(max-width:440px){.srv-checks{grid-template-columns:1fr}}
-.chk-item{display:flex;align-items:center;gap:7px;font-size:.76rem;color:var(--muted);cursor:none}
-.chk-item input{accent-color:var(--a1);cursor:none;width:14px;height:14px;flex-shrink:0}
-.promo-wrap{position:relative}
-.promo-wrap .f-inp{padding-right:90px;letter-spacing:.08em;text-transform:uppercase}
-.promo-verify-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);padding:5px 12px;border-radius:7px;border:none;background:rgba(201,169,110,.15);color:var(--a1);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:none;transition:background .2s,color .2s}
-.promo-verify-btn:hover{background:rgba(201,169,110,.28)}
-.promo-msg{font-size:.62rem;margin-top:4px;display:none;padding:5px 10px;border-radius:7px}
-.promo-msg.valid{display:block;color:#6BBF7A;background:rgba(107,191,122,.08);border:1px solid rgba(107,191,122,.2)}
-.promo-msg.invalid{display:block;color:#ff7878;background:rgba(255,80,80,.06);border:1px solid rgba(255,80,80,.15)}
-.btn-submit{width:100%;padding:14px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--a1),var(--a2));color:var(--bg);font-family:var(--font-body);font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;cursor:none;transition:transform .2s,opacity .2s,box-shadow .2s;margin-top:4px}
-.btn-submit:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,169,110,.3)}
-.btn-submit:disabled{opacity:.5;cursor:not-allowed}
-.form-success{display:none;text-align:center;padding:40px 20px;background:var(--bg);border-radius:16px;border:1px solid rgba(201,169,110,.2)}
-.fs-icon{font-size:2.5rem;margin-bottom:12px}
-.form-success h3{font-family:var(--font-display);font-size:1.8rem;font-style:italic;color:var(--text);margin-bottom:8px}
-.form-success p{font-size:.82rem;color:var(--muted);line-height:1.7}
-footer{background:#050505;position:relative;z-index:7;overflow:hidden}
-.footer-marquee{background:var(--surface);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:0;overflow:hidden}
-.fmq-track{display:flex;width:max-content;animation:mq 40s linear infinite}
-.fmq-item{padding:18px 40px;border-right:1px solid var(--stroke);font-family:var(--font-display);font-size:clamp(1.2rem,3vw,2.2rem);font-style:italic;color:rgba(255,255,255,.08);white-space:nowrap;display:flex;align-items:center;gap:16px}
-.fmq-sep{color:var(--a1);opacity:.4}
-.footer-top{padding:clamp(56px,8vw,90px) clamp(20px,6vw,80px) clamp(36px,5vw,60px);display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(28px,4vw,56px);border-bottom:1px solid var(--stroke)}
-@media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.footer-top{grid-template-columns:1fr}}
-.footer-brand{display:flex;flex-direction:column;gap:16px}
-.footer-logo{font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.8rem);font-style:italic;color:var(--a1);letter-spacing:.02em}
-.footer-tagline{font-size:.8rem;color:var(--muted);line-height:1.7;max-width:260px}
-.footer-socials{display:flex;gap:8px}
-.f-soc{width:34px;height:34px;border-radius:9px;border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;cursor:none}
-.f-soc:hover{border-color:rgba(201,169,110,.3);background:rgba(201,169,110,.08)}
-.f-soc svg{width:13px;height:13px;stroke:var(--muted);stroke-width:1.8;fill:none;transition:stroke .2s}
-.f-soc:hover svg{stroke:var(--a1)}
-.footer-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid var(--stroke);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);width:fit-content}
-.dot-live{width:6px;height:6px;border-radius:50%;background:#6BBF7A;animation:livePulse 2s ease-in-out infinite;flex-shrink:0}
-@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-.footer-col-title{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:18px;font-weight:600}
-.footer-links{display:flex;flex-direction:column;gap:9px}
-.footer-links a{font-size:.8rem;color:var(--muted);text-decoration:none;cursor:none;transition:color .2s}
-.footer-links a:hover{color:var(--a1)}
-.footer-contact-col{display:flex;flex-direction:column;gap:12px}
-.fc-row{display:flex;align-items:flex-start;gap:9px}
-.fc-ico{width:26px;height:26px;border-radius:7px;border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.fc-ico svg{width:11px;height:11px;stroke:var(--a1);stroke-width:1.8;fill:none}
-.fc-text{font-size:.75rem;color:var(--muted);line-height:1.6}
-.fc-text a{color:inherit;text-decoration:none;transition:color .2s}
-.fc-text a:hover{color:var(--a1)}
-.footer-bottom{padding:clamp(18px,2.5vw,28px) clamp(20px,6vw,80px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-copy{font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.15)}
-.footer-bottom-links{display:flex;gap:clamp(12px,2vw,20px);flex-wrap:wrap}
-.footer-bottom-links a{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.18);text-decoration:none;cursor:none;transition:color .2s}
-.footer-bottom-links a:hover{color:var(--a1)}
-::-webkit-scrollbar{width:2px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:rgba(201,169,110,.2);border-radius:1px}
-#discount-card{position:fixed;bottom:28px;right:28px;z-index:500;width:clamp(240px,28vw,300px);background:linear-gradient(135deg,#1a1208 0%,#0e0b05 60%,#1a1208 100%);border:1px solid rgba(201,169,110,.35);border-radius:20px;padding:0;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,110,.08),inset 0 1px 0 rgba(201,169,110,.15);transform:translateY(120px);opacity:0;transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .6s ease;pointer-events:none}
-#discount-card.show{transform:translateY(0);opacity:1;pointer-events:auto}
-#discount-card.hide{transform:translateY(120px);opacity:0;pointer-events:none}
-.dc-strip{height:3px;background:linear-gradient(90deg,transparent,var(--a2),var(--a1),var(--a3),var(--a1),var(--a2),transparent);background-size:200% 100%;animation:shimmerStrip 2.5s linear infinite}
-@keyframes shimmerStrip{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.dc-body{padding:20px 20px 18px}
-.dc-tag{display:inline-flex;align-items:center;gap:6px;font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--a1);background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.2);border-radius:999px;padding:4px 10px;margin-bottom:12px}
-.dc-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--a1);animation:pulseDot 2s ease-in-out infinite}
-.dc-percent{font-family:var(--font-display);font-size:4.5rem;line-height:1;letter-spacing:-.04em;color:transparent;background:linear-gradient(135deg,var(--a3),var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;position:relative;display:inline-block}
-.dc-percent sup{font-size:1.6rem;vertical-align:super;letter-spacing:0}
-.dc-off{font-family:var(--font-display);font-size:1.8rem;font-style:italic;color:var(--a1);display:inline;margin-left:4px;vertical-align:bottom;line-height:1.2}
-.dc-title{font-size:.78rem;font-weight:600;color:var(--text);margin-top:2px;margin-bottom:6px;letter-spacing:.03em}
-.dc-desc{font-size:.68rem;color:var(--muted);line-height:1.6;margin-bottom:14px}
-.dc-code-wrap{background:rgba(201,169,110,.06);border:1px dashed rgba(201,169,110,.25);border-radius:10px;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;cursor:none;transition:background .2s}
-.dc-code-wrap:hover{background:rgba(201,169,110,.1)}
-.dc-code-lbl{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
-.dc-code{font-family:var(--font-display);font-size:1rem;font-style:italic;color:var(--a1);letter-spacing:.06em}
-.dc-copy-btn{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.05);border:1px solid var(--stroke);border-radius:6px;padding:4px 8px;cursor:none;transition:color .2s,border-color .2s}
-.dc-copy-btn:hover{color:var(--a1);border-color:rgba(201,169,110,.3)}
-.dc-btn{display:block;width:100%;padding:11px;background:linear-gradient(135deg,var(--a1),var(--a2));border:none;border-radius:10px;color:var(--bg);font-family:var(--font-body);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;cursor:none;transition:transform .2s,box-shadow .2s;text-decoration:none}
-.dc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,110,.3)}
-.dc-close{position:absolute;top:12px;right:12px;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;cursor:none;transition:background .2s,border-color .2s}
-.dc-close:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)}
-.dc-close svg{width:10px;height:10px;stroke:var(--muted);stroke-width:2;fill:none}
-.dc-expiry{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,169,110,.4);text-align:center;margin-top:10px}
-@media(max-width:520px){
-  .hero-btns{flex-direction:column;align-items:flex-start}
-  .about-stats{gap:20px}
-  .slider-arrows{display:none}
-  #discount-card{width:calc(100vw - 32px);right:16px;bottom:16px}
-}
-</style>
+    /* ============================================================
+       INTRO ANIMATION (ONLY — Entrance video removed)
+       ============================================================ */
+    #intro{position:fixed;inset:0;z-index:10000;background:#ffffff;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;pointer-events:all;display:none;}
+    #intro.active{display:flex}
+    #intro.done{pointer-events:none}
+    .intro-panel{position:absolute;left:0;right:0;height:50%;background:#ffffff;transition:transform 1s cubic-bezier(.76,0,.24,1);z-index:2;}
+    .intro-panel.top{top:0;transform-origin:top center}
+    .intro-panel.bot{bottom:0;transform-origin:bottom center}
+    #intro.reveal .intro-panel.top{transform:translateY(-100%)}
+    #intro.reveal .intro-panel.bot{transform:translateY(100%)}
+    .intro-line{position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent 0%,var(--a1) 20%,var(--a3) 50%,var(--a1) 80%,transparent 100%);transform:scaleX(0);transform-origin:center;transition:transform .7s cubic-bezier(.16,1,.3,1);z-index:3;}
+    #intro.lineshow .intro-line{transform:scaleX(1)}
+    .intro-wordwrap{position:relative;z-index:4;text-align:center;overflow:hidden;}
+    .intro-studio{font-family:var(--font-display);font-size:clamp(2.8rem,8vw,7rem);font-style:italic;letter-spacing:-.02em;color:#000000;display:flex;gap:.06em;justify-content:center;flex-wrap:wrap;}
+    .intro-letter{display:inline-block;opacity:0;transform:translateY(80px) rotate(8deg);transition:opacity .5s ease,transform .5s cubic-bezier(.16,1,.3,1);}
+    .intro-sub-line{font-size:clamp(.55rem,.9vw,.7rem);letter-spacing:.4em;text-transform:uppercase;color:var(--a1);margin-top:14px;opacity:0;transform:translateY(14px);transition:opacity .5s .6s ease,transform .5s .6s ease;}
+    #intro.textshow .intro-letter{opacity:1;transform:translateY(0) rotate(0deg)}
+    #intro.textshow .intro-sub-line{opacity:1;transform:translateY(0)}
+    .intro-counter{position:absolute;bottom:32px;right:40px;z-index:4;font-family:var(--font-display);font-size:clamp(2rem,6vw,4rem);font-style:italic;color:rgba(0,0,0,.08);transition:opacity .4s;}
+    .intro-bar-wrap{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(0,0,0,.04);z-index:4}
+    .intro-bar{height:100%;width:0;background:linear-gradient(90deg,var(--a2),var(--a1))}
+    .intro-corner{position:absolute;z-index:4;font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(0,0,0,.2);}
+    .intro-corner.tl{top:28px;left:32px}
+    .intro-corner.tr{top:28px;right:32px;text-align:right}
+    #cur,#cur-trail{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
+    #cur{width:8px;height:8px;background:var(--a1);transition:width .2s,height .2s,background .2s}
+    #cur-trail{width:28px;height:28px;border:1px solid rgba(201,169,110,.4);transition:width .3s,height .3s}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:center;padding:20px 24px}
+    .nav-pill{display:inline-flex;align-items:center;gap:0;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border:1px solid var(--stroke);border-radius:999px;padding:6px 8px;transition:box-shadow .3s}
+    .nav-pill.scrolled{box-shadow:0 8px 32px rgba(0,0,0,.4)}
+    .nav-logo-ring{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--a1),var(--a2));display:flex;align-items:center;justify-content:center;margin-right:2px;transition:transform .2s}
+    .nav-logo-ring:hover{transform:scale(1.1)}
+    .nav-logo-inner{width:30px;height:30px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-style:italic;font-size:12px;color:var(--a1)}
+    .nav-sep{width:1px;height:20px;background:var(--stroke);margin:0 4px}
+    .nav-link{font-size:.72rem;font-weight:500;letter-spacing:.06em;color:#222222;text-decoration:none;padding:7px 14px;border-radius:999px;cursor:none;transition:color .2s,background .2s}
+    .nav-link:hover,.nav-link.active{color:#000000;background:rgba(0,0,0,.05)}
+    .nav-cta{font-size:.72rem;font-weight:500;letter-spacing:.06em;color:#000000;background:transparent;border:none;padding:7px 16px;border-radius:999px;cursor:none;position:relative;transition:color .2s}
+    .nav-cta::before{content:'';position:absolute;inset:-1px;border-radius:999px;background:linear-gradient(135deg,var(--a1),var(--a2));opacity:0;transition:opacity .2s}
+    .nav-cta:hover::before{opacity:1}
+    .nav-cta span{position:relative;z-index:1}
+    @media(max-width:520px){.nav-sep{display:none}.nav-link{padding:7px 10px;font-size:.65rem}.nav-cta{padding:7px 12px}}
+    
+    /* ===== HERO SLIDER — 3D EFFECT + BLACK CAPTION ===== */
+    #hero{position:relative;width:100%;height:100vh;overflow:hidden;background:var(--bg)}
+    .slider-track{position:absolute;inset:0;z-index:0}
+    .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s cubic-bezier(.4,0,.2,1);will-change:opacity}
+    .slide.active{opacity:1;z-index:2}
+    .slide.prev{opacity:0;z-index:1}
+    .slide-img{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;object-position:center;transform:scale(1.08);transition:transform 6s cubic-bezier(.16,1,.3,1);will-change:transform}
+    .slide.active .slide-img{transform:scale(1)}
+    .slide-video{
+      position:absolute;
+      top:50%;left:50%;
+      transform:translate(-50%,-50%);
+      min-width:100%;
+      min-height:100%;
+      width:auto;
+      height:auto;
+      object-fit:cover;
+      object-position:center;
+      background:#000;
+    }
+    .slide-overlay{position:absolute;inset:0;z-index:1}
+    /* 🟢 3D EFFECT — OVERLAY HATAYA, SIRF TINT + GRAIN */
+    .slide-overlay::before{display:none;}
+    .slide-overlay::after{display:none;}
+    .slide-tint{position:absolute;inset:0;z-index:1;mix-blend-mode:color;opacity:.18;transition:opacity 1.4s}
+    .slide-grain{position:absolute;inset:0;z-index:2;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px;pointer-events:none}
+    
+    .video-live-badge{position:absolute;top:28px;left:clamp(28px,8vw,100px);z-index:10;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid rgba(201,169,110,.3);background:rgba(201,169,110,.08);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .5s ease;}
+    .video-live-badge.vis{opacity:1}
+    .vbadge-dot{width:5px;height:5px;border-radius:50%;background:#6BBF7A;animation:pulseDot 2s ease-in-out infinite}
+    .vbadge-text{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--a1);font-weight:600}
+    .hero-ui{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 clamp(28px,8vw,100px);pointer-events:none}
+    .hero-ui > *{pointer-events:auto}
+    .slide-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid rgba(201,169,110,.3);background:rgba(201,169,110,.08);backdrop-filter:blur(12px);margin-bottom:22px;opacity:0;transform:translateY(20px);transition:opacity .7s .2s ease,transform .7s .2s ease}
+    .slide-badge.visible{opacity:1;transform:translateY(0)}
+    .slide-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--a1);animation:pulseDot 2s ease-in-out infinite}
+    @keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.6);opacity:.5}}
+    .slide-badge-text{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:#222222;font-weight:600}
+    .hero-headline{font-family:var(--font-display);font-size:clamp(3.2rem,9vw,9.5rem);line-height:.9;letter-spacing:-.03em;color:#000000;margin-bottom:20px;overflow:hidden;text-shadow:0 4px 20px rgba(255,255,255,.3)}
+    .hero-headline-inner{display:block;opacity:0;transform:translateY(60px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
+    .hero-headline-inner.visible{opacity:1;transform:translateY(0)}
+    .hero-headline-inner:nth-child(2){transition-delay:.12s}
+    .hero-headline em{font-style:italic;color:var(--a1)}
+    .hero-sub{font-size:clamp(.85rem,1.5vw,1rem);color:rgba(0,0,0,.55);line-height:1.7;max-width:480px;margin-bottom:36px;opacity:0;transform:translateY(20px);transition:opacity .8s .4s ease,transform .8s .4s ease}
+    .hero-sub.visible{opacity:1;transform:translateY(0)}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;transform:translateY(20px);transition:opacity .7s .55s ease,transform .7s .55s ease}
+    .hero-btns.visible{opacity:1;transform:translateY(0)}
+    .btn-primary{padding:13px 28px;border-radius:999px;background:var(--a1);color:var(--bg);font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:none;transition:transform .2s,box-shadow .2s,background .2s;display:inline-flex;align-items:center;gap:8px}
+    .btn-primary:hover{background:var(--a3);transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,169,110,.25)}
+    .btn-outline{padding:12px 28px;border-radius:999px;border:1px solid rgba(0,0,0,.15);color:#000000;font-weight:500;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:none;transition:transform .2s,border-color .2s,background .2s;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(8px)}
+    .btn-outline:hover{border-color:rgba(201,169,110,.4);background:rgba(201,169,110,.08);transform:translateY(-2px)}
+    .slider-counter{position:absolute;left:clamp(16px,3vw,40px);bottom:clamp(90px,12vw,140px);z-index:10;display:flex;flex-direction:column;align-items:center;gap:10px}
+    .sc-current{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,3rem);font-style:italic;color:#000000;line-height:1;transition:opacity .4s}
+    .sc-sep{width:1px;height:40px;background:linear-gradient(to bottom,var(--a1),transparent)}
+    .sc-total{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+    .slider-progress-bar{position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(0,0,0,.06);z-index:10;overflow:hidden}
+    .slider-progress-fill{height:100%;background:linear-gradient(90deg,var(--a2),var(--a1));width:0%;transition:none}
+    .slider-progress-fill.animating{transition:width linear}
+    .slider-dots{position:absolute;bottom:clamp(24px,4vw,42px);left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:10px;align-items:center}
+    .sdot{width:24px;height:2px;border-radius:2px;background:rgba(0,0,0,.2);cursor:none;transition:width .35s cubic-bezier(.16,1,.3,1),background .35s;position:relative;overflow:hidden}
+    .sdot::after{content:'';position:absolute;inset:0;background:var(--a1);transform:scaleX(0);transform-origin:left;transition:transform linear}
+    .sdot.active{width:48px;background:rgba(201,169,110,.3)}
+    .sdot.active::after{transform:scaleX(1)}
+    .sdot.video-dot{background:rgba(107,191,122,.2)}
+    .sdot.video-dot.active{background:rgba(107,191,122,.3)}
+    .sdot.video-dot.active::after{background:#6BBF7A}
+    .slider-arrows{position:absolute;right:clamp(16px,3vw,48px);bottom:clamp(90px,12vw,140px);z-index:10;display:flex;flex-direction:column;gap:8px}
+    .sarrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(0,0,0,.1);background:rgba(255,255,255,.5);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;cursor:none;transition:border-color .25s,background .25s,transform .2s}
+    .sarrow:hover{border-color:rgba(201,169,110,.4);background:rgba(201,169,122,.12);transform:scale(1.08)}
+    .sarrow svg{width:15px;height:15px;stroke:#222222;stroke-width:1.8;fill:none;transition:stroke .2s}
+    .sarrow:hover svg{stroke:var(--a1)}
+    
+    /* ===== SLIDER CAPTION — SOLID BLACK ===== */
+    .slide-caption{position:absolute;right:clamp(16px,5vw,64px);bottom:clamp(60px,8vw,90px);z-index:10;text-align:right}
+    .sc-label{font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:#000000;margin-bottom:4px;font-weight:600;opacity:.7}
+    .sc-title{font-family:var(--font-display);font-size:clamp(.9rem,1.8vw,1.4rem);font-style:italic;color:#000000;transition:opacity .6s;font-weight:700}
+    
+    .hero-scroll{position:absolute;bottom:32px;left:clamp(28px,8vw,100px);z-index:10;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp .8s 1.4s ease forwards}
+    .hero-scroll-label{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+    .hero-scroll-line{width:36px;height:1px;background:var(--stroke);position:relative;overflow:hidden}
+    .hero-scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(to right,transparent,var(--a1));animation:scrollRight 1.8s ease-in-out infinite}
+    @keyframes scrollRight{0%{left:-100%}100%{left:200%}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+    
+    #marquee{background:var(--surface);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:0;overflow:hidden;position:relative;z-index:5}
+    .mq-track{display:flex;width:max-content;animation:mq 28s linear infinite}
+    .mq-track:hover{animation-play-state:paused}
+    .mq-item{padding:16px 32px;border-right:1px solid var(--stroke);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:12px;font-weight:500}
+    .mq-dot{width:4px;height:4px;border-radius:50%;background:var(--a1);flex-shrink:0}
+    @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .section-eyebrow{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--a1);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+    .section-eyebrow::before{content:'';width:24px;height:1px;background:var(--a1)}
+    .section-title{font-family:var(--font-display);font-size:clamp(2.4rem,7vw,6.5rem);line-height:.92;letter-spacing:-.02em;margin-bottom:20px;color:#000000}
+    .section-title em{font-style:italic;color:var(--a1)}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease}
+    .reveal.vis{opacity:1;transform:translateY(0)}
+    #about{background:var(--bg);padding:clamp(80px,12vw,160px) clamp(20px,6vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,100px);align-items:center;position:relative}
+    #about::before{content:'';position:absolute;right:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--stroke),transparent);opacity:.5}
+    @media(max-width:768px){#about{grid-template-columns:1fr}}
+    .about-body{font-size:clamp(.88rem,1.4vw,1rem);color:var(--muted);line-height:1.85;margin-bottom:36px;max-width:460px}
+    .about-stats{display:flex;gap:clamp(20px,4vw,48px)}
+    .stat-num{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:-.03em;line-height:1;color:#000000}
+    .stat-num em{font-style:italic;color:var(--a1)}
+    .stat-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+    .contact-pills{display:flex;flex-direction:column;gap:12px}
+    .cpill{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--stroke);border-radius:16px;background:var(--surface);transition:border-color .25s,background .25s}
+    .cpill:hover{border-color:rgba(201,169,110,.25);background:var(--surface2)}
+    .cpill-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .cpill-icon svg{width:15px;height:15px;stroke-width:1.8;fill:none}
+    .cpill-lbl{font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+    .cpill-val{font-size:.88rem;font-weight:500;color:#000000}
+    .cpill-val a{color:inherit;text-decoration:none}
+    #services{background:var(--surface);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;padding:clamp(60px,10vw,130px) clamp(20px,6vw,80px);position:relative;z-index:2}
+    .services-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(40px,6vw,72px);flex-wrap:wrap;gap:20px}
+    .services-sub{font-size:clamp(.8rem,1.2vw,.88rem);color:var(--muted);max-width:240px;line-height:1.7}
+    .srv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(200px,25%,300px),1fr));gap:clamp(10px,1.5vw,16px)}
+    .srv-card{border:1px solid var(--stroke);border-radius:20px;padding:clamp(20px,2.5vw,28px);display:flex;flex-direction:column;gap:10px;background:var(--bg);cursor:none;transition:border-color .3s,transform .3s,background .3s;position:relative;overflow:hidden}
+    .srv-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,var(--srv-color,#C9A96E) 0%,transparent 60%);opacity:0;transition:opacity .4s}
+    .srv-card:hover{border-color:rgba(201,169,110,.2);transform:translateY(-5px);background:var(--surface2)}
+    .srv-card:hover::after{opacity:.04}
+    .srv-card-top{display:flex;justify-content:space-between;align-items:flex-start}
+    .srv-num{font-family:var(--font-display);font-size:2.2rem;line-height:1;color:rgba(0,0,0,.05);font-style:italic}
+    .srv-ico{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .srv-ico svg{width:18px;height:18px;stroke:#fff;stroke-width:1.8;fill:none}
+    .srv-name{font-size:.82rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#000000}
+    .srv-desc{font-size:.78rem;color:var(--muted);line-height:1.7}
+    #why{background:var(--bg);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;margin-top:clamp(-28px,-3vw,-36px);padding:clamp(60px,10vw,130px) clamp(20px,6vw,80px);position:relative;z-index:3}
+    .why-hdr{text-align:center;margin-bottom:clamp(48px,8vw,90px)}
+    .why-hdr .section-eyebrow{justify-content:center}
+    .why-hdr .section-eyebrow::before{display:none}
+    .why-sub{font-size:clamp(.82rem,1.3vw,.92rem);color:var(--muted);max-width:460px;margin:0 auto;line-height:1.75}
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(220px,28%,320px),1fr));gap:clamp(12px,2vw,20px)}
+    .why-card{border:1px solid var(--stroke);border-radius:22px;padding:clamp(22px,3vw,36px);background:var(--surface);transition:border-color .3s,transform .3s;cursor:none;position:relative;overflow:hidden}
+    .why-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,var(--wc,#C9A96E) 0%,transparent 65%);opacity:0;transition:opacity .4s}
+    .why-card:hover{border-color:rgba(201,169,110,.2);transform:translateY(-5px)}
+    .why-card:hover::before{opacity:.05}
+    .why-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;position:relative;z-index:1}
+    .why-icon svg{width:20px;height:20px;stroke-width:1.8;fill:none}
+    .why-card-title{font-size:.88rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#000000;margin-bottom:10px;position:relative;z-index:1}
+    .why-card-desc{font-size:.78rem;color:var(--muted);line-height:1.75;position:relative;z-index:1}
+    #projects{background:var(--surface);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;margin-top:clamp(-28px,-3vw,-36px);padding:clamp(60px,10vw,130px) clamp(20px,6vw,80px);position:relative;z-index:4}
+    .proj-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(40px,6vw,72px);flex-wrap:wrap;gap:16px}
+    .proj-count{font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-style:italic;color:rgba(0,0,0,.06)}
+    .proj-grid-new{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media(max-width:820px){.proj-grid-new{grid-template-columns:1fr}}
+    .proj-card-new{border-radius:24px;overflow:hidden;border:1px solid var(--stroke);cursor:none;position:relative;background:var(--bg);transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .3s,box-shadow .35s}
+    .proj-card-new:hover{transform:translateY(-8px);border-color:rgba(201,169,110,.28);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+    .proj-card-new.featured{grid-column:1/-1}
+    @media(max-width:820px){.proj-card-new.featured{grid-column:auto}}
+    .proj-img-wrap{position:relative;overflow:hidden}
+    .proj-card-new.featured .proj-img-wrap{height:clamp(220px,32vw,420px)}
+    .proj-card-new:not(.featured) .proj-img-wrap{height:clamp(180px,22vw,300px)}
+    .proj-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1),filter .4s}
+    .proj-card-new:hover .proj-img-wrap img{transform:scale(1.06);filter:brightness(1.05)}
+    .proj-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(255,255,255,.88) 100%);z-index:1}
+    .proj-img-badge{position:absolute;top:16px;left:16px;z-index:2;display:flex;gap:6px;flex-wrap:wrap}
+    .proj-badge{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:999px;border:1px solid rgba(201,169,110,.35);background:rgba(255,255,255,.8);backdrop-filter:blur(8px);color:#000000;font-weight:600}
+    .proj-badge.live{background:rgba(107,191,122,.15);border-color:rgba(107,191,122,.35);color:#2d7a3a}
+    .proj-img-year{position:absolute;top:16px;right:16px;z-index:2;font-family:var(--font-display);font-size:1.1rem;font-style:italic;color:rgba(0,0,0,.2)}
+    .proj-body{padding:clamp(18px,2.5vw,28px);position:relative;z-index:2}
+    .proj-body-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+    .proj-cat-new{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--a1);margin-bottom:6px}
+    .proj-name-new{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,2.1rem);color:#000000;line-height:1.1}
+    .proj-arr-new{width:38px;height:38px;border-radius:50%;border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .2s,background .2s,transform .2s;margin-top:4px}
+    .proj-card-new:hover .proj-arr-new{border-color:rgba(201,169,110,.4);background:rgba(201,169,110,.1);transform:rotate(45deg)}
+    .proj-arr-new svg{width:14px;height:14px;stroke:var(--muted);stroke-width:1.8;fill:none}
+    .proj-desc-new{font-size:.78rem;color:var(--muted);line-height:1.7;margin-bottom:14px;max-width:560px}
+    .proj-tags-new{display:flex;gap:6px;flex-wrap:wrap}
+    .proj-tag-new{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid var(--stroke);color:var(--muted);font-weight:500}
+    .proj-results{display:flex;gap:clamp(12px,2.5vw,28px);margin-top:16px;padding-top:16px;border-top:1px solid var(--stroke);flex-wrap:wrap}
+    .proj-result-item{display:flex;flex-direction:column;gap:2px}
+    .proj-result-num{font-family:var(--font-display);font-size:clamp(1.3rem,2.5vw,1.8rem);color:var(--a1);font-style:italic;line-height:1}
+    .proj-result-lbl{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+    #testimonials{background:var(--bg);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;margin-top:clamp(-28px,-3vw,-36px);padding:clamp(60px,10vw,130px) clamp(20px,6vw,80px);position:relative;z-index:5}
+    .testi-hdr{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:clamp(40px,6vw,72px)}
+    .rating-box{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+    .rating-num{font-family:var(--font-display);font-size:3rem;line-height:1;color:var(--a1);font-style:italic}
+    .rating-stars{display:flex;gap:3px}
+    .rating-stars svg{width:14px;height:14px;fill:var(--a1)}
+    .rating-lbl{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+    .testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(240px,28%,360px),1fr));gap:clamp(12px,2vw,20px)}
+    .testi-card{border:1px solid var(--stroke);border-radius:22px;padding:clamp(20px,3vw,36px);background:var(--surface);display:flex;flex-direction:column;gap:14px;transition:border-color .3s,transform .3s;cursor:none;position:relative;overflow:hidden}
+    .testi-card:hover{border-color:rgba(201,169,110,.18);transform:translateY(-4px)}
+    .testi-img-strip{width:100%;height:140px;border-radius:12px;overflow:hidden;margin-bottom:4px;position:relative;flex-shrink:0}
+    .testi-img-strip img{width:100%;height:100%;object-fit:cover;filter:brightness(.75) saturate(.7);transition:filter .4s}
+    .testi-card:hover .testi-img-strip img{filter:brightness(.85) saturate(.85)}
+    .testi-img-label{position:absolute;bottom:8px;left:10px;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600}
+    .testi-quote-mark{font-family:var(--font-display);font-size:3rem;line-height:.8;color:rgba(201,169,110,.2);display:block;margin-bottom:4px;font-style:italic}
+    .testi-quote{font-size:clamp(.8rem,1.2vw,.88rem);color:rgba(0,0,0,.6);line-height:1.8;font-style:italic}
+    .testi-footer{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--stroke)}
+    .testi-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:.9rem;font-style:italic;flex-shrink:0}
+    .testi-name{font-size:.8rem;font-weight:600;color:#000000}
+    .testi-biz{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+    .testi-card-stars{display:flex;gap:2px;margin-left:auto}
+    .testi-card-stars svg{width:11px;height:11px;fill:var(--a1)}
+    #contact{background:var(--surface);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;margin-top:clamp(-28px,-3vw,-36px);padding:clamp(60px,10vw,130px) clamp(20px,6vw,80px);position:relative;z-index:6}
+    .contact-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(40px,7vw,90px);align-items:start}
+    @media(max-width:768px){.contact-wrap{grid-template-columns:1fr}}
+    .contact-tagline{font-size:clamp(.85rem,1.3vw,.95rem);color:var(--muted);line-height:1.75;margin-bottom:32px;max-width:360px}
+    .c-info-list{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+    .c-info-row{display:flex;align-items:flex-start;gap:12px}
+    .c-info-ico{width:34px;height:34px;border-radius:9px;background:var(--bg);border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .c-info-ico svg{width:14px;height:14px;stroke:var(--a1);stroke-width:1.8;fill:none}
+    .c-info-lbl{font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+    .c-info-val{font-size:.82rem;font-weight:500;color:#000000;line-height:1.55}
+    .c-info-val a{color:inherit;text-decoration:none}
+    .c-socials{display:flex;gap:8px}
+    .c-soc{width:36px;height:36px;border-radius:10px;background:var(--bg);border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;cursor:none;transition:border-color .2s,background .2s}
+    .c-soc:hover{border-color:rgba(201,169,110,.3);background:rgba(201,169,110,.08)}
+    .c-soc svg{width:14px;height:14px;stroke:var(--muted);stroke-width:1.8;fill:none}
+    .cform{display:flex;flex-direction:column;gap:12px}
+    .f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:500px){.f-row{grid-template-columns:1fr}}
+    .f-grp{display:flex;flex-direction:column;gap:5px}
+    .f-lbl{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
+    .f-inp,.f-sel,.f-ta{border:1px solid var(--stroke);border-radius:10px;padding:11px 14px;font-family:var(--font-body);font-size:.84rem;color:#000000;background:var(--bg);outline:none;transition:border-color .2s,box-shadow .2s;cursor:none;width:100%}
+    .f-inp::placeholder,.f-ta::placeholder{color:var(--muted)}
+    .f-inp:focus,.f-sel:focus,.f-ta:focus{border-color:var(--a1);box-shadow:0 0 0 3px rgba(201,169,110,.1)}
+    .f-sel{color:var(--muted);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b6b' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:30px}
+    .f-ta{resize:none;height:88px}
+    .srv-checks{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:3px}
+    @media(max-width:440px){.srv-checks{grid-template-columns:1fr}}
+    .chk-item{display:flex;align-items:center;gap:7px;font-size:.76rem;color:var(--muted);cursor:none}
+    .chk-item input{accent-color:var(--a1);cursor:none;width:14px;height:14px;flex-shrink:0}
+    .promo-wrap{position:relative}
+    .promo-wrap .f-inp{padding-right:90px;letter-spacing:.08em;text-transform:uppercase}
+    .promo-verify-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);padding:5px 12px;border-radius:7px;border:none;background:rgba(201,169,110,.15);color:var(--a1);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:none;transition:background .2s,color .2s}
+    .promo-verify-btn:hover{background:rgba(201,169,110,.28)}
+    .promo-msg{font-size:.62rem;margin-top:4px;display:none;padding:5px 10px;border-radius:7px}
+    .promo-msg.valid{display:block;color:#6BBF7A;background:rgba(107,191,122,.08);border:1px solid rgba(107,191,122,.2)}
+    .promo-msg.invalid{display:block;color:#ff7878;background:rgba(255,80,80,.06);border:1px solid rgba(255,80,80,.15)}
+    .btn-submit{width:100%;padding:14px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--a1),var(--a2));color:var(--bg);font-family:var(--font-body);font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;cursor:none;transition:transform .2s,opacity .2s,box-shadow .2s;margin-top:4px}
+    .btn-submit:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,169,110,.3)}
+    .btn-submit:disabled{opacity:.5;cursor:not-allowed}
+    .form-success{display:none;text-align:center;padding:40px 20px;background:var(--bg);border-radius:16px;border:1px solid rgba(201,169,110,.2)}
+    .fs-icon{font-size:2.5rem;margin-bottom:12px}
+    .form-success h3{font-family:var(--font-display);font-size:1.8rem;font-style:italic;color:#000000;margin-bottom:8px}
+    .form-success p{font-size:.82rem;color:var(--muted);line-height:1.7}
+    
+    /* ============================================================
+       FOOTER — PURE BLACK BACKGROUND + WHITE TEXT (SOLID)
+       ============================================================ */
+    footer{
+      background:#000000;
+      position:relative;
+      z-index:7;
+      overflow:hidden;
+    }
+    .footer-marquee{
+      background:#0a0a0a;
+      border-top:1px solid #1a1a1a;
+      border-bottom:1px solid #1a1a1a;
+      padding:0;
+      overflow:hidden;
+    }
+    .fmq-track{
+      display:flex;
+      width:max-content;
+      animation:mq 40s linear infinite;
+    }
+    .fmq-item{
+      padding:18px 40px;
+      border-right:1px solid #1a1a1a;
+      font-family:var(--font-display);
+      font-size:clamp(1.2rem,3vw,2.2rem);
+      font-style:italic;
+      color:rgba(255,255,255,.08);
+      white-space:nowrap;
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+    .fmq-sep{
+      color:var(--a1);
+      opacity:.4;
+    }
+    .footer-top{
+      padding:clamp(56px,8vw,90px) clamp(20px,6vw,80px) clamp(36px,5vw,60px);
+      display:grid;
+      grid-template-columns:1.4fr 1fr 1fr 1fr;
+      gap:clamp(28px,4vw,56px);
+      border-bottom:1px solid #1a1a1a;
+    }
+    @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr}}
+    @media(max-width:520px){.footer-top{grid-template-columns:1fr}}
+    .footer-brand{display:flex;flex-direction:column;gap:16px}
+    .footer-logo{
+      font-family:var(--font-display);
+      font-size:clamp(1.2rem,2.5vw,1.8rem);
+      font-style:italic;
+      color:var(--a1);
+      letter-spacing:.02em;
+    }
+    .footer-tagline{
+      font-size:.8rem;
+      color:#ffffff;
+      line-height:1.7;
+      max-width:260px;
+      opacity:.8;
+    }
+    .footer-socials{display:flex;gap:8px}
+    .f-soc{
+      width:34px;
+      height:34px;
+      border-radius:9px;
+      border:1px solid #333333;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:border-color .2s,background .2s;
+      cursor:none;
+    }
+    .f-soc:hover{
+      border-color:rgba(201,169,110,.4);
+      background:rgba(201,169,110,.1);
+    }
+    .f-soc svg{
+      width:13px;
+      height:13px;
+      stroke:#ffffff;
+      stroke-width:1.8;
+      fill:none;
+      transition:stroke .2s;
+      opacity:.7;
+    }
+    .f-soc:hover svg{
+      stroke:var(--a1);
+      opacity:1;
+    }
+    .footer-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid #333333;
+      font-size:.58rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#ffffff;
+      width:fit-content;
+      opacity:.7;
+    }
+    .dot-live{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:#6BBF7A;
+      animation:livePulse 2s ease-in-out infinite;
+      flex-shrink:0;
+    }
+    @keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+    .footer-col-title{
+      font-size:.58rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--a1);
+      margin-bottom:18px;
+      font-weight:600;
+    }
+    .footer-links{
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+    }
+    .footer-links a{
+      font-size:.8rem;
+      color:#ffffff;
+      text-decoration:none;
+      cursor:none;
+      transition:color .2s;
+      opacity:.7;
+    }
+    .footer-links a:hover{
+      color:var(--a1);
+      opacity:1;
+    }
+    .footer-contact-col{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .fc-row{
+      display:flex;
+      align-items:flex-start;
+      gap:9px;
+    }
+    .fc-ico{
+      width:26px;
+      height:26px;
+      border-radius:7px;
+      border:1px solid #333333;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+    }
+    .fc-ico svg{
+      width:11px;
+      height:11px;
+      stroke:var(--a1);
+      stroke-width:1.8;
+      fill:none;
+    }
+    .fc-text{
+      font-size:.75rem;
+      color:#ffffff;
+      line-height:1.6;
+      opacity:.8;
+    }
+    .fc-text a{
+      color:#ffffff;
+      text-decoration:none;
+      transition:color .2s;
+      opacity:.8;
+    }
+    .fc-text a:hover{
+      color:var(--a1);
+      opacity:1;
+    }
+    .footer-bottom{
+      padding:clamp(18px,2.5vw,28px) clamp(20px,6vw,80px);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:12px;
+      border-top:1px solid #1a1a1a;
+    }
+    .footer-copy{
+      font-size:.58rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#ffffff;
+      opacity:.4;
+    }
+    .footer-copy a{
+      color:#ffffff;
+      opacity:.4;
+      text-decoration:none;
+    }
+    .footer-bottom-links{
+      display:flex;
+      gap:clamp(12px,2vw,20px);
+      flex-wrap:wrap;
+    }
+    .footer-bottom-links a{
+      font-size:.58rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:#ffffff;
+      text-decoration:none;
+      cursor:none;
+      transition:color .2s;
+      opacity:.4;
+    }
+    .footer-bottom-links a:hover{
+      color:var(--a1);
+      opacity:1;
+    }
+    ::-webkit-scrollbar{width:2px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:rgba(201,169,110,.2);border-radius:1px}
+    
+    /* ===== DISCOUNT CARD (Light) ===== */
+    #discount-card{position:fixed;bottom:28px;right:28px;z-index:500;width:clamp(240px,28vw,300px);background:linear-gradient(135deg,#faf6f0 0%,#f0ebe3 60%,#faf6f0 100%);border:1px solid rgba(201,169,110,.35);border-radius:20px;padding:0;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1);transform:translateY(120px);opacity:0;transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .6s ease;pointer-events:none}
+    #discount-card.show{transform:translateY(0);opacity:1;pointer-events:auto}
+    #discount-card.hide{transform:translateY(120px);opacity:0;pointer-events:none}
+    .dc-strip{height:3px;background:linear-gradient(90deg,transparent,var(--a2),var(--a1),var(--a3),var(--a1),var(--a2),transparent);background-size:200% 100%;animation:shimmerStrip 2.5s linear infinite}
+    @keyframes shimmerStrip{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    .dc-body{padding:20px 20px 18px}
+    .dc-tag{display:inline-flex;align-items:center;gap:6px;font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--a1);background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.2);border-radius:999px;padding:4px 10px;margin-bottom:12px}
+    .dc-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--a1);animation:pulseDot 2s ease-in-out infinite}
+    .dc-percent{font-family:var(--font-display);font-size:4.5rem;line-height:1;letter-spacing:-.04em;color:transparent;background:linear-gradient(135deg,var(--a3),var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;position:relative;display:inline-block}
+    .dc-percent sup{font-size:1.6rem;vertical-align:super;letter-spacing:0}
+    .dc-off{font-family:var(--font-display);font-size:1.8rem;font-style:italic;color:var(--a1);display:inline;margin-left:4px;vertical-align:bottom;line-height:1.2}
+    .dc-title{font-size:.78rem;font-weight:600;color:#000000;margin-top:2px;margin-bottom:6px;letter-spacing:.03em}
+    .dc-desc{font-size:.68rem;color:#444444;line-height:1.6;margin-bottom:14px}
+    .dc-code-wrap{background:rgba(201,169,110,.06);border:1px dashed rgba(201,169,110,.25);border-radius:10px;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;cursor:none;transition:background .2s}
+    .dc-code-wrap:hover{background:rgba(201,169,110,.1)}
+    .dc-code-lbl{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+    .dc-code{font-family:var(--font-display);font-size:1rem;font-style:italic;color:var(--a1);letter-spacing:.06em}
+    .dc-copy-btn{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:#444444;background:rgba(255,255,255,.6);border:1px solid #cccccc;border-radius:6px;padding:4px 8px;cursor:none;transition:color .2s,border-color .2s}
+    .dc-copy-btn:hover{color:var(--a1);border-color:rgba(201,169,110,.3)}
+    .dc-btn{display:block;width:100%;padding:11px;background:linear-gradient(135deg,var(--a1),var(--a2));border:none;border-radius:10px;color:#000000;font-family:var(--font-body);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;cursor:none;transition:transform .2s,box-shadow .2s;text-decoration:none}
+    .dc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,110,.3)}
+    .dc-close{position:absolute;top:12px;right:12px;width:24px;height:24px;border-radius:50%;background:rgba(0,0,0,.05);border:1px solid #cccccc;display:flex;align-items:center;justify-content:center;cursor:none;transition:background .2s,border-color .2s}
+    .dc-close:hover{background:rgba(0,0,0,.1);border-color:#aaaaaa}
+    .dc-close svg{width:10px;height:10px;stroke:#444444;stroke-width:2;fill:none}
+    .dc-expiry{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,169,110,.6);text-align:center;margin-top:10px}
+    @media(max-width:520px){
+      .hero-btns{flex-direction:column;align-items:flex-start}
+      .about-stats{gap:20px}
+      .slider-arrows{display:none}
+      #discount-card{width:calc(100vw - 32px);right:16px;bottom:16px}
+    }
+  </style>
 </head>
 <body>
-
-<!-- ============================================================
-     ENTRANCE VIDEO SCREEN
-     ============================================================ -->
-<div id="entrance">
-  <video class="entrance-video" id="entranceVideo" muted playsinline autoplay loop
-    poster="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format">
-    <source src="https://res.cloudinary.com/djijinaxd/video/upload/v1781576142/WELCOME_TO_MK_STUDIO_lajyec.mp4" type="video/mp4"/>
-  </video>
-  <div class="entrance-overlay"></div>
-  <div class="entrance-content">
-    <div class="entrance-logo">MK Freelance Studio</div>
-    <div class="entrance-tagline">Digital Agency · Nanauta, Saharanpur UP</div>
-    <button class="entrance-btn" id="entranceBtn" onclick="dismissEntrance()">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-      Open Website
-    </button>
-    <div class="entrance-skip">Auto opens in <span id="entranceCountdown">6</span>s</div>
-  </div>
-</div>
-
-<div id="cur"></div>
-<div id="cur-trail"></div>
-
-<!-- ORIGINAL INTRO (number counter) -->
-<div id="intro">
-  <div class="intro-corner tl">Kaifservices.in</div>
-  <div class="intro-corner tr">Est. 2020</div>
-  <div class="intro-panel top"></div>
-  <div class="intro-panel bot"></div>
-  <div class="intro-line"></div>
-  <div class="intro-wordwrap">
-    <div class="intro-studio" id="introLetters"></div>
-    <div class="intro-sub-line">Digital Agency · Nanauta, Saharanpur UP</div>
-  </div>
-  <div class="intro-counter" id="introCounter">000</div>
-  <div class="intro-bar-wrap"><div class="intro-bar" id="introBar"></div></div>
-</div>
-
-<nav>
-  <div class="nav-pill" id="navPill">
-    <div class="nav-logo-ring"><div class="nav-logo-inner">MK</div></div>
-    <div class="nav-sep"></div>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="services.html" class="nav-link">Services</a>
-    <a href="work.html" class="nav-link">Work</a>
-    <a href="#contact" class="nav-link">Contact</a>
-    <div class="nav-sep"></div>
-    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"><span>Say hi ↗</span></button>
-  </div>
-</nav>
-
-<section id="hero">
-  <div class="video-live-badge" id="videoLiveBadge">
-    <span class="vbadge-dot"></span>
-    <span class="vbadge-text">MK Freelance Studio · Digital Marketing Agency</span>
-  </div>
-  <div class="slider-track" id="sliderTrack"></div>
-  <div class="hero-ui" id="heroUI">
-    <div class="slide-badge" id="slideBadge">
-      <span class="slide-badge-dot"></span>
-      <span class="slide-badge-text" id="slideBadgeText">MK Freelance Studio · Est. 2020</span>
+  <!-- ============================================================
+       INTRO ANIMATION (ONLY — Entrance video removed)
+       ============================================================ -->
+  <div id="intro">
+    <div class="intro-corner tl">Kaifservices.in</div>
+    <div class="intro-corner tr">Est. 2020</div>
+    <div class="intro-panel top"></div>
+    <div class="intro-panel bot"></div>
+    <div class="intro-line"></div>
+    <div class="intro-wordwrap">
+      <div class="intro-studio" id="introLetters"></div>
+      <div class="intro-sub-line">Digital Agency · Nanauta, Saharanpur UP</div>
     </div>
-    <h1 class="hero-headline">
-      <span class="hero-headline-inner" id="heroLine1">We Build</span>
-      <span class="hero-headline-inner" id="heroLine2"><em id="heroLineEm">Digital</em> India</span>
-    </h1>
-    <p class="hero-sub" id="heroSub">Website Design · SEO · Meta Ads · Google Ads<br><span style="font-family:var(--font-display);font-style:italic;color:rgba(201,169,110,.6)">Nanauta, Saharanpur UP — Serving businesses across India</span></p>
-    <div class="hero-btns" id="heroBtns">
-      <a href="#contact" class="btn-primary">Book Free Consultation ↗</a>
-      <a href="#projects" class="btn-outline">View Our Work</a>
-    </div>
+    <div class="intro-counter" id="introCounter">000</div>
+    <div class="intro-bar-wrap"><div class="intro-bar" id="introBar"></div></div>
   </div>
-  <div class="slider-counter" id="sliderCounter">
-    <div class="sc-current" id="scCurrent">01</div>
-    <div class="sc-sep"></div>
-    <div class="sc-total" id="scTotal">06</div>
-  </div>
-  <div class="slider-arrows" id="sliderArrows">
-    <button class="sarrow" id="sarrowPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
-    <button class="sarrow" id="sarrowNext" aria-label="Next slide"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
-  </div>
-  <div class="slide-caption" id="slideCapWrap">
-    <div class="sc-label">Currently Showing</div>
-    <div class="sc-title" id="slideCaption">Website Design</div>
-  </div>
-  <div class="slider-dots" id="sliderDots"></div>
-  <div class="slider-progress-bar"><div class="slider-progress-fill" id="progressFill"></div></div>
-  <div class="hero-scroll"><span class="hero-scroll-label">Scroll</span><div class="hero-scroll-line"></div></div>
-</section>
 
-<div id="marquee"><div class="mq-track" id="mqTrack"></div></div>
-<section id="about">
-  <div>
-    <div class="section-eyebrow reveal">About Us</div>
-    <h2 class="section-title reveal">Digital<br><em>Agency</em><br>India</h2>
-    <p class="about-body reveal">MK Freelance Studio is a full-service digital agency based in Saharanpur, U.P. We help businesses grow online through stunning websites, data-driven advertising, and next-gen 3D web experiences. From startups to established brands — we make you unforgettable.</p>
-    <div class="about-stats reveal">
-      <div><div class="stat-num">5<em>+</em></div><div class="stat-label">Years Exp.</div></div>
-      <div><div class="stat-num">50<em>+</em></div><div class="stat-label">Clients</div></div>
-      <div><div class="stat-num">100<em>%</em></div><div class="stat-label">Results</div></div>
+  <div id="cur"></div>
+  <div id="cur-trail"></div>
+
+  <nav>
+    <div class="nav-pill" id="navPill">
+      <div class="nav-logo-ring"><div class="nav-logo-inner">MK</div></div>
+      <div class="nav-sep"></div>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <div class="nav-sep"></div>
+      <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"><span>Say hi ↗</span></button>
     </div>
-  </div>
-  <div class="contact-pills reveal" style="transition-delay:.12s">
-    <div class="cpill"><div class="cpill-icon" style="background:rgba(201,169,110,.1)"><svg viewBox="0 0 24 24" stroke="#C9A96E" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.61 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6.01 6.01l1.32-1.32a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg></div><div><div class="cpill-lbl">Phone / WhatsApp</div><div class="cpill-val"><a href="tel:+919634950165">+91 9634950165</a></div></div></div>
-    <div class="cpill"><div class="cpill-icon" style="background:rgba(107,191,122,.1)"><svg viewBox="0 0 24 24" stroke="#6BBF7A" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cpill-lbl">Email</div><div class="cpill-val"><a href="mailto:Kaifsiddiqui28637@gmail.com">Kaifsiddiqui28637@gmail.com</a></div></div></div>
-    <div class="cpill"><div class="cpill-icon" style="background:rgba(110,181,255,.1)"><svg viewBox="0 0 24 24" stroke="#6EB5FF" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="cpill-lbl">Address</div><div class="cpill-val">Sheikh Zad Gan, Nanauta<br>Saharanpur, UP — 247452</div></div></div>
-    <div class="cpill"><div class="cpill-icon" style="background:rgba(232,130,180,.1)"><svg viewBox="0 0 24 24" stroke="#E882B4" fill="none"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="cpill-lbl">Working Hours</div><div class="cpill-val">Mon – Sat: 9:00 AM – 7:00 PM IST</div></div></div>
-  </div>
-</section>
-<section id="services">
-  <div class="services-hdr">
-    <div><div class="section-eyebrow reveal">What We Do</div><h2 class="section-title reveal">Our<br><em>Services</em></h2></div>
-    <p class="services-sub reveal" style="transition-delay:.1s">Everything your business needs to dominate the digital landscape — under one roof.</p>
-  </div>
-  <div class="srv-grid" id="srvGrid"></div>
-</section>
-<section id="why">
-  <div class="why-hdr reveal">
-    <div class="section-eyebrow">Why Us</div>
-    <h2 class="section-title">Why Choose<br><em>MK Studio</em></h2>
-    <p class="why-sub">Nanauta aur Saharanpur mein bahut agencies hain. Lekin hum alag kyun hain — yeh samajh lijiye.</p>
-  </div>
-  <div class="why-grid" id="whyGrid"></div>
-</section>
-<section id="projects">
-  <div class="proj-hdr reveal">
-    <div><div class="section-eyebrow">Our Work</div><h2 class="section-title">Selected<br><em>Projects</em></h2></div>
-    <div class="proj-count">05</div>
-  </div>
-  <div class="proj-grid-new" id="projGrid"></div>
-</section>
-<section id="testimonials">
-  <div class="testi-hdr reveal">
-    <div><div class="section-eyebrow">Client Reviews</div><h2 class="section-title">What Clients<br><em>Say</em></h2></div>
-    <div class="rating-box"><div class="rating-num">4.9</div><div class="rating-stars" id="ratingStars"></div><div class="rating-lbl">Avg. Rating · 28 Reviews</div></div>
-  </div>
-  <div class="testi-grid" id="testiGrid"></div>
-</section>
-<section id="contact">
-  <div class="contact-wrap">
-    <div class="reveal">
-      <div class="section-eyebrow">Get In Touch</div>
-      <h2 class="section-title">Let's<br><em>Talk</em></h2>
-      <p class="contact-tagline">Book a free consultation. We'll respond within 24 hours and help you craft the perfect digital strategy for your business.</p>
-      <div class="c-info-list">
-        <div class="c-info-row"><div class="c-info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.61 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6.01 6.01l1.32-1.32a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg></div><div><div class="c-info-lbl">Phone / WhatsApp</div><div class="c-info-val"><a href="tel:+919634950165">+91 9634950165</a></div></div></div>
-        <div class="c-info-row"><div class="c-info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="c-info-lbl">Email</div><div class="c-info-val"><a href="mailto:Kaifsiddiqui28637@gmail.com">Kaifsiddiqui28637@gmail.com</a></div></div></div>
-        <div class="c-info-row"><div class="c-info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="c-info-lbl">Address</div><div class="c-info-val">Sheikh Zad Gan, Near Kabaadi Bazaar<br>Nanauta, Saharanpur, UP — 247452</div></div></div>
+  </nav>
+
+  <section id="hero">
+    <div class="video-live-badge" id="videoLiveBadge">
+      <span class="vbadge-dot"></span>
+      <span class="vbadge-text">MK Freelance Studio · Digital Marketing Agency</span>
+    </div>
+    <div class="slider-track" id="sliderTrack"></div>
+    <div class="hero-ui" id="heroUI">
+      <div class="slide-badge" id="slideBadge">
+        <span class="slide-badge-dot"></span>
+        <span class="slide-badge-text" id="slideBadgeText">MK Freelance Studio · Est. 2020</span>
       </div>
-      <div class="c-socials">
-        <a href="https://www.instagram.com/kaifservices" target="_blank" class="c-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        <a href="https://www.facebook.com/kaifservices" target="_blank" class="c-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.linkedin.com/company/kaifservices" target="_blank" class="c-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="https://wa.me/919634950165" target="_blank" class="c-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+      <h1 class="hero-headline">
+        <span class="hero-headline-inner" id="heroLine1">We Build</span>
+        <span class="hero-headline-inner" id="heroLine2"><em id="heroLineEm">Digital</em> India</span>
+      </h1>
+      <p class="hero-sub" id="heroSub">Website Design · SEO · Meta Ads · Google Ads<br><span style="font-family:var(--font-display);font-style:italic;color:rgba(201,169,110,.6)">Nanauta, Saharanpur UP — Serving businesses across India</span></p>
+      <div class="hero-btns" id="heroBtns">
+        <a href="#contact" class="btn-primary">Book Free Consultation ↗</a>
+        <a href="#projects" class="btn-outline">View Our Work</a>
       </div>
     </div>
-    <div class="reveal" style="transition-delay:.14s">
-      <form class="cform" id="contactForm">
-        <div class="f-row">
-          <div class="f-grp"><label class="f-lbl" for="fn">Full Name *</label><input class="f-inp" type="text" id="fn" name="name" placeholder="Your full name" required></div>
-          <div class="f-grp"><label class="f-lbl" for="fm">Mobile *</label><input class="f-inp" type="tel" id="fm" name="mobile" placeholder="+91 XXXXXXXXXX" required></div>
-        </div>
-        <div class="f-grp"><label class="f-lbl" for="fe">Email *</label><input class="f-inp" type="email" id="fe" name="email" placeholder="your@email.com" required></div>
-        <div class="f-grp"><label class="f-lbl" for="fa">City / Address</label><input class="f-inp" type="text" id="fa" name="address" placeholder="Your city or address"></div>
-        <div class="f-grp">
-          <label class="f-lbl" for="fb">Budget Range</label>
-          <select class="f-sel" id="fb" name="budget">
-            <option value="" disabled selected>Select budget</option>
-            <option>Under ₹10,000</option>
-            <option>₹10,000 – ₹25,000</option>
-            <option>₹25,000 – ₹50,000</option>
-            <option>₹50,000 – ₹1,00,000</option>
-            <option>Above ₹1,00,000</option>
-          </select>
-        </div>
-        <div class="f-grp">
-          <label class="f-lbl">Services Needed *</label>
-          <div class="srv-checks">
-            <label class="chk-item"><input type="checkbox" name="services" value="Website Designing"> Website Designing</label>
-            <label class="chk-item"><input type="checkbox" name="services" value="SEO"> SEO</label>
-            <label class="chk-item"><input type="checkbox" name="services" value="Social Media Marketing"> SMM</label>
-            <label class="chk-item"><input type="checkbox" name="services" value="Meta Ads"> Meta Ads</label>
-            <label class="chk-item"><input type="checkbox" name="services" value="Google Ads"> Google Ads</label>
-            <label class="chk-item"><input type="checkbox" name="services" value="LinkedIn Ads"> LinkedIn Ads</label>
-            <label class="chk-item"><input type="checkbox" name="services" value="3D Websites"> 3D Websites</label>
-            <label class="chk-item"><input type="checkbox" name="services" value="Full Package"> Full Package</label>
-          </div>
-        </div>
-        <div class="f-grp">
-          <label class="f-lbl" for="fpromo">Promo Code <span style="color:var(--a1);font-style:italic">(Optional)</span></label>
-          <div class="promo-wrap">
-            <input class="f-inp" type="text" id="fpromo" name="promo" placeholder="Enter code e.g. MK25NEW" autocomplete="off" style="text-transform:uppercase">
-            <button type="button" class="promo-verify-btn" id="promoVerifyBtn">Apply</button>
-          </div>
-          <div class="promo-msg" id="promoMsg"></div>
-        </div>
-        <div class="f-grp"><label class="f-lbl" for="fmsg">Project Details</label><textarea class="f-ta" id="fmsg" name="message" placeholder="Tell us about your project, goals, timeline..."></textarea></div>
-        <button type="submit" class="btn-submit" id="submitBtn">🚀 Book Your Free Consultation</button>
-      </form>
-      <div class="form-success" id="formSuccess">
-        <div class="fs-icon">🎉</div>
-        <h3>Booking Confirmed!</h3>
-        <p>We've received your request and will reach out within <strong>24 hours</strong>.<br><br>Urgent: <strong>+91 9634950165</strong></p>
-      </div>
+    <div class="slider-counter" id="sliderCounter">
+      <div class="sc-current" id="scCurrent">01</div>
+      <div class="sc-sep"></div>
+      <div class="sc-total" id="scTotal">06</div>
     </div>
-  </div>
-</section>
-<footer>
-  <div class="footer-marquee"><div class="fmq-track" id="fmqTrack"></div></div>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="footer-logo">MK Freelance Studio</div>
-      <p class="footer-tagline">Nanauta, Saharanpur ka trusted digital agency. Website design se lekar Google Ads tak — sab kuch ek hi jagah.</p>
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/kaifservices" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        <a href="https://www.facebook.com/kaifservices" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.linkedin.com/company/kaifservices" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="https://wa.me/919634950165" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-      </div>
-      <div class="footer-badge"><span class="dot-live"></span>Available for new projects</div>
+    <div class="slider-arrows" id="sliderArrows">
+      <button class="sarrow" id="sarrowPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+      <button class="sarrow" id="sarrowNext" aria-label="Next slide"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
     </div>
+    <div class="slide-caption" id="slideCapWrap">
+      <div class="sc-label">Currently Showing</div>
+      <div class="sc-title" id="slideCaption">Website Design</div>
+    </div>
+    <div class="slider-dots" id="sliderDots"></div>
+    <div class="slider-progress-bar"><div class="slider-progress-fill" id="progressFill"></div></div>
+    <div class="hero-scroll"><span class="hero-scroll-label">Scroll</span><div class="hero-scroll-line"></div></div>
+  </section>
+
+  <div id="marquee"><div class="mq-track" id="mqTrack"></div></div>
+
+  <section id="about">
     <div>
-      <div class="footer-col-title">Services</div>
-      <div class="footer-links">
-        <a href="#services">Website Designing</a><a href="#services">SEO Services</a><a href="#services">Meta Ads</a><a href="#services">Google Ads</a><a href="#services">LinkedIn Ads</a><a href="#services">Social Media Marketing</a><a href="#services">Graphic Designing</a><a href="#services">3D / Vibe Coding</a>
+      <div class="section-eyebrow reveal">About Us</div>
+      <h2 class="section-title reveal">Digital<br><em>Agency</em><br>India</h2>
+      <p class="about-body reveal">MK Freelance Studio is a full-service digital agency based in Saharanpur, U.P. We help businesses grow online through stunning websites, data-driven advertising, and next-gen 3D web experiences. From startups to established brands — we make you unforgettable.</p>
+      <div class="about-stats reveal">
+        <div><div class="stat-num">5<em>+</em></div><div class="stat-label">Years Exp.</div></div>
+        <div><div class="stat-num">50<em>+</em></div><div class="stat-label">Clients</div></div>
+        <div><div class="stat-num">100<em>%</em></div><div class="stat-label">Results</div></div>
       </div>
     </div>
-    <div>
-      <div class="footer-col-title">Quick Links</div>
-      <div class="footer-links">
-        <a href="#about">About Us</a><a href="#projects">Our Work</a><a href="#testimonials">Client Reviews</a><a href="#contact">Book Consultation</a><a href="#why">Why Choose Us</a><a href="https://wa.me/919634950165" target="_blank" rel="noopener">WhatsApp Us</a><a href="mailto:Kaifsiddiqui28637@gmail.com">Send Email</a>
+    <div class="contact-pills reveal" style="transition-delay:.12s">
+      <div class="cpill"><div class="cpill-icon" style="background:rgba(201,169,110,.1)"><svg viewBox="0 0 24 24" stroke="#C9A96E" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.61 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6.01 6.01l1.32-1.32a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg></div><div><div class="cpill-lbl">Phone / WhatsApp</div><div class="cpill-val"><a href="tel:+919634950165">+91 9634950165</a></div></div></div>
+      <div class="cpill"><div class="cpill-icon" style="background:rgba(107,191,122,.1)"><svg viewBox="0 0 24 24" stroke="#6BBF7A" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cpill-lbl">Email</div><div class="cpill-val"><a href="mailto:Kaifsiddiqui28637@gmail.com">Kaifsiddiqui28637@gmail.com</a></div></div></div>
+      <div class="cpill"><div class="cpill-icon" style="background:rgba(110,181,255,.1)"><svg viewBox="0 0 24 24" stroke="#6EB5FF" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="cpill-lbl">Address</div><div class="cpill-val">Sheikh Zad Gan, Nanauta<br>Saharanpur, UP — 247452</div></div></div>
+      <div class="cpill"><div class="cpill-icon" style="background:rgba(232,130,180,.1)"><svg viewBox="0 0 24 24" stroke="#E882B4" fill="none"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="cpill-lbl">Working Hours</div><div class="cpill-val">Mon – Sat: 9:00 AM – 7:00 PM IST</div></div></div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="services-hdr">
+      <div><div class="section-eyebrow reveal">What We Do</div><h2 class="section-title reveal">Our<br><em>Services</em></h2></div>
+      <p class="services-sub reveal" style="transition-delay:.1s">Everything your business needs to dominate the digital landscape — under one roof.</p>
+    </div>
+    <div class="srv-grid" id="srvGrid"></div>
+  </section>
+
+  <section id="why">
+    <div class="why-hdr reveal">
+      <div class="section-eyebrow">Why Us</div>
+      <h2 class="section-title">Why Choose<br><em>MK Studio</em></h2>
+      <p class="why-sub">Nanauta aur Saharanpur mein bahut agencies hain. Lekin hum alag kyun hain — yeh samajh lijiye.</p>
+    </div>
+    <div class="why-grid" id="whyGrid"></div>
+  </section>
+
+  <section id="projects">
+    <div class="proj-hdr reveal">
+      <div><div class="section-eyebrow">Our Work</div><h2 class="section-title">Selected<br><em>Projects</em></h2></div>
+      <div class="proj-count">05</div>
+    </div>
+    <div class="proj-grid-new" id="projGrid"></div>
+  </section>
+
+  <section id="testimonials">
+    <div class="testi-hdr reveal">
+      <div><div class="section-eyebrow">Client Reviews</div><h2 class="section-title">What Clients<br><em>Say</em></h2></div>
+      <div class="rating-box"><div class="rating-num">4.9</div><div class="rating-stars" id="ratingStars"></div><div class="rating-lbl">Avg. Rating · 28 Reviews</div></div>
+    </div>
+    <div class="testi-grid" id="testiGrid"></div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-wrap">
+      <div class="reveal">
+        <div class="section-eyebrow">Get In Touch</div>
+        <h2 class="section-title">Let's<br><em>Talk</em></h2>
+        <p class="contact-tagline">Book a free consultation. We'll respond within 24 hours and help you craft the perfect digital strategy for your business.</p>
+        <div class="c-info-list">
+          <div class="c-info-row"><div class="c-info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.61 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6.01 6.01l1.32-1.32a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg></div><div><div class="c-info-lbl">Phone / WhatsApp</div><div class="c-info-val"><a href="tel:+919634950165">+91 9634950165</a></div></div></div>
+          <div class="c-info-row"><div class="c-info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="c-info-lbl">Email</div><div class="c-info-val"><a href="mailto:Kaifsiddiqui28637@gmail.com">Kaifsiddiqui28637@gmail.com</a></div></div></div>
+          <div class="c-info-row"><div class="c-info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="c-info-lbl">Address</div><div class="c-info-val">Sheikh Zad Gan, Near Kabaadi Bazaar<br>Nanauta, Saharanpur, UP — 247452</div></div></div>
+        </div>
+        <div class="c-socials">
+          <a href="https://www.instagram.com/kaifservices" target="_blank" class="c-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.facebook.com/kaifservices" target="_blank" class="c-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.linkedin.com/company/kaifservices" target="_blank" class="c-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://wa.me/919634950165" target="_blank" class="c-soc" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.14s">
+        <form class="cform" id="contactForm">
+          <div class="f-row">
+            <div class="f-grp"><label class="f-lbl" for="fn">Full Name *</label><input class="f-inp" type="text" id="fn" name="name" placeholder="Your full name" required></div>
+            <div class="f-grp"><label class="f-lbl" for="fm">Mobile *</label><input class="f-inp" type="tel" id="fm" name="mobile" placeholder="+91 XXXXXXXXXX" required></div>
+          </div>
+          <div class="f-grp"><label class="f-lbl" for="fe">Email *</label><input class="f-inp" type="email" id="fe" name="email" placeholder="your@email.com" required></div>
+          <div class="f-grp"><label class="f-lbl" for="fa">City / Address</label><input class="f-inp" type="text" id="fa" name="address" placeholder="Your city or address"></div>
+          <div class="f-grp">
+            <label class="f-lbl" for="fb">Budget Range</label>
+            <select class="f-sel" id="fb" name="budget">
+              <option value="" disabled selected>Select budget</option>
+              <option>Under ₹10,000</option>
+              <option>₹10,000 – ₹25,000</option>
+              <option>₹25,000 – ₹50,000</option>
+              <option>₹50,000 – ₹1,00,000</option>
+              <option>Above ₹1,00,000</option>
+            </select>
+          </div>
+          <div class="f-grp">
+            <label class="f-lbl">Services Needed *</label>
+            <div class="srv-checks">
+              <label class="chk-item"><input type="checkbox" name="services" value="Website Designing"> Website Designing</label>
+              <label class="chk-item"><input type="checkbox" name="services" value="SEO"> SEO</label>
+              <label class="chk-item"><input type="checkbox" name="services" value="Social Media Marketing"> SMM</label>
+              <label class="chk-item"><input type="checkbox" name="services" value="Meta Ads"> Meta Ads</label>
+              <label class="chk-item"><input type="checkbox" name="services" value="Google Ads"> Google Ads</label>
+              <label class="chk-item"><input type="checkbox" name="services" value="LinkedIn Ads"> LinkedIn Ads</label>
+              <label class="chk-item"><input type="checkbox" name="services" value="3D Websites"> 3D Websites</label>
+              <label class="chk-item"><input type="checkbox" name="services" value="Full Package"> Full Package</label>
+            </div>
+          </div>
+          <div class="f-grp">
+            <label class="f-lbl" for="fpromo">Promo Code <span style="color:var(--a1);font-style:italic">(Optional)</span></label>
+            <div class="promo-wrap">
+              <input class="f-inp" type="text" id="fpromo" name="promo" placeholder="Enter code e.g. MK25NEW" autocomplete="off" style="text-transform:uppercase">
+              <button type="button" class="promo-verify-btn" id="promoVerifyBtn">Apply</button>
+            </div>
+            <div class="promo-msg" id="promoMsg"></div>
+          </div>
+          <div class="f-grp"><label class="f-lbl" for="fmsg">Project Details</label><textarea class="f-ta" id="fmsg" name="message" placeholder="Tell us about your project, goals, timeline..."></textarea></div>
+          <button type="submit" class="btn-submit" id="submitBtn">🚀 Book Your Free Consultation</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="fs-icon">🎉</div>
+          <h3>Booking Confirmed!</h3>
+          <p>We've received your request and will reach out within <strong>24 hours</strong>.<br><br>Urgent: <strong>+91 9634950165</strong></p>
+        </div>
       </div>
     </div>
-    <div class="footer-contact-col">
-      <div class="footer-col-title">Contact Us</div>
-      <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.61 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6.01 6.01l1.32-1.32a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg></div><div class="fc-text"><a href="tel:+919634950165">+91 9634950165</a></div></div>
-      <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="fc-text"><a href="mailto:Kaifsiddiqui28637@gmail.com">Kaifsiddiqui28637@gmail.com</a></div></div>
-      <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="fc-text">Sheikh Zad Gan, Near Kabaadi Bazaar<br>Nanauta, Saharanpur, UP — 247452</div></div>
-      <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="fc-text">Mon – Sat: 9:00 AM – 7:00 PM<br>Sunday: Closed</div></div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — PURE BLACK BACKGROUND + WHITE TEXT (SOLID)
+       ============================================================ -->
+  <footer>
+    <div class="footer-marquee"><div class="fmq-track" id="fmqTrack"></div></div>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">MK Freelance Studio</div>
+        <p class="footer-tagline">Nanauta, Saharanpur ka trusted digital agency. Website design se lekar Google Ads tak — sab kuch ek hi jagah.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/kaifservices" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.facebook.com/kaifservices" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.linkedin.com/company/kaifservices" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://wa.me/919634950165" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        </div>
+        <div class="footer-badge"><span class="dot-live"></span>Available for new projects</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="#services">Website Designing</a><a href="#services">SEO Services</a><a href="#services">Meta Ads</a><a href="#services">Google Ads</a><a href="#services">LinkedIn Ads</a><a href="#services">Social Media Marketing</a><a href="#services">Graphic Designing</a><a href="#services">3D / Vibe Coding</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <div class="footer-links">
+          <a href="#about">About Us</a><a href="#projects">Our Work</a><a href="#testimonials">Client Reviews</a><a href="#contact">Book Consultation</a><a href="#why">Why Choose Us</a><a href="https://wa.me/919634950165" target="_blank" rel="noopener">WhatsApp Us</a><a href="mailto:Kaifsiddiqui28637@gmail.com">Send Email</a>
+        </div>
+      </div>
+      <div class="footer-contact-col">
+        <div class="footer-col-title">Contact Us</div>
+        <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.4 2 2 0 0 1 3.61 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6.01 6.01l1.32-1.32a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 15.92z"/></svg></div><div class="fc-text"><a href="tel:+919634950165">+91 9634950165</a></div></div>
+        <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="fc-text"><a href="mailto:Kaifsiddiqui28637@gmail.com">Kaifsiddiqui28637@gmail.com</a></div></div>
+        <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="fc-text">Sheikh Zad Gan, Near Kabaadi Bazaar<br>Nanauta, Saharanpur, UP — 247452</div></div>
+        <div class="fc-row"><div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="fc-text">Mon – Sat: 9:00 AM – 7:00 PM<br>Sunday: Closed</div></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 MK Freelance Studio · Nanauta, Saharanpur, UP · All rights reserved · <a href="https://kaifservices.in" style="color:inherit;text-decoration:none">kaifservices.in</a></p>
+      <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#contact">Get a Quote</a></div>
+    </div>
+  </footer>
+
+  <div id="discount-card">
+    <div class="dc-strip"></div>
+    <div class="dc-body">
+      <div class="dc-close" id="dcClose"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+      <div class="dc-tag"><span class="dc-tag-dot"></span>Limited Offer</div>
+      <div><span class="dc-percent"><sup>₹</sup>25</span><span class="dc-off">% off</span></div>
+      <div class="dc-title">New Client Discount</div>
+      <p class="dc-desc">Get 25% off on your first project — website, ads, or SEO. Limited slots available this month.</p>
+      <div class="dc-code-wrap" id="dcCodeWrap">
+        <div><div class="dc-code-lbl">Promo Code</div><div class="dc-code">MK25NEW</div></div>
+        <button class="dc-copy-btn" id="dcCopyBtn">Copy</button>
+      </div>
+      <a href="#contact" class="dc-btn">Claim Discount ↗</a>
+      <div class="dc-expiry" id="dcExpiry">Expires soon</div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p class="footer-copy">© 2025 MK Freelance Studio · Nanauta, Saharanpur, UP · All rights reserved · <a href="https://kaifservices.in" style="color:inherit;text-decoration:none">kaifservices.in</a></p>
-    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#contact">Get a Quote</a></div>
-  </div>
-</footer>
 
-<div id="discount-card">
-  <div class="dc-strip"></div>
-  <div class="dc-body">
-    <div class="dc-close" id="dcClose"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
-    <div class="dc-tag"><span class="dc-tag-dot"></span>Limited Offer</div>
-    <div><span class="dc-percent"><sup>₹</sup>25</span><span class="dc-off">% off</span></div>
-    <div class="dc-title">New Client Discount</div>
-    <p class="dc-desc">Get 25% off on your first project — website, ads, or SEO. Limited slots available this month.</p>
-    <div class="dc-code-wrap" id="dcCodeWrap">
-      <div><div class="dc-code-lbl">Promo Code</div><div class="dc-code">MK25NEW</div></div>
-      <button class="dc-copy-btn" id="dcCopyBtn">Copy</button>
-    </div>
-    <a href="#contact" class="dc-btn">Claim Discount ↗</a>
-    <div class="dc-expiry" id="dcExpiry">Expires soon</div>
-  </div>
-</div>
+  <script>
+    // ============================================================
+    // INTRO COUNTER (Starts immediately — no entrance video)
+    // ============================================================
+    (function startIntroCounter(){
+      const intro = document.getElementById('intro');
+      intro.classList.add('active');
 
-<script>
-// ============================================================
-// ENTRANCE VIDEO — with button & 6s auto-dismiss
-// ============================================================
-(function(){
-  const entrance = document.getElementById('entrance');
-  const video    = document.getElementById('entranceVideo');
-  const cdEl     = document.getElementById('entranceCountdown');
-  let dismissed  = false;
-  let seconds    = 6;
+      const text = 'MK Studio';
+      const lettersEl  = document.getElementById('introLetters');
+      const counterEl  = document.getElementById('introCounter');
+      const barEl      = document.getElementById('introBar');
+      let startTs = null;
+      const DURATION = 2800;
 
-  // Start countdown ticker
-  const tick = setInterval(function(){
-    seconds--;
-    if(cdEl) cdEl.textContent = seconds;
-    if(seconds <= 0){
-      clearInterval(tick);
-      if(!dismissed) dismissEntrance();
-    }
-  }, 1000);
+      text.split('').forEach(function(ch, i){
+        const span = document.createElement('span');
+        span.className = 'intro-letter';
+        span.textContent = ch === ' ' ? '\u00a0' : ch;
+        span.style.transitionDelay = (0.06 * i) + 's';
+        lettersEl.appendChild(span);
+      });
 
-  // Try to play video (muted autoplay should work everywhere)
-  video.muted = true;
-  video.play().catch(function(){
-    // Autoplay blocked — still countdown works, poster shows
-  });
-})();
-
-function dismissEntrance(){
-  const entrance = document.getElementById('entrance');
-  if(!entrance || entrance.dataset.dismissed) return;
-  entrance.dataset.dismissed = 'true';
-  entrance.classList.add('fade-out');
-  // After fade, remove and run the intro counter
-  setTimeout(function(){
-    entrance.remove();
-    startIntroCounter();
-  }, 900);
-}
-
-// ============================================================
-// INTRO COUNTER (runs AFTER entrance dismissed)
-// ============================================================
-function startIntroCounter(){
-  const intro = document.getElementById('intro');
-  intro.classList.add('active');
-
-  const text = 'MK Studio';
-  const lettersEl  = document.getElementById('introLetters');
-  const counterEl  = document.getElementById('introCounter');
-  const barEl      = document.getElementById('introBar');
-  let startTs = null;
-  const DURATION = 2800;
-
-  text.split('').forEach(function(ch, i){
-    const span = document.createElement('span');
-    span.className = 'intro-letter';
-    span.textContent = ch === ' ' ? '\u00a0' : ch;
-    span.style.transitionDelay = (0.06 * i) + 's';
-    lettersEl.appendChild(span);
-  });
-
-  function frame(ts){
-    if(!startTs) startTs = ts;
-    const elapsed = Math.min(ts - startTs, DURATION);
-    const pct = Math.floor((elapsed / DURATION) * 100);
-    counterEl.textContent = String(pct).padStart(3, '0');
-    barEl.style.width = pct + '%';
-    if(pct >= 20) intro.classList.add('lineshow');
-    if(pct >= 35) intro.classList.add('textshow');
-    if(pct < 100){
-      requestAnimationFrame(frame);
-    } else {
-      counterEl.textContent = '100';
-      setTimeout(function(){
-        intro.classList.add('reveal');
-        setTimeout(function(){
-          intro.classList.add('done');
-          intro.style.opacity = '0';
-          intro.style.transition = 'opacity .5s ease';
-          setTimeout(function(){ intro.remove(); initSlider(); }, 600);
-        }, 900);
-      }, 220);
-    }
-  }
-  requestAnimationFrame(frame);
-}
-
-// ============================================================
-// PROMO CODES
-// ============================================================
-const PROMO_CODES = {
-  'MK25NEW':   { discount: '25%', msg: '🎉 MK25NEW applied! 25% off on your first project.' },
-  'MKDIGITAL': { discount: '15%', msg: '✅ MKDIGITAL applied! 15% off on any digital marketing service.' },
-  'MKSEO':     { discount: '20%', msg: '✅ MKSEO applied! 20% off on SEO package.' },
-  'MKWEB':     { discount: '20%', msg: '✅ MKWEB applied! 20% off on website design.' },
-  'MKVIP':     { discount: '30%', msg: '🌟 VIP code applied! 30% off — you got the special rate!' },
-};
-let appliedPromo = '';
-document.getElementById('promoVerifyBtn').addEventListener('click', function() {
-  const inp = document.getElementById('fpromo');
-  const msg = document.getElementById('promoMsg');
-  const code = inp.value.trim().toUpperCase();
-  inp.value = code;
-  if(!code){ msg.className='promo-msg invalid'; msg.textContent='⚠️ Please enter a promo code.'; return; }
-  if(PROMO_CODES[code]){
-    appliedPromo = code; msg.className='promo-msg valid'; msg.textContent=PROMO_CODES[code].msg;
-    this.textContent='✓ Applied'; this.style.color='#6BBF7A'; this.style.background='rgba(107,191,122,.12)'; this.disabled=true;
-  } else {
-    appliedPromo=''; msg.className='promo-msg invalid'; msg.textContent='❌ Invalid code. Try MK25NEW for 25% off!';
-    this.textContent='Apply'; this.style.color=''; this.style.background=''; this.disabled=false;
-  }
-});
-document.querySelectorAll('.dc-btn, a[href="#contact"]').forEach(function(el){
-  el.addEventListener('click', function(){
-    setTimeout(function(){ const p=document.getElementById('fpromo'); if(p&&!p.value) p.value='MK25NEW'; }, 600);
-  });
-});
-
-// ============================================================
-// SLIDES DATA
-// ============================================================
-const SLIDES = [
-  {
-    type: 'video',
-    videoSrc: 'https://res.cloudinary.com/djijinaxd/video/upload/v1781375592/6561343-uhd_3840_2160_25fps_tl7s1a.mp4',
-    poster: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
-    tint: '#C9A96E',
-    badge: 'MK Freelance Studio · Est. 2020',
-    line1: 'We Build',
-    line2Em: 'Digital',
-    line2Rest: ' India',
-    sub: 'Website Design · SEO · Meta Ads · Google Ads — Nanauta, Saharanpur UP se poore India tak.',
-    caption: 'MK Freelance Studio',
-    duration: 10000
-  },
-  {
-    type: 'image',
-    img: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=1800&q=85&fit=crop&auto=format',
-    tint: '#6BBF7A',
-    badge: 'SEO · Digital Growth',
-    line1: 'Rank Higher',
-    line2Em: 'Google',
-    line2Rest: ' Pe',
-    sub: 'Data-driven SEO strategies that drive real organic traffic and dominate search results.',
-    caption: 'Search Engine Mastery',
-    duration: 5000
-  },
-  {
-    type: 'image',
-    img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
-    tint: '#C9A96E',
-    badge: 'Website Design · UI/UX',
-    line1: 'We Build',
-    line2Em: 'Stunning',
-    line2Rest: ' Websites',
-    sub: 'Conversion-focused, mobile-first websites that make your brand unforgettable across India.',
-    caption: 'Premium Web Design',
-    duration: 5000
-  },
-  {
-    type: 'video',
-    videoSrc: 'https://res.cloudinary.com/djijinaxd/video/upload/v1781375728/6561434-uhd_3840_2160_25fps_gokfsr.mp4',
-    poster: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format',
-    tint: '#C9A96E',
-    badge: 'MK Freelance Studio · Digital Agency',
-    line1: 'We Drive',
-    line2Em: 'Real',
-    line2Rest: ' Growth',
-    sub: 'See how we transform businesses — real campaigns, real results, real ROI across India.',
-    caption: 'Agency Showreel',
-    duration: 10000
-  },
-  {
-    type: 'image',
-    img: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1800&q=85&fit=crop&auto=format',
-    tint: '#6EB5FF',
-    badge: 'Meta Ads · Google Ads',
-    line1: 'Ads That',
-    line2Em: 'Convert,',
-    line2Rest: ' Always',
-    sub: 'High-ROI paid campaigns on Meta & Google with precise targeting and performance analytics.',
-    caption: 'Paid Advertising',
-    duration: 5000
-  },
-  {
-    type: 'image',
-    img: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1800&q=85&fit=crop&auto=format',
-    tint: '#E882B4',
-    badge: 'Branding · Graphic Design',
-    line1: 'Design That',
-    line2Em: 'Speaks',
-    line2Rest: ' Loud',
-    sub: 'Logos, brand identities, and social media creatives that make your business stand out.',
-    caption: 'Creative Branding',
-    duration: 5000
-  },
-  {
-    type: 'image',
-    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format',
-    tint: '#C9A96E',
-    badge: '3D Websites · Vibe Coding',
-    line1: 'Next-Gen',
-    line2Em: 'Digital',
-    line2Rest: ' India',
-    sub: 'Immersive 3D web experiences & full digital strategy — serving businesses across India.',
-    caption: 'Full Digital Agency',
-    duration: 5000
-  },
-];
-
-const SERVICES=[
-  {num:'01',name:'Website Designing',desc:'Clean, modern, conversion-focused websites — from landing pages to full business portals with stunning UI/UX.',color:'#C9A96E',svg:'<path d="M3 3h18v18H3z" rx="2"/><path d="M3 9h18M9 21V9"/>'},
-  {num:'02',name:'SEO',desc:'Rank higher on Google with technical SEO, keyword research, and link-building that drives real organic traffic.',color:'#8B9E6E',svg:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>'},
-  {num:'03',name:'Social Media Marketing',desc:'Build powerful brand presence with strategic content planning, community management, and viral-worthy creatives.',color:'#E882B4',svg:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>'},
-  {num:'04',name:'Meta Ads',desc:'High-ROI Facebook & Instagram campaigns with precise audience targeting and data-driven optimization.',color:'#6EB5FF',svg:'<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>'},
-  {num:'05',name:'Google Ads',desc:'Dominate Search & Display with expertly managed PPC campaigns, smart bidding, and performance-driven ad copy.',color:'#C9A96E',svg:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'},
-  {num:'06',name:'LinkedIn Ads',desc:'Reach decision-makers and B2B audiences with Sponsored Content, Lead Gen Forms, and InMail that convert.',color:'#6BBF7A',svg:'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>'},
-  {num:'07',name:'Graphic Designing',desc:'Logos, brand identities, social media creatives, and print materials that make your brand unforgettable.',color:'#E882B4',svg:'<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>'},
-  {num:'08',name:'3D / Vibe Coding',desc:'Immersive Three.js and WebGL web experiences — interactive product showcases and jaw-dropping animations.',color:'#8B6F47',svg:'<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>'},
-];
-const WHY=[
-  {title:'Guaranteed Results',desc:'Hum results ki guarantee dete hain — agar 3 mahine mein traffic na badhe toh paisa wapas. Zero risk aapke liye.',color:'#C9A96E',svg:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'},
-  {title:'Local Expertise',desc:'Nanauta aur Saharanpur ke markets ko hum personally jante hain — local customers ko kaise target karein, yeh humein pata hai.',color:'#6BBF7A',svg:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'},
-  {title:'24-Hour Delivery',desc:'Emergency website chahiye? Chhoti projects 24 ghante mein deliver. Bade projects ke liye dedicated timelines.',color:'#E882B4',svg:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'},
-  {title:'Affordable Pricing',desc:'Agency-level quality, freelancer-level rates. Small businesses ke liye tailored packages — starting from just ₹5,000.',color:'#6EB5FF',svg:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>'},
-  {title:'Data-Driven Approach',desc:'Har decision data se — gut feeling se nahi. Google Analytics, Search Console aur Meta Pixel se backed strategies.',color:'#C9A96E',svg:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>'},
-  {title:'Dedicated Support',desc:'Project delivery ke baad bhi hum available hain. WhatsApp par directly sampark karein — koi middleman nahi.',color:'#8B9E6E',svg:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'},
-];
-const PROJECTS=[
-  {featured:true,cat:'Client Project · E-Commerce',name:'Nextlevel Studio',desc:'Complete brand overhaul aur e-commerce website design — custom animations, mobile-first UI, aur Meta Ads integration ke saath. Sales mein 4x growth pehle 60 din mein.',tags:['Web Design','Branding','3D','Meta Ads'],year:'2024',badge:'Live',img:'https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=80&fit=crop',results:[{num:'4x',lbl:'Sales Growth'},{num:'2.1s',lbl:'Load Speed'},{num:'92%',lbl:'Mobile Score'}]},
-  {featured:false,cat:'Personal Project · Branding',name:'Aura Brand Identity',desc:'Logo, typography system, color palette aur full visual identity — premium fashion brand ke liye. Everything from scratch, 100% unique.',tags:['Branding','Motion','Visual Design'],year:'2024',badge:'Design',img:'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80&fit=crop',results:[{num:'100%',lbl:'Custom Design'},{num:'3 wk',lbl:'Delivery'}]},
-  {featured:false,cat:'Client Project · Digital Marketing',name:'Solaris Digital',desc:'Full-funnel SEO + Google Ads + LinkedIn Ads strategy. Organic traffic 5x hua, leads 300% badhe in 3 months.',tags:['SEO','Google Ads','LinkedIn Ads'],year:'2023',badge:'Ads',img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop',results:[{num:'5x',lbl:'Organic Traffic'},{num:'300%',lbl:'More Leads'}]},
-  {featured:false,cat:'Client Project · Restaurant',name:'Spice Route Diner',desc:'Restaurant website with online menu, table booking system aur Google My Business optimization. Walk-ins 2x ho gaye.',tags:['Web Design','SEO','GMB'],year:'2024',badge:'Live',img:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80&fit=crop',results:[{num:'2x',lbl:'Walk-ins'},{num:'4.8★',lbl:'GMB Rating'}]},
-  {featured:false,cat:'Client Project · Education',name:'BrightPath Academy',desc:'School website with admission form, faculty profiles aur fee portal. Delivered in 48 hours with 100% client satisfaction.',tags:['Web Design','WordPress','Portal'],year:'2023',badge:'Live',img:'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80&fit=crop',results:[{num:'48h',lbl:'Delivery'},{num:'100%',lbl:'Satisfaction'}]},
-];
-const TESTIMONIALS=[
-  {quote:'MK Freelance Studio ne hamari restaurant ki website banai aur Google Ads chalaye. Pehle mahine mein hi orders 3x ho gaye. Bahut professional kaam karte hain.',name:'Rahul Sharma',biz:'Restaurant Owner, Saharanpur',initials:'RS',color:'#C9A96E',img:'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=70&fit=crop',imgLabel:'Restaurant · Saharanpur'},
-  {quote:'SEO service ekdum shandar hai. Hamare boutique ki website ab Google ke first page par aa gayi. Visitors mein 5x increase aaya sirf 2 mahine mein.',name:'Priya Agarwal',biz:'Boutique Owner, Nanauta',initials:'PA',color:'#6BBF7A',img:'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=70&fit=crop',imgLabel:'Boutique · Nanauta'},
-  {quote:'Gym ki website aur Instagram ads dono banwaye. Membership inquiries bahut badh gayi hain. Kaif bhai ka kaam solid hai — on time delivery, professional attitude.',name:'Arjun Singh',biz:'Gym Owner, Muzaffarnagar',initials:'AS',color:'#E882B4',img:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=70&fit=crop',imgLabel:'Fitness · Muzaffarnagar'},
-  {quote:'School website chahiye thi jaldi mein. 48 ghante mein complete website mili — proper pages, contact form, everything. Parents ka response bahut acha raha.',name:'Mohammad Akram',biz:'School Principal, Saharanpur',initials:'MA',color:'#6EB5FF',img:'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=70&fit=crop',imgLabel:'Education · Saharanpur'},
-  {quote:'LinkedIn Ads ke through B2B leads generate hue jo pehle possible nahi lagta tha. ROI bahut acha raha. Highly recommended for business owners.',name:'Vikram Mehta',biz:'Manufacturing Business, Meerut',initials:'VM',color:'#C9A96E',img:'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=70&fit=crop',imgLabel:'Manufacturing · Meerut'},
-  {quote:'Logo design se lekar full social media management tak — sab kuch handled. Ab hamari brand identity bahut strong hai. Thank you MK Studio!',name:'Sunita Gupta',biz:'Startup Founder, Delhi NCR',initials:'SG',color:'#8B9E6E',img:'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=70&fit=crop',imgLabel:'Startup · Delhi NCR'},
-];
-const MQ_ITEMS=['Website Designing','SEO','Meta Ads','Google Ads','LinkedIn Ads','Social Media Marketing','Vibe Coding','Graphic Designing','UI/UX Design','Digital Strategy'];
-
-// ============================================================
-// CURSOR
-// ============================================================
-const cur=document.getElementById('cur');
-const curTrail=document.getElementById('cur-trail');
-let mx=0,my=0,tx=0,ty=0;
-document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-(function animTrail(){tx+=(mx-tx)*.1;ty+=(my-ty)*.1;curTrail.style.left=tx+'px';curTrail.style.top=ty+'px';requestAnimationFrame(animTrail);})();
-document.querySelectorAll('a,button,input,select,textarea,label,.srv-card,.why-card,.testi-card,.proj-card-new,.cpill,.sdot,.sarrow').forEach(function(el){
-  el.addEventListener('mouseenter',function(){cur.style.width='4px';cur.style.height='4px';curTrail.style.width='44px';curTrail.style.height='44px';curTrail.style.borderColor='rgba(201,169,110,.5)';});
-  el.addEventListener('mouseleave',function(){cur.style.width='8px';cur.style.height='8px';curTrail.style.width='28px';curTrail.style.height='28px';curTrail.style.borderColor='rgba(201,169,110,.4)';});
-});
-window.addEventListener('scroll',function(){document.getElementById('navPill').classList.toggle('scrolled',window.scrollY>80);});
-
-// ============================================================
-// SLIDER ENGINE — VIDEO FIX: play immediately on first slide
-// ============================================================
-var currentSlide=0, sliderAutoTimer=null, isTransitioning=false, slideEls=[], dotEls=[];
-
-function initSlider(){
-  var track=document.getElementById('sliderTrack');
-  var dotsContainer=document.getElementById('sliderDots');
-  document.getElementById('scTotal').textContent=String(SLIDES.length).padStart(2,'0');
-
-  SLIDES.forEach(function(s,i){
-    var div=document.createElement('div');
-    div.className='slide'+(i===0?' active':'');
-
-    if(s.type==='video'){
-      div.innerHTML=
-        '<video class="slide-video" muted playsinline loop preload="auto"'+(s.poster?' poster="'+s.poster+'"':'')+'>'+
-          '<source src="'+s.videoSrc+'" type="video/mp4"/>'+
-        '</video>'+
-        '<div class="slide-tint" style="background:'+s.tint+'"></div>'+
-        '<div class="slide-overlay"></div>'+
-        '<div class="slide-grain"></div>';
-    } else {
-      div.innerHTML=
-        '<img class="slide-img" src="'+s.img+'" alt="'+s.caption+'" loading="'+(i===0?'eager':'lazy')+'"/>'+
-        '<div class="slide-tint" style="background:'+s.tint+'"></div>'+
-        '<div class="slide-overlay"></div>'+
-        '<div class="slide-grain"></div>';
-    }
-    track.appendChild(div);
-    slideEls.push(div);
-  });
-
-  SLIDES.forEach(function(s,i){
-    var dot=document.createElement('div');
-    dot.className='sdot'+(i===0?' active':'')+(s.type==='video'?' video-dot':'');
-    dot.addEventListener('click',function(){goToSlide(i);});
-    dotsContainer.appendChild(dot);
-    dotEls.push(dot);
-  });
-
-  updateHeroContent(SLIDES[0], false);
-  startProgress(SLIDES[0].duration);
-  scheduleNext(SLIDES[0].duration);
-
-  // ★ KEY FIX: Pre-load all videos; immediately play the first slide's video
-  slideEls.forEach(function(el, i){
-    if(SLIDES[i].type==='video'){
-      var v=el.querySelector('video');
-      if(v){
-        v.muted=true;
-        v.load();
-        // First slide = play right away
-        if(i===0){
-          playVideoSlide(el);
+      function frame(ts){
+        if(!startTs) startTs = ts;
+        const elapsed = Math.min(ts - startTs, DURATION);
+        const pct = Math.floor((elapsed / DURATION) * 100);
+        counterEl.textContent = String(pct).padStart(3, '0');
+        barEl.style.width = pct + '%';
+        if(pct >= 20) intro.classList.add('lineshow');
+        if(pct >= 35) intro.classList.add('textshow');
+        if(pct < 100){
+          requestAnimationFrame(frame);
+        } else {
+          counterEl.textContent = '100';
+          setTimeout(function(){
+            intro.classList.add('reveal');
+            setTimeout(function(){
+              intro.classList.add('done');
+              intro.style.opacity = '0';
+              intro.style.transition = 'opacity .5s ease';
+              setTimeout(function(){ intro.remove(); initSlider(); }, 600);
+            }, 900);
+          }, 220);
         }
       }
-    }
-  });
-}
+      requestAnimationFrame(frame);
+    })();
 
-function scheduleNext(delay){
-  clearTimeout(sliderAutoTimer);
-  sliderAutoTimer=setTimeout(function(){nextSlide();}, delay);
-}
-
-function updateHeroContent(s, animate){
-  var slideBadge=document.getElementById('slideBadge');
-  var slideBadgeText=document.getElementById('slideBadgeText');
-  var heroLine1=document.getElementById('heroLine1');
-  var heroLine2=document.getElementById('heroLine2');
-  var heroSub=document.getElementById('heroSub');
-  var heroBtns=document.getElementById('heroBtns');
-  var slideCaption=document.getElementById('slideCaption');
-  var videoLiveBadge=document.getElementById('videoLiveBadge');
-
-  if(s.type==='video'){videoLiveBadge.classList.add('vis');}
-  else{videoLiveBadge.classList.remove('vis');}
-
-  function applyContent(){
-    slideBadgeText.textContent=s.badge;
-    heroLine1.textContent=s.line1;
-    heroLine2.innerHTML='<em>'+s.line2Em+'</em>'+s.line2Rest;
-    heroSub.innerHTML=s.sub;
-    slideCaption.textContent=s.caption;
-  }
-
-  if(animate){
-    [slideBadge,heroLine1,heroLine2,heroSub,heroBtns].forEach(function(el){el.classList.remove('visible');});
-    setTimeout(function(){
-      applyContent();
-      requestAnimationFrame(function(){
-        slideBadge.classList.add('visible');
-        setTimeout(function(){heroLine1.classList.add('visible');},80);
-        setTimeout(function(){heroLine2.classList.add('visible');},180);
-        setTimeout(function(){heroSub.classList.add('visible');},300);
-        setTimeout(function(){heroBtns.classList.add('visible');},420);
-      });
-    },500);
-  } else {
-    applyContent();
-    setTimeout(function(){
-      slideBadge.classList.add('visible');
-      setTimeout(function(){heroLine1.classList.add('visible');},100);
-      setTimeout(function(){heroLine2.classList.add('visible');},220);
-      setTimeout(function(){heroSub.classList.add('visible');},380);
-      setTimeout(function(){heroBtns.classList.add('visible');},520);
-    },200);
-  }
-}
-
-function startProgress(duration){
-  var fill=document.getElementById('progressFill');
-  fill.classList.remove('animating');
-  fill.style.transition='none';
-  fill.style.width='0%';
-  dotEls.forEach(function(d){d.classList.remove('active');});
-  if(dotEls[currentSlide]) dotEls[currentSlide].classList.add('active');
-  requestAnimationFrame(function(){requestAnimationFrame(function(){
-    fill.classList.add('animating');
-    fill.style.transition='width '+duration+'ms linear';
-    fill.style.width='100%';
-  });});
-}
-
-function getSlideVideo(slideEl){return slideEl?slideEl.querySelector('video'):null;}
-
-function playVideoSlide(slideEl){
-  var v=getSlideVideo(slideEl);
-  if(!v) return;
-  v.muted=true;
-  v.volume=0;
-
-  function doPlay(){
-    var p=v.play();
-    if(p&&p.catch){
-      p.catch(function(err){
-        console.warn('Video play blocked:',err.name);
-        setTimeout(function(){v.play().catch(function(){});}, 600);
-      });
-    }
-  }
-
-  if(v.readyState>=3){
-    v.currentTime=0;
-    doPlay();
-  } else {
-    v.addEventListener('canplay',function onCP(){
-      v.removeEventListener('canplay',onCP);
-      v.currentTime=0;
-      doPlay();
+    // ============================================================
+    // PROMO CODES
+    // ============================================================
+    const PROMO_CODES = {
+      'MK25NEW':   { discount: '25%', msg: '🎉 MK25NEW applied! 25% off on your first project.' },
+      'MKDIGITAL': { discount: '15%', msg: '✅ MKDIGITAL applied! 15% off on any digital marketing service.' },
+      'MKSEO':     { discount: '20%', msg: '✅ MKSEO applied! 20% off on SEO package.' },
+      'MKWEB':     { discount: '20%', msg: '✅ MKWEB applied! 20% off on website design.' },
+      'MKVIP':     { discount: '30%', msg: '🌟 VIP code applied! 30% off — you got the special rate!' },
+    };
+    let appliedPromo = '';
+    document.getElementById('promoVerifyBtn').addEventListener('click', function() {
+      const inp = document.getElementById('fpromo');
+      const msg = document.getElementById('promoMsg');
+      const code = inp.value.trim().toUpperCase();
+      inp.value = code;
+      if(!code){ msg.className='promo-msg invalid'; msg.textContent='⚠️ Please enter a promo code.'; return; }
+      if(PROMO_CODES[code]){
+        appliedPromo = code; msg.className='promo-msg valid'; msg.textContent=PROMO_CODES[code].msg;
+        this.textContent='✓ Applied'; this.style.color='#6BBF7A'; this.style.background='rgba(107,191,122,.12)'; this.disabled=true;
+      } else {
+        appliedPromo=''; msg.className='promo-msg invalid'; msg.textContent='❌ Invalid code. Try MK25NEW for 25% off!';
+        this.textContent='Apply'; this.style.color=''; this.style.background=''; this.disabled=false;
+      }
     });
-    v.load();
-  }
-}
+    document.querySelectorAll('.dc-btn, a[href="#contact"]').forEach(function(el){
+      el.addEventListener('click', function(){
+        setTimeout(function(){ const p=document.getElementById('fpromo'); if(p&&!p.value) p.value='MK25NEW'; }, 600);
+      });
+    });
 
-function stopAllVideos(){
-  document.querySelectorAll('.slide video').forEach(function(v){
-    try{v.pause();v.currentTime=0;}catch(e){}
-  });
-}
+    // ============================================================
+    // SLIDES DATA
+    // ============================================================
+    const SLIDES = [
+      {
+        type: 'video',
+        videoSrc: 'https://res.cloudinary.com/djijinaxd/video/upload/v1781375592/6561343-uhd_3840_2160_25fps_tl7s1a.mp4',
+        poster: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
+        tint: '#C9A96E',
+        badge: 'MK Freelance Studio · Est. 2020',
+        line1: 'We Build',
+        line2Em: 'Digital',
+        line2Rest: ' India',
+        sub: 'Website Design · SEO · Meta Ads · Google Ads — Nanauta, Saharanpur UP se poore India tak.',
+        caption: 'MK Freelance Studio',
+        duration: 10000
+      },
+      {
+        type: 'image',
+        img: 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=1800&q=85&fit=crop&auto=format',
+        tint: '#6BBF7A',
+        badge: 'SEO · Digital Growth',
+        line1: 'Rank Higher',
+        line2Em: 'Google',
+        line2Rest: ' Pe',
+        sub: 'Data-driven SEO strategies that drive real organic traffic and dominate search results.',
+        caption: 'Search Engine Mastery',
+        duration: 5000
+      },
+      {
+        type: 'image',
+        img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
+        tint: '#C9A96E',
+        badge: 'Website Design · UI/UX',
+        line1: 'We Build',
+        line2Em: 'Stunning',
+        line2Rest: ' Websites',
+        sub: 'Conversion-focused, mobile-first websites that make your brand unforgettable across India.',
+        caption: 'Premium Web Design',
+        duration: 5000
+      },
+      {
+        type: 'video',
+        videoSrc: 'https://res.cloudinary.com/djijinaxd/video/upload/v1781375728/6561434-uhd_3840_2160_25fps_gokfsr.mp4',
+        poster: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format',
+        tint: '#C9A96E',
+        badge: 'MK Freelance Studio · Digital Agency',
+        line1: 'We Drive',
+        line2Em: 'Real',
+        line2Rest: ' Growth',
+        sub: 'See how we transform businesses — real campaigns, real results, real ROI across India.',
+        caption: 'Agency Showreel',
+        duration: 10000
+      },
+      {
+        type: 'image',
+        img: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1800&q=85&fit=crop&auto=format',
+        tint: '#6EB5FF',
+        badge: 'Meta Ads · Google Ads',
+        line1: 'Ads That',
+        line2Em: 'Convert,',
+        line2Rest: ' Always',
+        sub: 'High-ROI paid campaigns on Meta & Google with precise targeting and performance analytics.',
+        caption: 'Paid Advertising',
+        duration: 5000
+      },
+      {
+        type: 'image',
+        img: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1800&q=85&fit=crop&auto=format',
+        tint: '#E882B4',
+        badge: 'Branding · Graphic Design',
+        line1: 'Design That',
+        line2Em: 'Speaks',
+        line2Rest: ' Loud',
+        sub: 'Logos, brand identities, and social media creatives that make your business stand out.',
+        caption: 'Creative Branding',
+        duration: 5000
+      },
+      {
+        type: 'image',
+        img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format',
+        tint: '#C9A96E',
+        badge: '3D Websites · Vibe Coding',
+        line1: 'Next-Gen',
+        line2Em: 'Digital',
+        line2Rest: ' India',
+        sub: 'Immersive 3D web experiences & full digital strategy — serving businesses across India.',
+        caption: 'Full Digital Agency',
+        duration: 5000
+      },
+    ];
 
-function goToSlide(idx){
-  if(isTransitioning||idx===currentSlide) return;
-  isTransitioning=true;
-  var prev=currentSlide;
-  currentSlide=((idx%SLIDES.length)+SLIDES.length)%SLIDES.length;
-  stopAllVideos();
-  slideEls[prev].classList.remove('active');
-  slideEls[prev].classList.add('prev');
-  slideEls[currentSlide].classList.add('active');
-  document.getElementById('scCurrent').textContent=String(currentSlide+1).padStart(2,'0');
-  var s=SLIDES[currentSlide];
-  updateHeroContent(s,true);
-  startProgress(s.duration);
-  scheduleNext(s.duration);
-  if(s.type==='video'){
-    setTimeout(function(){playVideoSlide(slideEls[currentSlide]);},200);
-  }
-  setTimeout(function(){slideEls[prev].classList.remove('prev');isTransitioning=false;},1500);
-}
+    const SERVICES=[
+      {num:'01',name:'Website Designing',desc:'Clean, modern, conversion-focused websites — from landing pages to full business portals with stunning UI/UX.',color:'#C9A96E',svg:'<path d="M3 3h18v18H3z" rx="2"/><path d="M3 9h18M9 21V9"/>'},
+      {num:'02',name:'SEO',desc:'Rank higher on Google with technical SEO, keyword research, and link-building that drives real organic traffic.',color:'#8B9E6E',svg:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>'},
+      {num:'03',name:'Social Media Marketing',desc:'Build powerful brand presence with strategic content planning, community management, and viral-worthy creatives.',color:'#E882B4',svg:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>'},
+      {num:'04',name:'Meta Ads',desc:'High-ROI Facebook & Instagram campaigns with precise audience targeting and data-driven optimization.',color:'#6EB5FF',svg:'<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>'},
+      {num:'05',name:'Google Ads',desc:'Dominate Search & Display with expertly managed PPC campaigns, smart bidding, and performance-driven ad copy.',color:'#C9A96E',svg:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'},
+      {num:'06',name:'LinkedIn Ads',desc:'Reach decision-makers and B2B audiences with Sponsored Content, Lead Gen Forms, and InMail that convert.',color:'#6BBF7A',svg:'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>'},
+      {num:'07',name:'Graphic Designing',desc:'Logos, brand identities, social media creatives, and print materials that make your brand unforgettable.',color:'#E882B4',svg:'<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>'},
+      {num:'08',name:'3D / Vibe Coding',desc:'Immersive Three.js and WebGL web experiences — interactive product showcases and jaw-dropping animations.',color:'#8B6F47',svg:'<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>'},
+    ];
+    const WHY=[
+      {title:'Guaranteed Results',desc:'Hum results ki guarantee dete hain — agar 3 mahine mein traffic na badhe toh paisa wapas. Zero risk aapke liye.',color:'#C9A96E',svg:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'},
+      {title:'Local Expertise',desc:'Nanauta aur Saharanpur ke markets ko hum personally jante hain — local customers ko kaise target karein, yeh humein pata hai.',color:'#6BBF7A',svg:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'},
+      {title:'24-Hour Delivery',desc:'Emergency website chahiye? Chhoti projects 24 ghante mein deliver. Bade projects ke liye dedicated timelines.',color:'#E882B4',svg:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'},
+      {title:'Affordable Pricing',desc:'Agency-level quality, freelancer-level rates. Small businesses ke liye tailored packages — starting from just ₹5,000.',color:'#6EB5FF',svg:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>'},
+      {title:'Data-Driven Approach',desc:'Har decision data se — gut feeling se nahi. Google Analytics, Search Console aur Meta Pixel se backed strategies.',color:'#C9A96E',svg:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>'},
+      {title:'Dedicated Support',desc:'Project delivery ke baad bhi hum available hain. WhatsApp par directly sampark karein — koi middleman nahi.',color:'#8B9E6E',svg:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'},
+    ];
+    const PROJECTS=[
+      {featured:true,cat:'Client Project · E-Commerce',name:'Nextlevel Studio',desc:'Complete brand overhaul aur e-commerce website design — custom animations, mobile-first UI, aur Meta Ads integration ke saath. Sales mein 4x growth pehle 60 din mein.',tags:['Web Design','Branding','3D','Meta Ads'],year:'2024',badge:'Live',img:'https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=80&fit=crop',results:[{num:'4x',lbl:'Sales Growth'},{num:'2.1s',lbl:'Load Speed'},{num:'92%',lbl:'Mobile Score'}]},
+      {featured:false,cat:'Personal Project · Branding',name:'Aura Brand Identity',desc:'Logo, typography system, color palette aur full visual identity — premium fashion brand ke liye. Everything from scratch, 100% unique.',tags:['Branding','Motion','Visual Design'],year:'2024',badge:'Design',img:'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80&fit=crop',results:[{num:'100%',lbl:'Custom Design'},{num:'3 wk',lbl:'Delivery'}]},
+      {featured:false,cat:'Client Project · Digital Marketing',name:'Solaris Digital',desc:'Full-funnel SEO + Google Ads + LinkedIn Ads strategy. Organic traffic 5x hua, leads 300% badhe in 3 months.',tags:['SEO','Google Ads','LinkedIn Ads'],year:'2023',badge:'Ads',img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop',results:[{num:'5x',lbl:'Organic Traffic'},{num:'300%',lbl:'More Leads'}]},
+      {featured:false,cat:'Client Project · Restaurant',name:'Spice Route Diner',desc:'Restaurant website with online menu, table booking system aur Google My Business optimization. Walk-ins 2x ho gaye.',tags:['Web Design','SEO','GMB'],year:'2024',badge:'Live',img:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80&fit=crop',results:[{num:'2x',lbl:'Walk-ins'},{num:'4.8★',lbl:'GMB Rating'}]},
+      {featured:false,cat:'Client Project · Education',name:'BrightPath Academy',desc:'School website with admission form, faculty profiles aur fee portal. Delivered in 48 hours with 100% client satisfaction.',tags:['Web Design','WordPress','Portal'],year:'2023',badge:'Live',img:'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80&fit=crop',results:[{num:'48h',lbl:'Delivery'},{num:'100%',lbl:'Satisfaction'}]},
+    ];
+    const TESTIMONIALS=[
+      {quote:'MK Freelance Studio ne hamari restaurant ki website banai aur Google Ads chalaye. Pehle mahine mein hi orders 3x ho gaye. Bahut professional kaam karte hain.',name:'Rahul Sharma',biz:'Restaurant Owner, Saharanpur',initials:'RS',color:'#C9A96E',img:'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=70&fit=crop',imgLabel:'Restaurant · Saharanpur'},
+      {quote:'SEO service ekdum shandar hai. Hamare boutique ki website ab Google ke first page par aa gayi. Visitors mein 5x increase aaya sirf 2 mahine mein.',name:'Priya Agarwal',biz:'Boutique Owner, Nanauta',initials:'PA',color:'#6BBF7A',img:'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=70&fit=crop',imgLabel:'Boutique · Nanauta'},
+      {quote:'Gym ki website aur Instagram ads dono banwaye. Membership inquiries bahut badh gayi hain. Kaif bhai ka kaam solid hai — on time delivery, professional attitude.',name:'Arjun Singh',biz:'Gym Owner, Muzaffarnagar',initials:'AS',color:'#E882B4',img:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=70&fit=crop',imgLabel:'Fitness · Muzaffarnagar'},
+      {quote:'School website chahiye thi jaldi mein. 48 ghante mein complete website mili — proper pages, contact form, everything. Parents ka response bahut acha raha.',name:'Mohammad Akram',biz:'School Principal, Saharanpur',initials:'MA',color:'#6EB5FF',img:'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=70&fit=crop',imgLabel:'Education · Saharanpur'},
+      {quote:'LinkedIn Ads ke through B2B leads generate hue jo pehle possible nahi lagta tha. ROI bahut acha raha. Highly recommended for business owners.',name:'Vikram Mehta',biz:'Manufacturing Business, Meerut',initials:'VM',color:'#C9A96E',img:'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=70&fit=crop',imgLabel:'Manufacturing · Meerut'},
+      {quote:'Logo design se lekar full social media management tak — sab kuch handled. Ab hamari brand identity bahut strong hai. Thank you MK Studio!',name:'Sunita Gupta',biz:'Startup Founder, Delhi NCR',initials:'SG',color:'#8B9E6E',img:'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=70&fit=crop',imgLabel:'Startup · Delhi NCR'},
+    ];
+    const MQ_ITEMS=['Website Designing','SEO','Meta Ads','Google Ads','LinkedIn Ads','Social Media Marketing','Vibe Coding','Graphic Designing','UI/UX Design','Digital Strategy'];
 
-function nextSlide(){goToSlide((currentSlide+1)%SLIDES.length);}
-function prevSlide(){goToSlide((currentSlide-1+SLIDES.length)%SLIDES.length);}
+    // ============================================================
+    // CURSOR
+    // ============================================================
+    const cur=document.getElementById('cur');
+    const curTrail=document.getElementById('cur-trail');
+    let mx=0,my=0,tx=0,ty=0;
+    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+    (function animTrail(){tx+=(mx-tx)*.1;ty+=(my-ty)*.1;curTrail.style.left=tx+'px';curTrail.style.top=ty+'px';requestAnimationFrame(animTrail);})();
+    document.querySelectorAll('a,button,input,select,textarea,label,.srv-card,.why-card,.testi-card,.proj-card-new,.cpill,.sdot,.sarrow').forEach(function(el){
+      el.addEventListener('mouseenter',function(){cur.style.width='4px';cur.style.height='4px';curTrail.style.width='44px';curTrail.style.height='44px';curTrail.style.borderColor='rgba(201,169,110,.5)';});
+      el.addEventListener('mouseleave',function(){cur.style.width='8px';cur.style.height='8px';curTrail.style.width='28px';curTrail.style.height='28px';curTrail.style.borderColor='rgba(201,169,110,.4)';});
+    });
+    window.addEventListener('scroll',function(){document.getElementById('navPill').classList.toggle('scrolled',window.scrollY>80);});
 
-document.getElementById('sarrowNext').addEventListener('click',function(){nextSlide();});
-document.getElementById('sarrowPrev').addEventListener('click',function(){prevSlide();});
+    // ============================================================
+    // SLIDER ENGINE — VIDEO FIX: play immediately on first slide
+    // ============================================================
+    var currentSlide=0, sliderAutoTimer=null, isTransitioning=false, slideEls=[], dotEls=[];
 
-var isPaused=false;
-document.getElementById('hero').addEventListener('mouseenter',function(){clearTimeout(sliderAutoTimer);isPaused=true;});
-document.getElementById('hero').addEventListener('mouseleave',function(){if(isPaused){isPaused=false;scheduleNext(SLIDES[currentSlide].duration);}});
+    function initSlider(){
+      var track=document.getElementById('sliderTrack');
+      var dotsContainer=document.getElementById('sliderDots');
+      document.getElementById('scTotal').textContent=String(SLIDES.length).padStart(2,'0');
 
-var touchStartX=0;
-document.getElementById('hero').addEventListener('touchstart',function(e){touchStartX=e.touches[0].clientX;},{passive:true});
-document.getElementById('hero').addEventListener('touchend',function(e){
-  var diff=touchStartX-e.changedTouches[0].clientX;
-  if(Math.abs(diff)>50){diff>0?nextSlide():prevSlide();}
-},{passive:true});
+      SLIDES.forEach(function(s,i){
+        var div=document.createElement('div');
+        div.className='slide'+(i===0?' active':'');
 
-// ============================================================
-// MARQUEE
-// ============================================================
-var mqTrack=document.getElementById('mqTrack');
-[].concat(MQ_ITEMS,MQ_ITEMS).forEach(function(txt){
-  var el=document.createElement('div');el.className='mq-item';
-  var dot=document.createElement('span');dot.className='mq-dot';
-  el.appendChild(dot);el.appendChild(document.createTextNode(txt));
-  mqTrack.appendChild(el);
-});
-var fmqTrack=document.getElementById('fmqTrack');
-Array(20).fill('MK FREELANCE STUDIO').forEach(function(txt){
-  var el=document.createElement('div');el.className='fmq-item';
-  el.innerHTML=txt+'<span class="fmq-sep">·</span>';
-  fmqTrack.appendChild(el);
-});
+        if(s.type==='video'){
+          div.innerHTML=
+            '<video class="slide-video" muted playsinline loop preload="auto"'+(s.poster?' poster="'+s.poster+'"':'')+'>'+
+              '<source src="'+s.videoSrc+'" type="video/mp4"/>'+
+            '</video>'+
+            '<div class="slide-tint" style="background:'+s.tint+'"></div>'+
+            '<div class="slide-overlay"></div>'+
+            '<div class="slide-grain"></div>';
+        } else {
+          div.innerHTML=
+            '<img class="slide-img" src="'+s.img+'" alt="'+s.caption+'" loading="'+(i===0?'eager':'lazy')+'"/>'+
+            '<div class="slide-tint" style="background:'+s.tint+'"></div>'+
+            '<div class="slide-overlay"></div>'+
+            '<div class="slide-grain"></div>';
+        }
+        track.appendChild(div);
+        slideEls.push(div);
+      });
 
-// ============================================================
-// SERVICES
-// ============================================================
-var srvGrid=document.getElementById('srvGrid');
-SERVICES.forEach(function(s,i){
-  var card=document.createElement('div');
-  card.className='srv-card reveal';
-  card.style.setProperty('--srv-color',s.color);
-  card.style.transitionDelay=(i*.06)+'s';
-  card.innerHTML='<div class="srv-card-top"><div class="srv-num">'+s.num+'</div><div class="srv-ico" style="background:'+s.color+'18;border:1px solid '+s.color+'22"><svg viewBox="0 0 24 24" fill="none" stroke="'+s.color+'" stroke-width="1.8">'+s.svg+'</svg></div></div><div class="srv-name">'+s.name+'</div><div class="srv-desc">'+s.desc+'</div>';
-  srvGrid.appendChild(card);
-});
+      SLIDES.forEach(function(s,i){
+        var dot=document.createElement('div');
+        dot.className='sdot'+(i===0?' active':'')+(s.type==='video'?' video-dot':'');
+        dot.addEventListener('click',function(){goToSlide(i);});
+        dotsContainer.appendChild(dot);
+        dotEls.push(dot);
+      });
 
-// ============================================================
-// WHY
-// ============================================================
-var whyGrid=document.getElementById('whyGrid');
-WHY.forEach(function(w,i){
-  var card=document.createElement('div');
-  card.className='why-card reveal';
-  card.style.setProperty('--wc',w.color);
-  card.style.transitionDelay=(i*.08)+'s';
-  card.innerHTML='<div class="why-icon" style="background:'+w.color+'18;border:1px solid '+w.color+'25"><svg viewBox="0 0 24 24" fill="none" stroke="'+w.color+'" stroke-width="1.8">'+w.svg+'</svg></div><div class="why-card-title">'+w.title+'</div><div class="why-card-desc">'+w.desc+'</div>';
-  whyGrid.appendChild(card);
-});
+      updateHeroContent(SLIDES[0], false);
+      startProgress(SLIDES[0].duration);
+      scheduleNext(SLIDES[0].duration);
 
-// ============================================================
-// PROJECTS
-// ============================================================
-var projGrid=document.getElementById('projGrid');
-PROJECTS.forEach(function(p,i){
-  var card=document.createElement('div');
-  card.className='proj-card-new reveal'+(p.featured?' featured':'');
-  card.style.transitionDelay=(i*.1)+'s';
-  var resultsHTML=p.results.map(function(r){return '<div class="proj-result-item"><div class="proj-result-num">'+r.num+'</div><div class="proj-result-lbl">'+r.lbl+'</div></div>';}).join('');
-  var tagsHTML=p.tags.map(function(t){return '<span class="proj-tag-new">'+t+'</span>';}).join('');
-  var badgeClass=p.badge==='Live'?'proj-badge live':'proj-badge';
-  card.innerHTML='<div class="proj-img-wrap"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy"/><div class="proj-img-overlay"></div><div class="proj-img-badge"><span class="'+badgeClass+'">'+p.badge+'</span>'+(p.featured?'<span class="proj-badge">Featured</span>':'')+'</div><div class="proj-img-year">'+p.year+'</div></div><div class="proj-body"><div class="proj-body-top"><div><div class="proj-cat-new">'+p.cat+'</div><div class="proj-name-new">'+p.name+'</div></div><div class="proj-arr-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></div><div class="proj-desc-new">'+p.desc+'</div><div class="proj-tags-new">'+tagsHTML+'</div><div class="proj-results">'+resultsHTML+'</div></div>';
-  projGrid.appendChild(card);
-});
+      // ★ KEY FIX: Pre-load all videos; immediately play the first slide's video
+      slideEls.forEach(function(el, i){
+        if(SLIDES[i].type==='video'){
+          var v=el.querySelector('video');
+          if(v){
+            v.muted=true;
+            v.load();
+            // First slide = play right away
+            if(i===0){
+              playVideoSlide(el);
+            }
+          }
+        }
+      });
+    }
 
-// ============================================================
-// TESTIMONIALS
-// ============================================================
-var starSVG=function(){return '<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';};
-var ratingStars=document.getElementById('ratingStars');
-for(var i=0;i<5;i++) ratingStars.innerHTML+=starSVG();
-var testiGrid=document.getElementById('testiGrid');
-TESTIMONIALS.forEach(function(t,i){
-  var card=document.createElement('div');
-  card.className='testi-card reveal';
-  card.style.transitionDelay=(i*.09)+'s';
-  var starsH=Array(5).fill(starSVG()).join('');
-  card.innerHTML='<div class="testi-img-strip"><img src="'+t.img+'" alt="'+t.imgLabel+'" loading="lazy"/><div class="testi-img-label">'+t.imgLabel+'</div></div><div><span class="testi-quote-mark">"</span><div class="testi-quote">'+t.quote+'</div></div><div class="testi-footer"><div class="testi-av" style="background:'+t.color+'18;border:1px solid '+t.color+'30;color:'+t.color+'">'+t.initials+'</div><div><div class="testi-name">'+t.name+'</div><div class="testi-biz">'+t.biz+'</div></div><div class="testi-card-stars">'+starsH+'</div></div>';
-  testiGrid.appendChild(card);
-});
+    function scheduleNext(delay){
+      clearTimeout(sliderAutoTimer);
+      sliderAutoTimer=setTimeout(function(){nextSlide();}, delay);
+    }
 
-// ============================================================
-// SCROLL REVEAL
-// ============================================================
-var obs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
-},{threshold:0.06,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+    function updateHeroContent(s, animate){
+      var slideBadge=document.getElementById('slideBadge');
+      var slideBadgeText=document.getElementById('slideBadgeText');
+      var heroLine1=document.getElementById('heroLine1');
+      var heroLine2=document.getElementById('heroLine2');
+      var heroSub=document.getElementById('heroSub');
+      var heroBtns=document.getElementById('heroBtns');
+      var slideCaption=document.getElementById('slideCaption');
+      var videoLiveBadge=document.getElementById('videoLiveBadge');
 
-// ============================================================
-// CONTACT FORM
-// ============================================================
-var form=document.getElementById('contactForm');
-var successEl=document.getElementById('formSuccess');
-var submitBtn=document.getElementById('submitBtn');
-form.addEventListener('submit',async function(e){
-  e.preventDefault();
-  var services=[...document.querySelectorAll('input[name="services"]:checked')].map(function(c){return c.value;}).join(', ');
-  if(!services){alert('Please select at least one service!');return;}
-  submitBtn.textContent='⏳ Sending...';submitBtn.disabled=true;
-  var fd=new FormData(form);
-  fd.set('services',services);
-  if(appliedPromo) fd.set('promo',appliedPromo+' ('+PROMO_CODES[appliedPromo].discount+' off)');
-  fd.append('_subject','🚀 New Booking — MK Freelance Studio');
-  fd.append('_replyto',fd.get('email'));
-  try{
-    var res=await fetch('https://formspree.io/f/mzdweolj',{method:'POST',body:fd,headers:{'Accept':'application/json'}});
-    var data=await res.json();
-    if(res.ok&&!data.errors){form.style.display='none';successEl.style.display='block';}
-    else{var msg=data.errors?data.errors.map(function(e){return e.message;}).join(', '):'Submission failed.';submitBtn.textContent='❌ Error — Try Again';submitBtn.disabled=false;alert('Error: '+msg+'\n\nCall us: +91 9634950165');}
-  }catch(err){
-    var name=fd.get('name'),mobile=fd.get('mobile'),email=fd.get('email');
-    var address=fd.get('address')||'N/A',budget=fd.get('budget')||'N/A',msg=fd.get('message')||'';
-    var promoInfo=appliedPromo?'\n🎟️ *Promo Code:* '+appliedPromo+' ('+PROMO_CODES[appliedPromo].discount+' off)':'';
-    var wa='🚀 *New Booking — MK Freelance Studio*\n\n👤 *Name:* '+name+'\n📱 *Mobile:* '+mobile+'\n📧 *Email:* '+email+'\n📍 *Address:* '+address+'\n💰 *Budget:* '+budget+'\n🛠️ *Services:* '+services+promoInfo+'\n\n💬 *Message:* '+msg;
-    window.open('https://wa.me/919634950165?text='+encodeURIComponent(wa),'_blank');
-    form.style.display='none';successEl.style.display='block';
-  }
-});
+      if(s.type==='video'){videoLiveBadge.classList.add('vis');}
+      else{videoLiveBadge.classList.remove('vis');}
 
-// ============================================================
-// DISCOUNT CARD (show after entrance finishes)
-// ============================================================
-// Will show 5s after entrance is dismissed
-var dcShownOnce=false;
-var dcObserver=new MutationObserver(function(){
-  if(!document.getElementById('entrance')&&!dcShownOnce){
-    dcShownOnce=true;
-    setTimeout(function(){
-      var dc=document.getElementById('discount-card');
-      if(dc) dc.classList.add('show');
-    },5000);
-    dcObserver.disconnect();
-  }
-});
-dcObserver.observe(document.body,{childList:true,subtree:false});
+      function applyContent(){
+        slideBadgeText.textContent=s.badge;
+        heroLine1.textContent=s.line1;
+        heroLine2.innerHTML='<em>'+s.line2Em+'</em>'+s.line2Rest;
+        heroSub.innerHTML=s.sub;
+        slideCaption.textContent=s.caption;
+      }
 
-document.getElementById('dcClose').addEventListener('click',function(){document.getElementById('discount-card').classList.replace('show','hide');});
-document.getElementById('dcCodeWrap').addEventListener('click',function(){
-  navigator.clipboard.writeText('MK25NEW').catch(function(){});
-  var btn=document.getElementById('dcCopyBtn');
-  btn.textContent='Copied!';
-  setTimeout(function(){btn.textContent='Copy';},2000);
-});
-</script>
+      if(animate){
+        [slideBadge,heroLine1,heroLine2,heroSub,heroBtns].forEach(function(el){el.classList.remove('visible');});
+        setTimeout(function(){
+          applyContent();
+          requestAnimationFrame(function(){
+            slideBadge.classList.add('visible');
+            setTimeout(function(){heroLine1.classList.add('visible');},80);
+            setTimeout(function(){heroLine2.classList.add('visible');},180);
+            setTimeout(function(){heroSub.classList.add('visible');},300);
+            setTimeout(function(){heroBtns.classList.add('visible');},420);
+          });
+        },500);
+      } else {
+        applyContent();
+        setTimeout(function(){
+          slideBadge.classList.add('visible');
+          setTimeout(function(){heroLine1.classList.add('visible');},100);
+          setTimeout(function(){heroLine2.classList.add('visible');},220);
+          setTimeout(function(){heroSub.classList.add('visible');},380);
+          setTimeout(function(){heroBtns.classList.add('visible');},520);
+        },200);
+      }
+    }
+
+    function startProgress(duration){
+      var fill=document.getElementById('progressFill');
+      fill.classList.remove('animating');
+      fill.style.transition='none';
+      fill.style.width='0%';
+      dotEls.forEach(function(d){d.classList.remove('active');});
+      if(dotEls[currentSlide]) dotEls[currentSlide].classList.add('active');
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        fill.classList.add('animating');
+        fill.style.transition='width '+duration+'ms linear';
+        fill.style.width='100%';
+      });});
+    }
+
+    function getSlideVideo(slideEl){return slideEl?slideEl.querySelector('video'):null;}
+
+    function playVideoSlide(slideEl){
+      var v=getSlideVideo(slideEl);
+      if(!v) return;
+      v.muted=true;
+      v.volume=0;
+
+      function doPlay(){
+        var p=v.play();
+        if(p&&p.catch){
+          p.catch(function(err){
+            console.warn('Video play blocked:',err.name);
+            setTimeout(function(){v.play().catch(function(){});}, 600);
+          });
+        }
+      }
+
+      if(v.readyState>=3){
+        v.currentTime=0;
+        doPlay();
+      } else {
+        v.addEventListener('canplay',function onCP(){
+          v.removeEventListener('canplay',onCP);
+          v.currentTime=0;
+          doPlay();
+        });
+        v.load();
+      }
+    }
+
+    function stopAllVideos(){
+      document.querySelectorAll('.slide video').forEach(function(v){
+        try{v.pause();v.currentTime=0;}catch(e){}
+      });
+    }
+
+    function goToSlide(idx){
+      if(isTransitioning||idx===currentSlide) return;
+      isTransitioning=true;
+      var prev=currentSlide;
+      currentSlide=((idx%SLIDES.length)+SLIDES.length)%SLIDES.length;
+      stopAllVideos();
+      slideEls[prev].classList.remove('active');
+      slideEls[prev].classList.add('prev');
+      slideEls[currentSlide].classList.add('active');
+      document.getElementById('scCurrent').textContent=String(currentSlide+1).padStart(2,'0');
+      var s=SLIDES[currentSlide];
+      updateHeroContent(s,true);
+      startProgress(s.duration);
+      scheduleNext(s.duration);
+      if(s.type==='video'){
+        setTimeout(function(){playVideoSlide(slideEls[currentSlide]);},200);
+      }
+      setTimeout(function(){slideEls[prev].classList.remove('prev');isTransitioning=false;},1500);
+    }
+
+    function nextSlide(){goToSlide((currentSlide+1)%SLIDES.length);}
+    function prevSlide(){goToSlide((currentSlide-1+SLIDES.length)%SLIDES.length);}
+
+    document.getElementById('sarrowNext').addEventListener('click',function(){nextSlide();});
+    document.getElementById('sarrowPrev').addEventListener('click',function(){prevSlide();});
+
+    var isPaused=false;
+    document.getElementById('hero').addEventListener('mouseenter',function(){clearTimeout(sliderAutoTimer);isPaused=true;});
+    document.getElementById('hero').addEventListener('mouseleave',function(){if(isPaused){isPaused=false;scheduleNext(SLIDES[currentSlide].duration);}});
+
+    var touchStartX=0;
+    document.getElementById('hero').addEventListener('touchstart',function(e){touchStartX=e.touches[0].clientX;},{passive:true});
+    document.getElementById('hero').addEventListener('touchend',function(e){
+      var diff=touchStartX-e.changedTouches[0].clientX;
+      if(Math.abs(diff)>50){diff>0?nextSlide():prevSlide();}
+    },{passive:true});
+
+    // ============================================================
+    // MARQUEE
+    // ============================================================
+    var mqTrack=document.getElementById('mqTrack');
+    [].concat(MQ_ITEMS,MQ_ITEMS).forEach(function(txt){
+      var el=document.createElement('div');el.className='mq-item';
+      var dot=document.createElement('span');dot.className='mq-dot';
+      el.appendChild(dot);el.appendChild(document.createTextNode(txt));
+      mqTrack.appendChild(el);
+    });
+    var fmqTrack=document.getElementById('fmqTrack');
+    Array(20).fill('MK FREELANCE STUDIO').forEach(function(txt){
+      var el=document.createElement('div');el.className='fmq-item';
+      el.innerHTML=txt+'<span class="fmq-sep">·</span>';
+      fmqTrack.appendChild(el);
+    });
+
+    // ============================================================
+    // SERVICES
+    // ============================================================
+    var srvGrid=document.getElementById('srvGrid');
+    SERVICES.forEach(function(s,i){
+      var card=document.createElement('div');
+      card.className='srv-card reveal';
+      card.style.setProperty('--srv-color',s.color);
+      card.style.transitionDelay=(i*.06)+'s';
+      card.innerHTML='<div class="srv-card-top"><div class="srv-num">'+s.num+'</div><div class="srv-ico" style="background:'+s.color+'18;border:1px solid '+s.color+'22"><svg viewBox="0 0 24 24" fill="none" stroke="'+s.color+'" stroke-width="1.8">'+s.svg+'</svg></div></div><div class="srv-name">'+s.name+'</div><div class="srv-desc">'+s.desc+'</div>';
+      srvGrid.appendChild(card);
+    });
+
+    // ============================================================
+    // WHY
+    // ============================================================
+    var whyGrid=document.getElementById('whyGrid');
+    WHY.forEach(function(w,i){
+      var card=document.createElement('div');
+      card.className='why-card reveal';
+      card.style.setProperty('--wc',w.color);
+      card.style.transitionDelay=(i*.08)+'s';
+      card.innerHTML='<div class="why-icon" style="background:'+w.color+'18;border:1px solid '+w.color+'25"><svg viewBox="0 0 24 24" fill="none" stroke="'+w.color+'" stroke-width="1.8">'+w.svg+'</svg></div><div class="why-card-title">'+w.title+'</div><div class="why-card-desc">'+w.desc+'</div>';
+      whyGrid.appendChild(card);
+    });
+
+    // ============================================================
+    // PROJECTS
+    // ============================================================
+    var projGrid=document.getElementById('projGrid');
+    PROJECTS.forEach(function(p,i){
+      var card=document.createElement('div');
+      card.className='proj-card-new reveal'+(p.featured?' featured':'');
+      card.style.transitionDelay=(i*.1)+'s';
+      var resultsHTML=p.results.map(function(r){return '<div class="proj-result-item"><div class="proj-result-num">'+r.num+'</div><div class="proj-result-lbl">'+r.lbl+'</div></div>';}).join('');
+      var tagsHTML=p.tags.map(function(t){return '<span class="proj-tag-new">'+t+'</span>';}).join('');
+      var badgeClass=p.badge==='Live'?'proj-badge live':'proj-badge';
+      card.innerHTML='<div class="proj-img-wrap"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy"/><div class="proj-img-overlay"></div><div class="proj-img-badge"><span class="'+badgeClass+'">'+p.badge+'</span>'+(p.featured?'<span class="proj-badge">Featured</span>':'')+'</div><div class="proj-img-year">'+p.year+'</div></div><div class="proj-body"><div class="proj-body-top"><div><div class="proj-cat-new">'+p.cat+'</div><div class="proj-name-new">'+p.name+'</div></div><div class="proj-arr-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></div><div class="proj-desc-new">'+p.desc+'</div><div class="proj-tags-new">'+tagsHTML+'</div><div class="proj-results">'+resultsHTML+'</div></div>';
+      projGrid.appendChild(card);
+    });
+
+    // ============================================================
+    // TESTIMONIALS
+    // ============================================================
+    var starSVG=function(){return '<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';};
+    var ratingStars=document.getElementById('ratingStars');
+    for(var i=0;i<5;i++) ratingStars.innerHTML+=starSVG();
+    var testiGrid=document.getElementById('testiGrid');
+    TESTIMONIALS.forEach(function(t,i){
+      var card=document.createElement('div');
+      card.className='testi-card reveal';
+      card.style.transitionDelay=(i*.09)+'s';
+      var starsH=Array(5).fill(starSVG()).join('');
+      card.innerHTML='<div class="testi-img-strip"><img src="'+t.img+'" alt="'+t.imgLabel+'" loading="lazy"/><div class="testi-img-label">'+t.imgLabel+'</div></div><div><span class="testi-quote-mark">"</span><div class="testi-quote">'+t.quote+'</div></div><div class="testi-footer"><div class="testi-av" style="background:'+t.color+'18;border:1px solid '+t.color+'30;color:'+t.color+'">'+t.initials+'</div><div><div class="testi-name">'+t.name+'</div><div class="testi-biz">'+t.biz+'</div></div><div class="testi-card-stars">'+starsH+'</div></div>';
+      testiGrid.appendChild(card);
+    });
+
+    // ============================================================
+    // SCROLL REVEAL
+    // ============================================================
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+    },{threshold:0.06,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+    // ============================================================
+    // CONTACT FORM
+    // ============================================================
+    var form=document.getElementById('contactForm');
+    var successEl=document.getElementById('formSuccess');
+    var submitBtn=document.getElementById('submitBtn');
+    form.addEventListener('submit',async function(e){
+      e.preventDefault();
+      var services=[...document.querySelectorAll('input[name="services"]:checked')].map(function(c){return c.value;}).join(', ');
+      if(!services){alert('Please select at least one service!');return;}
+      submitBtn.textContent='⏳ Sending...';submitBtn.disabled=true;
+      var fd=new FormData(form);
+      fd.set('services',services);
+      if(appliedPromo) fd.set('promo',appliedPromo+' ('+PROMO_CODES[appliedPromo].discount+' off)');
+      fd.append('_subject','🚀 New Booking — MK Freelance Studio');
+      fd.append('_replyto',fd.get('email'));
+      try{
+        var res=await fetch('https://formspree.io/f/mzdweolj',{method:'POST',body:fd,headers:{'Accept':'application/json'}});
+        var data=await res.json();
+        if(res.ok&&!data.errors){form.style.display='none';successEl.style.display='block';}
+        else{var msg=data.errors?data.errors.map(function(e){return e.message;}).join(', '):'Submission failed.';submitBtn.textContent='❌ Error — Try Again';submitBtn.disabled=false;alert('Error: '+msg+'\n\nCall us: +91 9634950165');}
+      }catch(err){
+        var name=fd.get('name'),mobile=fd.get('mobile'),email=fd.get('email');
+        var address=fd.get('address')||'N/A',budget=fd.get('budget')||'N/A',msg=fd.get('message')||'';
+        var promoInfo=appliedPromo?'\n🎟️ *Promo Code:* '+appliedPromo+' ('+PROMO_CODES[appliedPromo].discount+' off)':'';
+        var wa='🚀 *New Booking — MK Freelance Studio*\n\n👤 *Name:* '+name+'\n📱 *Mobile:* '+mobile+'\n📧 *Email:* '+email+'\n📍 *Address:* '+address+'\n💰 *Budget:* '+budget+'\n🛠️ *Services:* '+services+promoInfo+'\n\n💬 *Message:* '+msg;
+        window.open('https://wa.me/919634950165?text='+encodeURIComponent(wa),'_blank');
+        form.style.display='none';successEl.style.display='block';
+      }
+    });
+
+    // ============================================================
+    // DISCOUNT CARD (show after intro finishes)
+    // ============================================================
+    var dcShownOnce=false;
+    var dcObserver=new MutationObserver(function(){
+      if(!document.getElementById('intro')&&!dcShownOnce){
+        dcShownOnce=true;
+        setTimeout(function(){
+          var dc=document.getElementById('discount-card');
+          if(dc) dc.classList.add('show');
+        },3000);
+        dcObserver.disconnect();
+      }
+    });
+    dcObserver.observe(document.body,{childList:true,subtree:false});
+
+    document.getElementById('dcClose').addEventListener('click',function(){document.getElementById('discount-card').classList.replace('show','hide');});
+    document.getElementById('dcCodeWrap').addEventListener('click',function(){
+      navigator.clipboard.writeText('MK25NEW').catch(function(){});
+      var btn=document.getElementById('dcCopyBtn');
+      btn.textContent='Copied!';
+      setTimeout(function(){btn.textContent='Copy';},2000);
+    });
+  </script>
 </body>
 </html>
