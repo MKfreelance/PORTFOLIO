@@ -356,43 +356,57 @@ body.annual .pricing-save{display:inline-flex}
 .form-success p{font-size:.82rem;color:var(--muted);line-height:1.7}
 
 /* ============================================
-   FOOTER — FINAL FIXED (Chamakdaar)
+   FOOTER — BLACK BACKGROUND, WHITE CONTENT
    ============================================ */
-footer{background:#faf8f6;position:relative;z-index:7;overflow:hidden}
-.footer-marquee{background:var(--surface);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);overflow:hidden}
+footer{
+  background:#000000;
+  color:#ffffff;
+  border-top:1px solid rgba(255,255,255,0.08);
+  position:relative;
+  z-index:7;
+  overflow:hidden;
+}
+.footer-marquee{
+  background:rgba(255,255,255,0.03);
+  border-top:1px solid rgba(255,255,255,0.06);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  overflow:hidden;
+}
 .fmq-track{display:flex;width:max-content;animation:mq 40s linear infinite}
-.fmq-item{padding:18px 40px;border-right:1px solid var(--stroke);font-family:var(--font-display);font-size:clamp(1.2rem,3vw,2.2rem);font-style:italic;color:rgba(0,0,0,.12);white-space:nowrap;display:flex;align-items:center;gap:16px;font-weight:500}
+.fmq-item{padding:18px 40px;border-right:1px solid rgba(255,255,255,0.06);font-family:var(--font-display);font-size:clamp(1.2rem,3vw,2.2rem);font-style:italic;color:rgba(255,255,255,0.08);white-space:nowrap;display:flex;align-items:center;gap:16px;font-weight:500}
 .fmq-sep{color:var(--a1);opacity:.4}
-.footer-top{padding:clamp(56px,8vw,90px) clamp(20px,6vw,80px) clamp(36px,5vw,60px);display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(28px,4vw,56px);border-bottom:1px solid var(--stroke)}
+.footer-top{padding:clamp(56px,8vw,90px) clamp(20px,6vw,80px) clamp(36px,5vw,60px);display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(28px,4vw,56px);border-bottom:1px solid rgba(255,255,255,0.06)}
 @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.footer-top{grid-template-columns:1fr}}
 .footer-brand{display:flex;flex-direction:column;gap:16px}
 .footer-logo{font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.8rem);font-style:italic;color:var(--a1);letter-spacing:.02em;font-weight:600}
-.footer-tagline{font-size:.8rem;color:#1a1a1a;line-height:1.7;max-width:260px;font-weight:400}
+.footer-tagline{font-size:.8rem;color:rgba(255,255,255,0.6);line-height:1.7;max-width:260px;font-weight:400}
 .footer-socials{display:flex;gap:8px}
-.f-soc{width:34px;height:34px;border-radius:9px;border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;cursor:none;background:var(--surface)}
-.f-soc:hover{border-color:rgba(201,169,110,.3);background:rgba(201,169,110,.08)}
-.f-soc svg{width:13px;height:13px;stroke:#2a2a2a;stroke-width:1.8;fill:none;transition:stroke .2s}
+.f-soc{width:34px;height:34px;border-radius:9px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;cursor:none;background:rgba(255,255,255,0.04)}
+.f-soc:hover{border-color:rgba(201,169,110,.4);background:rgba(201,169,110,.12)}
+.f-soc svg{width:13px;height:13px;stroke:rgba(255,255,255,0.6);stroke-width:1.8;fill:none;transition:stroke .2s}
 .f-soc:hover svg{stroke:var(--a1)}
-.footer-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid var(--stroke);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#1a1a1a;width:fit-content;background:rgba(201,169,110,.06)}
+.footer-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.08);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);width:fit-content;background:rgba(255,255,255,0.04)}
 .dot-live{width:6px;height:6px;border-radius:50%;background:#6BBF7A;animation:livePulse 2s ease-in-out infinite;flex-shrink:0}
 @keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-.footer-col-title{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#1a1a1a;margin-bottom:18px;font-weight:700;opacity:.6}
+.footer-col-title{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:18px;font-weight:700}
 .footer-links{display:flex;flex-direction:column;gap:9px}
-.footer-links a{font-size:.8rem;color:#1a1a1a;text-decoration:none;cursor:none;transition:color .2s;font-weight:450}
+.footer-links a{font-size:.8rem;color:rgba(255,255,255,0.6);text-decoration:none;cursor:none;transition:color .2s;font-weight:450}
 .footer-links a:hover{color:var(--a1)}
 .footer-contact-col{display:flex;flex-direction:column;gap:12px}
 .fc-row{display:flex;align-items:flex-start;gap:9px}
-.fc-ico{width:26px;height:26px;border-radius:7px;border:1px solid var(--stroke);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--surface)}
+.fc-ico{width:26px;height:26px;border-radius:7px;border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(255,255,255,0.04)}
 .fc-ico svg{width:11px;height:11px;stroke:var(--a1);stroke-width:1.8;fill:none}
-.fc-text{font-size:.75rem;color:#1a1a1a;line-height:1.6;font-weight:400}
-.fc-text a{color:#1a1a1a;text-decoration:none;transition:color .2s}
+.fc-text{font-size:.75rem;color:rgba(255,255,255,0.6);line-height:1.6;font-weight:400}
+.fc-text a{color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s}
 .fc-text a:hover{color:var(--a1)}
-.footer-bottom{padding:clamp(18px,2.5vw,28px) clamp(20px,6vw,80px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-copy{font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:#1a1a1a;opacity:.7;font-weight:400}
+.footer-bottom{padding:clamp(18px,2.5vw,28px) clamp(20px,6vw,80px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-copy{font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:400}
+.footer-copy a{color:rgba(255,255,255,0.4);transition:color .2s}
+.footer-copy a:hover{color:var(--a1)}
 .footer-bottom-links{display:flex;gap:clamp(12px,2vw,20px);flex-wrap:wrap}
-.footer-bottom-links a{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:#1a1a1a;text-decoration:none;cursor:none;transition:color .2s;opacity:.6;font-weight:400}
-.footer-bottom-links a:hover{color:var(--a1);opacity:1}
+.footer-bottom-links a{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;cursor:none;transition:color .2s;font-weight:400}
+.footer-bottom-links a:hover{color:var(--a1)}
 
 ::-webkit-scrollbar{width:2px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -556,7 +570,7 @@ footer{background:#faf8f6;position:relative;z-index:7;overflow:hidden}
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- FOOTER — BLACK BACKGROUND, WHITE CONTENT -->
 <footer>
   <div class="footer-marquee"><div class="fmq-track" id="fmqTrack"></div></div>
   <div class="footer-top">
@@ -604,7 +618,7 @@ footer{background:#faf8f6;position:relative;z-index:7;overflow:hidden}
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2025 MK Freelance Studio · Nanauta, Saharanpur, UP · All rights reserved · <a href="https://kaifservices.in" style="color:inherit">kaifservices.in</a></p>
+    <p class="footer-copy">© 2025 MK Freelance Studio · Nanauta, Saharanpur, UP · All rights reserved · <a href="https://kaifservices.in" style="color:rgba(255,255,255,0.4);">kaifservices.in</a></p>
     <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="index.html#contact">Get a Quote</a></div>
   </div>
 </footer>
