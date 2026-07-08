@@ -4,47 +4,36 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
-  <!-- PRIMARY TITLE (Power-packed with keywords) -->
-  <title>MK Freelance Studio | Website Design, SEO & Digital Marketing Agency in Nanauta, Saharanpur UP</title>
+  <title>MK STUDIO | Website Design, SEO & Digital Marketing Agency in Nanauta, Saharanpur UP</title>
   
-  <!-- META DESCRIPTION (Click-through rate optimize) -->
-  <meta name="description" content="Nanauta, Saharanpur ki No.1 digital agency. Professional Website Design, SEO, Meta Ads, Google Ads & Social Media Marketing. Affordable rates, guaranteed results. Call +91 9634950165 now!"/>
+  <meta name="description" content="MK STUDIO — Nanauta, Saharanpur ki No.1 digital marketing agency. Professional Website Design, SEO, Meta Ads, Google Ads & Social Media Marketing. Affordable rates, guaranteed results. Call +91 9634950165 now!"/>
   
-  <!-- KEYWORDS (Enhanced with local & service terms) -->
-  <meta name="keywords" content="website designing Nanauta, digital marketing Saharanpur, SEO services Uttar Pradesh, Meta Ads agency UP, Google Ads Nanauta, graphic designing UP, social media marketing Saharanpur, LinkedIn ads India, affordable website design UP, MK Freelance Studio, WordPress developer Saharanpur, 3D website India, best digital marketing agency near me"/>
+  <meta name="keywords" content="MK STUDIO, website designing Nanauta, digital marketing Saharanpur, SEO services Uttar Pradesh, Meta Ads agency UP, Google Ads Nanauta, graphic designing UP, social media marketing Saharanpur, LinkedIn ads India, affordable website design UP, WordPress developer Saharanpur, 3D website India, best digital marketing agency near me, website design agency, SEO expert, PPC management, social media management, brand identity design, digital strategy consulting, local SEO services, e-commerce website development, content marketing agency"/>
   
-  <meta name="author" content="MK Freelance Studio — Mohammad Kaif"/>
-  
-  <!-- ROBOTS (Crawling directives) -->
+  <meta name="author" content="MK STUDIO — Mohammad Kaif"/>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
-  
-  <!-- CANONICAL URL (Avoid duplicate content issues) -->
   <link rel="canonical" href="https://kaifservices.in/"/>
   
-  <!-- GEO TAGS (Local SEO boost) -->
   <meta name="geo.region" content="IN-UP"/>
   <meta name="geo.placename" content="Nanauta, Saharanpur, Uttar Pradesh, India"/>
   
-  <!-- OPEN GRAPH (For Facebook/LinkedIn sharing) -->
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://kaifservices.in/"/>
-  <meta property="og:title" content="MK Freelance Studio | Website Design & Digital Marketing Agency — Nanauta, UP"/>
+  <meta property="og:title" content="MK STUDIO | Website Design & Digital Marketing Agency — Nanauta, UP"/>
   <meta property="og:description" content="Nanauta ka No.1 Digital Agency. Website Design, SEO, Meta Ads, Google Ads & Social Media Marketing. Affordable & Guaranteed Results. Call: +91 9634950165"/>
   <meta property="og:image" content="https://kaifservices.in/assets/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   
-  <!-- TWITTER CARD (For Twitter sharing) -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="MK Freelance Studio | Website Design & Digital Marketing — Nanauta, UP"/>
+  <meta name="twitter:title" content="MK STUDIO | Website Design & Digital Marketing — Nanauta, UP"/>
   <meta name="twitter:description" content="Website Design, SEO, Meta Ads & more in Saharanpur. Affordable & guaranteed results. Call +91 9634950165."/>
   
-  <!-- STRUCTURED DATA (JSON-LD) — Enhanced with more details -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "MK Freelance Studio",
+    "name": "MK STUDIO",
     "description": "Website Designing, SEO, Meta Ads, Google Ads, LinkedIn Ads, Social Media Marketing in Nanauta, Saharanpur, UP.",
     "url": "https://kaifservices.in",
     "telephone": "+91-9634950165",
@@ -72,12 +61,10 @@
   }
   </script>
   
-  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   
-  <!-- FAVICON (Recommended) -->
   <link rel="icon" href="https://kaifservices.in/favicon.ico" type="image/x-icon"/>
   
   <style>
@@ -98,12 +85,27 @@
     html{scroll-behavior:smooth;overflow-x:hidden}
     body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:none;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-    /* ============================================================
-       INTRO ANIMATION (ONLY — Entrance video removed)
-       ============================================================ */
-    #intro{position:fixed;inset:0;z-index:10000;background:#ffffff;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;pointer-events:all;display:none;}
-    #intro.active{display:flex}
-    #intro.done{pointer-events:none}
+    /* INTRO — FIXED: ab default visible hai */
+    #intro{
+      position:fixed;
+      inset:0;
+      z-index:10000;
+      background:#ffffff;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      pointer-events:all;
+    }
+    #intro.done{
+      pointer-events:none;
+      opacity:0;
+      transition:opacity .5s ease;
+    }
+    #intro.hidden{
+      display:none;
+    }
     .intro-panel{position:absolute;left:0;right:0;height:50%;background:#ffffff;transition:transform 1s cubic-bezier(.76,0,.24,1);z-index:2;}
     .intro-panel.top{top:0;transform-origin:top center}
     .intro-panel.bot{bottom:0;transform-origin:bottom center}
@@ -141,7 +143,6 @@
     .nav-cta span{position:relative;z-index:1}
     @media(max-width:520px){.nav-sep{display:none}.nav-link{padding:7px 10px;font-size:.65rem}.nav-cta{padding:7px 12px}}
     
-    /* ===== HERO SLIDER — 3D EFFECT + BLACK CAPTION ===== */
     #hero{position:relative;width:100%;height:100vh;overflow:hidden;background:var(--bg)}
     .slider-track{position:absolute;inset:0;z-index:0}
     .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s cubic-bezier(.4,0,.2,1);will-change:opacity}
@@ -162,7 +163,6 @@
       background:#000;
     }
     .slide-overlay{position:absolute;inset:0;z-index:1}
-    /* 🟢 3D EFFECT — OVERLAY HATAYA, SIRF TINT + GRAIN */
     .slide-overlay::before{display:none;}
     .slide-overlay::after{display:none;}
     .slide-tint{position:absolute;inset:0;z-index:1;mix-blend-mode:color;opacity:.18;transition:opacity 1.4s}
@@ -213,7 +213,6 @@
     .sarrow svg{width:15px;height:15px;stroke:#222222;stroke-width:1.8;fill:none;transition:stroke .2s}
     .sarrow:hover svg{stroke:var(--a1)}
     
-    /* ===== SLIDER CAPTION — SOLID BLACK ===== */
     .slide-caption{position:absolute;right:clamp(16px,5vw,64px);bottom:clamp(60px,8vw,90px);z-index:10;text-align:right}
     .sc-label{font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:#000000;margin-bottom:4px;font-weight:600;opacity:.7}
     .sc-title{font-family:var(--font-display);font-size:clamp(.9rem,1.8vw,1.4rem);font-style:italic;color:#000000;transition:opacity .6s;font-weight:700}
@@ -380,9 +379,6 @@
     .form-success h3{font-family:var(--font-display);font-size:1.8rem;font-style:italic;color:#000000;margin-bottom:8px}
     .form-success p{font-size:.82rem;color:var(--muted);line-height:1.7}
     
-    /* ============================================================
-       FOOTER — PURE BLACK BACKGROUND + WHITE TEXT (SOLID)
-       ============================================================ */
     footer{
       background:#000000;
       position:relative;
@@ -605,7 +601,6 @@
     ::-webkit-scrollbar-track{background:var(--bg)}
     ::-webkit-scrollbar-thumb{background:rgba(201,169,110,.2);border-radius:1px}
     
-    /* ===== DISCOUNT CARD (Light) ===== */
     #discount-card{position:fixed;bottom:28px;right:28px;z-index:500;width:clamp(240px,28vw,300px);background:linear-gradient(135deg,#faf6f0 0%,#f0ebe3 60%,#faf6f0 100%);border:1px solid rgba(201,169,110,.35);border-radius:20px;padding:0;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1);transform:translateY(120px);opacity:0;transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .6s ease;pointer-events:none}
     #discount-card.show{transform:translateY(0);opacity:1;pointer-events:auto}
     #discount-card.hide{transform:translateY(120px);opacity:0;pointer-events:none}
@@ -640,18 +635,16 @@
   </style>
 </head>
 <body>
-  <!-- ============================================================
-       INTRO ANIMATION (ONLY — Entrance video removed)
-       ============================================================ -->
+  <!-- INTRO — FIXED: ab default visible hai -->
   <div id="intro">
-    <div class="intro-corner tl">Kaifservices.in</div>
+    <div class="intro-corner tl">kaifservices.in</div>
     <div class="intro-corner tr">Est. 2020</div>
     <div class="intro-panel top"></div>
     <div class="intro-panel bot"></div>
     <div class="intro-line"></div>
     <div class="intro-wordwrap">
       <div class="intro-studio" id="introLetters"></div>
-      <div class="intro-sub-line">Digital Agency · Nanauta, Saharanpur UP</div>
+      <div class="intro-sub-line">MK STUDIO · Digital Agency · Nanauta, Saharanpur UP</div>
     </div>
     <div class="intro-counter" id="introCounter">000</div>
     <div class="intro-bar-wrap"><div class="intro-bar" id="introBar"></div></div>
@@ -678,17 +671,17 @@
   <section id="hero">
     <div class="video-live-badge" id="videoLiveBadge">
       <span class="vbadge-dot"></span>
-      <span class="vbadge-text">MK Freelance Studio · Digital Marketing Agency</span>
+      <span class="vbadge-text">MK STUDIO · Digital Marketing Agency</span>
     </div>
     <div class="slider-track" id="sliderTrack"></div>
     <div class="hero-ui" id="heroUI">
       <div class="slide-badge" id="slideBadge">
         <span class="slide-badge-dot"></span>
-        <span class="slide-badge-text" id="slideBadgeText">MK Freelance Studio · Est. 2020</span>
+        <span class="slide-badge-text" id="slideBadgeText">MK STUDIO · Est. 2020</span>
       </div>
       <h1 class="hero-headline">
-        <span class="hero-headline-inner" id="heroLine1">We Build</span>
-        <span class="hero-headline-inner" id="heroLine2"><em id="heroLineEm">Digital</em> India</span>
+        <span class="hero-headline-inner" id="heroLine1">MK STUDIO ·</span>
+        <span class="hero-headline-inner" id="heroLine2"><em id="heroLineEm">We Build</em> Digital India</span>
       </h1>
       <p class="hero-sub" id="heroSub">Website Design · SEO · Meta Ads · Google Ads<br><span style="font-family:var(--font-display);font-style:italic;color:rgba(201,169,110,.6)">Nanauta, Saharanpur UP — Serving businesses across India</span></p>
       <div class="hero-btns" id="heroBtns">
@@ -719,8 +712,8 @@
   <section id="about">
     <div>
       <div class="section-eyebrow reveal">About Us</div>
-      <h2 class="section-title reveal">Digital<br><em>Agency</em><br>India</h2>
-      <p class="about-body reveal">MK Freelance Studio is a full-service digital agency based in Saharanpur, U.P. We help businesses grow online through stunning websites, data-driven advertising, and next-gen 3D web experiences. From startups to established brands — we make you unforgettable.</p>
+      <h2 class="section-title reveal">MK STUDIO ·<br><em>Digital</em><br>Agency</h2>
+      <p class="about-body reveal">MK STUDIO is a full-service digital agency based in Saharanpur, U.P. We help businesses grow online through stunning websites, data-driven advertising, and next-gen 3D web experiences. From startups to established brands — we make you unforgettable.</p>
       <div class="about-stats reveal">
         <div><div class="stat-num">5<em>+</em></div><div class="stat-label">Years Exp.</div></div>
         <div><div class="stat-num">50<em>+</em></div><div class="stat-label">Clients</div></div>
@@ -746,7 +739,7 @@
   <section id="why">
     <div class="why-hdr reveal">
       <div class="section-eyebrow">Why Us</div>
-      <h2 class="section-title">Why Choose<br><em>MK Studio</em></h2>
+      <h2 class="section-title">Why Choose<br><em>MK STUDIO</em></h2>
       <p class="why-sub">Nanauta aur Saharanpur mein bahut agencies hain. Lekin hum alag kyun hain — yeh samajh lijiye.</p>
     </div>
     <div class="why-grid" id="whyGrid"></div>
@@ -838,19 +831,16 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       FOOTER — PURE BLACK BACKGROUND + WHITE TEXT (SOLID)
-       ============================================================ -->
   <footer>
     <div class="footer-marquee"><div class="fmq-track" id="fmqTrack"></div></div>
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="footer-logo">MK Freelance Studio</div>
+        <div class="footer-logo">MK STUDIO</div>
         <p class="footer-tagline">Nanauta, Saharanpur ka trusted digital agency. Website design se lekar Google Ads tak — sab kuch ek hi jagah.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/kaifservices" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           <a href="https://www.facebook.com/kaifservices" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="https://www.linkedin.com/company/kaifservices" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://www.linkedin.com/company/kaifservices" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
           <a href="https://wa.me/919634950165" class="f-soc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
         </div>
         <div class="footer-badge"><span class="dot-live"></span>Available for new projects</div>
@@ -876,7 +866,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 MK Freelance Studio · Nanauta, Saharanpur, UP · All rights reserved · <a href="https://kaifservices.in" style="color:inherit;text-decoration:none">kaifservices.in</a></p>
+      <p class="footer-copy">© 2025 MK STUDIO · Nanauta, Saharanpur, UP · All rights reserved · <a href="https://kaifservices.in" style="color:inherit;text-decoration:none">kaifservices.in</a></p>
       <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#contact">Get a Quote</a></div>
     </div>
   </footer>
@@ -900,99 +890,119 @@
 
   <script>
     // ============================================================
-    // INTRO COUNTER (Starts immediately — no entrance video)
+    // INTRO ANIMATION — FIXED: ab error handle karta hai
     // ============================================================
-    (function startIntroCounter(){
-      const intro = document.getElementById('intro');
-      intro.classList.add('active');
+    (function startIntro() {
+      try {
+        var intro = document.getElementById('intro');
+        var text = 'MK STUDIO';
+        var lettersEl = document.getElementById('introLetters');
+        var counterEl = document.getElementById('introCounter');
+        var barEl = document.getElementById('introBar');
+        
+        // Letters create karo
+        text.split('').forEach(function(ch, i) {
+          var span = document.createElement('span');
+          span.className = 'intro-letter';
+          span.textContent = ch === ' ' ? '\u00a0' : ch;
+          span.style.transitionDelay = (0.06 * i) + 's';
+          lettersEl.appendChild(span);
+        });
 
-      const text = 'MK Studio';
-      const lettersEl  = document.getElementById('introLetters');
-      const counterEl  = document.getElementById('introCounter');
-      const barEl      = document.getElementById('introBar');
-      let startTs = null;
-      const DURATION = 2800;
+        var startTs = null;
+        var DURATION = 2800;
 
-      text.split('').forEach(function(ch, i){
-        const span = document.createElement('span');
-        span.className = 'intro-letter';
-        span.textContent = ch === ' ' ? '\u00a0' : ch;
-        span.style.transitionDelay = (0.06 * i) + 's';
-        lettersEl.appendChild(span);
-      });
-
-      function frame(ts){
-        if(!startTs) startTs = ts;
-        const elapsed = Math.min(ts - startTs, DURATION);
-        const pct = Math.floor((elapsed / DURATION) * 100);
-        counterEl.textContent = String(pct).padStart(3, '0');
-        barEl.style.width = pct + '%';
-        if(pct >= 20) intro.classList.add('lineshow');
-        if(pct >= 35) intro.classList.add('textshow');
-        if(pct < 100){
-          requestAnimationFrame(frame);
-        } else {
-          counterEl.textContent = '100';
-          setTimeout(function(){
-            intro.classList.add('reveal');
-            setTimeout(function(){
-              intro.classList.add('done');
-              intro.style.opacity = '0';
-              intro.style.transition = 'opacity .5s ease';
-              setTimeout(function(){ intro.remove(); initSlider(); }, 600);
-            }, 900);
-          }, 220);
+        function frame(ts) {
+          if (!startTs) startTs = ts;
+          var elapsed = Math.min(ts - startTs, DURATION);
+          var pct = Math.floor((elapsed / DURATION) * 100);
+          if (counterEl) counterEl.textContent = String(pct).padStart(3, '0');
+          if (barEl) barEl.style.width = pct + '%';
+          
+          if (pct >= 20) intro.classList.add('lineshow');
+          if (pct >= 35) intro.classList.add('textshow');
+          
+          if (pct < 100) {
+            requestAnimationFrame(frame);
+          } else {
+            if (counterEl) counterEl.textContent = '100';
+            setTimeout(function() {
+              intro.classList.add('reveal');
+              setTimeout(function() {
+                intro.classList.add('done');
+                setTimeout(function() {
+                  intro.classList.add('hidden');
+                  // Slider initialize karo
+                  initSlider();
+                }, 600);
+              }, 900);
+            }, 220);
+          }
         }
+        requestAnimationFrame(frame);
+      } catch(e) {
+        console.log('Intro error, skipping:', e);
+        document.getElementById('intro').classList.add('hidden');
+        initSlider();
       }
-      requestAnimationFrame(frame);
     })();
 
     // ============================================================
     // PROMO CODES
     // ============================================================
-    const PROMO_CODES = {
+    var PROMO_CODES = {
       'MK25NEW':   { discount: '25%', msg: '🎉 MK25NEW applied! 25% off on your first project.' },
       'MKDIGITAL': { discount: '15%', msg: '✅ MKDIGITAL applied! 15% off on any digital marketing service.' },
       'MKSEO':     { discount: '20%', msg: '✅ MKSEO applied! 20% off on SEO package.' },
       'MKWEB':     { discount: '20%', msg: '✅ MKWEB applied! 20% off on website design.' },
       'MKVIP':     { discount: '30%', msg: '🌟 VIP code applied! 30% off — you got the special rate!' },
     };
-    let appliedPromo = '';
-    document.getElementById('promoVerifyBtn').addEventListener('click', function() {
-      const inp = document.getElementById('fpromo');
-      const msg = document.getElementById('promoMsg');
-      const code = inp.value.trim().toUpperCase();
-      inp.value = code;
-      if(!code){ msg.className='promo-msg invalid'; msg.textContent='⚠️ Please enter a promo code.'; return; }
-      if(PROMO_CODES[code]){
-        appliedPromo = code; msg.className='promo-msg valid'; msg.textContent=PROMO_CODES[code].msg;
-        this.textContent='✓ Applied'; this.style.color='#6BBF7A'; this.style.background='rgba(107,191,122,.12)'; this.disabled=true;
-      } else {
-        appliedPromo=''; msg.className='promo-msg invalid'; msg.textContent='❌ Invalid code. Try MK25NEW for 25% off!';
-        this.textContent='Apply'; this.style.color=''; this.style.background=''; this.disabled=false;
-      }
-    });
-    document.querySelectorAll('.dc-btn, a[href="#contact"]').forEach(function(el){
-      el.addEventListener('click', function(){
-        setTimeout(function(){ const p=document.getElementById('fpromo'); if(p&&!p.value) p.value='MK25NEW'; }, 600);
+    var appliedPromo = '';
+
+    var promoVerifyBtn = document.getElementById('promoVerifyBtn');
+    if (promoVerifyBtn) {
+      promoVerifyBtn.addEventListener('click', function() {
+        var inp = document.getElementById('fpromo');
+        var msg = document.getElementById('promoMsg');
+        if (!inp || !msg) return;
+        var code = inp.value.trim().toUpperCase();
+        inp.value = code;
+        if (!code) { msg.className = 'promo-msg invalid'; msg.textContent = '⚠️ Please enter a promo code.'; return; }
+        if (PROMO_CODES[code]) {
+          appliedPromo = code;
+          msg.className = 'promo-msg valid';
+          msg.textContent = PROMO_CODES[code].msg;
+          this.textContent = '✓ Applied';
+          this.style.color = '#6BBF7A';
+          this.style.background = 'rgba(107,191,122,.12)';
+          this.disabled = true;
+        } else {
+          appliedPromo = '';
+          msg.className = 'promo-msg invalid';
+          msg.textContent = '❌ Invalid code. Try MK25NEW for 25% off!';
+          this.textContent = 'Apply';
+          this.style.color = '';
+          this.style.background = '';
+          this.disabled = false;
+        }
       });
-    });
+    }
 
     // ============================================================
-    // SLIDES DATA
+    // SLIDER DATA
     // ============================================================
-    const SLIDES = [
+    var SLIDES = [
       {
         type: 'video',
         videoSrc: 'https://res.cloudinary.com/djijinaxd/video/upload/v1781375592/6561343-uhd_3840_2160_25fps_tl7s1a.mp4',
         poster: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=85&fit=crop&auto=format',
         tint: '#C9A96E',
-        badge: 'MK Freelance Studio · Est. 2020',
-        line1: 'We Build',
-        line2Em: 'Digital',
-        line2Rest: ' India',
+        badge: 'MK STUDIO · Est. 2020',
+        line1: 'MK STUDIO ·',
+        line2Em: 'We Build',
+        line2Rest: ' Digital India',
         sub: 'Website Design · SEO · Meta Ads · Google Ads — Nanauta, Saharanpur UP se poore India tak.',
-        caption: 'MK Freelance Studio',
+        caption: 'MK STUDIO',
         duration: 10000
       },
       {
@@ -1024,7 +1034,7 @@
         videoSrc: 'https://res.cloudinary.com/djijinaxd/video/upload/v1781375728/6561434-uhd_3840_2160_25fps_gokfsr.mp4',
         poster: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format',
         tint: '#C9A96E',
-        badge: 'MK Freelance Studio · Digital Agency',
+        badge: 'MK STUDIO · Digital Agency',
         line1: 'We Drive',
         line2Em: 'Real',
         line2Rest: ' Growth',
@@ -1070,7 +1080,7 @@
       },
     ];
 
-    const SERVICES=[
+    var SERVICES = [
       {num:'01',name:'Website Designing',desc:'Clean, modern, conversion-focused websites — from landing pages to full business portals with stunning UI/UX.',color:'#C9A96E',svg:'<path d="M3 3h18v18H3z" rx="2"/><path d="M3 9h18M9 21V9"/>'},
       {num:'02',name:'SEO',desc:'Rank higher on Google with technical SEO, keyword research, and link-building that drives real organic traffic.',color:'#8B9E6E',svg:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>'},
       {num:'03',name:'Social Media Marketing',desc:'Build powerful brand presence with strategic content planning, community management, and viral-worthy creatives.',color:'#E882B4',svg:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>'},
@@ -1080,7 +1090,8 @@
       {num:'07',name:'Graphic Designing',desc:'Logos, brand identities, social media creatives, and print materials that make your brand unforgettable.',color:'#E882B4',svg:'<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>'},
       {num:'08',name:'3D / Vibe Coding',desc:'Immersive Three.js and WebGL web experiences — interactive product showcases and jaw-dropping animations.',color:'#8B6F47',svg:'<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>'},
     ];
-    const WHY=[
+
+    var WHY = [
       {title:'Guaranteed Results',desc:'Hum results ki guarantee dete hain — agar 3 mahine mein traffic na badhe toh paisa wapas. Zero risk aapke liye.',color:'#C9A96E',svg:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'},
       {title:'Local Expertise',desc:'Nanauta aur Saharanpur ke markets ko hum personally jante hain — local customers ko kaise target karein, yeh humein pata hai.',color:'#6BBF7A',svg:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>'},
       {title:'24-Hour Delivery',desc:'Emergency website chahiye? Chhoti projects 24 ghante mein deliver. Bade projects ke liye dedicated timelines.',color:'#E882B4',svg:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'},
@@ -1088,372 +1099,427 @@
       {title:'Data-Driven Approach',desc:'Har decision data se — gut feeling se nahi. Google Analytics, Search Console aur Meta Pixel se backed strategies.',color:'#C9A96E',svg:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>'},
       {title:'Dedicated Support',desc:'Project delivery ke baad bhi hum available hain. WhatsApp par directly sampark karein — koi middleman nahi.',color:'#8B9E6E',svg:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'},
     ];
-    const PROJECTS=[
+
+    var PROJECTS = [
       {featured:true,cat:'Client Project · E-Commerce',name:'Nextlevel Studio',desc:'Complete brand overhaul aur e-commerce website design — custom animations, mobile-first UI, aur Meta Ads integration ke saath. Sales mein 4x growth pehle 60 din mein.',tags:['Web Design','Branding','3D','Meta Ads'],year:'2024',badge:'Live',img:'https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=80&fit=crop',results:[{num:'4x',lbl:'Sales Growth'},{num:'2.1s',lbl:'Load Speed'},{num:'92%',lbl:'Mobile Score'}]},
       {featured:false,cat:'Personal Project · Branding',name:'Aura Brand Identity',desc:'Logo, typography system, color palette aur full visual identity — premium fashion brand ke liye. Everything from scratch, 100% unique.',tags:['Branding','Motion','Visual Design'],year:'2024',badge:'Design',img:'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80&fit=crop',results:[{num:'100%',lbl:'Custom Design'},{num:'3 wk',lbl:'Delivery'}]},
       {featured:false,cat:'Client Project · Digital Marketing',name:'Solaris Digital',desc:'Full-funnel SEO + Google Ads + LinkedIn Ads strategy. Organic traffic 5x hua, leads 300% badhe in 3 months.',tags:['SEO','Google Ads','LinkedIn Ads'],year:'2023',badge:'Ads',img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop',results:[{num:'5x',lbl:'Organic Traffic'},{num:'300%',lbl:'More Leads'}]},
       {featured:false,cat:'Client Project · Restaurant',name:'Spice Route Diner',desc:'Restaurant website with online menu, table booking system aur Google My Business optimization. Walk-ins 2x ho gaye.',tags:['Web Design','SEO','GMB'],year:'2024',badge:'Live',img:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80&fit=crop',results:[{num:'2x',lbl:'Walk-ins'},{num:'4.8★',lbl:'GMB Rating'}]},
       {featured:false,cat:'Client Project · Education',name:'BrightPath Academy',desc:'School website with admission form, faculty profiles aur fee portal. Delivered in 48 hours with 100% client satisfaction.',tags:['Web Design','WordPress','Portal'],year:'2023',badge:'Live',img:'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80&fit=crop',results:[{num:'48h',lbl:'Delivery'},{num:'100%',lbl:'Satisfaction'}]},
     ];
-    const TESTIMONIALS=[
-      {quote:'MK Freelance Studio ne hamari restaurant ki website banai aur Google Ads chalaye. Pehle mahine mein hi orders 3x ho gaye. Bahut professional kaam karte hain.',name:'Rahul Sharma',biz:'Restaurant Owner, Saharanpur',initials:'RS',color:'#C9A96E',img:'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=70&fit=crop',imgLabel:'Restaurant · Saharanpur'},
+
+    var TESTIMONIALS = [
+      {quote:'MK STUDIO ne hamari restaurant ki website banai aur Google Ads chalaye. Pehle mahine mein hi orders 3x ho gaye. Bahut professional kaam karte hain.',name:'Rahul Sharma',biz:'Restaurant Owner, Saharanpur',initials:'RS',color:'#C9A96E',img:'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=70&fit=crop',imgLabel:'Restaurant · Saharanpur'},
       {quote:'SEO service ekdum shandar hai. Hamare boutique ki website ab Google ke first page par aa gayi. Visitors mein 5x increase aaya sirf 2 mahine mein.',name:'Priya Agarwal',biz:'Boutique Owner, Nanauta',initials:'PA',color:'#6BBF7A',img:'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=70&fit=crop',imgLabel:'Boutique · Nanauta'},
       {quote:'Gym ki website aur Instagram ads dono banwaye. Membership inquiries bahut badh gayi hain. Kaif bhai ka kaam solid hai — on time delivery, professional attitude.',name:'Arjun Singh',biz:'Gym Owner, Muzaffarnagar',initials:'AS',color:'#E882B4',img:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=70&fit=crop',imgLabel:'Fitness · Muzaffarnagar'},
       {quote:'School website chahiye thi jaldi mein. 48 ghante mein complete website mili — proper pages, contact form, everything. Parents ka response bahut acha raha.',name:'Mohammad Akram',biz:'School Principal, Saharanpur',initials:'MA',color:'#6EB5FF',img:'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=70&fit=crop',imgLabel:'Education · Saharanpur'},
       {quote:'LinkedIn Ads ke through B2B leads generate hue jo pehle possible nahi lagta tha. ROI bahut acha raha. Highly recommended for business owners.',name:'Vikram Mehta',biz:'Manufacturing Business, Meerut',initials:'VM',color:'#C9A96E',img:'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=70&fit=crop',imgLabel:'Manufacturing · Meerut'},
-      {quote:'Logo design se lekar full social media management tak — sab kuch handled. Ab hamari brand identity bahut strong hai. Thank you MK Studio!',name:'Sunita Gupta',biz:'Startup Founder, Delhi NCR',initials:'SG',color:'#8B9E6E',img:'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=70&fit=crop',imgLabel:'Startup · Delhi NCR'},
+      {quote:'Logo design se lekar full social media management tak — sab kuch handled. Ab hamari brand identity bahut strong hai. Thank you MK STUDIO!',name:'Sunita Gupta',biz:'Startup Founder, Delhi NCR',initials:'SG',color:'#8B9E6E',img:'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=70&fit=crop',imgLabel:'Startup · Delhi NCR'},
     ];
-    const MQ_ITEMS=['Website Designing','SEO','Meta Ads','Google Ads','LinkedIn Ads','Social Media Marketing','Vibe Coding','Graphic Designing','UI/UX Design','Digital Strategy'];
+
+    var MQ_ITEMS = ['Website Designing','SEO','Meta Ads','Google Ads','LinkedIn Ads','Social Media Marketing','Vibe Coding','Graphic Designing','UI/UX Design','Digital Strategy'];
 
     // ============================================================
     // CURSOR
     // ============================================================
-    const cur=document.getElementById('cur');
-    const curTrail=document.getElementById('cur-trail');
-    let mx=0,my=0,tx=0,ty=0;
-    document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-    (function animTrail(){tx+=(mx-tx)*.1;ty+=(my-ty)*.1;curTrail.style.left=tx+'px';curTrail.style.top=ty+'px';requestAnimationFrame(animTrail);})();
-    document.querySelectorAll('a,button,input,select,textarea,label,.srv-card,.why-card,.testi-card,.proj-card-new,.cpill,.sdot,.sarrow').forEach(function(el){
-      el.addEventListener('mouseenter',function(){cur.style.width='4px';cur.style.height='4px';curTrail.style.width='44px';curTrail.style.height='44px';curTrail.style.borderColor='rgba(201,169,110,.5)';});
-      el.addEventListener('mouseleave',function(){cur.style.width='8px';cur.style.height='8px';curTrail.style.width='28px';curTrail.style.height='28px';curTrail.style.borderColor='rgba(201,169,110,.4)';});
+    var cur = document.getElementById('cur');
+    var curTrail = document.getElementById('cur-trail');
+    var mx = 0, my = 0, tx = 0, ty = 0;
+    document.addEventListener('mousemove', function(e) { mx = e.clientX; my = e.clientY; if (cur) { cur.style.left = mx + 'px'; cur.style.top = my + 'px'; } });
+    (function animTrail() {
+      tx += (mx - tx) * 0.1;
+      ty += (my - ty) * 0.1;
+      if (curTrail) { curTrail.style.left = tx + 'px'; curTrail.style.top = ty + 'px'; }
+      requestAnimationFrame(animTrail);
+    })();
+
+    document.querySelectorAll('a,button,input,select,textarea,label,.srv-card,.why-card,.testi-card,.proj-card-new,.cpill,.sdot,.sarrow').forEach(function(el) {
+      el.addEventListener('mouseenter', function() { if (cur) { cur.style.width = '4px'; cur.style.height = '4px'; } if (curTrail) { curTrail.style.width = '44px'; curTrail.style.height = '44px'; curTrail.style.borderColor = 'rgba(201,169,110,.5)'; } });
+      el.addEventListener('mouseleave', function() { if (cur) { cur.style.width = '8px'; cur.style.height = '8px'; } if (curTrail) { curTrail.style.width = '28px'; curTrail.style.height = '28px'; curTrail.style.borderColor = 'rgba(201,169,110,.4)'; } });
     });
-    window.addEventListener('scroll',function(){document.getElementById('navPill').classList.toggle('scrolled',window.scrollY>80);});
+
+    window.addEventListener('scroll', function() {
+      var navPill = document.getElementById('navPill');
+      if (navPill) navPill.classList.toggle('scrolled', window.scrollY > 80);
+    });
 
     // ============================================================
-    // SLIDER ENGINE — VIDEO FIX: play immediately on first slide
+    // SLIDER ENGINE
     // ============================================================
-    var currentSlide=0, sliderAutoTimer=null, isTransitioning=false, slideEls=[], dotEls=[];
+    var currentSlide = 0, sliderAutoTimer = null, isTransitioning = false, slideEls = [], dotEls = [];
 
-    function initSlider(){
-      var track=document.getElementById('sliderTrack');
-      var dotsContainer=document.getElementById('sliderDots');
-      document.getElementById('scTotal').textContent=String(SLIDES.length).padStart(2,'0');
+    function initSlider() {
+      try {
+        var track = document.getElementById('sliderTrack');
+        var dotsContainer = document.getElementById('sliderDots');
+        var scTotal = document.getElementById('scTotal');
+        if (scTotal) scTotal.textContent = String(SLIDES.length).padStart(2, '0');
 
-      SLIDES.forEach(function(s,i){
-        var div=document.createElement('div');
-        div.className='slide'+(i===0?' active':'');
+        SLIDES.forEach(function(s, i) {
+          var div = document.createElement('div');
+          div.className = 'slide' + (i === 0 ? ' active' : '');
 
-        if(s.type==='video'){
-          div.innerHTML=
-            '<video class="slide-video" muted playsinline loop preload="auto"'+(s.poster?' poster="'+s.poster+'"':'')+'>'+
-              '<source src="'+s.videoSrc+'" type="video/mp4"/>'+
-            '</video>'+
-            '<div class="slide-tint" style="background:'+s.tint+'"></div>'+
-            '<div class="slide-overlay"></div>'+
-            '<div class="slide-grain"></div>';
-        } else {
-          div.innerHTML=
-            '<img class="slide-img" src="'+s.img+'" alt="'+s.caption+'" loading="'+(i===0?'eager':'lazy')+'"/>'+
-            '<div class="slide-tint" style="background:'+s.tint+'"></div>'+
-            '<div class="slide-overlay"></div>'+
-            '<div class="slide-grain"></div>';
-        }
-        track.appendChild(div);
-        slideEls.push(div);
-      });
+          if (s.type === 'video') {
+            div.innerHTML =
+              '<video class="slide-video" muted playsinline loop preload="auto"' + (s.poster ? ' poster="' + s.poster + '"' : '') + '>' +
+              '<source src="' + s.videoSrc + '" type="video/mp4"/>' +
+              '</video>' +
+              '<div class="slide-tint" style="background:' + s.tint + '"></div>' +
+              '<div class="slide-overlay"></div>' +
+              '<div class="slide-grain"></div>';
+          } else {
+            div.innerHTML =
+              '<img class="slide-img" src="' + s.img + '" alt="' + s.caption + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '"/>' +
+              '<div class="slide-tint" style="background:' + s.tint + '"></div>' +
+              '<div class="slide-overlay"></div>' +
+              '<div class="slide-grain"></div>';
+          }
+          track.appendChild(div);
+          slideEls.push(div);
+        });
 
-      SLIDES.forEach(function(s,i){
-        var dot=document.createElement('div');
-        dot.className='sdot'+(i===0?' active':'')+(s.type==='video'?' video-dot':'');
-        dot.addEventListener('click',function(){goToSlide(i);});
-        dotsContainer.appendChild(dot);
-        dotEls.push(dot);
-      });
+        SLIDES.forEach(function(s, i) {
+          var dot = document.createElement('div');
+          dot.className = 'sdot' + (i === 0 ? ' active' : '') + (s.type === 'video' ? ' video-dot' : '');
+          dot.addEventListener('click', function() { goToSlide(i); });
+          dotsContainer.appendChild(dot);
+          dotEls.push(dot);
+        });
 
-      updateHeroContent(SLIDES[0], false);
-      startProgress(SLIDES[0].duration);
-      scheduleNext(SLIDES[0].duration);
+        updateHeroContent(SLIDES[0], false);
+        startProgress(SLIDES[0].duration);
+        scheduleNext(SLIDES[0].duration);
 
-      // ★ KEY FIX: Pre-load all videos; immediately play the first slide's video
-      slideEls.forEach(function(el, i){
-        if(SLIDES[i].type==='video'){
-          var v=el.querySelector('video');
-          if(v){
-            v.muted=true;
-            v.load();
-            // First slide = play right away
-            if(i===0){
-              playVideoSlide(el);
+        // First video play
+        slideEls.forEach(function(el, i) {
+          if (SLIDES[i].type === 'video') {
+            var v = el.querySelector('video');
+            if (v && i === 0) {
+              v.muted = true;
+              v.load();
+              setTimeout(function() { v.play().catch(function() {}); }, 300);
             }
           }
-        }
-      });
-    }
-
-    function scheduleNext(delay){
-      clearTimeout(sliderAutoTimer);
-      sliderAutoTimer=setTimeout(function(){nextSlide();}, delay);
-    }
-
-    function updateHeroContent(s, animate){
-      var slideBadge=document.getElementById('slideBadge');
-      var slideBadgeText=document.getElementById('slideBadgeText');
-      var heroLine1=document.getElementById('heroLine1');
-      var heroLine2=document.getElementById('heroLine2');
-      var heroSub=document.getElementById('heroSub');
-      var heroBtns=document.getElementById('heroBtns');
-      var slideCaption=document.getElementById('slideCaption');
-      var videoLiveBadge=document.getElementById('videoLiveBadge');
-
-      if(s.type==='video'){videoLiveBadge.classList.add('vis');}
-      else{videoLiveBadge.classList.remove('vis');}
-
-      function applyContent(){
-        slideBadgeText.textContent=s.badge;
-        heroLine1.textContent=s.line1;
-        heroLine2.innerHTML='<em>'+s.line2Em+'</em>'+s.line2Rest;
-        heroSub.innerHTML=s.sub;
-        slideCaption.textContent=s.caption;
-      }
-
-      if(animate){
-        [slideBadge,heroLine1,heroLine2,heroSub,heroBtns].forEach(function(el){el.classList.remove('visible');});
-        setTimeout(function(){
-          applyContent();
-          requestAnimationFrame(function(){
-            slideBadge.classList.add('visible');
-            setTimeout(function(){heroLine1.classList.add('visible');},80);
-            setTimeout(function(){heroLine2.classList.add('visible');},180);
-            setTimeout(function(){heroSub.classList.add('visible');},300);
-            setTimeout(function(){heroBtns.classList.add('visible');},420);
-          });
-        },500);
-      } else {
-        applyContent();
-        setTimeout(function(){
-          slideBadge.classList.add('visible');
-          setTimeout(function(){heroLine1.classList.add('visible');},100);
-          setTimeout(function(){heroLine2.classList.add('visible');},220);
-          setTimeout(function(){heroSub.classList.add('visible');},380);
-          setTimeout(function(){heroBtns.classList.add('visible');},520);
-        },200);
-      }
-    }
-
-    function startProgress(duration){
-      var fill=document.getElementById('progressFill');
-      fill.classList.remove('animating');
-      fill.style.transition='none';
-      fill.style.width='0%';
-      dotEls.forEach(function(d){d.classList.remove('active');});
-      if(dotEls[currentSlide]) dotEls[currentSlide].classList.add('active');
-      requestAnimationFrame(function(){requestAnimationFrame(function(){
-        fill.classList.add('animating');
-        fill.style.transition='width '+duration+'ms linear';
-        fill.style.width='100%';
-      });});
-    }
-
-    function getSlideVideo(slideEl){return slideEl?slideEl.querySelector('video'):null;}
-
-    function playVideoSlide(slideEl){
-      var v=getSlideVideo(slideEl);
-      if(!v) return;
-      v.muted=true;
-      v.volume=0;
-
-      function doPlay(){
-        var p=v.play();
-        if(p&&p.catch){
-          p.catch(function(err){
-            console.warn('Video play blocked:',err.name);
-            setTimeout(function(){v.play().catch(function(){});}, 600);
-          });
-        }
-      }
-
-      if(v.readyState>=3){
-        v.currentTime=0;
-        doPlay();
-      } else {
-        v.addEventListener('canplay',function onCP(){
-          v.removeEventListener('canplay',onCP);
-          v.currentTime=0;
-          doPlay();
         });
-        v.load();
+      } catch(e) {
+        console.log('Slider init error:', e);
       }
     }
 
-    function stopAllVideos(){
-      document.querySelectorAll('.slide video').forEach(function(v){
-        try{v.pause();v.currentTime=0;}catch(e){}
-      });
+    function scheduleNext(delay) {
+      clearTimeout(sliderAutoTimer);
+      sliderAutoTimer = setTimeout(function() { nextSlide(); }, delay);
     }
 
-    function goToSlide(idx){
-      if(isTransitioning||idx===currentSlide) return;
-      isTransitioning=true;
-      var prev=currentSlide;
-      currentSlide=((idx%SLIDES.length)+SLIDES.length)%SLIDES.length;
-      stopAllVideos();
-      slideEls[prev].classList.remove('active');
-      slideEls[prev].classList.add('prev');
-      slideEls[currentSlide].classList.add('active');
-      document.getElementById('scCurrent').textContent=String(currentSlide+1).padStart(2,'0');
-      var s=SLIDES[currentSlide];
-      updateHeroContent(s,true);
+    function updateHeroContent(s, animate) {
+      try {
+        var slideBadge = document.getElementById('slideBadge');
+        var slideBadgeText = document.getElementById('slideBadgeText');
+        var heroLine1 = document.getElementById('heroLine1');
+        var heroLine2 = document.getElementById('heroLine2');
+        var heroSub = document.getElementById('heroSub');
+        var heroBtns = document.getElementById('heroBtns');
+        var slideCaption = document.getElementById('slideCaption');
+        var videoLiveBadge = document.getElementById('videoLiveBadge');
+
+        if (s.type === 'video') { if (videoLiveBadge) videoLiveBadge.classList.add('vis'); } 
+        else { if (videoLiveBadge) videoLiveBadge.classList.remove('vis'); }
+
+        function applyContent() {
+          if (slideBadgeText) slideBadgeText.textContent = s.badge;
+          if (heroLine1) heroLine1.textContent = s.line1;
+          if (heroLine2) heroLine2.innerHTML = '<em>' + s.line2Em + '</em>' + s.line2Rest;
+          if (heroSub) heroSub.innerHTML = s.sub;
+          if (slideCaption) slideCaption.textContent = s.caption;
+        }
+
+        if (animate) {
+          [slideBadge, heroLine1, heroLine2, heroSub, heroBtns].forEach(function(el) { if (el) el.classList.remove('visible'); });
+          setTimeout(function() {
+            applyContent();
+            requestAnimationFrame(function() {
+              if (slideBadge) slideBadge.classList.add('visible');
+              setTimeout(function() { if (heroLine1) heroLine1.classList.add('visible'); }, 80);
+              setTimeout(function() { if (heroLine2) heroLine2.classList.add('visible'); }, 180);
+              setTimeout(function() { if (heroSub) heroSub.classList.add('visible'); }, 300);
+              setTimeout(function() { if (heroBtns) heroBtns.classList.add('visible'); }, 420);
+            });
+          }, 500);
+        } else {
+          applyContent();
+          setTimeout(function() {
+            if (slideBadge) slideBadge.classList.add('visible');
+            setTimeout(function() { if (heroLine1) heroLine1.classList.add('visible'); }, 100);
+            setTimeout(function() { if (heroLine2) heroLine2.classList.add('visible'); }, 220);
+            setTimeout(function() { if (heroSub) heroSub.classList.add('visible'); }, 380);
+            setTimeout(function() { if (heroBtns) heroBtns.classList.add('visible'); }, 520);
+          }, 200);
+        }
+      } catch(e) { console.log('Update content error:', e); }
+    }
+
+    function startProgress(duration) {
+      try {
+        var fill = document.getElementById('progressFill');
+        if (!fill) return;
+        fill.classList.remove('animating');
+        fill.style.transition = 'none';
+        fill.style.width = '0%';
+        dotEls.forEach(function(d) { d.classList.remove('active'); });
+        if (dotEls[currentSlide]) dotEls[currentSlide].classList.add('active');
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            fill.classList.add('animating');
+            fill.style.transition = 'width ' + duration + 'ms linear';
+            fill.style.width = '100%';
+          });
+        });
+      } catch(e) { console.log('Progress error:', e); }
+    }
+
+    function playVideoSlide(slideEl) {
+      try {
+        var v = slideEl ? slideEl.querySelector('video') : null;
+        if (!v) return;
+        v.muted = true;
+        v.volume = 0;
+        v.play().catch(function() {});
+      } catch(e) {}
+    }
+
+    function goToSlide(idx) {
+      if (isTransitioning || idx === currentSlide) return;
+      isTransitioning = true;
+      var prev = currentSlide;
+      currentSlide = ((idx % SLIDES.length) + SLIDES.length) % SLIDES.length;
+
+      // Stop all videos
+      document.querySelectorAll('.slide video').forEach(function(v) { try { v.pause(); v.currentTime = 0; } catch(e) {} });
+
+      if (slideEls[prev]) { slideEls[prev].classList.remove('active'); slideEls[prev].classList.add('prev'); }
+      if (slideEls[currentSlide]) slideEls[currentSlide].classList.add('active');
+
+      var scCurrent = document.getElementById('scCurrent');
+      if (scCurrent) scCurrent.textContent = String(currentSlide + 1).padStart(2, '0');
+
+      var s = SLIDES[currentSlide];
+      updateHeroContent(s, true);
       startProgress(s.duration);
       scheduleNext(s.duration);
-      if(s.type==='video'){
-        setTimeout(function(){playVideoSlide(slideEls[currentSlide]);},200);
+
+      if (s.type === 'video') {
+        setTimeout(function() { playVideoSlide(slideEls[currentSlide]); }, 200);
       }
-      setTimeout(function(){slideEls[prev].classList.remove('prev');isTransitioning=false;},1500);
+
+      setTimeout(function() {
+        if (slideEls[prev]) slideEls[prev].classList.remove('prev');
+        isTransitioning = false;
+      }, 1500);
     }
 
-    function nextSlide(){goToSlide((currentSlide+1)%SLIDES.length);}
-    function prevSlide(){goToSlide((currentSlide-1+SLIDES.length)%SLIDES.length);}
+    function nextSlide() { goToSlide((currentSlide + 1) % SLIDES.length); }
+    function prevSlide() { goToSlide((currentSlide - 1 + SLIDES.length) % SLIDES.length); }
 
-    document.getElementById('sarrowNext').addEventListener('click',function(){nextSlide();});
-    document.getElementById('sarrowPrev').addEventListener('click',function(){prevSlide();});
+    var sarrowNext = document.getElementById('sarrowNext');
+    var sarrowPrev = document.getElementById('sarrowPrev');
+    if (sarrowNext) sarrowNext.addEventListener('click', function() { nextSlide(); });
+    if (sarrowPrev) sarrowPrev.addEventListener('click', function() { prevSlide(); });
 
-    var isPaused=false;
-    document.getElementById('hero').addEventListener('mouseenter',function(){clearTimeout(sliderAutoTimer);isPaused=true;});
-    document.getElementById('hero').addEventListener('mouseleave',function(){if(isPaused){isPaused=false;scheduleNext(SLIDES[currentSlide].duration);}});
+    var isPaused = false;
+    var hero = document.getElementById('hero');
+    if (hero) {
+      hero.addEventListener('mouseenter', function() { clearTimeout(sliderAutoTimer); isPaused = true; });
+      hero.addEventListener('mouseleave', function() { if (isPaused) { isPaused = false; scheduleNext(SLIDES[currentSlide].duration); } });
+    }
 
-    var touchStartX=0;
-    document.getElementById('hero').addEventListener('touchstart',function(e){touchStartX=e.touches[0].clientX;},{passive:true});
-    document.getElementById('hero').addEventListener('touchend',function(e){
-      var diff=touchStartX-e.changedTouches[0].clientX;
-      if(Math.abs(diff)>50){diff>0?nextSlide():prevSlide();}
-    },{passive:true});
+    var touchStartX = 0;
+    if (hero) {
+      hero.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+      hero.addEventListener('touchend', function(e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); }
+      }, { passive: true });
+    }
 
     // ============================================================
     // MARQUEE
     // ============================================================
-    var mqTrack=document.getElementById('mqTrack');
-    [].concat(MQ_ITEMS,MQ_ITEMS).forEach(function(txt){
-      var el=document.createElement('div');el.className='mq-item';
-      var dot=document.createElement('span');dot.className='mq-dot';
-      el.appendChild(dot);el.appendChild(document.createTextNode(txt));
-      mqTrack.appendChild(el);
-    });
-    var fmqTrack=document.getElementById('fmqTrack');
-    Array(20).fill('MK FREELANCE STUDIO').forEach(function(txt){
-      var el=document.createElement('div');el.className='fmq-item';
-      el.innerHTML=txt+'<span class="fmq-sep">·</span>';
-      fmqTrack.appendChild(el);
-    });
+    try {
+      var mqTrack = document.getElementById('mqTrack');
+      if (mqTrack) {
+        [].concat(MQ_ITEMS, MQ_ITEMS).forEach(function(txt) {
+          var el = document.createElement('div');
+          el.className = 'mq-item';
+          var dot = document.createElement('span');
+          dot.className = 'mq-dot';
+          el.appendChild(dot);
+          el.appendChild(document.createTextNode(txt));
+          mqTrack.appendChild(el);
+        });
+      }
+
+      var fmqTrack = document.getElementById('fmqTrack');
+      if (fmqTrack) {
+        Array(20).fill('MK STUDIO').forEach(function(txt) {
+          var el = document.createElement('div');
+          el.className = 'fmq-item';
+          el.innerHTML = txt + '<span class="fmq-sep">·</span>';
+          fmqTrack.appendChild(el);
+        });
+      }
+    } catch(e) { console.log('Marquee error:', e); }
 
     // ============================================================
-    // SERVICES
+    // SERVICES, WHY, PROJECTS, TESTIMONIALS
     // ============================================================
-    var srvGrid=document.getElementById('srvGrid');
-    SERVICES.forEach(function(s,i){
-      var card=document.createElement('div');
-      card.className='srv-card reveal';
-      card.style.setProperty('--srv-color',s.color);
-      card.style.transitionDelay=(i*.06)+'s';
-      card.innerHTML='<div class="srv-card-top"><div class="srv-num">'+s.num+'</div><div class="srv-ico" style="background:'+s.color+'18;border:1px solid '+s.color+'22"><svg viewBox="0 0 24 24" fill="none" stroke="'+s.color+'" stroke-width="1.8">'+s.svg+'</svg></div></div><div class="srv-name">'+s.name+'</div><div class="srv-desc">'+s.desc+'</div>';
-      srvGrid.appendChild(card);
-    });
+    try {
+      var srvGrid = document.getElementById('srvGrid');
+      if (srvGrid) {
+        SERVICES.forEach(function(s, i) {
+          var card = document.createElement('div');
+          card.className = 'srv-card reveal';
+          card.style.setProperty('--srv-color', s.color);
+          card.style.transitionDelay = (i * 0.06) + 's';
+          card.innerHTML = '<div class="srv-card-top"><div class="srv-num">' + s.num + '</div><div class="srv-ico" style="background:' + s.color + '18;border:1px solid ' + s.color + '22"><svg viewBox="0 0 24 24" fill="none" stroke="' + s.color + '" stroke-width="1.8">' + s.svg + '</svg></div></div><div class="srv-name">' + s.name + '</div><div class="srv-desc">' + s.desc + '</div>';
+          srvGrid.appendChild(card);
+        });
+      }
 
-    // ============================================================
-    // WHY
-    // ============================================================
-    var whyGrid=document.getElementById('whyGrid');
-    WHY.forEach(function(w,i){
-      var card=document.createElement('div');
-      card.className='why-card reveal';
-      card.style.setProperty('--wc',w.color);
-      card.style.transitionDelay=(i*.08)+'s';
-      card.innerHTML='<div class="why-icon" style="background:'+w.color+'18;border:1px solid '+w.color+'25"><svg viewBox="0 0 24 24" fill="none" stroke="'+w.color+'" stroke-width="1.8">'+w.svg+'</svg></div><div class="why-card-title">'+w.title+'</div><div class="why-card-desc">'+w.desc+'</div>';
-      whyGrid.appendChild(card);
-    });
+      var whyGrid = document.getElementById('whyGrid');
+      if (whyGrid) {
+        WHY.forEach(function(w, i) {
+          var card = document.createElement('div');
+          card.className = 'why-card reveal';
+          card.style.setProperty('--wc', w.color);
+          card.style.transitionDelay = (i * 0.08) + 's';
+          card.innerHTML = '<div class="why-icon" style="background:' + w.color + '18;border:1px solid ' + w.color + '25"><svg viewBox="0 0 24 24" fill="none" stroke="' + w.color + '" stroke-width="1.8">' + w.svg + '</svg></div><div class="why-card-title">' + w.title + '</div><div class="why-card-desc">' + w.desc + '</div>';
+          whyGrid.appendChild(card);
+        });
+      }
 
-    // ============================================================
-    // PROJECTS
-    // ============================================================
-    var projGrid=document.getElementById('projGrid');
-    PROJECTS.forEach(function(p,i){
-      var card=document.createElement('div');
-      card.className='proj-card-new reveal'+(p.featured?' featured':'');
-      card.style.transitionDelay=(i*.1)+'s';
-      var resultsHTML=p.results.map(function(r){return '<div class="proj-result-item"><div class="proj-result-num">'+r.num+'</div><div class="proj-result-lbl">'+r.lbl+'</div></div>';}).join('');
-      var tagsHTML=p.tags.map(function(t){return '<span class="proj-tag-new">'+t+'</span>';}).join('');
-      var badgeClass=p.badge==='Live'?'proj-badge live':'proj-badge';
-      card.innerHTML='<div class="proj-img-wrap"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy"/><div class="proj-img-overlay"></div><div class="proj-img-badge"><span class="'+badgeClass+'">'+p.badge+'</span>'+(p.featured?'<span class="proj-badge">Featured</span>':'')+'</div><div class="proj-img-year">'+p.year+'</div></div><div class="proj-body"><div class="proj-body-top"><div><div class="proj-cat-new">'+p.cat+'</div><div class="proj-name-new">'+p.name+'</div></div><div class="proj-arr-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></div><div class="proj-desc-new">'+p.desc+'</div><div class="proj-tags-new">'+tagsHTML+'</div><div class="proj-results">'+resultsHTML+'</div></div>';
-      projGrid.appendChild(card);
-    });
+      var projGrid = document.getElementById('projGrid');
+      if (projGrid) {
+        PROJECTS.forEach(function(p, i) {
+          var card = document.createElement('div');
+          card.className = 'proj-card-new reveal' + (p.featured ? ' featured' : '');
+          card.style.transitionDelay = (i * 0.1) + 's';
+          var resultsHTML = p.results.map(function(r) { return '<div class="proj-result-item"><div class="proj-result-num">' + r.num + '</div><div class="proj-result-lbl">' + r.lbl + '</div></div>'; }).join('');
+          var tagsHTML = p.tags.map(function(t) { return '<span class="proj-tag-new">' + t + '</span>'; }).join('');
+          var badgeClass = p.badge === 'Live' ? 'proj-badge live' : 'proj-badge';
+          card.innerHTML = '<div class="proj-img-wrap"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy"/><div class="proj-img-overlay"></div><div class="proj-img-badge"><span class="' + badgeClass + '">' + p.badge + '</span>' + (p.featured ? '<span class="proj-badge">Featured</span>' : '') + '</div><div class="proj-img-year">' + p.year + '</div></div><div class="proj-body"><div class="proj-body-top"><div><div class="proj-cat-new">' + p.cat + '</div><div class="proj-name-new">' + p.name + '</div></div><div class="proj-arr-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div></div><div class="proj-desc-new">' + p.desc + '</div><div class="proj-tags-new">' + tagsHTML + '</div><div class="proj-results">' + resultsHTML + '</div></div>';
+          projGrid.appendChild(card);
+        });
+      }
 
-    // ============================================================
-    // TESTIMONIALS
-    // ============================================================
-    var starSVG=function(){return '<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';};
-    var ratingStars=document.getElementById('ratingStars');
-    for(var i=0;i<5;i++) ratingStars.innerHTML+=starSVG();
-    var testiGrid=document.getElementById('testiGrid');
-    TESTIMONIALS.forEach(function(t,i){
-      var card=document.createElement('div');
-      card.className='testi-card reveal';
-      card.style.transitionDelay=(i*.09)+'s';
-      var starsH=Array(5).fill(starSVG()).join('');
-      card.innerHTML='<div class="testi-img-strip"><img src="'+t.img+'" alt="'+t.imgLabel+'" loading="lazy"/><div class="testi-img-label">'+t.imgLabel+'</div></div><div><span class="testi-quote-mark">"</span><div class="testi-quote">'+t.quote+'</div></div><div class="testi-footer"><div class="testi-av" style="background:'+t.color+'18;border:1px solid '+t.color+'30;color:'+t.color+'">'+t.initials+'</div><div><div class="testi-name">'+t.name+'</div><div class="testi-biz">'+t.biz+'</div></div><div class="testi-card-stars">'+starsH+'</div></div>';
-      testiGrid.appendChild(card);
-    });
+      var starSVG = function() { return '<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'; };
+      var ratingStars = document.getElementById('ratingStars');
+      if (ratingStars) { for (var i = 0; i < 5; i++) ratingStars.innerHTML += starSVG(); }
+
+      var testiGrid = document.getElementById('testiGrid');
+      if (testiGrid) {
+        TESTIMONIALS.forEach(function(t, i) {
+          var card = document.createElement('div');
+          card.className = 'testi-card reveal';
+          card.style.transitionDelay = (i * 0.09) + 's';
+          var starsH = Array(5).fill(starSVG()).join('');
+          card.innerHTML = '<div class="testi-img-strip"><img src="' + t.img + '" alt="' + t.imgLabel + '" loading="lazy"/><div class="testi-img-label">' + t.imgLabel + '</div></div><div><span class="testi-quote-mark">"</span><div class="testi-quote">' + t.quote + '</div></div><div class="testi-footer"><div class="testi-av" style="background:' + t.color + '18;border:1px solid ' + t.color + '30;color:' + t.color + '">' + t.initials + '</div><div><div class="testi-name">' + t.name + '</div><div class="testi-biz">' + t.biz + '</div></div><div class="testi-card-stars">' + starsH + '</div></div>';
+          testiGrid.appendChild(card);
+        });
+      }
+    } catch(e) { console.log('Content render error:', e); }
 
     // ============================================================
     // SCROLL REVEAL
     // ============================================================
-    var obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
-    },{threshold:0.06,rootMargin:'0px 0px -30px 0px'});
-    document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+    try {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+      }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+      document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+    } catch(e) { console.log('Reveal observer error:', e); }
 
     // ============================================================
     // CONTACT FORM
     // ============================================================
-    var form=document.getElementById('contactForm');
-    var successEl=document.getElementById('formSuccess');
-    var submitBtn=document.getElementById('submitBtn');
-    form.addEventListener('submit',async function(e){
-      e.preventDefault();
-      var services=[...document.querySelectorAll('input[name="services"]:checked')].map(function(c){return c.value;}).join(', ');
-      if(!services){alert('Please select at least one service!');return;}
-      submitBtn.textContent='⏳ Sending...';submitBtn.disabled=true;
-      var fd=new FormData(form);
-      fd.set('services',services);
-      if(appliedPromo) fd.set('promo',appliedPromo+' ('+PROMO_CODES[appliedPromo].discount+' off)');
-      fd.append('_subject','🚀 New Booking — MK Freelance Studio');
-      fd.append('_replyto',fd.get('email'));
-      try{
-        var res=await fetch('https://formspree.io/f/mzdweolj',{method:'POST',body:fd,headers:{'Accept':'application/json'}});
-        var data=await res.json();
-        if(res.ok&&!data.errors){form.style.display='none';successEl.style.display='block';}
-        else{var msg=data.errors?data.errors.map(function(e){return e.message;}).join(', '):'Submission failed.';submitBtn.textContent='❌ Error — Try Again';submitBtn.disabled=false;alert('Error: '+msg+'\n\nCall us: +91 9634950165');}
-      }catch(err){
-        var name=fd.get('name'),mobile=fd.get('mobile'),email=fd.get('email');
-        var address=fd.get('address')||'N/A',budget=fd.get('budget')||'N/A',msg=fd.get('message')||'';
-        var promoInfo=appliedPromo?'\n🎟️ *Promo Code:* '+appliedPromo+' ('+PROMO_CODES[appliedPromo].discount+' off)':'';
-        var wa='🚀 *New Booking — MK Freelance Studio*\n\n👤 *Name:* '+name+'\n📱 *Mobile:* '+mobile+'\n📧 *Email:* '+email+'\n📍 *Address:* '+address+'\n💰 *Budget:* '+budget+'\n🛠️ *Services:* '+services+promoInfo+'\n\n💬 *Message:* '+msg;
-        window.open('https://wa.me/919634950165?text='+encodeURIComponent(wa),'_blank');
-        form.style.display='none';successEl.style.display='block';
+    try {
+      var form = document.getElementById('contactForm');
+      var successEl = document.getElementById('formSuccess');
+      var submitBtn = document.getElementById('submitBtn');
+
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          var services = [...document.querySelectorAll('input[name="services"]:checked')].map(function(c) { return c.value; }).join(', ');
+          if (!services) { alert('Please select at least one service!'); return; }
+          if (submitBtn) { submitBtn.textContent = '⏳ Sending...'; submitBtn.disabled = true; }
+
+          var fd = new FormData(form);
+          fd.set('services', services);
+          if (appliedPromo) fd.set('promo', appliedPromo + ' (' + PROMO_CODES[appliedPromo].discount + ' off)');
+          fd.append('_subject', '🚀 New Booking — MK STUDIO');
+          fd.append('_replyto', fd.get('email'));
+
+          try {
+            var res = await fetch('https://formspree.io/f/mzdweolj', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
+            var data = await res.json();
+            if (res.ok && !data.errors) {
+              form.style.display = 'none';
+              if (successEl) successEl.style.display = 'block';
+            } else {
+              var msg = data.errors ? data.errors.map(function(e) { return e.message; }).join(', ') : 'Submission failed.';
+              if (submitBtn) { submitBtn.textContent = '❌ Error — Try Again'; submitBtn.disabled = false; }
+              alert('Error: ' + msg + '\n\nCall us: +91 9634950165');
+            }
+          } catch(err) {
+            var name = fd.get('name'), mobile = fd.get('mobile'), email = fd.get('email');
+            var address = fd.get('address') || 'N/A', budget = fd.get('budget') || 'N/A', msg = fd.get('message') || '';
+            var promoInfo = appliedPromo ? '\n🎟️ *Promo Code:* ' + appliedPromo + ' (' + PROMO_CODES[appliedPromo].discount + ' off)' : '';
+            var wa = '🚀 *New Booking — MK STUDIO*\n\n👤 *Name:* ' + name + '\n📱 *Mobile:* ' + mobile + '\n📧 *Email:* ' + email + '\n📍 *Address:* ' + address + '\n💰 *Budget:* ' + budget + '\n🛠️ *Services:* ' + services + promoInfo + '\n\n💬 *Message:* ' + msg;
+            window.open('https://wa.me/919634950165?text=' + encodeURIComponent(wa), '_blank');
+            form.style.display = 'none';
+            if (successEl) successEl.style.display = 'block';
+          }
+        });
       }
-    });
+    } catch(e) { console.log('Form error:', e); }
 
     // ============================================================
-    // DISCOUNT CARD (show after intro finishes)
+    // DISCOUNT CARD
     // ============================================================
-    var dcShownOnce=false;
-    var dcObserver=new MutationObserver(function(){
-      if(!document.getElementById('intro')&&!dcShownOnce){
-        dcShownOnce=true;
-        setTimeout(function(){
-          var dc=document.getElementById('discount-card');
-          if(dc) dc.classList.add('show');
-        },3000);
-        dcObserver.disconnect();
-      }
-    });
-    dcObserver.observe(document.body,{childList:true,subtree:false});
+    try {
+      var dcShownOnce = false;
+      var dcObserver = new MutationObserver(function() {
+        var intro = document.getElementById('intro');
+        if (!intro || intro.classList.contains('hidden')) {
+          if (!dcShownOnce) {
+            dcShownOnce = true;
+            setTimeout(function() {
+              var dc = document.getElementById('discount-card');
+              if (dc) dc.classList.add('show');
+            }, 3000);
+            dcObserver.disconnect();
+          }
+        }
+      });
+      dcObserver.observe(document.body, { childList: true, subtree: false });
 
-    document.getElementById('dcClose').addEventListener('click',function(){document.getElementById('discount-card').classList.replace('show','hide');});
-    document.getElementById('dcCodeWrap').addEventListener('click',function(){
-      navigator.clipboard.writeText('MK25NEW').catch(function(){});
-      var btn=document.getElementById('dcCopyBtn');
-      btn.textContent='Copied!';
-      setTimeout(function(){btn.textContent='Copy';},2000);
-    });
+      var dcClose = document.getElementById('dcClose');
+      if (dcClose) {
+        dcClose.addEventListener('click', function() {
+          var dc = document.getElementById('discount-card');
+          if (dc) dc.classList.replace('show', 'hide');
+        });
+      }
+
+      var dcCodeWrap = document.getElementById('dcCodeWrap');
+      if (dcCodeWrap) {
+        dcCodeWrap.addEventListener('click', function() {
+          navigator.clipboard.writeText('MK25NEW').catch(function() {});
+          var btn = document.getElementById('dcCopyBtn');
+          if (btn) { btn.textContent = 'Copied!'; setTimeout(function() { btn.textContent = 'Copy'; }, 2000); }
+        });
+      }
+    } catch(e) { console.log('Discount card error:', e); }
   </script>
 </body>
 </html>
