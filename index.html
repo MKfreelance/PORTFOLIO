@@ -14,6 +14,9 @@
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
   <link rel="canonical" href="https://kaifservices.in/"/>
   
+  <!-- SITEMAP LINK (Google bots ke liye) -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://kaifservices.in/sitemap.xml"/>
+  
   <meta name="geo.region" content="IN-UP"/>
   <meta name="geo.placename" content="Nanauta, Saharanpur, Uttar Pradesh, India"/>
   
@@ -85,7 +88,6 @@
     html{scroll-behavior:smooth;overflow-x:hidden}
     body{background:var(--bg);color:var(--text);font-family:var(--font-body);cursor:none;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-    /* INTRO — FIXED: ab default visible hai */
     #intro{
       position:fixed;
       inset:0;
@@ -635,7 +637,59 @@
   </style>
 </head>
 <body>
-  <!-- INTRO — FIXED: ab default visible hai -->
+  
+  <!-- ============================================================
+       SITEMAP.XML (Embedded — Google bots ke liye)
+       ============================================================ -->
+  <script type="application/xml" id="sitemap-data">
+    <?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+      <url>
+        <loc>https://kaifservices.in/</loc>
+        <lastmod>2026-07-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+      </url>
+      <url>
+        <loc>https://kaifservices.in/about.html</loc>
+        <lastmod>2026-07-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://kaifservices.in/services.html</loc>
+        <lastmod>2026-07-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+      </url>
+      <url>
+        <loc>https://kaifservices.in/work.html</loc>
+        <lastmod>2026-07-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+      </url>
+      <url>
+        <loc>https://kaifservices.in/index.html#contact</loc>
+        <lastmod>2026-07-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+      </url>
+    </urlset>
+  </script>
+
+  <!-- ============================================================
+       ROBOTS.TXT (Embedded — Google bots ke liye)
+       ============================================================ -->
+  <script type="text/plain" id="robots-data">
+    User-agent: *
+    Allow: /
+    Sitemap: https://kaifservices.in/sitemap.xml
+  </script>
+
+  <!-- INTRO -->
   <div id="intro">
     <div class="intro-corner tl">kaifservices.in</div>
     <div class="intro-corner tr">Est. 2020</div>
@@ -889,9 +943,6 @@
   </div>
 
   <script>
-    // ============================================================
-    // INTRO ANIMATION — FIXED: ab error handle karta hai
-    // ============================================================
     (function startIntro() {
       try {
         var intro = document.getElementById('intro');
@@ -900,7 +951,6 @@
         var counterEl = document.getElementById('introCounter');
         var barEl = document.getElementById('introBar');
         
-        // Letters create karo
         text.split('').forEach(function(ch, i) {
           var span = document.createElement('span');
           span.className = 'intro-letter';
@@ -932,7 +982,6 @@
                 intro.classList.add('done');
                 setTimeout(function() {
                   intro.classList.add('hidden');
-                  // Slider initialize karo
                   initSlider();
                 }, 600);
               }, 900);
@@ -947,9 +996,6 @@
       }
     })();
 
-    // ============================================================
-    // PROMO CODES
-    // ============================================================
     var PROMO_CODES = {
       'MK25NEW':   { discount: '25%', msg: '🎉 MK25NEW applied! 25% off on your first project.' },
       'MKDIGITAL': { discount: '15%', msg: '✅ MKDIGITAL applied! 15% off on any digital marketing service.' },
@@ -988,9 +1034,6 @@
       });
     }
 
-    // ============================================================
-    // SLIDER DATA
-    // ============================================================
     var SLIDES = [
       {
         type: 'video',
@@ -1119,9 +1162,6 @@
 
     var MQ_ITEMS = ['Website Designing','SEO','Meta Ads','Google Ads','LinkedIn Ads','Social Media Marketing','Vibe Coding','Graphic Designing','UI/UX Design','Digital Strategy'];
 
-    // ============================================================
-    // CURSOR
-    // ============================================================
     var cur = document.getElementById('cur');
     var curTrail = document.getElementById('cur-trail');
     var mx = 0, my = 0, tx = 0, ty = 0;
@@ -1143,9 +1183,6 @@
       if (navPill) navPill.classList.toggle('scrolled', window.scrollY > 80);
     });
 
-    // ============================================================
-    // SLIDER ENGINE
-    // ============================================================
     var currentSlide = 0, sliderAutoTimer = null, isTransitioning = false, slideEls = [], dotEls = [];
 
     function initSlider() {
@@ -1190,7 +1227,6 @@
         startProgress(SLIDES[0].duration);
         scheduleNext(SLIDES[0].duration);
 
-        // First video play
         slideEls.forEach(function(el, i) {
           if (SLIDES[i].type === 'video') {
             var v = el.querySelector('video');
@@ -1293,7 +1329,6 @@
       var prev = currentSlide;
       currentSlide = ((idx % SLIDES.length) + SLIDES.length) % SLIDES.length;
 
-      // Stop all videos
       document.querySelectorAll('.slide video').forEach(function(v) { try { v.pause(); v.currentTime = 0; } catch(e) {} });
 
       if (slideEls[prev]) { slideEls[prev].classList.remove('active'); slideEls[prev].classList.add('prev'); }
@@ -1341,9 +1376,6 @@
       }, { passive: true });
     }
 
-    // ============================================================
-    // MARQUEE
-    // ============================================================
     try {
       var mqTrack = document.getElementById('mqTrack');
       if (mqTrack) {
@@ -1369,9 +1401,6 @@
       }
     } catch(e) { console.log('Marquee error:', e); }
 
-    // ============================================================
-    // SERVICES, WHY, PROJECTS, TESTIMONIALS
-    // ============================================================
     try {
       var srvGrid = document.getElementById('srvGrid');
       if (srvGrid) {
@@ -1428,9 +1457,6 @@
       }
     } catch(e) { console.log('Content render error:', e); }
 
-    // ============================================================
-    // SCROLL REVEAL
-    // ============================================================
     try {
       var obs = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
@@ -1438,9 +1464,6 @@
       document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
     } catch(e) { console.log('Reveal observer error:', e); }
 
-    // ============================================================
-    // CONTACT FORM
-    // ============================================================
     try {
       var form = document.getElementById('contactForm');
       var successEl = document.getElementById('formSuccess');
@@ -1483,9 +1506,6 @@
       }
     } catch(e) { console.log('Form error:', e); }
 
-    // ============================================================
-    // DISCOUNT CARD
-    // ============================================================
     try {
       var dcShownOnce = false;
       var dcObserver = new MutationObserver(function() {
