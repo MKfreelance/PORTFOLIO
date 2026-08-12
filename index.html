@@ -85,7 +85,7 @@
     body {
       font-family: 'Georgia', 'Times New Roman', serif;
       background: #ffffff;
-      overflow: hidden; /* initially hidden, scroll enabled after intro */
+      overflow: hidden;
     }
 
     .intro-overlay {
@@ -755,6 +755,109 @@
       .ring2 { width: 170px; height: 170px; }
       .ring3 { width: 200px; height: 200px; }
     }
+
+    /* ============================================================
+       NEW CAROUSEL SLIDER (Below Hero)
+    ============================================================ */
+    .hero-carousel {
+      background: var(--bg);
+      padding: 40px 0;
+      border-top: 1px solid var(--stroke);
+      border-bottom: 1px solid var(--stroke);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-carousel-track {
+      display: flex;
+      gap: 12px;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+    }
+
+    .hero-carousel-slide {
+      min-width: 280px;
+      max-width: 280px;
+      height: 160px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+      background: #111;
+    }
+
+    .hero-carousel-slide img,
+    .hero-carousel-slide video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-carousel-slide .slide-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 16px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .hero-carousel-wrapper {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 0 15px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dots for carousel */
+    .carousel-dots-container {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .carousel-dot-btn {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .carousel-dot-btn.active {
+      background: var(--a1);
+      transform: scale(1.3);
+    }
+
+    .carousel-dot-btn:hover {
+      background: rgba(201,169,110,0.4);
+    }
+
+    @media (max-width: 768px) {
+      .hero-carousel-slide {
+        min-width: 200px;
+        max-width: 200px;
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-carousel-slide {
+        min-width: 150px;
+        max-width: 150px;
+        height: 100px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -841,6 +944,18 @@
     <div class="slider-progress-bar"><div class="slider-progress-fill" id="progressFill"></div></div>
     <div class="hero-scroll"><span class="hero-scroll-label">Scroll</span><div class="hero-scroll-line"></div></div>
   </section>
+
+  <!-- ============================================================
+       NEW CAROUSEL SLIDER (Below Hero - After Button)
+  ============================================================ -->
+  <div class="hero-carousel" id="heroCarousel">
+    <div class="hero-carousel-wrapper">
+      <div class="hero-carousel-track" id="carouselTrack">
+        <!-- Slides injected by JS -->
+      </div>
+      <div class="carousel-dots-container" id="carouselDots"></div>
+    </div>
+  </div>
 
   <div id="marquee"><div class="mq-track" id="mqTrack"></div></div>
 
@@ -1070,21 +1185,13 @@
     // ============================================================
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // --- Light glow ---
     tl.to(".light-effect", { opacity: 0.7, duration: 0.6, ease: "power2.out" }, 0);
-
-    // --- Center dot ---
     tl.to(".center-dot", { scale: 1, duration: 0.5, ease: "back.out(2)" }, 0.2);
-
-    // --- Rings ---
     tl.to(".ring1", { scale: 1, rotation: 30, duration: 0.9, ease: "power3.out" }, 0.4)
       .to(".ring2", { scale: 1, rotation: 120, duration: 0.9, ease: "power3.out" }, 0.5)
       .to(".ring3", { scale: 1, rotation: -60, duration: 0.9, ease: "power3.out" }, 0.6);
-
-    // --- Logo reveal ---
     tl.to(".logo", { scale: 1, rotation: 0, duration: 0.9, ease: "back.out(2)" }, 0.7);
 
-    // --- Title letters ---
     const titleSpans = document.querySelectorAll('.title-text span');
     tl.to(titleSpans, {
       y: 0,
@@ -1094,7 +1201,6 @@
       ease: "power3.out"
     }, 1.1);
 
-    // --- Particles burst ---
     tl.to(particles, {
       scale: 1,
       duration: 0.8,
@@ -1114,22 +1220,14 @@
       }
     }, 1.0);
 
-    // --- Flash ---
     tl.to(".flash-overlay", { opacity: 0.45, duration: 0.2, ease: "power2.in" }, 2.0)
       .to(".flash-overlay", { opacity: 0, duration: 0.6, ease: "power2.out" }, 2.2);
-
-    // --- Logo pulse ---
     tl.to(".logo", { scale: 1.04, duration: 0.5, ease: "sine.inOut" }, 2.5)
       .to(".logo", { scale: 1, duration: 0.5, ease: "sine.inOut" }, 3.0);
-
-    // --- Ambient ring rotation ---
     tl.to(".ring1", { rotation: 45, duration: 4, ease: "none", repeat: -1 }, 2.8)
       .to(".ring2", { rotation: 150, duration: 5, ease: "none", repeat: -1 }, 2.8)
       .to(".ring3", { rotation: -30, duration: 6, ease: "none", repeat: -1 }, 2.8);
 
-    // ============================================================
-    // 4. ZOOM OUT + WEBSITE REVEAL (CRITICAL PART)
-    // ============================================================
     const introOverlay = document.getElementById('introOverlay');
     const websiteContent = document.getElementById('websiteContent');
 
@@ -1144,11 +1242,8 @@
         document.body.style.overflow = 'auto';
         document.body.style.cursor = 'auto';
       }
-    }, 3.8); // 3.8 seconds pe zoom out start hoga
+    }, 3.8);
 
-    // ============================================================
-    // 5. MOUSE INTERACTION (light & particles)
-    // ============================================================
     const light = document.querySelector('.light-effect');
     document.addEventListener('mousemove', (e) => {
       const x = e.clientX - window.innerWidth / 2;
@@ -1177,7 +1272,7 @@
 </script>
 
 <!-- ============================================================
-     MAIN SITE FUNCTIONALITY (Slider, Reveal, Form, etc.)
+     MAIN SITE FUNCTIONALITY (Slider, Reveal, Form, Carousel, etc.)
      ============================================================ -->
 <script>
   (function mainSite() {
@@ -1214,6 +1309,16 @@
       { type: 'image', img: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1800&q=85&fit=crop&auto=format', tint: '#E882B4', badge: 'Branding · Graphic Design', line1: 'Design That', line2Em: 'Speaks', line2Rest: ' Loud', sub: 'Logos, brand identities, and social media creatives that make your business stand out.', caption: 'Creative Branding', duration: 5000 },
       { type: 'image', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1800&q=85&fit=crop&auto=format', tint: '#C9A96E', badge: '3D Websites · Vibe Coding', line1: 'Next-Gen', line2Em: 'Digital', line2Rest: ' India', sub: 'Immersive 3D web experiences & full digital strategy — serving businesses across India.', caption: 'Full Digital Agency', duration: 5000 },
     ];
+
+    // ---- CAROUSEL SLIDER DATA (From the hero slider) ----
+    var CAROUSEL_SLIDES = SLIDES.map(function(s, index) {
+      return {
+        type: s.type,
+        src: s.type === 'video' ? s.videoSrc : s.img,
+        label: s.badge || s.caption || 'Slide ' + (index + 1),
+        poster: s.poster || null
+      };
+    });
 
     var SERVICES = [
       {num:'01',name:'Website Designing',desc:'Clean, modern, conversion-focused websites — from landing pages to full business portals with stunning UI/UX.',color:'#C9A96E',svg:'<path d="M3 3h18v18H3z" rx="2"/><path d="M3 9h18M9 21V9"/>'},
@@ -1449,6 +1554,136 @@
 
     // ---- INIT SLIDER ----
     initSlider();
+
+    // ============================================================
+    // NEW CAROUSEL SLIDER (Auto-slide every 2 seconds)
+    // ============================================================
+    (function initCarousel() {
+      var track = document.getElementById('carouselTrack');
+      var dotsContainer = document.getElementById('carouselDots');
+
+      if (!track) return;
+
+      var slideWidth, visibleSlides, maxIndex, currentCarouselIndex = 0;
+      var slides = [];
+      var autoTimer = null;
+      var isCarouselPaused = false;
+
+      // Build slides
+      CAROUSEL_SLIDES.forEach(function(s, i) {
+        var div = document.createElement('div');
+        div.className = 'hero-carousel-slide';
+        
+        if (s.type === 'video') {
+          div.innerHTML = `
+            <video muted playsinline loop preload="auto" ${s.poster ? 'poster="' + s.poster + '"' : ''}>
+              <source src="${s.src}" type="video/mp4"/>
+            </video>
+            <div class="slide-label">${s.label}</div>
+          `;
+        } else {
+          div.innerHTML = `
+            <img src="${s.src}" alt="${s.label}" loading="lazy"/>
+            <div class="slide-label">${s.label}</div>
+          `;
+        }
+        track.appendChild(div);
+        slides.push(div);
+      });
+
+      // Build dots
+      CAROUSEL_SLIDES.forEach(function(_, i) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot-btn' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', function() {
+          goToCarouselSlide(i);
+          resetAutoTimer();
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      function calcDimensions() {
+        var containerWidth = track.parentElement.clientWidth - 30;
+        if (containerWidth < 480) { visibleSlides = 2; }
+        else if (containerWidth < 768) { visibleSlides = 3; }
+        else { visibleSlides = 4; }
+        slideWidth = (containerWidth - (visibleSlides - 1) * 12) / visibleSlides;
+        maxIndex = Math.max(0, CAROUSEL_SLIDES.length - visibleSlides);
+        slides.forEach(function(s) { s.style.minWidth = slideWidth + 'px'; s.style.maxWidth = slideWidth + 'px'; });
+        if (currentCarouselIndex > maxIndex) currentCarouselIndex = maxIndex;
+        updateCarousel();
+      }
+
+      function updateCarousel() {
+        var offset = currentCarouselIndex * (slideWidth + 12);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+        var dots = dotsContainer.querySelectorAll('.carousel-dot-btn');
+        dots.forEach(function(d, i) {
+          d.classList.toggle('active', i === currentCarouselIndex);
+        });
+      }
+
+      function goToCarouselSlide(index) {
+        if (index < 0) index = 0;
+        if (index > maxIndex) index = maxIndex;
+        currentCarouselIndex = index;
+        updateCarousel();
+      }
+
+      function nextCarouselSlide() {
+        if (currentCarouselIndex < maxIndex) {
+          goToCarouselSlide(currentCarouselIndex + 1);
+        } else {
+          goToCarouselSlide(0);
+        }
+      }
+
+      function resetAutoTimer() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(nextCarouselSlide, 2000);
+      }
+
+      // Handle resize
+      var resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(calcDimensions, 200);
+      });
+
+      // Initial calculation
+      calcDimensions();
+
+      // Auto-slide every 2 seconds
+      resetAutoTimer();
+
+      // Pause on hover
+      var carousel = document.getElementById('heroCarousel');
+      if (carousel) {
+        carousel.addEventListener('mouseenter', function() {
+          clearInterval(autoTimer);
+          isCarouselPaused = true;
+        });
+        carousel.addEventListener('mouseleave', function() {
+          if (isCarouselPaused) {
+            isCarouselPaused = false;
+            resetAutoTimer();
+          }
+        });
+      }
+
+      // Expose for debugging
+      window.carouselControls = { goToCarouselSlide, nextCarouselSlide };
+
+      // Play videos when visible
+      slides.forEach(function(slide, idx) {
+        var video = slide.querySelector('video');
+        if (video) {
+          video.muted = true;
+          video.play().catch(function() {});
+        }
+      });
+    })();
 
     // ---- MARQUEE ----
     try {
